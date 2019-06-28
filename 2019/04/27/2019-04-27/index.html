@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="en.yml"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> JavaScript 地下城 - Clock · Hexo</title><meta name="description" content="JavaScript 地下城 - Clock - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Hexo"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/sunchongsheng" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/pinggod" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">JavaScript 地下城 - Clock</h1><div class="post-info">Apr 27, 2019</div><div class="post-content"><p>完整程式碼</p>
+<p><a href="https://" target="_blank" rel="noopener">https://github.com/ChiangYuChi/clock</a></p>
+<p>完成範例<br><a href="https://" target="_blank" rel="noopener">https://chiangyuchi.github.io/clock/</a></p>
+<p>一開始不太知道要怎麼動手，所以就先做出背景。HTML的結構如下：</p>
+<p><img src="https://i.imgur.com/lsLYV0E.png" alt></p>
+<p>首先我們先把時鐘的底放好</p>
+<p><img src="https://i.imgur.com/O0yu7Y5.png" alt></p>
+<p>接著要開始做鐘面，這裡分為兩個部分進行，這兩層的作法是類似的：</p>
+<ol>
+<li>12小時及橘色的區間</li>
+<li>60分鐘及白色小點</li>
+</ol>
+<p>先設定數字及中間橘色的分隔線先以中上的24-12為基準點<br><img src="https://i.imgur.com/AgRm0ol.png" alt><br>並且用for迴圈得出畫面所有的標示並寫入畫面上，但會發現全部的圖示都是疊在一起的。<br><img src="https://i.imgur.com/MJUvwcw.png" alt></p>
+<p>疊在一起永遠不分離（誤 XD）</p>
+<p><img src="https://i.imgur.com/6gVCKQn.png" alt></p>
+<p>這裡的作法是用 nth-child(n) 選取器改變重疊圖示的傾斜角度，也是分成2個部分，第一個是小時區間＋分鐘區間，總共有2層，但這2層都分成12等分，一個圓 360度，每一個小時要增加30度。</p>
+<p><img src="https://i.imgur.com/b8Wllka.png" alt></p>
+<p>接下來是鐘面的最後一個步驟，也就是做出設計稿上每小時中間的白色點點。因為每一個小時是30度，因此每一個點都要多加5度。</p>
+<p><img src="https://i.imgur.com/lU2Z5iK.png" alt></p>
+<p>現在鐘面已經完成了</p>
+<p><img src="https://i.imgur.com/MK7cIJp.png" alt></p>
+<p>最後的步驟就是把指針放上，並取得時間。我們先把指針以頂端的24-12為基準點對準中心，　<code>transform-origin: center bottom</code></p>
+<p>它的轉動的方式，依照 css 的 transform 來修改。方式是每秒獲取一次時間，並依據取得時間的結果，去修改時針，分針，秒針的轉動角度</p>
+<p><img src="https://i.imgur.com/CQtoI4r.png" alt></p>
+<p>接下來要讓指針取得時間，這裡的取得時間的作法是參考JS 30 Days 的寫法，以new Date()取得時針、分針、秒針的時間，並且最後setInterval()方式讓指針持續轉動。</p>
+<p><img src="https://i.imgur.com/MLs7GtL.png" alt></p>
+</div></article></div></main><footer><div class="paginator"><a href="/2019/05/27/2019-05-27/" class="prev">上一篇</a><a href="/2018/04/01/hello-world/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
+var disqus_identifier = '2019/04/27/2019-04-27/';
+var disqus_title = 'JavaScript 地下城 - Clock';
+var disqus_url = 'http://yoursite.com/2019/04/27/2019-04-27/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//chiangyuchi.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2019 <a href="http://yoursite.com">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
