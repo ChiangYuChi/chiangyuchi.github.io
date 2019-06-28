@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="en.yml"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> AJAX · Hexo</title><meta name="description" content="AJAX - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Hexo"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/sunchongsheng" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/pinggod" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">AJAX</h1><div class="post-info">Jun 5, 2019</div><div class="post-content"><h3 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h3><p>AJAX並非是一個技術（Technology），而是一種網站設計的架構（Architecture），雖然主要以JavaScript與XML為主，但還包括其它成員，也就是CSS、DOM（Document Object Model）與HTML等，特別是XMLHttpRequest元件，使AJAX能達到非同步資料交換的目的。</p>
+<p>在Jesse Garrett的文章中，對AJAX的定義如下：</p>
+<p>● 使用XHTML與CSS作為展現標準<br>● 使用DOM作為動態顯示與互動<br>● 使用XML與XSLT作為資料交換與運用<br>● 使用XMLHttpRequest作為非同步的資料回饋<br>● 使用JavaScript結合以上所有結果</p>
+<p>採用AJAX，用戶端瀏覽或使用網頁時，如同在個人電腦中的應用程式一樣，不會感覺到網頁與後端伺服器交談過程，以及資料刷新的細節，頁面也不需要換頁，資料的交換等動態動作隱藏在背景執行。簡單地說，AJAX網頁有兩種主要特性：向伺服器發出請求，以及回傳結果時，瀏覽器不需要重新載入所有頁面；藉由XML解析傳遞與交換的資料。例如註冊帳戶時提示帳號已被使用，或者是在搜尋欄跳出相關字詞、購物欄顯示庫存量，這些都是透過 ajax 的方式，不需要重新載入頁面就能完成。</p>
+<h4 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h4><p>首先要產生 XMLHttpRequest()，才能物件跨瀏覽器撈資料，執行 request 之後，就會出現相對的資料。<br><img src="https://i.imgur.com/0cHCAgB.png" alt></p>
+<p>readystate 代表目前狀態</p>
+<pre><code>0-你已經產生一個XMLHttpRequest，但是還沒有連結你要撈的資料
+1-用了open()，但還沒有把資料傳送過去。
+2-偵側到用了send。
+3 - (processing request)資訊處理中。
+4 - (request finished and response is ready)撈到資料，數據完全接收到了。</code></pre><p>以 xhr.open(,,true)來初始設定，需要代入3個參數。第一個參數是發出request 的方式，格式有 get (讀取)、post (發送資料到伺服器)；第二個參數是要讀取的網址；第三個參數是同步與非同步</p>
+<pre><code>var xhr = new XMLHttpRequest();
+// 格式,要讀取的網址,同步與非同步
+// 格式: get(讀取), post(傳送資料到伺服器)
+xhr.open(&quot;get&quot;, &quot;這裡放網址&quot;, true);
+// 空值，單純get，沒有要傳資料，括號中用null
+xhr.send(null);</code></pre><p>如果資料傳輸完畢且成功，在 XMLHttpRequest 中的 readyState 會等於 4，responseText 則是內容。</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2019/06/06/20190607/" class="prev">PREV</a><a href="/2019/06/02/20190602-1/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
+var disqus_identifier = '2019/06/05/20190605/';
+var disqus_title = 'AJAX';
+var disqus_url = 'http://yoursite.com/2019/06/05/20190605/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//chiangyuchi.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2019 <a href="http://yoursite.com">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
