@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="en.yml"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 克服 JavaScript 的奇怪部份 Day4-創造與提昇 · Hexo</title><meta name="description" content="克服 JavaScript 的奇怪部份 Day4-創造與提昇 - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Hexo"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/sunchongsheng" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/pinggod" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">克服 JavaScript 的奇怪部份 Day4-創造與提昇</h1><div class="post-info">Apr 12, 2019</div><div class="post-content"><p>Javascript執行時，會經過創造執行環境的階段，這時時會發生的什麼事情呢？</p>
+<p>在下列的範例中，假如我們把呼叫移到程式碼最上方，移到函式之前。</p>
+<p><img src="https://i.imgur.com/viUfK6u.png" alt></p>
+<p>在大部分的程式語言，會報錯，因為他們一次執行一行程式碼，而且還沒宣告b函數，所以呼叫是無效的。但JS不僅執行函數，而且沒有錯誤。</p>
+<p><img src="https://i.imgur.com/QHZiTSP.png" alt></p>
+<p>Called b!正常被印出來，代表函式b有正常執行，但是undefined呢? </p>
+<p>Javascript 程式碼在執行前，會經過一個階段，我們寫的東西並不是直接被執行，而是被直譯器轉換成電腦看得懂ㄉ東西。這個階段當直譯器執行你的程式碼時，它會知道你在哪裡創造變數與函數。這個階段稱為：</p>
+<blockquote>
+<p>創造(creation)：直譯器在記憶體裡設定變數與函數。</p>
+</blockquote>
+<p><strong>這個步驟稱為「提昇」（hoisting)</strong> 。</p>
+<p>它不是真的把程式碼移到最上面，在逐行執行程式碼之前，JS已經為變數與函數在記憶體中建立空間，所以變數與函數已經存在於記憶體中。所以當程式碼逐行執行時，可以找到它們。</p>
+<p>所以函數跟其函數內容(定義)會先存至記憶體，所以可以正確的呼叫，呼叫後建立這個函式的執行環境，印出Called b! </p>
+<p>雖然變數也在記憶體中建立空間，可是它的內容並沒有在創造階段時被放入。<br>這邊可以把創造變數與賦值給變數當成兩件事，所以呼叫變數a才會印出undefined。</p>
+<p>上面的程式碼，在電腦執行時可以想像成這樣的順序，結果會是一樣的</p>
+<p><img src="https://i.imgur.com/RphoqDf.png" alt></p>
+<p>那如果是下列狀況呢？</p>
+<p><img src="https://i.imgur.com/WdzygsP.png" alt></p>
+<p>結果可以正常顯示</p>
+<p><img src="https://i.imgur.com/HJxAM7w.png" alt></p>
+<p>這是因為函數會先在記憶體裡創造空間，並建立它的區域變數，再執行呼叫。</p>
+<p>可是下列的狀況雖然貌似<br><img src="https://i.imgur.com/geTsJwW.png" alt></p>
+<p>結果卻是</p>
+<p><img src="https://i.imgur.com/YfBNi3J.png" alt></p>
+<p>執行時可以這樣想：</p>
+<p>var b 先被提升到最上面(創造變數b並設定進記憶體)，接著呼叫執行b函式，為變數b賦值(指向)函式。呼叫執行b函式時報錯，是因為變數boy這個時候根本沒有被賦值，何況是指向函式呼叫呢？所以自然報錯b is not a function。</p>
+<p>可以想像成是這樣：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var b</span><br><span class="line"></span><br><span class="line">b();</span><br><span class="line"></span><br><span class="line">b = function () &#123;</span><br><span class="line">    var a = &apos;Hello World!&apos;;</span><br><span class="line">    console.log(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>當然這不代表我們的JS程式被改寫成這樣，而只是這種貌似變數與函式被拉到執行環境最前面的現象稱為Hoisting</p>
+<p>重點有三：</p>
+<ul>
+<li>變數宣告跟函式宣告都會提升</li>
+<li>只有宣告會提升，賦值不會提升</li>
+<li>別忘了函式裡面還有傳進來的參數</li>
+</ul>
+<p>延伸閱讀：<br><a href="https://" target="_blank" rel="noopener">https://blog.techbridge.cc/2018/11/10/javascript-hoisting/</a><br><a href="https://" target="_blank" rel="noopener">https://github.com/aszx87410/blog/issues/34#issuecomment-500890667</a></p>
+</div></article></div></main><footer><div class="paginator"><a href="/2019/04/13/2019-04-13/" class="prev">PREV</a><a href="/2019/04/10/2019-04-11/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
+var disqus_identifier = '2019/04/12/2019-04-12/';
+var disqus_title = '克服 JavaScript 的奇怪部份 Day4-創造與提昇';
+var disqus_url = 'http://yoursite.com/2019/04/12/2019-04-12/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//chiangyuchi.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2019 <a href="http://yoursite.com">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

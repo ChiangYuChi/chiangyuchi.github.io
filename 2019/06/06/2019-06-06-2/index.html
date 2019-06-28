@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en.yml"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> calc() · Hexo</title><meta name="description" content="calc() - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Hexo"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/sunchongsheng" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/pinggod" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">calc()</h1><div class="post-info">Jun 6, 2019</div><div class="post-content"><p>calc() 這個 function 需要傳入 1 個加減乘除的運算式，在設定 width、height 這種 <length> 相關的屬性時， 在不同單位間也可以進行運算，如剛剛上面的範例：width: calc(100% - 50px);。calc() 的運算式一樣是按照先乘除後加減進行計算，如果需要進行複雜的運算，在 calc() 裡面也可以再加入括號 ()，就可以設為括號先決裡面的先算。</length></p>
+<ul>
+<li>+：加</li>
+<li>-：減</li>
+<li>*：乘。其中一個運算參數必須是數字 (number)</li>
+<li>/：除。除數必須是數字，除數不可為零，會造成 HTML 解析錯誤。</li>
+</ul>
+<p>必須注意在使用 + 和 - 的時候，在前後一定要加上空白，不然會被誤為是給了個負值。* 和 / 可以不用加，但為了格式統一方便和閱讀建議還是加一下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">width: calc(50% + 8px)</span><br><span class="line">/* 意思是 50% 的寬度 + 上 8px */</span><br><span class="line">width: calc(50% + -8px)</span><br><span class="line">/* 意思是 50% 的寬度 + 上 -8px，也等於 &apos;50% - 8px&apos; */</span><br></pre></td></tr></table></figure>
+
+<h3 id="Example-應用範例"><a href="#Example-應用範例" class="headerlink" title="Example 應用範例"></a>Example 應用範例</h3><h4 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h4><p>calc() 可以用來定位，如下面所設定的 CSS，就能作出一個滿版的藍色 banner 區塊有固定 40px 的邊距，也是一種將區塊置中的寫法。</p>
+<p><img src="https://i.imgur.com/2XfqtR9.png" alt></p>
+<h4 id="根據父層容器尺寸自動調整尺寸"><a href="#根據父層容器尺寸自動調整尺寸" class="headerlink" title="根據父層容器尺寸自動調整尺寸"></a>根據父層容器尺寸自動調整尺寸</h4><p>設定 width 或 height 屬性使用 calc() 計算的數字是 100% 的時候，會自動去抓父層容器的尺寸。例如：做 autocomplete 的時候，希望在輸入框下，出現和輸入框等寬的列表：</p>
+<p>由於 CSS 在加上 border、padding 的時候都是從原本設定得尺寸再往外加，所以長出來的東西看起來的尺寸會比原本設定的 width 還要大，因此要做到 ul 和 input 等寬的結果，在 input 加上的 padding 和 border 在算 ul 的 width 的時候也要幫他算進去，所以 ul { width: calc(100% + 1rem + 1rem + 2px + 2px); } 指的是：符合父容器的 100% 寬度，加上 input 的 padding-left: 1rem 和 padding-right: 1rem，再加上 border-left: 2px 和 border-right: 2px。</p>
+<p>用 calc() 計算尺寸非常方便，即使不同單位也沒有問題。</p>
+<p><img src="https://i.imgur.com/8kRhxLf.png" alt></p>
+<h4 id="將-calc-巢狀包入-CSS-變數中"><a href="#將-calc-巢狀包入-CSS-變數中" class="headerlink" title="將 calc() 巢狀包入 CSS 變數中"></a>將 calc() 巢狀包入 CSS 變數中</h4><p>只要用括號 () 包好包滿，就可以無限次使用 calc() 方法，會一層一層從括號裡面計算出來。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.foo &#123;</span><br><span class="line">  --widthA: 100px;</span><br><span class="line">  --widthB: calc(var(--widthA) / 2);</span><br><span class="line">  --widthC: calc(var(--widthB) / 2);</span><br><span class="line">  width: var(--widthC);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面這段程式碼裡面展開所有變數之後 widthC 就等於：</p>
+<p>–widthC: calc( calc( 100px / 2) / 2)</p>
+<p>所以 .foo 的 width 最後算出來的值就是 25px。</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2019/06/07/2019-06-07/" class="prev">PREV</a><a href="/2019/06/06/2019-06-06-1/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
+var disqus_identifier = '2019/06/06/2019-06-06-2/';
+var disqus_title = 'calc()';
+var disqus_url = 'http://yoursite.com/2019/06/06/2019-06-06-2/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//chiangyuchi.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2019 <a href="http://yoursite.com">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

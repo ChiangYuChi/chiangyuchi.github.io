@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="en.yml"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 克服 JavaScript 的奇怪部份 Day16-運算子的優先性與相依性 · Hexo</title><meta name="description" content="克服 JavaScript 的奇怪部份 Day16-運算子的優先性與相依性 - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Hexo"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/sunchongsheng" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/pinggod" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">克服 JavaScript 的奇怪部份 Day16-運算子的優先性與相依性</h1><div class="post-info">May 31, 2019</div><div class="post-content"><p>了解運算子後，繼續了解運算子的優先性與相依性。這兩個概念沒有想像中的複雜。</p>
+<h3 id="運算子優先性"><a href="#運算子優先性" class="headerlink" title="運算子優先性"></a>運算子優先性</h3><p>運算子優先性表示當一行程式碼裡面有多個運算子的時候，哪個運算子被優先運算，函數會依序運算。具有高優先性的運算子，會先計算，然後依序到低優先性的</p>
+<h3 id="運算子相依性"><a href="#運算子相依性" class="headerlink" title="運算子相依性"></a>運算子相依性</h3><p>運算子相依性是和運算子優先性相關的概念，優先性表示運算子被計算的順序，當兩個運算子有相同的優先性，優先性能協助判斷誰先誰後。可是如果所有的運算子優先順序都相同呢？</p>
+<p>這時就要看相依性，判斷是由左到右的「左相依性」，或者是由右到左的「右相依性」。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = 3+4*5;</span><br><span class="line">consoloe.log(a);</span><br></pre></td></tr></table></figure>
+
+<p>在前面說明運算子的時候，可以知道運算子是被當成一種函式在處理。所以這個例子裡，需要處理兩個函式。我們知道四則運算裡先乘除後加減的原理，JS也是這樣處理。</p>
+<p>雖然Javascript 是同步的（synchronous)，但不會同時處理這兩個函式的呼叫。它只會先呼叫其中一個，再處理另一個。首先是用運算子的優先性判斷，優先性高的會先被呼叫。</p>
+<p><a href="https://" target="_blank" rel="noopener">https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Operator_Precedence</a></p>
+<p>在 MDN 的優先性表格裡，數字越大的會優先被呼叫。所以乘法的優先性高於加法，此外，等號也是一種運算子。所以上面的範例會得出 a 的值等於 23。</p>
+<p>但是如果像除法、乘法，都有一樣的優先性的時候，底層是怎樣判斷呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a=2, b=3,c=4;</span><br><span class="line">a=b=c;</span><br><span class="line">console.log(a);</span><br><span class="line">console.log(b);</span><br><span class="line">console.log(c);</span><br></pre></td></tr></table></figure>
+
+<p>照理來說，會顯示相等的值，但究竟會呈現什麼值呢？<br><img src="https://i.imgur.com/yybxp2m.png" alt></p>
+<p>為什麼結果都是 4 呢？ 這是因為相依性 (associativity)，這裡使用的運算子是等號，是用來傳入值的，它的相依性是由右到左，所以等號是右相依的，從右運算到左。所以在一行程式碼裡面所有運算子都有相同優先性的時候，就要用相依性決定順序，決定哪一邊要先被呼叫。</p>
+<p>有趣的是，運算子通常需要 2 個參數來回傳一個值，加號回傳2個參數的總和，但等號會回傳什麼？</p>
+<p><img src="https://i.imgur.com/Qtg1sD9.png" alt></p>
+<p>b 的值被設定等於右邊c的值，然後回傳右邊的參數，所以等於4。相依性幫助在優先性相同的時候發揮作用。</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2019/05/31/2019-05-31-1/" class="prev">PREV</a><a href="/2019/05/29/2019-05-30/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
+var disqus_identifier = '2019/05/31/2019-05-31-2/';
+var disqus_title = '克服 JavaScript 的奇怪部份 Day16-運算子的優先性與相依性';
+var disqus_url = 'http://yoursite.com/2019/05/31/2019-05-31-2/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//chiangyuchi.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2019 <a href="http://yoursite.com">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

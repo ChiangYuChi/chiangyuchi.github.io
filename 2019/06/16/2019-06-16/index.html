@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="en.yml"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 克服 JavaScript 的奇怪部份 Day24-框架小叮嚀：偽裝命名空間 · Hexo</title><meta name="description" content="克服 JavaScript 的奇怪部份 Day24-框架小叮嚀：偽裝命名空間 - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Hexo"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/sunchongsheng" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/pinggod" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">克服 JavaScript 的奇怪部份 Day24-框架小叮嚀：偽裝命名空間</h1><div class="post-info">Jun 16, 2019</div><div class="post-content"><p>這一節是關於打開知名的框架原始碼經常會看到的東西。前面討論的那些主題，像是運算子、物件實體語法後，現在要學習偽裝命名空間 （faking namespaces)。</p>
+<h3 id="變數之間的衝突"><a href="#變數之間的衝突" class="headerlink" title="變數之間的衝突"></a>變數之間的衝突</h3><p>在現代的程式語言，命名空間是變數和函數的容器，只是一個包裝物、一個容器。通常這是用來分開那些有著相同名稱的函數和變數。</p>
+<p>在 JavaScript 裡，因為物件的本質，不需要命名空間這個功能，所以並沒有命名空間，但可以假裝。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var greet =&apos;Hello&apos;;</span><br><span class="line">var greet =&apos;Hola&apos;;</span><br><span class="line"></span><br><span class="line">console.log(greet);</span><br></pre></td></tr></table></figure>
+
+<p>有 2 個同樣名稱的變數，我們查詢它會得到的結果是什麼？在創造階段的變數會被設定為 <code>undefined</code> ，接著這些程式會逐行的依照順序執行，所以查詢變數的結果會是 <code>hola</code>。</p>
+<p><img src="https://i.imgur.com/RYsiSp7.png" alt></p>
+<p>我們可以想像這兩個 <code>greet</code> 變數，被創造在兩個不同的 JavaScript 檔案中，一個是英文的打招呼，另一個框架是西文的打招呼。</p>
+<p>這就會有問題，因為我們知道兩者都會設定它們的值。以這邊為例就是全域物件，然後覆寫另一個。這時命名空間就可以幫助我們，因為命名空間可以有一個容器裝英文問候語，另一個容器裝西文問候語。雖然 JavaScript 裡面沒有命名空間，但可以用物件做到。</p>
+<h3 id="以物件偽裝命名空間"><a href="#以物件偽裝命名空間" class="headerlink" title="以物件偽裝命名空間"></a>以物件偽裝命名空間</h3><p>我們可以建立物件成為屬性的容器避免這種衝突，而方法則是我們想要使用的東西。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//創造物件，使用物件實體語法</span><br><span class="line">var english=&#123;&#125;</span><br><span class="line">var spanish=&#123;&#125;</span><br><span class="line"></span><br><span class="line">english.greet=&apos;Hello&apos;;</span><br><span class="line">spanish.greet=&apos;Hola&apos;;</span><br></pre></td></tr></table></figure>
+
+<p>這兩變數雖然都叫 <code>greet</code> ，變數已經成為容器，確保我不會和其他 JavaScript 檔案，因為相同的全域命名空間而相互衝突覆寫。</p>
+<p><img src="https://i.imgur.com/o07bfsV.png" alt></p>
+<h3 id="深入運用"><a href="#深入運用" class="headerlink" title="深入運用"></a>深入運用</h3><p>還可以進一步把不同的容器物件分級，例如我想要 english 有打招呼的方法的命名空間在裡面，我不能直接輸入 <code>english.greetings.greet=&#39;Hello&#39;;</code></p>
+<p><img src="https://i.imgur.com/rj1OwBU.png" alt></p>
+<p>要記住 <code>.</code> 運算子是左相依性，表示左邊會先被執行。當<code>.</code> 運算子被呼叫，它會先在 <code>english</code> 裡面找<code>greetings</code> 變數，因為這是空的，所以找不到，而它會認定 <code>undefined</code> 根本不是一個物件，所以它不會在裡面找到 <code>greet</code>。必須再創造一個物件，在記憶體裡有一個物件，然後再連結<code>greet</code> 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var english = &#123;&#125;;</span><br><span class="line">var spanish = &#123;&#125;;</span><br><span class="line">english.greetings = &#123;&#125;;</span><br><span class="line">english.greetings.greet = &apos;Hello&apos;;</span><br><span class="line">spanish.greet = &apos;Hola&apos;;</span><br><span class="line"></span><br><span class="line">console.log(english);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/aqEMBm7.png" alt></p>
+<p>或者可以用物件實體語法初始化它，讓 <code>greetings</code> 裡面有另一個物件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var english = &#123;</span><br><span class="line">    greetings:&#123;</span><br><span class="line">        basic:&apos;Hello&apos;</span><br><span class="line">    &#125;&#125;;</span><br><span class="line">var spanish = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">spanish.greet = &apos;Hola&apos;;</span><br><span class="line"></span><br><span class="line">console.log(english);</span><br></pre></td></tr></table></figure>
+
+<p>物件實體語法可以快速建立，沒有得到 <code>undefined</code> 的錯誤，因為它們都已經被創造了。</p>
+<p><img src="https://i.imgur.com/flFBlte.png" alt></p>
+<p>我們可以用以上任何一種方式，但重點是已經在容器物件裡，包含函數、方法、變數、屬性和其他物件。</p>
+<p>JavaScript 的偽裝命名空間，只是為了那些我們忘了別人已經寫好或自己寫好的程式碼，藉此分開程式碼和其他在全域命名空間的物件。</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2019/06/19/2019-06-19/" class="prev">PREV</a><a href="/2019/06/15/2019-06-15-1/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
+var disqus_identifier = '2019/06/16/2019-06-16/';
+var disqus_title = '克服 JavaScript 的奇怪部份 Day24-框架小叮嚀：偽裝命名空間';
+var disqus_url = 'http://yoursite.com/2019/06/16/2019-06-16/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//chiangyuchi.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2019 <a href="http://yoursite.com">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

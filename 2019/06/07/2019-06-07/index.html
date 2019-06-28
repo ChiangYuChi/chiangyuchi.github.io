@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en.yml"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> JS 30 Days AJAX Type Ahead · Hexo</title><meta name="description" content="JS 30 Days AJAX Type Ahead - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Hexo"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/sunchongsheng" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/pinggod" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">JS 30 Days AJAX Type Ahead</h1><div class="post-info">Jun 7, 2019</div><div class="post-content"><h3 id="利用-Fetch-API-取得數據資料"><a href="#利用-Fetch-API-取得數據資料" class="headerlink" title="利用 Fetch API 取得數據資料"></a>利用 Fetch API 取得數據資料</h3><p>利用 fetch 取得數據資料的時候會先回傳 promise 給我們。Promise 是一個根據附加給他的 Callback 回傳的物件，以取代傳遞 Callback 到這個函數。它回傳的還不是我們要的資料。</p>
+<p>查詢一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const prom = fetch(endpoint);</span><br><span class="line">console.log(prom);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/qhO5Wtw.png" alt></p>
+<h3 id="關於-promise"><a href="#關於-promise" class="headerlink" title="關於 promise"></a>關於 promise</h3><p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Using_promises" target="_blank" rel="noopener">https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Using_promises </a></p>
+<p>第一個回傳的是一個 <code>readableStream</code><br><img src="https://i.imgur.com/gUlw0Js.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const endpoint =&apos;https://gist.githubusercontent.com</span><br><span class="line">/Miserlou/c5cd8364bf9b2420bb29/raw/</span><br><span class="line">2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/</span><br><span class="line">cities.json&apos;;</span><br><span class="line"></span><br><span class="line">const cities = [];</span><br><span class="line">fetch(endpoint).then(blob =&gt; blob.json()).then(data =&gt; console.log(data));</span><br></pre></td></tr></table></figure>
+
+<p>在上面可以看到我們已經抓取到資料，但是要怎麼把它一個一個參數個別放進陣列裡呢？ 這裡運用的是ES6的展開運算符<code>...</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fetch(endpoint).then(blob =&gt; blob.json()).then(data =&gt; cities.push(...data));</span><br></pre></td></tr></table></figure>
+
+<h3 id="建立規式"><a href="#建立規式" class="headerlink" title="建立規式"></a>建立規式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let regex = new RegExp(wordToMatch, &apos;gi&apos;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第一個參數是正規式的內容</li>
+<li>第二個參數是一個flag旗標<ul>
+<li>global search，會去搜尋整份文件</li>
+<li>i 表示 case insensitive，也就是不去區分大小寫</li>
+</ul>
+</li>
+</ul>
+<h3 id="利用正規式找到內容"><a href="#利用正規式找到內容" class="headerlink" title="利用正規式找到內容"></a>利用正規式找到內容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function findMatch(wordToMatch, cities) &#123;</span><br><span class="line">      return cities.filter(place =&gt; &#123;</span><br><span class="line"></span><br><span class="line">        const regex = new RegExp(wordToMatch, &apos;gi&apos;);</span><br><span class="line">        return place.city.match(regex) || place.state.match(regex)</span><br><span class="line"></span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="利用正規式取代內容"><a href="#利用正規式取代內容" class="headerlink" title="利用正規式取代內容"></a>利用正規式取代內容</h3><p>replace() 方法會傳回一個新字串，此新字串是透過將原字串與 pattern 比對，但不會改變原本的字串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const regex = new RegExp(this.value, &apos;gi&apos;);</span><br><span class="line"></span><br><span class="line">const cityName = place.city.replace(regex, </span><br><span class="line">`&lt;span class=&apos;hl&apos;&gt;$&#123;this.value&#125;&lt;/span&gt;`);</span><br><span class="line"></span><br><span class="line">const stateName = place.state.replace(regex, </span><br><span class="line">`&lt;span class=&apos;hl&apos;&gt;$&#123;this.value&#125;&lt;/span&gt;`);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="change-事件和keyup-事件"><a href="#change-事件和keyup-事件" class="headerlink" title="change 事件和keyup 事件"></a>change 事件和keyup 事件</h3><ul>
+<li>keyup 事件 會在任何元素值改變的時候被出發（例如每打一個字都會觸發一次）</li>
+<li>change event 則是會在有元素值改變，且該元素脫離 focus 狀態時才觸發</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">searchInput.addEventListener(&apos;change&apos;, displayMatches);</span><br><span class="line">searchInput.addEventListener(&apos;keyup&apos;, displayMatches);</span><br></pre></td></tr></table></figure>
+
+<h3 id="完成品"><a href="#完成品" class="headerlink" title="完成品"></a>完成品</h3><p><a href="https://codepen.io/Shengzhi/pen/oRVqYa" target="_blank" rel="noopener">https://codepen.io/Shengzhi/pen/oRVqYa</a></p>
+</div></article></div></main><footer><div class="paginator"><a href="/2019/06/15/2019-06-15-2/" class="prev">PREV</a><a href="/2019/06/06/2019-06-06-2/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
+var disqus_identifier = '2019/06/07/2019-06-07/';
+var disqus_title = 'JS 30 Days AJAX Type Ahead';
+var disqus_url = 'http://yoursite.com/2019/06/07/2019-06-07/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//chiangyuchi.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2019 <a href="http://yoursite.com">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
