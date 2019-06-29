@@ -196,6 +196,31 @@
   </entry>
   
   <entry>
+    <title>克服 JavaScript 的奇怪部份 Day23-物件與實體</title>
+    <link href="http://yoursite.com/2019/06/15/2019-06-15-2/"/>
+    <id>http://yoursite.com/2019/06/15/2019-06-15-2/</id>
+    <published>2019-06-14T16:00:00.000Z</published>
+    <updated>2019-06-28T07:10:57.168Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="建立物件的捷徑"><a href="#建立物件的捷徑" class="headerlink" title="建立物件的捷徑"></a>建立物件的捷徑</h3><p>在 JavaScript 裡面，完成一件事情還有許多方式，還記得宣告 new object 並非建立物件的最好方式，有一種建立物件的捷徑是利用大括號 <code>{}</code> 的物件實體語法（object literal syntax)，得到的結果會和 new object 一樣。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var person = &#123;&#125;;</span><br><span class="line">console.log(person);</span><br></pre></td></tr></table></figure><p>如果我列印出 person，會看到一個空物件，就像 new object 一樣，這是比較快的作法。但注意這不是運算子，這是當 JavaScript 在解析語法時，看到大括號，但這個大括號不是用在 if 條件式或者迴圈時，它就會假設你在創造一個物件。</p><p><img src="https://i.imgur.com/RL1V3u9.png" alt></p><p>我們還可以初始化物件，可以同時在這個大括號裡面建立屬性和方法。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//命名屬性與方法，並賦值。以逗號增加另一個名稱/值的配對</span><br><span class="line">var person=&#123;</span><br><span class="line">firstname:&apos;Tony&apos;,</span><br><span class="line">lastname:&apos;Alicea&apos;</span><br><span class="line">&#125;;</span><br><span class="line">console.log(person);</span><br></pre></td></tr></table></figure><p>物件有 2 個屬性<br><img src="https://i.imgur.com/fJpq5ku.png" alt></p><p>這跟建立 <code>var person = new Object()</code> 再依序一個一個增加屬性 <code>person.firstname = &#39;Tony&#39;;</code> 、<code>person.lastname=&#39;Alicea&#39;;</code> 一樣</p><p>物件裡還可以包含另一個物件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//命名屬性與方法，並賦值。以逗號增加另一個名稱/值的配對</span><br><span class="line">var person=&#123;</span><br><span class="line">firstname:&apos;Tony&apos;,</span><br><span class="line">lastname:&apos;Alicea&apos;,</span><br><span class="line">address:&#123;</span><br><span class="line">street:&apos;123 Main St.&apos;,</span><br><span class="line">City:&apos;NY&apos;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>所以當 JavaScript 的語法解析器，執行程式碼的時候，遇到大括號的區塊，它會當成同一行程式碼，並且知道你要建立物件。所以我可以在任何地方新增物件、定義屬性和方法。這比一次定義一個屬性還分成很多行，要快上許多。</p><h3 id="建立函數的捷徑"><a href="#建立函數的捷徑" class="headerlink" title="建立函數的捷徑"></a>建立函數的捷徑</h3><p>當我們了解這個捷徑的處理方式後，就可以快速的建立物件和變數。因此我們也可以快速建立函數。</p><p>有一個打招呼的函數，包含物件，函數需要知道 firstname 屬性，才能打招呼。呼叫 <code>greet</code>  並傳入 <code>Tony</code>。 物件再記憶體裡，被傳入函數中，而且可以使用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function greet(person)&#123;</span><br><span class="line">console.log(&apos;Hi&apos;+person.firstname);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">greet(person);</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/SHxajWR.png" alt></p><h3 id="同時建立函數與物件"><a href="#同時建立函數與物件" class="headerlink" title="同時建立函數與物件"></a>同時建立函數與物件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var person=&#123;</span><br><span class="line">firstname:&apos;Tony&apos;,</span><br><span class="line">lastname:&apos;Alicea&apos;,</span><br><span class="line">address:&#123;</span><br><span class="line">street:&apos;123 Main St.&apos;,</span><br><span class="line">City:&apos;NY&apos;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function greet(person)&#123;</span><br><span class="line">console.log(&apos;Hi&apos;+person.firstname);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">greet(person);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">greet(&#123;</span><br><span class="line">firstname:&apos;Mary&apos;,</span><br><span class="line">lastname:&apos;Doll&apos;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>用逗號區隔名稱/值配對，然後名稱和值用冒號區隔，再用大括號包起來。JavaScript 可以用物件實體語法，在看到函數的時候，檢查你需要傳入什麼，當它看到大括號的時候，知道你在建立物件，所以建立完就傳入這個物件。這和傳入數值和字串沒有差別。在這個情況下，我同時建立物件，我也可以把它當作一般變數使用。</p><p>在這個情況下，我傳入 <code>person</code> 這個變數，並包含 firstname 屬性，然後再次呼叫函數，裡面包含另一個物件。這個物件在呼叫時同時被建立，然後 firstname 是 Mary。</p><p><img src="https://i.imgur.com/cZgGlwg.png" alt></p><h3 id="混合語法"><a href="#混合語法" class="headerlink" title="混合語法"></a>混合語法</h3><p>用<code>person</code> 這個變數，然後新增一個屬性。用 <code>.</code> 點運算子，而不是物件實體語法，然後再用物件實體語法定義物件。這樣就能結合 2 種語法了。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">person.address=&#123;</span><br><span class="line">street:&apos;123 Second St.&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>為什麼可以這樣做？因為程式碼並不是真的直接被處理，它會先被 JavaScript 轉化成電腦能懂的東西。所以不論物件實體語法或用點運算子建立物件，都是一樣的，對 JavaScript 底層來說，它就是在建立物件、屬性和方法到記憶體裡面。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;建立物件的捷徑&quot;&gt;&lt;a href=&quot;#建立物件的捷徑&quot; class=&quot;headerlink&quot; title=&quot;建立物件的捷徑&quot;&gt;&lt;/a&gt;建立物件的捷徑&lt;/h3&gt;&lt;p&gt;在 JavaScript 裡面，完成一件事情還有許多方式，還記得宣告 new object 並非建立
+      
+    
+    </summary>
+    
+    
+      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>克服 JavaScript 的奇怪部份 Day22-物件與「點」</title>
     <link href="http://yoursite.com/2019/06/15/2019-06-15-1/"/>
     <id>http://yoursite.com/2019/06/15/2019-06-15-1/</id>
@@ -210,31 +235,6 @@
       
         &lt;p&gt;在 JavaScript 中，物件與函式兩者是非常相關的，它們在很多情況下幾乎是一樣的，讓我們從本篇之後來談談物件與函式，但在這之前得先了解本篇標題「物件與點」&lt;/p&gt;
 &lt;h3 id=&quot;物件與「點」&quot;&gt;&lt;a href=&quot;#物件與「點」&quot; class=&quot;headerlink&quot;
-      
-    
-    </summary>
-    
-    
-      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>克服 JavaScript 的奇怪部份 Day23-物件與實體</title>
-    <link href="http://yoursite.com/2019/06/15/2019-06-15-2/"/>
-    <id>http://yoursite.com/2019/06/15/2019-06-15-2/</id>
-    <published>2019-06-14T16:00:00.000Z</published>
-    <updated>2019-06-28T07:10:57.168Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="建立物件的捷徑"><a href="#建立物件的捷徑" class="headerlink" title="建立物件的捷徑"></a>建立物件的捷徑</h3><p>在 JavaScript 裡面，完成一件事情還有許多方式，還記得宣告 new object 並非建立物件的最好方式，有一種建立物件的捷徑是利用大括號 <code>{}</code> 的物件實體語法（object literal syntax)，得到的結果會和 new object 一樣。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var person = &#123;&#125;;</span><br><span class="line">console.log(person);</span><br></pre></td></tr></table></figure><p>如果我列印出 person，會看到一個空物件，就像 new object 一樣，這是比較快的作法。但注意這不是運算子，這是當 JavaScript 在解析語法時，看到大括號，但這個大括號不是用在 if 條件式或者迴圈時，它就會假設你在創造一個物件。</p><p><img src="https://i.imgur.com/RL1V3u9.png" alt></p><p>我們還可以初始化物件，可以同時在這個大括號裡面建立屬性和方法。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//命名屬性與方法，並賦值。以逗號增加另一個名稱/值的配對</span><br><span class="line">var person=&#123;</span><br><span class="line">firstname:&apos;Tony&apos;,</span><br><span class="line">lastname:&apos;Alicea&apos;</span><br><span class="line">&#125;;</span><br><span class="line">console.log(person);</span><br></pre></td></tr></table></figure><p>物件有 2 個屬性<br><img src="https://i.imgur.com/fJpq5ku.png" alt></p><p>這跟建立 <code>var person = new Object()</code> 再依序一個一個增加屬性 <code>person.firstname = &#39;Tony&#39;;</code> 、<code>person.lastname=&#39;Alicea&#39;;</code> 一樣</p><p>物件裡還可以包含另一個物件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//命名屬性與方法，並賦值。以逗號增加另一個名稱/值的配對</span><br><span class="line">var person=&#123;</span><br><span class="line">firstname:&apos;Tony&apos;,</span><br><span class="line">lastname:&apos;Alicea&apos;,</span><br><span class="line">address:&#123;</span><br><span class="line">street:&apos;123 Main St.&apos;,</span><br><span class="line">City:&apos;NY&apos;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>所以當 JavaScript 的語法解析器，執行程式碼的時候，遇到大括號的區塊，它會當成同一行程式碼，並且知道你要建立物件。所以我可以在任何地方新增物件、定義屬性和方法。這比一次定義一個屬性還分成很多行，要快上許多。</p><h3 id="建立函數的捷徑"><a href="#建立函數的捷徑" class="headerlink" title="建立函數的捷徑"></a>建立函數的捷徑</h3><p>當我們了解這個捷徑的處理方式後，就可以快速的建立物件和變數。因此我們也可以快速建立函數。</p><p>有一個打招呼的函數，包含物件，函數需要知道 firstname 屬性，才能打招呼。呼叫 <code>greet</code>  並傳入 <code>Tony</code>。 物件再記憶體裡，被傳入函數中，而且可以使用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function greet(person)&#123;</span><br><span class="line">console.log(&apos;Hi&apos;+person.firstname);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">greet(person);</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/SHxajWR.png" alt></p><h3 id="同時建立函數與物件"><a href="#同時建立函數與物件" class="headerlink" title="同時建立函數與物件"></a>同時建立函數與物件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var person=&#123;</span><br><span class="line">firstname:&apos;Tony&apos;,</span><br><span class="line">lastname:&apos;Alicea&apos;,</span><br><span class="line">address:&#123;</span><br><span class="line">street:&apos;123 Main St.&apos;,</span><br><span class="line">City:&apos;NY&apos;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function greet(person)&#123;</span><br><span class="line">console.log(&apos;Hi&apos;+person.firstname);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">greet(person);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">greet(&#123;</span><br><span class="line">firstname:&apos;Mary&apos;,</span><br><span class="line">lastname:&apos;Doll&apos;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>用逗號區隔名稱/值配對，然後名稱和值用冒號區隔，再用大括號包起來。JavaScript 可以用物件實體語法，在看到函數的時候，檢查你需要傳入什麼，當它看到大括號的時候，知道你在建立物件，所以建立完就傳入這個物件。這和傳入數值和字串沒有差別。在這個情況下，我同時建立物件，我也可以把它當作一般變數使用。</p><p>在這個情況下，我傳入 <code>person</code> 這個變數，並包含 firstname 屬性，然後再次呼叫函數，裡面包含另一個物件。這個物件在呼叫時同時被建立，然後 firstname 是 Mary。</p><p><img src="https://i.imgur.com/cZgGlwg.png" alt></p><h3 id="混合語法"><a href="#混合語法" class="headerlink" title="混合語法"></a>混合語法</h3><p>用<code>person</code> 這個變數，然後新增一個屬性。用 <code>.</code> 點運算子，而不是物件實體語法，然後再用物件實體語法定義物件。這樣就能結合 2 種語法了。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">person.address=&#123;</span><br><span class="line">street:&apos;123 Second St.&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>為什麼可以這樣做？因為程式碼並不是真的直接被處理，它會先被 JavaScript 轉化成電腦能懂的東西。所以不論物件實體語法或用點運算子建立物件，都是一樣的，對 JavaScript 底層來說，它就是在建立物件、屬性和方法到記憶體裡面。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;建立物件的捷徑&quot;&gt;&lt;a href=&quot;#建立物件的捷徑&quot; class=&quot;headerlink&quot; title=&quot;建立物件的捷徑&quot;&gt;&lt;/a&gt;建立物件的捷徑&lt;/h3&gt;&lt;p&gt;在 JavaScript 裡面，完成一件事情還有許多方式，還記得宣告 new object 並非建立
       
     
     </summary>
@@ -270,32 +270,6 @@
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
       <category term="AJAX" scheme="http://yoursite.com/tags/AJAX/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>let 與 const 的差異</title>
-    <link href="http://yoursite.com/2019/06/06/2019-06-06-1/"/>
-    <id>http://yoursite.com/2019/06/06/2019-06-06-1/</id>
-    <published>2019-06-05T16:00:00.000Z</published>
-    <updated>2019-06-28T06:29:50.956Z</updated>
-    
-    <content type="html"><![CDATA[<p>let 與 const 用來宣告區塊裡的變數。區塊＝{}。</p><p>const 是用來宣告不能修改的唯讀變數，不能被變更的變數，例如 url 網址。 但是如果const宣告的變數是一個陣列或物件，則裡面的內容就能夠被修改。為了避免這種狀況，可以利用以下組合式語法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const obj =&#123;</span><br><span class="line">url:&apos;http://xx.com&apos;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.freeze(obj);</span><br></pre></td></tr></table></figure><p>要注意以下用法：</p><p>一、向上提昇</p><p>var 有向上提昇的特性</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(a);</span><br><span class="line">var a = 3;</span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/JyQieMi.png" alt></p><p>但是const 與 let 不具備這種特性</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(a);</span><br><span class="line">let a = 3;</span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/E2O0ewE.png" alt></p><p>二、同個區塊上不能重複命名</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var a = 3;</span><br><span class="line">var a=4;</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/AcOtZb7.png" alt></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">let a = 3;</span><br><span class="line">let a=4;</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/VtV0tHG.png" alt></p><p>三、無法繼承到全域變數</p><p>let與const在ES6就是為了避免var會干擾全域變數的特性，因此不能使用在全域變數。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let a = 3;</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/8hZizyC.png" alt></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var b = 3;</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/MXAMKvG.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;let 與 const 用來宣告區塊裡的變數。區塊＝{}。&lt;/p&gt;
-&lt;p&gt;const 是用來宣告不能修改的唯讀變數，不能被變更的變數，例如 url 網址。 但是如果const宣告的變數是一個陣列或物件，則裡面的內容就能夠被修改。為了避免這種狀況，可以利用以下組合式語法：&lt;/
-      
-    
-    </summary>
-    
-    
-      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
   </entry>
   
@@ -340,6 +314,32 @@
         &lt;p&gt;有時候我們會同時在專案匯入好幾個框架&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/HuW7aRJ.png&quot; alt&gt;&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutte
+      
+    
+    </summary>
+    
+    
+      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>let 與 const 的差異</title>
+    <link href="http://yoursite.com/2019/06/06/2019-06-06-1/"/>
+    <id>http://yoursite.com/2019/06/06/2019-06-06-1/</id>
+    <published>2019-06-05T16:00:00.000Z</published>
+    <updated>2019-06-28T06:29:50.956Z</updated>
+    
+    <content type="html"><![CDATA[<p>let 與 const 用來宣告區塊裡的變數。區塊＝{}。</p><p>const 是用來宣告不能修改的唯讀變數，不能被變更的變數，例如 url 網址。 但是如果const宣告的變數是一個陣列或物件，則裡面的內容就能夠被修改。為了避免這種狀況，可以利用以下組合式語法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const obj =&#123;</span><br><span class="line">url:&apos;http://xx.com&apos;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.freeze(obj);</span><br></pre></td></tr></table></figure><p>要注意以下用法：</p><p>一、向上提昇</p><p>var 有向上提昇的特性</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(a);</span><br><span class="line">var a = 3;</span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/JyQieMi.png" alt></p><p>但是const 與 let 不具備這種特性</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(a);</span><br><span class="line">let a = 3;</span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/E2O0ewE.png" alt></p><p>二、同個區塊上不能重複命名</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var a = 3;</span><br><span class="line">var a=4;</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/AcOtZb7.png" alt></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">let a = 3;</span><br><span class="line">let a=4;</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/VtV0tHG.png" alt></p><p>三、無法繼承到全域變數</p><p>let與const在ES6就是為了避免var會干擾全域變數的特性，因此不能使用在全域變數。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let a = 3;</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/8hZizyC.png" alt></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var b = 3;</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/MXAMKvG.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;let 與 const 用來宣告區塊裡的變數。區塊＝{}。&lt;/p&gt;
+&lt;p&gt;const 是用來宣告不能修改的唯讀變數，不能被變更的變數，例如 url 網址。 但是如果const宣告的變數是一個陣列或物件，則裡面的內容就能夠被修改。為了避免這種狀況，可以利用以下組合式語法：&lt;/
       
     
     </summary>
@@ -406,32 +406,6 @@
   </entry>
   
   <entry>
-    <title>克服 JavaScript 的奇怪部份 Day20-預設值</title>
-    <link href="http://yoursite.com/2019/06/04/2019-06-04-3/"/>
-    <id>http://yoursite.com/2019/06/04/2019-06-04-3/</id>
-    <published>2019-06-03T16:00:00.000Z</published>
-    <updated>2019-06-28T07:10:10.422Z</updated>
-    
-    <content type="html"><![CDATA[<p>運算子的強制型轉特性，在一些框架或JS程式裡究竟有什麼比較常見的用處？</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function greet(name) &#123;</span><br><span class="line">    console.log(&apos;hello&apos; + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet();</span><br></pre></td></tr></table></figure><p>假使呼叫 greet的時候 沒有參數，在 Javascript 並不會報錯，它會當做<br>name 沒有東西。所以如果 <code>console.log(name)</code> </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function greet(name) &#123;</span><br><span class="line">    console.log(&apos;name&apos;);</span><br><span class="line">    console.log(&apos;hello&apos; + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet();</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/izhIPGe.png" alt></p><p>結果出現 undefined，因為函數被呼叫的時候，一個新的執行環境被創造，然後這個變數<code>name</code> 是在函數內被創造，雖然傳入的值是在呼叫階段被設定，但這個變數在記憶體內已被設定為undefined。</p><p>所以加號運算子，當看到字串加上一個變數和值為undefined的name，它會將純值undefined強制型轉為字串。</p><p>既然我們已經了解運算子和強制型轉如何作用，所以雖然這非理想的行為，但也非完全無法預期的行為。但我們究竟該怎麼做呢？假設我們想要給參數<code>name</code> 一個預設值。</p><h3 id="設定預設值"><a href="#設定預設值" class="headerlink" title="設定預設值"></a>設定預設值</h3><p>如果 undefined 是函數被呼叫時最終的值，因為運算子只是會回傳值的函數，所以這個 <code>||</code>  運算子不只是回傳 true 或 false，它的特殊行為是，如果傳入 2 個可以被型轉為布林值的，它會回傳其中一個被轉型為true的值。</p><p><img src="https://i.imgur.com/O8CA6od.png" alt></p><p><img src="https://i.imgur.com/G7Ma9sN.png" alt></p><p>所以可以用這個運算子來表示，如果一個東西不存在、null 或空字串，就給我另一個。運用<code>||</code> 運算子，讓函數傳入的參數假如沒有值或不存在、空字串等狀況時，就回傳預設值給等號運算子。因為優先性，所以 <code>｜｜</code> 會比等號先執行。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function greet(name) &#123;</span><br><span class="line">   name = name || &apos;&lt;Your name here&gt;&apos;;</span><br><span class="line">    console.log(&apos;hello&apos; + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(&apos;tony&apos;);</span><br><span class="line">greet();</span><br><span class="line">greet(0);</span><br></pre></td></tr></table></figure><p>第一次呼叫的時候傳入參數tony，第二次呼叫則沒有參數。當傳入參數tony時，<code>name=name</code> 會強制型轉為true，所以不會回傳右邊的預設值。比起 if 陳述句，用 <code>｜｜</code> 表達一行預設值的程式碼會更為簡潔。但還是需要注意 0 的狀況。如果傳入 0 呼叫 greet，0 會被轉換為 false，還是會得到預設值。</p><p><img src="https://i.imgur.com/5fNw52i.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;運算子的強制型轉特性，在一些框架或JS程式裡究竟有什麼比較常見的用處？&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br
-      
-    
-    </summary>
-    
-    
-      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
     <title>JS 30 Days Array Cardio 1</title>
     <link href="http://yoursite.com/2019/06/04/2019-06-04-1/"/>
     <id>http://yoursite.com/2019/06/04/2019-06-04-1/</id>
@@ -446,6 +420,32 @@
       
         &lt;p&gt;這一天的課程主要說明運用 Array 是 Javascript 很重要的環節，像是 filter、map、sort、reduce。&lt;/p&gt;
 &lt;h3 id=&quot;範例-1&quot;&gt;&lt;a href=&quot;#範例-1&quot; class=&quot;headerlink&quot; title=&quot;範例 1&quot;&gt;&lt;/a&gt;範
+      
+    
+    </summary>
+    
+    
+      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>克服 JavaScript 的奇怪部份 Day20-預設值</title>
+    <link href="http://yoursite.com/2019/06/04/2019-06-04-3/"/>
+    <id>http://yoursite.com/2019/06/04/2019-06-04-3/</id>
+    <published>2019-06-03T16:00:00.000Z</published>
+    <updated>2019-06-28T07:10:10.422Z</updated>
+    
+    <content type="html"><![CDATA[<p>運算子的強制型轉特性，在一些框架或JS程式裡究竟有什麼比較常見的用處？</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function greet(name) &#123;</span><br><span class="line">    console.log(&apos;hello&apos; + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet();</span><br></pre></td></tr></table></figure><p>假使呼叫 greet的時候 沒有參數，在 Javascript 並不會報錯，它會當做<br>name 沒有東西。所以如果 <code>console.log(name)</code> </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function greet(name) &#123;</span><br><span class="line">    console.log(&apos;name&apos;);</span><br><span class="line">    console.log(&apos;hello&apos; + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet();</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/izhIPGe.png" alt></p><p>結果出現 undefined，因為函數被呼叫的時候，一個新的執行環境被創造，然後這個變數<code>name</code> 是在函數內被創造，雖然傳入的值是在呼叫階段被設定，但這個變數在記憶體內已被設定為undefined。</p><p>所以加號運算子，當看到字串加上一個變數和值為undefined的name，它會將純值undefined強制型轉為字串。</p><p>既然我們已經了解運算子和強制型轉如何作用，所以雖然這非理想的行為，但也非完全無法預期的行為。但我們究竟該怎麼做呢？假設我們想要給參數<code>name</code> 一個預設值。</p><h3 id="設定預設值"><a href="#設定預設值" class="headerlink" title="設定預設值"></a>設定預設值</h3><p>如果 undefined 是函數被呼叫時最終的值，因為運算子只是會回傳值的函數，所以這個 <code>||</code>  運算子不只是回傳 true 或 false，它的特殊行為是，如果傳入 2 個可以被型轉為布林值的，它會回傳其中一個被轉型為true的值。</p><p><img src="https://i.imgur.com/O8CA6od.png" alt></p><p><img src="https://i.imgur.com/G7Ma9sN.png" alt></p><p>所以可以用這個運算子來表示，如果一個東西不存在、null 或空字串，就給我另一個。運用<code>||</code> 運算子，讓函數傳入的參數假如沒有值或不存在、空字串等狀況時，就回傳預設值給等號運算子。因為優先性，所以 <code>｜｜</code> 會比等號先執行。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function greet(name) &#123;</span><br><span class="line">   name = name || &apos;&lt;Your name here&gt;&apos;;</span><br><span class="line">    console.log(&apos;hello&apos; + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(&apos;tony&apos;);</span><br><span class="line">greet();</span><br><span class="line">greet(0);</span><br></pre></td></tr></table></figure><p>第一次呼叫的時候傳入參數tony，第二次呼叫則沒有參數。當傳入參數tony時，<code>name=name</code> 會強制型轉為true，所以不會回傳右邊的預設值。比起 if 陳述句，用 <code>｜｜</code> 表達一行預設值的程式碼會更為簡潔。但還是需要注意 0 的狀況。如果傳入 0 呼叫 greet，0 會被轉換為 false，還是會得到預設值。</p><p><img src="https://i.imgur.com/5fNw52i.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;運算子的強制型轉特性，在一些框架或JS程式裡究竟有什麼比較常見的用處？&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br
       
     
     </summary>
