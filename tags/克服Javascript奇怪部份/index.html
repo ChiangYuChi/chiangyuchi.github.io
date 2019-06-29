@@ -1,1 +1,200 @@
-<!DOCTYPE html><html lang="en.yml"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Hexo</title><meta name="description" content="A Blog Powered By Hexo"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Hexo"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/ChiangYuChi" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="archive"><h2 class="archive-year">2019</h2><div class="post-item"><div class="post-info">Jun 29, 2019</div><a href="/2019/06/29/2019-06-29/" class="post-title-link">克服 JavaScript 的奇怪部份 Day28-傳值與參考值</a></div></div></main><footer><div class="paginator"></div><div class="copyright"><p>© 2015 - 2019 <a href="http://yoursite.com">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
+
+
+<html lang="en.yml">
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <meta name="theme-color" content="#42dbbc">
+  <meta name="msapplication-navbutton-color" content="#f8f5ec">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+  
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+  
+
+  <title>Hexo</title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+  
+    <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css">
+  
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+  <link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    window.config = {"title":"Hexo","subtitle":"About Me","description":null,"author":"John Doe","language":"en.yml","timezone":null,"url":"http://yoursite.com","root":"/","permalink":":year/:month/:day/:title/","permalink_defaults":null,"source_dir":"source","public_dir":"public","tag_dir":"tags","archive_dir":"archives","category_dir":"categories","code_dir":"downloads/code","i18n_dir":":lang","skip_render":null,"new_post_name":":title.md","default_layout":"post","titlecase":false,"external_link":true,"filename_case":0,"render_drafts":false,"post_asset_folder":false,"relative_link":false,"future":true,"highlight":"atom-one-light","default_category":"uncategorized","category_map":null,"tag_map":null,"date_format":"YYYY-MM-DD","time_format":"HH:mm:ss","per_page":10,"pagination_dir":"page","theme":"cicada","deploy":{"type":"git","repo":"https://github.com/ChiangYuChi/chiangyuchi.github.io.git","branch":"master"},"ignore":[],"keywords":null,"index_generator":{"per_page":10,"order_by":"-date","path":""},"category_generator":{"per_page":10},"archive_generator":{"per_page":10,"yearly":true,"monthly":true,"daily":false},"tag_generator":{"per_page":10},"feed":{"type":"atom","limit":20,"hub":"","content":true,"content_limit":140,"content_limit_delim":"","path":"atom.xml"},"sitemap":{"path":"sitemap.xml"},"marked":{"gfm":true,"pedantic":false,"sanitize":false,"tables":true,"breaks":true,"smartLists":true,"smartypants":true,"modifyAnchors":"","autolink":true},"server":{"port":4000,"log":false,"compress":false,"header":true},"favicon":"/images/favicon.ico","menu":{"home":"/","archives":"/archives"},"show_tag":true,"show_category":false,"excerpt_link":"Read More","fancybox":true,"disqus_shortname":null,"rss":"default","social":{"email":"dasd","instagram":"dasd","douban":"das","linkedin":"dsa","weibo":null,"stackoverflow":null,"facebook":null,"twitter":null,"github":null,"google":null,"zhihu":null,"pocket":null},"friends":{"Mos's Blog":"https://kexin-li.github.io"},"google_analytics":null,"portfolio":{"subtitle":"Some Works","cards":{"card1":{"cover":"/images/screenshot.png","content":"Cicada is a concise and retro Hexo theme.","link":"https://github.com/Kexin-Li/hexo-theme-cicada"},"card2":{"cover":"/images/screenshot.png","content":"Cicada is a Hexo theme, it tastes like summer.","link":"http://kexin-li.github.io"},"card3":{"cover":"/images/screenshot.png","content":"Cicada is a Hexo theme, it tastes like summer.","link":"http://kexin-li.github.io"}}},"about":null,"poem":false};
+  </script>
+</head>
+  <body>
+    
+
+<header class="blog-slide" style="height: px">
+  <nav class="blog-header">
+    <a class="mobile toggle-button"><i class="fas fa-bars fa-lg"></i></a>
+    <ul>
+      <li class="title"><a href="/">Hexo</a></li>
+      
+        <li class="nav-item"><a href="/">Home</a></li>
+      
+        <li class="nav-item"><a href="/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+  <h1 class="subtitle"><span id='jinrishici-sentence'>TAG: 克服Javascript奇怪部份</span></h1>
+</header>
+    <nav id="menu">
+  
+    <a href="/">Home</a>
+  
+    <a href="/archives">Archives</a>
+  
+</nav>
+    
+    <main class="blog-main" style="margin-top: -150px">
+      
+    <article class="blog-post">
+  
+
+  <div class="post-content">
+    <div class="post-header">
+      
+        
+  
+    <h1 class="post-title">
+      <a href="/2019/06/29/2019-06-29-1/">
+        克服 JavaScript 的奇怪部份 Day28-傳值與參考值
+      </a>
+    </h1>
+  
+
+      
+    </div>
+    <div class="post-detail">
+      
+        <p>這一節又來到另一個重要觀念「傳值（by value)」與「參考值(by reference)」，這兩者都和變數關係密切。</p>
+<h3 id="傳值"><a href="#傳值" class="headerlink" title="傳值"></a>傳值</h3><p>好比說有一種純值（primitive value)，可能是數字、布林或字串。我設定一個值到這個變數中，變數就有一個位址，它知道那個純值的記憶體位址。因為參考是參照到一個記憶體的位址。</p>
+<p><img src="https://i.imgur.com/2DyKYst.png" alt></p>
+<p>設定一個新變數，設定它等於 <code>a</code>，也可以說是我傳入 <code>a</code> 到一個函數，兒這個函數的名稱是 <code>b</code>。如果這是 JavaScript 中的純值，b這個新變數，將會指向一個新位址，一個新的記憶體地點。而那個純值的拷貝，被放到記憶體中的另一個地點。</p>
+<p><img src="https://i.imgur.com/UqX7I5C.png" alt></p>
+<p>所以如果 <code>a</code> 是 3，它在一個記憶體中的地點，接著 <code>b</code> 會指向 <code>3</code>，然後這個拷貝的地點，會被填上相同的值。這種方式叫做 <strong><em>by value</em></strong>&gt;。意思是會傳入一個值是直接拷貝另一個值，這兩個變數就相等了。藉由拷貝一個直到另一個記憶體中的地點。</p>
+<h3 id="參考值"><a href="#參考值" class="headerlink" title="參考值"></a>參考值</h3><p>如果我在 JavaScript 裡面有一個物件，包含特殊類型的物件，像是函數。當我設定一個變數為物件，我仍然會得到一個記憶體位址，讓我可以參照到它。當 <code>b</code> 被設定等於 <code>a</code>，意思就是我要讓這兩個東西一樣，或者是把<code>a</code> 傳到函數裡面。這個新的變數 <code>b</code>，不會得到一個新的記憶體位址，而是指向 <code>a</code>的記憶體位址。沒有新的物件被創造，沒有物件的拷貝被創造。這兩個名稱都指向同一位址，就像有一個名字跟綽號一樣。這兩個名字都指向同一個地址的同一個人。<code>a</code> 和 <code>b</code> 有相同的值，因為當你要取用它們的值，他們會指向相同的記憶體位址。這叫做 <strong>by reference</strong>。</p>
+<p><img src="https://i.imgur.com/Z7tJRaX.png" alt></p>
+<p>參考值和傳值是很不同的，很重要的是要了解所有物件都是 by reference 的，當用等號設定他們相等的時候。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// by value (primitive)</span><br><span class="line">var a = 3</span><br><span class="line">var b;</span><br><span class="line">b = a </span><br><span class="line">a=2;</span><br><span class="line">console.log(a);</span><br><span class="line">console.log(b);</span><br></pre></td></tr></table></figure>
+
+<p>這時會怎樣呢？ <code>a</code> 會是 3 ，<code>b</code> 也是。但記住，這是傳值，因為 3 是一個純值、一個數值（其他純值也會有相同作用）。所以當<code>b</code> 被設定等於<code>a</code> 的時候，等號運算子看到這些是純值，就創造一個新的記憶體位址給<code>b</code>，拷貝<code>a</code>的值到<code>b</code>的地址。所以兩者都是 3 。但他們兩個是在不同的記憶體位址。</p>
+<blockquote>
+<p>這表示我可以改變 <code>a</code> 的值，而不影響到 <code>b</code>，因為他們是記憶體中不同的2 點。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/g0Z3oED.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// by reference (all objects include functions)</span><br><span class="line">var c = &#123;greeting:&quot;hi&quot;&#125;;</span><br><span class="line">var d;</span><br><span class="line">d = c;</span><br><span class="line">c.greeting=&quot;hello&quot; // mutate</span><br><span class="line">console.log(c);</span><br><span class="line">console.log(d);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>mutate : 改變某件事情 （to change something)<br> 如果深入看一些 JavaScript 文件，可能會看見”mutate a object”、”mutate a value”，可能是新增或移除屬性。<br>immutable : 不能被改變 （it can’t be changed)</p>
+</blockquote>
+<p>等號運算子知道它們是物件，所以不會建立一個新的記憶體位址給 <code>d</code>，而是把 <code>d</code> 指向和 <code>c</code> 相同的記憶體位址。所以當我輸出這兩個東西，會看到同樣的值，但它們不是對方值的拷貝，它們只是指向同一個記憶體位址。我有一個物件在記憶體中，它有一個 greeting 屬性，我把它的值從 <code>hi</code> 改變為 <code>hello</code>，我改變 (mutate) 了它。</p>
+<p>要記得，當處理物件的時候，你設定它等於另一個物件，你只是把兩個變數名稱指向同一個位址。</p>
+<p><img src="https://i.imgur.com/R6I4eMd.png" alt></p>
+<p>所以如果我改變那個物件的值，它用什麼名稱並不重要，它們只是別名而已。由於物件指向同一個位址，一旦你改變其中一個，另一個也跟著改變。</p>
+<p>當我用函數的參數時也一樣。儘管是參數，物件也經由參考被傳入。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// by reference (even as paremeters)</span><br><span class="line"></span><br><span class="line">var c = &#123;greeting:&quot;hi&quot;&#125;;</span><br><span class="line">var d;</span><br><span class="line">d = c;</span><br><span class="line">c.greeting=&quot;hello&quot; // mutate</span><br><span class="line">console.log(c);</span><br><span class="line">console.log(d);</span><br><span class="line"></span><br><span class="line">function changeGreeting(obj)&#123;</span><br><span class="line">obj.greeting =&quot;hola&quot;; // mutate</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">changeGreeting(d);</span><br><span class="line"></span><br><span class="line">console.log(c);</span><br><span class="line">console.log(d);</span><br></pre></td></tr></table></figure>
+
+<p>傳入 <code>d</code> 到函數，<code>d</code> 就是 <code>obj</code>，所以它被改變了。就像等號一樣，把一個物件傳入函數裡，表示它們是傳入它們的參考點 （by reference)，所以<code>obj</code> 會指向<code>d</code>的記憶體位址，而<code>d</code>已經指向<code>c</code> 的記憶體位址。當它被改變，表示會更新這個物件所指向的記憶體位址裡面的值。</p>
+<p><img src="https://i.imgur.com/DpClwIO.png" alt></p>
+<h3 id="等號運算子設定一個新的記憶體空間"><a href="#等號運算子設定一個新的記憶體空間" class="headerlink" title="等號運算子設定一個新的記憶體空間"></a>等號運算子設定一個新的記憶體空間</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//equals operator sets up a new memory space (a new address)</span><br><span class="line"></span><br><span class="line">c=&#123;greeting:&apos;howdy&apos;&#125;;</span><br><span class="line">console.log(c);</span><br><span class="line">console.log(d);</span><br></pre></td></tr></table></figure>
+
+<p>這個例子中的等號，我設定 <code>c</code> 為一個新的值，等號運算子會設定一個新的記憶體空間給<code>c</code>，放進那個值，所以 <code>d</code> 和<code>c</code>就不再指向同一個記憶體位址。 <code>d</code> 仍然指向 hola。<br><img src="https://i.imgur.com/uxDDUlL.png" alt></p>
+<p>這是一個特殊例子，這不是 by reference，因為等號運算子看到這些東西還不存在於記憶體裡面，它看到第二個參數不是已經存在的物件，它必須創造一個新的記憶體空間給物件，所以它建立一個新的空間，然後指向 <code>c</code>。在上個例子中我設定<code>d</code> 等於 <code>c</code>，<code>c</code>已經存在了。但在這個例子中， <code>c</code>現在指向不同於<code>d</code>的記憶體位址。</p>
+<h3 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h3><p>了解 by value 和 by reference 的差異很重要，因為在 JavaScript 裡面所有的純值都是  by value 而所有的物件都是 by reference。這在除錯時是非常重要的關鍵觀念。但是了解之後，就會知道當物件被改變了，那所有的物件、所有的變數，指向相同位址的東西都會被改變。所以屆時我們就可以了解，如果不小心無意改變了物件，那可能是傳入了這個物件的參考點而不自知。另一方面，改變一個純值，但原始的值並不會被改變，因為它是 by value。</p>
+
+        <hr>
+      
+    </div>
+
+    
+
+    
+  </div>
+</article>
+
+
+
+
+    </main>
+    
+    <div class="back-to-top" id="back-to-top"><i class="fas fa-arrow-alt-circle-up fa-2x"></i></div>
+
+    <footer class="blog-footer">
+  
+
+
+<hr>
+<div class="blog-footer-friends">
+  <p class="title">FRIENDS</p>
+  <div class="friends">
+  
+    <a href="https://kexin-li.github.io" target="_blank">Mos&#39;s Blog</a>
+  
+  </div>
+</div>
+
+  
+
+
+  <div class="blog-footer-social">
+    <ul>
+      
+        
+          <li><a class="iconfont icon-email" href="mailto:dasd"></a></li>
+        
+      
+        
+          <li><a class="iconfont icon-instagram" href="dasd"></a></li>
+        
+      
+        
+          <li><a class="iconfont icon-douban" href="das"></a></li>
+        
+      
+        
+          <li><a class="iconfont icon-linkedin" href="dsa"></a></li>
+        
+      
+      
+        <li><a class="iconfont icon-rss" href="/atom.xml"></a></li>
+      
+    </ul>
+  </div>
+ 
+  <div class="blog-footer-copyright">
+  <p class="copyright">Copyright © 2018 John Doe. Powered by <a href="https://hexo.io/">Hexo</a> and <a href="https://github.com/Kexin-Li/hexo-theme-cicada">Cicada</a>. <iframe src="https://ghbtns.com/github-btn.html?user=Kexin-Li&repo=hexo-theme-cicada&type=star&count=false&size=small" frameborder="0" scrolling="0" width="58px" height="30px" style="margin-bottom: -15px"></iframe></p>
+</div>
+</footer>
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<!--  -->
+
+
+
+
+<script type="text/javascript" src="/js/cicada.js"></script>
+  </body>
+</html>

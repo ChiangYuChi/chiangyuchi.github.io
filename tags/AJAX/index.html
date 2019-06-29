@@ -1,1 +1,248 @@
-<!DOCTYPE html><html lang="en.yml"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Hexo</title><meta name="description" content="A Blog Powered By Hexo"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Hexo"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/ChiangYuChi" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="archive"><h2 class="archive-year">2019</h2><div class="post-item"><div class="post-info">Jun 7, 2019</div><a href="/2019/06/07/2019-06-07/" class="post-title-link">JS 30 Days AJAX Type Ahead</a></div><div class="post-item"><div class="post-info">Jun 5, 2019</div><a href="/2019/06/05/2019-06-05/" class="post-title-link">AJAX</a></div></div></main><footer><div class="paginator"></div><div class="copyright"><p>© 2015 - 2019 <a href="http://yoursite.com">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
+
+
+<html lang="en.yml">
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <meta name="theme-color" content="#42dbbc">
+  <meta name="msapplication-navbutton-color" content="#f8f5ec">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+  
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+  
+
+  <title>Hexo</title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+  
+    <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css">
+  
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+  <link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    window.config = {"title":"Hexo","subtitle":"About Me","description":null,"author":"John Doe","language":"en.yml","timezone":null,"url":"http://yoursite.com","root":"/","permalink":":year/:month/:day/:title/","permalink_defaults":null,"source_dir":"source","public_dir":"public","tag_dir":"tags","archive_dir":"archives","category_dir":"categories","code_dir":"downloads/code","i18n_dir":":lang","skip_render":null,"new_post_name":":title.md","default_layout":"post","titlecase":false,"external_link":true,"filename_case":0,"render_drafts":false,"post_asset_folder":false,"relative_link":false,"future":true,"highlight":"atom-one-light","default_category":"uncategorized","category_map":null,"tag_map":null,"date_format":"YYYY-MM-DD","time_format":"HH:mm:ss","per_page":10,"pagination_dir":"page","theme":"cicada","deploy":{"type":"git","repo":"https://github.com/ChiangYuChi/chiangyuchi.github.io.git","branch":"master"},"ignore":[],"keywords":null,"index_generator":{"per_page":10,"order_by":"-date","path":""},"category_generator":{"per_page":10},"archive_generator":{"per_page":10,"yearly":true,"monthly":true,"daily":false},"tag_generator":{"per_page":10},"feed":{"type":"atom","limit":20,"hub":"","content":true,"content_limit":140,"content_limit_delim":"","path":"atom.xml"},"sitemap":{"path":"sitemap.xml"},"marked":{"gfm":true,"pedantic":false,"sanitize":false,"tables":true,"breaks":true,"smartLists":true,"smartypants":true,"modifyAnchors":"","autolink":true},"server":{"port":4000,"log":false,"compress":false,"header":true},"favicon":"/images/favicon.ico","menu":{"home":"/","archives":"/archives"},"show_tag":true,"show_category":false,"excerpt_link":"Read More","fancybox":true,"disqus_shortname":null,"rss":"default","social":{"email":"dasd","instagram":"dasd","douban":"das","linkedin":"dsa","weibo":null,"stackoverflow":null,"facebook":null,"twitter":null,"github":null,"google":null,"zhihu":null,"pocket":null},"friends":{"Mos's Blog":"https://kexin-li.github.io"},"google_analytics":null,"portfolio":{"subtitle":"Some Works","cards":{"card1":{"cover":"/images/screenshot.png","content":"Cicada is a concise and retro Hexo theme.","link":"https://github.com/Kexin-Li/hexo-theme-cicada"},"card2":{"cover":"/images/screenshot.png","content":"Cicada is a Hexo theme, it tastes like summer.","link":"http://kexin-li.github.io"},"card3":{"cover":"/images/screenshot.png","content":"Cicada is a Hexo theme, it tastes like summer.","link":"http://kexin-li.github.io"}}},"about":null,"poem":false};
+  </script>
+</head>
+  <body>
+    
+
+<header class="blog-slide" style="height: px">
+  <nav class="blog-header">
+    <a class="mobile toggle-button"><i class="fas fa-bars fa-lg"></i></a>
+    <ul>
+      <li class="title"><a href="/">Hexo</a></li>
+      
+        <li class="nav-item"><a href="/">Home</a></li>
+      
+        <li class="nav-item"><a href="/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+  <h1 class="subtitle"><span id='jinrishici-sentence'>TAG: AJAX</span></h1>
+</header>
+    <nav id="menu">
+  
+    <a href="/">Home</a>
+  
+    <a href="/archives">Archives</a>
+  
+</nav>
+    
+    <main class="blog-main" style="margin-top: -150px">
+      
+    <article class="blog-post">
+  
+
+  <div class="post-content">
+    <div class="post-header">
+      
+        
+  
+    <h1 class="post-title">
+      <a href="/2019/06/07/2019-06-07/">
+        JS 30 Days AJAX Type Ahead
+      </a>
+    </h1>
+  
+
+      
+    </div>
+    <div class="post-detail">
+      
+        <h3 id="利用-Fetch-API-取得數據資料"><a href="#利用-Fetch-API-取得數據資料" class="headerlink" title="利用 Fetch API 取得數據資料"></a>利用 Fetch API 取得數據資料</h3><p>利用 fetch 取得數據資料的時候會先回傳 promise 給我們。Promise 是一個根據附加給他的 Callback 回傳的物件，以取代傳遞 Callback 到這個函數。它回傳的還不是我們要的資料。</p>
+<p>查詢一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const prom = fetch(endpoint);</span><br><span class="line">console.log(prom);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/qhO5Wtw.png" alt></p>
+<h3 id="關於-promise"><a href="#關於-promise" class="headerlink" title="關於 promise"></a>關於 promise</h3><p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Using_promises" target="_blank" rel="noopener">https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Using_promises </a></p>
+<p>第一個回傳的是一個 <code>readableStream</code><br><img src="https://i.imgur.com/gUlw0Js.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const endpoint =&apos;https://gist.githubusercontent.com</span><br><span class="line">/Miserlou/c5cd8364bf9b2420bb29/raw/</span><br><span class="line">2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/</span><br><span class="line">cities.json&apos;;</span><br><span class="line"></span><br><span class="line">const cities = [];</span><br><span class="line">fetch(endpoint).then(blob =&gt; blob.json()).then(data =&gt; console.log(data));</span><br></pre></td></tr></table></figure>
+
+<p>在上面可以看到我們已經抓取到資料，但是要怎麼把它一個一個參數個別放進陣列裡呢？ 這裡運用的是ES6的展開運算符<code>...</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fetch(endpoint).then(blob =&gt; blob.json()).then(data =&gt; cities.push(...data));</span><br></pre></td></tr></table></figure>
+
+<h3 id="建立規式"><a href="#建立規式" class="headerlink" title="建立規式"></a>建立規式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let regex = new RegExp(wordToMatch, &apos;gi&apos;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第一個參數是正規式的內容</li>
+<li>第二個參數是一個flag旗標<ul>
+<li>global search，會去搜尋整份文件</li>
+<li>i 表示 case insensitive，也就是不去區分大小寫</li>
+</ul>
+</li>
+</ul>
+<h3 id="利用正規式找到內容"><a href="#利用正規式找到內容" class="headerlink" title="利用正規式找到內容"></a>利用正規式找到內容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function findMatch(wordToMatch, cities) &#123;</span><br><span class="line">      return cities.filter(place =&gt; &#123;</span><br><span class="line"></span><br><span class="line">        const regex = new RegExp(wordToMatch, &apos;gi&apos;);</span><br><span class="line">        return place.city.match(regex) || place.state.match(regex)</span><br><span class="line"></span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="利用正規式取代內容"><a href="#利用正規式取代內容" class="headerlink" title="利用正規式取代內容"></a>利用正規式取代內容</h3><p>replace() 方法會傳回一個新字串，此新字串是透過將原字串與 pattern 比對，但不會改變原本的字串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const regex = new RegExp(this.value, &apos;gi&apos;);</span><br><span class="line"></span><br><span class="line">const cityName = place.city.replace(regex, </span><br><span class="line">`&lt;span class=&apos;hl&apos;&gt;$&#123;this.value&#125;&lt;/span&gt;`);</span><br><span class="line"></span><br><span class="line">const stateName = place.state.replace(regex, </span><br><span class="line">`&lt;span class=&apos;hl&apos;&gt;$&#123;this.value&#125;&lt;/span&gt;`);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="change-事件和keyup-事件"><a href="#change-事件和keyup-事件" class="headerlink" title="change 事件和keyup 事件"></a>change 事件和keyup 事件</h3><ul>
+<li>keyup 事件 會在任何元素值改變的時候被出發（例如每打一個字都會觸發一次）</li>
+<li>change event 則是會在有元素值改變，且該元素脫離 focus 狀態時才觸發</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">searchInput.addEventListener(&apos;change&apos;, displayMatches);</span><br><span class="line">searchInput.addEventListener(&apos;keyup&apos;, displayMatches);</span><br></pre></td></tr></table></figure>
+
+<h3 id="完成品"><a href="#完成品" class="headerlink" title="完成品"></a>完成品</h3><p><a href="https://codepen.io/Shengzhi/pen/oRVqYa" target="_blank" rel="noopener">https://codepen.io/Shengzhi/pen/oRVqYa</a></p>
+
+        <hr>
+      
+    </div>
+
+    
+
+    
+  </div>
+</article>
+
+
+    <article class="blog-post">
+  
+
+  <div class="post-content">
+    <div class="post-header">
+      
+        
+  
+    <h1 class="post-title">
+      <a href="/2019/06/05/2019-06-05/">
+        AJAX
+      </a>
+    </h1>
+  
+
+      
+    </div>
+    <div class="post-detail">
+      
+        <h3 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h3><p>AJAX並非是一個技術（Technology），而是一種網站設計的架構（Architecture），雖然主要以JavaScript與XML為主，但還包括其它成員，也就是CSS、DOM（Document Object Model）與HTML等，特別是XMLHttpRequest元件，使AJAX能達到非同步資料交換的目的。</p>
+<p>在Jesse Garrett的文章中，對AJAX的定義如下：</p>
+<p>● 使用XHTML與CSS作為展現標準<br>● 使用DOM作為動態顯示與互動<br>● 使用XML與XSLT作為資料交換與運用<br>● 使用XMLHttpRequest作為非同步的資料回饋<br>● 使用JavaScript結合以上所有結果</p>
+<p>採用AJAX，用戶端瀏覽或使用網頁時，如同在個人電腦中的應用程式一樣，不會感覺到網頁與後端伺服器交談過程，以及資料刷新的細節，頁面也不需要換頁，資料的交換等動態動作隱藏在背景執行。簡單地說，AJAX網頁有兩種主要特性：向伺服器發出請求，以及回傳結果時，瀏覽器不需要重新載入所有頁面；藉由XML解析傳遞與交換的資料。例如註冊帳戶時提示帳號已被使用，或者是在搜尋欄跳出相關字詞、購物欄顯示庫存量，這些都是透過 ajax 的方式，不需要重新載入頁面就能完成。</p>
+<h4 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h4><p>首先要產生 XMLHttpRequest()，才能物件跨瀏覽器撈資料，執行 request 之後，就會出現相對的資料。<br><img src="https://i.imgur.com/0cHCAgB.png" alt></p>
+<p>readystate 代表目前狀態</p>
+<pre><code>0-你已經產生一個XMLHttpRequest，但是還沒有連結你要撈的資料
+1-用了open()，但還沒有把資料傳送過去。
+2-偵側到用了send。
+3 - (processing request)資訊處理中。
+4 - (request finished and response is ready)撈到資料，數據完全接收到了。</code></pre><p>以 xhr.open(,,true)來初始設定，需要代入3個參數。第一個參數是發出request 的方式，格式有 get (讀取)、post (發送資料到伺服器)；第二個參數是要讀取的網址；第三個參數是同步與非同步</p>
+<pre><code>var xhr = new XMLHttpRequest();
+// 格式,要讀取的網址,同步與非同步
+// 格式: get(讀取), post(傳送資料到伺服器)
+xhr.open(&quot;get&quot;, &quot;這裡放網址&quot;, true);
+// 空值，單純get，沒有要傳資料，括號中用null
+xhr.send(null);</code></pre><p>如果資料傳輸完畢且成功，在 XMLHttpRequest 中的 readyState 會等於 4，responseText 則是內容。</p>
+
+        <hr>
+      
+    </div>
+
+    
+
+    
+  </div>
+</article>
+
+
+
+
+    </main>
+    
+    <div class="back-to-top" id="back-to-top"><i class="fas fa-arrow-alt-circle-up fa-2x"></i></div>
+
+    <footer class="blog-footer">
+  
+
+
+<hr>
+<div class="blog-footer-friends">
+  <p class="title">FRIENDS</p>
+  <div class="friends">
+  
+    <a href="https://kexin-li.github.io" target="_blank">Mos&#39;s Blog</a>
+  
+  </div>
+</div>
+
+  
+
+
+  <div class="blog-footer-social">
+    <ul>
+      
+        
+          <li><a class="iconfont icon-email" href="mailto:dasd"></a></li>
+        
+      
+        
+          <li><a class="iconfont icon-instagram" href="dasd"></a></li>
+        
+      
+        
+          <li><a class="iconfont icon-douban" href="das"></a></li>
+        
+      
+        
+          <li><a class="iconfont icon-linkedin" href="dsa"></a></li>
+        
+      
+      
+        <li><a class="iconfont icon-rss" href="/atom.xml"></a></li>
+      
+    </ul>
+  </div>
+ 
+  <div class="blog-footer-copyright">
+  <p class="copyright">Copyright © 2018 John Doe. Powered by <a href="https://hexo.io/">Hexo</a> and <a href="https://github.com/Kexin-Li/hexo-theme-cicada">Cicada</a>. <iframe src="https://ghbtns.com/github-btn.html?user=Kexin-Li&repo=hexo-theme-cicada&type=star&count=false&size=small" frameborder="0" scrolling="0" width="58px" height="30px" style="margin-bottom: -15px"></iframe></p>
+</div>
+</footer>
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<!--  -->
+
+
+
+
+<script type="text/javascript" src="/js/cicada.js"></script>
+  </body>
+</html>
