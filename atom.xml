@@ -302,33 +302,6 @@
   </entry>
   
   <entry>
-    <title>克服 JavaScript 的奇怪部份 Day21-框架小叮嚀：預設值</title>
-    <link href="http://yoursite.com/2019/06/06/2019-06-06-3/"/>
-    <id>http://yoursite.com/2019/06/06/2019-06-06-3/</id>
-    <published>2019-06-05T16:00:00.000Z</published>
-    <updated>2019-06-28T07:10:39.134Z</updated>
-    
-    <content type="html"><![CDATA[<p>有時候我們會同時在專案匯入好幾個框架</p><p><img src="https://i.imgur.com/HuW7aRJ.png" alt></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//在 lib1.js設定一個變數</span><br><span class="line"></span><br><span class="line">var libraryName = &quot;lib1&quot;;</span><br><span class="line">`</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//在 lib2.js設定一個同樣名稱的變數</span><br><span class="line">var libraryName = &quot;lib1&quot;;</span><br></pre></td></tr></table></figure><p>當我們回到 app.js 查詢 console.log的時候，這時三個 script 標籤並不會創造新的執行環境，而是直接把程式碼堆在對方上面，然後執行所有的 JavaScript 檔案，好像它們是在同一個檔案裡，在產生檔案的時候，會結合和最小化 JavaScript 程式成為一個檔案，所以讓這三個檔案不互相衝突很重要。</p><p>lib1 和 lib2  都被當成是全域執行環境裡的全域變數，所以宣告 libraryName 在瀏覽器裡會連結到 window 物件，第二個變數則會取代它。可能我們因此不小心讓框架相互衝突了。</p><p>所以我們可以回到 lib2 檢查 libraryName 是否已經在全域執行環境、全域變數裡面。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.libraryName = window.libraryName || &quot;lib2&quot;;</span><br></pre></td></tr></table></figure><p>如果在框架的原始碼裡看到這樣一行程式碼，這是在定義框架的物件或函數，<br>此處在檢查是否已經有一個框架已經在全域執行環境裡有一個在 window 上的全域變數，如果有，就不做任何事情。如果沒有就用 <code>||</code> 運算子設定預設值，因為如果沒有被任何人設值，就會變成 undefined。這樣如果那個名稱已經存在，也不會影響到其它東西。<strong>這樣的一行程式碼，檢查的是全域命名空間（globe namespace)</strong>，看是否有重複的東西，所以它不會造成衝突，或覆蓋它。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;有時候我們會同時在專案匯入好幾個框架&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/HuW7aRJ.png&quot; alt&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutte
-      
-    
-    </summary>
-    
-    
-      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
     <title>calc()</title>
     <link href="http://yoursite.com/2019/06/06/2019-06-06-2/"/>
     <id>http://yoursite.com/2019/06/06/2019-06-06-2/</id>
@@ -368,6 +341,33 @@
       
         &lt;p&gt;let 與 const 用來宣告區塊裡的變數。區塊＝{}。&lt;/p&gt;
 &lt;p&gt;const 是用來宣告不能修改的唯讀變數，不能被變更的變數，例如 url 網址。 但是如果const宣告的變數是一個陣列或物件，則裡面的內容就能夠被修改。為了避免這種狀況，可以利用以下組合式語法：&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>克服 JavaScript 的奇怪部份 Day21-框架小叮嚀：預設值</title>
+    <link href="http://yoursite.com/2019/06/06/2019-06-06-3/"/>
+    <id>http://yoursite.com/2019/06/06/2019-06-06-3/</id>
+    <published>2019-06-05T16:00:00.000Z</published>
+    <updated>2019-06-28T07:10:39.134Z</updated>
+    
+    <content type="html"><![CDATA[<p>有時候我們會同時在專案匯入好幾個框架</p><p><img src="https://i.imgur.com/HuW7aRJ.png" alt></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//在 lib1.js設定一個變數</span><br><span class="line"></span><br><span class="line">var libraryName = &quot;lib1&quot;;</span><br><span class="line">`</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//在 lib2.js設定一個同樣名稱的變數</span><br><span class="line">var libraryName = &quot;lib1&quot;;</span><br></pre></td></tr></table></figure><p>當我們回到 app.js 查詢 console.log的時候，這時三個 script 標籤並不會創造新的執行環境，而是直接把程式碼堆在對方上面，然後執行所有的 JavaScript 檔案，好像它們是在同一個檔案裡，在產生檔案的時候，會結合和最小化 JavaScript 程式成為一個檔案，所以讓這三個檔案不互相衝突很重要。</p><p>lib1 和 lib2  都被當成是全域執行環境裡的全域變數，所以宣告 libraryName 在瀏覽器裡會連結到 window 物件，第二個變數則會取代它。可能我們因此不小心讓框架相互衝突了。</p><p>所以我們可以回到 lib2 檢查 libraryName 是否已經在全域執行環境、全域變數裡面。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.libraryName = window.libraryName || &quot;lib2&quot;;</span><br></pre></td></tr></table></figure><p>如果在框架的原始碼裡看到這樣一行程式碼，這是在定義框架的物件或函數，<br>此處在檢查是否已經有一個框架已經在全域執行環境裡有一個在 window 上的全域變數，如果有，就不做任何事情。如果沒有就用 <code>||</code> 運算子設定預設值，因為如果沒有被任何人設值，就會變成 undefined。這樣如果那個名稱已經存在，也不會影響到其它東西。<strong>這樣的一行程式碼，檢查的是全域命名空間（globe namespace)</strong>，看是否有重複的東西，所以它不會造成衝突，或覆蓋它。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;有時候我們會同時在專案匯入好幾個框架&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/HuW7aRJ.png&quot; alt&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutte
       
     
     </summary>
@@ -433,33 +433,6 @@
   </entry>
   
   <entry>
-    <title>JS 30 Days Flex Panels Image Gallery</title>
-    <link href="http://yoursite.com/2019/06/04/2019-06-04-2/"/>
-    <id>http://yoursite.com/2019/06/04/2019-06-04-2/</id>
-    <published>2019-06-03T16:00:00.000Z</published>
-    <updated>2019-06-28T07:10:04.460Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="使用-CSS-Flex"><a href="#使用-CSS-Flex" class="headerlink" title="使用 CSS Flex"></a>使用 CSS Flex</h3><p><img src="https://i.imgur.com/u4ZbS9k.png" alt></p><p>最外層的父元素 display 要設定為 flex 才會產生作為一個container容器的效果</p><p><img src="https://i.imgur.com/oyl8z9l.png" alt></p><p>設定子元素在畫面上都佔據一樣大小，並且將它設定為另一個container。</p><p>Flex 是可以嵌套的，也就是 flex container 可以同時是其他 flex container 的 flex item。</p><p><img src="https://i.imgur.com/BQzvPM8.png" alt></p><h3 id="設定translate"><a href="#設定translate" class="headerlink" title="設定translate"></a>設定translate</h3><p>文字將會在 Y 軸的上下點擊動態隱藏或出現</p><p><img src="https://i.imgur.com/E9ESH5j.png" alt></p><p>中間的文字將會在點擊時動態放大<br><img src="https://i.imgur.com/8Jxh5oN.png" alt></p><h3 id="綁定多個要監聽事件的元素"><a href="#綁定多個要監聽事件的元素" class="headerlink" title="綁定多個要監聽事件的元素"></a>綁定多個要監聽事件的元素</h3><p>用 document.querySelectorAll(‘’) 來選擇多個符合 css 選擇器的元素：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const panels = document.querySelectorAll(&apos;.panel&apos;);</span><br></pre></td></tr></table></figure><p>一次對多個元素綁定監聽事件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">panels.forEach(panel =&gt; panel.addEventListener(&apos;click&apos;, toggleOpen));</span><br></pre></td></tr></table></figure><h3 id="完成品"><a href="#完成品" class="headerlink" title="完成品"></a>完成品</h3><p><a href="https://" target="_blank" rel="noopener">https://codepen.io/Shengzhi/pen/zQyZZv</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;使用-CSS-Flex&quot;&gt;&lt;a href=&quot;#使用-CSS-Flex&quot; class=&quot;headerlink&quot; title=&quot;使用 CSS Flex&quot;&gt;&lt;/a&gt;使用 CSS Flex&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/u4Zb
-      
-    
-    </summary>
-    
-    
-      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
     <title>JS 30 Days Array Cardio 1</title>
     <link href="http://yoursite.com/2019/06/04/2019-06-04-1/"/>
     <id>http://yoursite.com/2019/06/04/2019-06-04-1/</id>
@@ -482,6 +455,33 @@
       <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS 30 Days Flex Panels Image Gallery</title>
+    <link href="http://yoursite.com/2019/06/04/2019-06-04-2/"/>
+    <id>http://yoursite.com/2019/06/04/2019-06-04-2/</id>
+    <published>2019-06-03T16:00:00.000Z</published>
+    <updated>2019-06-30T10:29:12.780Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="完成品"><a href="#完成品" class="headerlink" title="完成品"></a>完成品</h3><p>(<a href="https://codepen.io/Shengzhi/pen/zQyZZv)[完成品]" target="_blank" rel="noopener">https://codepen.io/Shengzhi/pen/zQyZZv)[完成品]</a></p><h3 id="使用-CSS-Flex"><a href="#使用-CSS-Flex" class="headerlink" title="使用 CSS Flex"></a>使用 CSS Flex</h3><p><img src="https://i.imgur.com/u4ZbS9k.png" alt></p><p>最外層的父元素 display 要設定為 flex 才會產生作為一個container容器的效果</p><p><img src="https://i.imgur.com/oyl8z9l.png" alt></p><p>設定子元素在畫面上都佔據一樣大小，並且將它設定為另一個container。</p><p>Flex 是可以嵌套的，也就是 flex container 可以同時是其他 flex container 的 flex item。</p><p><img src="https://i.imgur.com/BQzvPM8.png" alt></p><h3 id="設定translate"><a href="#設定translate" class="headerlink" title="設定translate"></a>設定translate</h3><p>文字將會在 Y 軸的上下點擊動態隱藏或出現</p><p><img src="https://i.imgur.com/E9ESH5j.png" alt></p><p>中間的文字將會在點擊時動態放大<br><img src="https://i.imgur.com/8Jxh5oN.png" alt></p><h3 id="綁定多個要監聽事件的元素"><a href="#綁定多個要監聽事件的元素" class="headerlink" title="綁定多個要監聽事件的元素"></a>綁定多個要監聽事件的元素</h3><p>用 document.querySelectorAll(‘’) 來選擇多個符合 css 選擇器的元素：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const panels = document.querySelectorAll(&apos;.panel&apos;);</span><br></pre></td></tr></table></figure><p>一次對多個元素綁定監聽事件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">panels.forEach(panel =&gt; panel.addEventListener(&apos;click&apos;, toggleOpen));</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;完成品&quot;&gt;&lt;a href=&quot;#完成品&quot; class=&quot;headerlink&quot; title=&quot;完成品&quot;&gt;&lt;/a&gt;完成品&lt;/h3&gt;&lt;p&gt;(&lt;a href=&quot;https://codepen.io/Shengzhi/pen/zQyZZv)[完成品]&quot; target=&quot;_b
+      
+    
+    </summary>
+    
+    
+      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
     
   </entry>
   
@@ -514,21 +514,20 @@
   </entry>
   
   <entry>
-    <title>克服 JavaScript 的奇怪部份 Day18-比較運算子</title>
-    <link href="http://yoursite.com/2019/06/02/2019-06-02-2/"/>
-    <id>http://yoursite.com/2019/06/02/2019-06-02-2/</id>
+    <title>map() 和 forEach() 的差別在哪？</title>
+    <link href="http://yoursite.com/2019/06/02/2019-06-02-1/"/>
+    <id>http://yoursite.com/2019/06/02/2019-06-02-1/</id>
     <published>2019-06-01T16:00:00.000Z</published>
-    <updated>2019-06-28T07:09:42.277Z</updated>
+    <updated>2019-06-28T06:28:51.306Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="https://i.imgur.com/nXsANCQ.png" alt></p><p>以上的小於運算子範例，我們會預設結果為true<br><img src="https://i.imgur.com/UKOtGd6.png" alt></p><p>但是這個例子竟然也是 true ? 這可以用運算子優先性和相依性來解釋。這兩個運算子的優先性一樣，所以用相依性來決定執行順序，所以相依性是從左到右，左邊先執行。所以是 <code>3&lt;2</code> 先執行，並且得出false。</p><p><img src="https://i.imgur.com/iWqjiWq.png" alt></p><p>接下來，因為運算子遇到兩個不同型別的比較，這裡是一個布林值與數字，所以布林被強制型轉為數字。</p><p><img src="https://i.imgur.com/KWKIkuW.png" alt></p><p>我們可以用內建函數查詢，發現 false 被型轉為數字 0。所以 0&lt;1 得到為true 的結果，因為由相依性決定的函數運算子執行順序及值的強制型轉。所以需要注意的是，Javascript並不是以我們直覺的邏輯在運作，強制型轉可能會得出一些人類直覺看來詭異的結果，但在Javascript卻是非常正常的狀況。</p><p><img src="https://i.imgur.com/pG6N0X4.png" alt></p><p>NaN 表示有一個東西想要轉換成數值型別，但他不是數字，所以無法型轉。<br><img src="https://i.imgur.com/BrIaVDQ.png" alt></p><p>所以我們在特殊狀況下不要型轉不就好了嗎？只要看兩者是否相等即可？</p><p><img src="https://i.imgur.com/sUyX9ZE.png" alt></p><p>但這會造成一些奇怪的狀況，例如以下很難除錯的情況<br><img src="https://i.imgur.com/idnQg9d.png" alt><br><img src="https://i.imgur.com/F2KgSgv.png" alt></p><p>為了避免這種狀況，可以用 <code>===</code> (強制等於）或 <code>!==</code> (強制不等於) 來避免強制型轉的狀況。 三個等號這個內建函數會判定兩者是不同型別，所以不相等，這可以避免一些奇怪的潛在錯誤。</p><p><img src="https://i.imgur.com/xRIfkSx.png" alt></p><p>如果只用雙等號，以下兩個值就會被強制型轉，如果用三等號，因為他們型別不同</p><p><img src="https://i.imgur.com/cDiWKw5.png" alt></p><p>所以要注意，最好用三等號來比較相等性。</p>]]></content>
+    <content type="html"><![CDATA[<p>兩種方法都會遍歷陣列的元素。map() 方法會建立一個新的陣列，其內容為原陣列的每一個元素經由回呼函式運算後所回傳的結果之集合。但是forEach不會建立新陣列，只會將原先陣列內的每個元素，皆傳入並執行給定的函式一次。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var array1 = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</span><br><span class="line"></span><br><span class="line">array1.forEach(function(element) &#123;</span><br><span class="line">  console.log(element);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// expected output: &quot;a&quot;</span><br><span class="line">// expected output: &quot;b&quot;</span><br><span class="line">// expected output: &quot;c&quot;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var array1 = [1, 4, 9, 16];</span><br><span class="line"></span><br><span class="line">// pass a function to map</span><br><span class="line">const map1 = array1.map(x =&gt; x * 2);</span><br><span class="line"></span><br><span class="line">console.log(map1);</span><br><span class="line">// expected output: Array [2, 8, 18, 32]</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/nXsANCQ.png&quot; alt&gt;&lt;/p&gt;
-&lt;p&gt;以上的小於運算子範例，我們會預設結果為true&lt;br&gt;&lt;img src=&quot;https://i.imgur.com/UKOtGd6.png&quot; alt&gt;&lt;/p&gt;
-&lt;p&gt;
+        &lt;p&gt;兩種方法都會遍歷陣列的元素。map() 方法會建立一個新的陣列，其內容為原陣列的每一個元素經由回呼函式運算後所回傳的結果之集合。但是forEach不會建立新陣列，只會將原先陣列內的每個元素，皆傳入並執行給定的函式一次。&lt;/p&gt;
+&lt;figure class=&quot;highligh
       
     
     </summary>
