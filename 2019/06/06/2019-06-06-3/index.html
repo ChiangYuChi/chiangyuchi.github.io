@@ -10,7 +10,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.libraryName = window.libraryName || &quot;lib2&quot;;</span><br></pre></td></tr></table></figure>
 
 <p>如果在框架的原始碼裡看到這樣一行程式碼，這是在定義框架的物件或函數，<br>此處在檢查是否已經有一個框架已經在全域執行環境裡有一個在 window 上的全域變數，如果有，就不做任何事情。如果沒有就用 <code>||</code> 運算子設定預設值，因為如果沒有被任何人設值，就會變成 undefined。這樣如果那個名稱已經存在，也不會影響到其它東西。<strong>這樣的一行程式碼，檢查的是全域命名空間（globe namespace)</strong>，看是否有重複的東西，所以它不會造成衝突，或覆蓋它。</p>
-</div></article></div></main><footer><div class="paginator"><a href="/2019/06/07/2019-06-07/" class="prev">PREV</a><a href="/2019/06/06/2019-06-06-2/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
+</div></article></div></main><footer><div class="paginator"><a href="/2019/06/06/2019-06-06-2/" class="prev">PREV</a><a href="/2019/06/06/2019-06-06-1/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
 var disqus_identifier = '2019/06/06/2019-06-06-3/';
 var disqus_title = '克服 JavaScript 的奇怪部份 Day21-框架小叮嚀：預設值';
 var disqus_url = 'http://yoursite.com/2019/06/06/2019-06-06-3/';
