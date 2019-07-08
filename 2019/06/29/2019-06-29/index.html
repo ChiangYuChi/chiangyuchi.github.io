@@ -33,7 +33,7 @@
 <p>這個例子中的等號，我設定 <code>c</code> 為一個新的值，等號運算子會設定一個新的記憶體空間給<code>c</code>，放進那個值，所以 <code>d</code> 和<code>c</code>就不再指向同一個記憶體位址。 <code>d</code> 仍然指向 hola。<br><img src="https://i.imgur.com/uxDDUlL.png" alt></p>
 <p>這是一個特殊例子，這不是 by reference，因為等號運算子看到這些東西還不存在於記憶體裡面，它看到第二個參數不是已經存在的物件，它必須創造一個新的記憶體空間給物件，所以它建立一個新的空間，然後指向 <code>c</code>。在上個例子中我設定<code>d</code> 等於 <code>c</code>，<code>c</code>已經存在了。但在這個例子中， <code>c</code>現在指向不同於<code>d</code>的記憶體位址。</p>
 <h3 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h3><p>了解 by value 和 by reference 的差異很重要，因為在 JavaScript 裡面所有的純值都是  by value 而所有的物件都是 by reference。這在除錯時是非常重要的關鍵觀念。但是了解之後，就會知道當物件被改變了，那所有的物件、所有的變數，指向相同位址的東西都會被改變。所以屆時我們就可以了解，如果不小心無意改變了物件，那可能是傳入了這個物件的參考點而不自知。另一方面，改變一個純值，但原始的值並不會被改變，因為它是 by value。</p>
-</div></article></div></main><footer><div class="paginator"><a href="/2019/06/25/2019-06-25/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
+</div></article></div></main><footer><div class="paginator"><a href="/2019/07/08/2019-7-08/" class="prev">PREV</a><a href="/2019/06/25/2019-06-25/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
 var disqus_identifier = '2019/06/29/2019-06-29/';
 var disqus_title = '克服 JavaScript 的奇怪部份 Day28-傳值與參考值';
 var disqus_url = 'http://yoursite.com/2019/06/29/2019-06-29/';
