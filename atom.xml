@@ -330,31 +330,6 @@
   </entry>
   
   <entry>
-    <title>calc()</title>
-    <link href="http://yoursite.com/2019/06/06/2019-06-06-2/"/>
-    <id>http://yoursite.com/2019/06/06/2019-06-06-2/</id>
-    <published>2019-06-05T16:00:00.000Z</published>
-    <updated>2019-06-28T06:29:57.739Z</updated>
-    
-    <content type="html"><![CDATA[<p>calc() 這個 function 需要傳入 1 個加減乘除的運算式，在設定 width、height 這種 <length> 相關的屬性時， 在不同單位間也可以進行運算，如剛剛上面的範例：width: calc(100% - 50px);。calc() 的運算式一樣是按照先乘除後加減進行計算，如果需要進行複雜的運算，在 calc() 裡面也可以再加入括號 ()，就可以設為括號先決裡面的先算。</length></p><ul><li>+：加</li><li>-：減</li><li>*：乘。其中一個運算參數必須是數字 (number)</li><li>/：除。除數必須是數字，除數不可為零，會造成 HTML 解析錯誤。</li></ul><p>必須注意在使用 + 和 - 的時候，在前後一定要加上空白，不然會被誤為是給了個負值。* 和 / 可以不用加，但為了格式統一方便和閱讀建議還是加一下。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">width: calc(50% + 8px)</span><br><span class="line">/* 意思是 50% 的寬度 + 上 8px */</span><br><span class="line">width: calc(50% + -8px)</span><br><span class="line">/* 意思是 50% 的寬度 + 上 -8px，也等於 &apos;50% - 8px&apos; */</span><br></pre></td></tr></table></figure><h3 id="Example-應用範例"><a href="#Example-應用範例" class="headerlink" title="Example 應用範例"></a>Example 應用範例</h3><h4 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h4><p>calc() 可以用來定位，如下面所設定的 CSS，就能作出一個滿版的藍色 banner 區塊有固定 40px 的邊距，也是一種將區塊置中的寫法。</p><p><img src="https://i.imgur.com/2XfqtR9.png" alt></p><h4 id="根據父層容器尺寸自動調整尺寸"><a href="#根據父層容器尺寸自動調整尺寸" class="headerlink" title="根據父層容器尺寸自動調整尺寸"></a>根據父層容器尺寸自動調整尺寸</h4><p>設定 width 或 height 屬性使用 calc() 計算的數字是 100% 的時候，會自動去抓父層容器的尺寸。例如：做 autocomplete 的時候，希望在輸入框下，出現和輸入框等寬的列表：</p><p>由於 CSS 在加上 border、padding 的時候都是從原本設定得尺寸再往外加，所以長出來的東西看起來的尺寸會比原本設定的 width 還要大，因此要做到 ul 和 input 等寬的結果，在 input 加上的 padding 和 border 在算 ul 的 width 的時候也要幫他算進去，所以 ul { width: calc(100% + 1rem + 1rem + 2px + 2px); } 指的是：符合父容器的 100% 寬度，加上 input 的 padding-left: 1rem 和 padding-right: 1rem，再加上 border-left: 2px 和 border-right: 2px。</p><p>用 calc() 計算尺寸非常方便，即使不同單位也沒有問題。</p><p><img src="https://i.imgur.com/8kRhxLf.png" alt></p><h4 id="將-calc-巢狀包入-CSS-變數中"><a href="#將-calc-巢狀包入-CSS-變數中" class="headerlink" title="將 calc() 巢狀包入 CSS 變數中"></a>將 calc() 巢狀包入 CSS 變數中</h4><p>只要用括號 () 包好包滿，就可以無限次使用 calc() 方法，會一層一層從括號裡面計算出來。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.foo &#123;</span><br><span class="line">  --widthA: 100px;</span><br><span class="line">  --widthB: calc(var(--widthA) / 2);</span><br><span class="line">  --widthC: calc(var(--widthB) / 2);</span><br><span class="line">  width: var(--widthC);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在上面這段程式碼裡面展開所有變數之後 widthC 就等於：</p><p>–widthC: calc( calc( 100px / 2) / 2)</p><p>所以 .foo 的 width 最後算出來的值就是 25px。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;calc() 這個 function 需要傳入 1 個加減乘除的運算式，在設定 width、height 這種 &lt;length&gt; 相關的屬性時， 在不同單位間也可以進行運算，如剛剛上面的範例：width: calc(100% - 50px);。calc() 的運算式一樣是按
-      
-    
-    </summary>
-    
-    
-      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
-    
-      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
     <title>克服 JavaScript 的奇怪部份 Day21-框架小叮嚀：預設值</title>
     <link href="http://yoursite.com/2019/06/06/2019-06-06-3/"/>
     <id>http://yoursite.com/2019/06/06/2019-06-06-3/</id>
@@ -378,6 +353,31 @@
       <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>calc()</title>
+    <link href="http://yoursite.com/2019/06/06/2019-06-06-2/"/>
+    <id>http://yoursite.com/2019/06/06/2019-06-06-2/</id>
+    <published>2019-06-05T16:00:00.000Z</published>
+    <updated>2019-06-28T06:29:57.739Z</updated>
+    
+    <content type="html"><![CDATA[<p>calc() 這個 function 需要傳入 1 個加減乘除的運算式，在設定 width、height 這種 <length> 相關的屬性時， 在不同單位間也可以進行運算，如剛剛上面的範例：width: calc(100% - 50px);。calc() 的運算式一樣是按照先乘除後加減進行計算，如果需要進行複雜的運算，在 calc() 裡面也可以再加入括號 ()，就可以設為括號先決裡面的先算。</length></p><ul><li>+：加</li><li>-：減</li><li>*：乘。其中一個運算參數必須是數字 (number)</li><li>/：除。除數必須是數字，除數不可為零，會造成 HTML 解析錯誤。</li></ul><p>必須注意在使用 + 和 - 的時候，在前後一定要加上空白，不然會被誤為是給了個負值。* 和 / 可以不用加，但為了格式統一方便和閱讀建議還是加一下。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">width: calc(50% + 8px)</span><br><span class="line">/* 意思是 50% 的寬度 + 上 8px */</span><br><span class="line">width: calc(50% + -8px)</span><br><span class="line">/* 意思是 50% 的寬度 + 上 -8px，也等於 &apos;50% - 8px&apos; */</span><br></pre></td></tr></table></figure><h3 id="Example-應用範例"><a href="#Example-應用範例" class="headerlink" title="Example 應用範例"></a>Example 應用範例</h3><h4 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h4><p>calc() 可以用來定位，如下面所設定的 CSS，就能作出一個滿版的藍色 banner 區塊有固定 40px 的邊距，也是一種將區塊置中的寫法。</p><p><img src="https://i.imgur.com/2XfqtR9.png" alt></p><h4 id="根據父層容器尺寸自動調整尺寸"><a href="#根據父層容器尺寸自動調整尺寸" class="headerlink" title="根據父層容器尺寸自動調整尺寸"></a>根據父層容器尺寸自動調整尺寸</h4><p>設定 width 或 height 屬性使用 calc() 計算的數字是 100% 的時候，會自動去抓父層容器的尺寸。例如：做 autocomplete 的時候，希望在輸入框下，出現和輸入框等寬的列表：</p><p>由於 CSS 在加上 border、padding 的時候都是從原本設定得尺寸再往外加，所以長出來的東西看起來的尺寸會比原本設定的 width 還要大，因此要做到 ul 和 input 等寬的結果，在 input 加上的 padding 和 border 在算 ul 的 width 的時候也要幫他算進去，所以 ul { width: calc(100% + 1rem + 1rem + 2px + 2px); } 指的是：符合父容器的 100% 寬度，加上 input 的 padding-left: 1rem 和 padding-right: 1rem，再加上 border-left: 2px 和 border-right: 2px。</p><p>用 calc() 計算尺寸非常方便，即使不同單位也沒有問題。</p><p><img src="https://i.imgur.com/8kRhxLf.png" alt></p><h4 id="將-calc-巢狀包入-CSS-變數中"><a href="#將-calc-巢狀包入-CSS-變數中" class="headerlink" title="將 calc() 巢狀包入 CSS 變數中"></a>將 calc() 巢狀包入 CSS 變數中</h4><p>只要用括號 () 包好包滿，就可以無限次使用 calc() 方法，會一層一層從括號裡面計算出來。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.foo &#123;</span><br><span class="line">  --widthA: 100px;</span><br><span class="line">  --widthB: calc(var(--widthA) / 2);</span><br><span class="line">  --widthC: calc(var(--widthB) / 2);</span><br><span class="line">  width: var(--widthC);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在上面這段程式碼裡面展開所有變數之後 widthC 就等於：</p><p>–widthC: calc( calc( 100px / 2) / 2)</p><p>所以 .foo 的 width 最後算出來的值就是 25px。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;calc() 這個 function 需要傳入 1 個加減乘除的運算式，在設定 width、height 這種 &lt;length&gt; 相關的屬性時， 在不同單位間也可以進行運算，如剛剛上面的範例：width: calc(100% - 50px);。calc() 的運算式一樣是按
+      
+    
+    </summary>
+    
+    
+      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
     
   </entry>
   
@@ -435,6 +435,32 @@
   </entry>
   
   <entry>
+    <title>克服 JavaScript 的奇怪部份 Day20-預設值</title>
+    <link href="http://yoursite.com/2019/06/04/2019-06-04-3/"/>
+    <id>http://yoursite.com/2019/06/04/2019-06-04-3/</id>
+    <published>2019-06-03T16:00:00.000Z</published>
+    <updated>2019-06-28T07:10:10.422Z</updated>
+    
+    <content type="html"><![CDATA[<p>運算子的強制型轉特性，在一些框架或JS程式裡究竟有什麼比較常見的用處？</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function greet(name) &#123;</span><br><span class="line">    console.log(&apos;hello&apos; + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet();</span><br></pre></td></tr></table></figure><p>假使呼叫 greet的時候 沒有參數，在 Javascript 並不會報錯，它會當做<br>name 沒有東西。所以如果 <code>console.log(name)</code> </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function greet(name) &#123;</span><br><span class="line">    console.log(&apos;name&apos;);</span><br><span class="line">    console.log(&apos;hello&apos; + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet();</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/izhIPGe.png" alt></p><p>結果出現 undefined，因為函數被呼叫的時候，一個新的執行環境被創造，然後這個變數<code>name</code> 是在函數內被創造，雖然傳入的值是在呼叫階段被設定，但這個變數在記憶體內已被設定為undefined。</p><p>所以加號運算子，當看到字串加上一個變數和值為undefined的name，它會將純值undefined強制型轉為字串。</p><p>既然我們已經了解運算子和強制型轉如何作用，所以雖然這非理想的行為，但也非完全無法預期的行為。但我們究竟該怎麼做呢？假設我們想要給參數<code>name</code> 一個預設值。</p><h3 id="設定預設值"><a href="#設定預設值" class="headerlink" title="設定預設值"></a>設定預設值</h3><p>如果 undefined 是函數被呼叫時最終的值，因為運算子只是會回傳值的函數，所以這個 <code>||</code>  運算子不只是回傳 true 或 false，它的特殊行為是，如果傳入 2 個可以被型轉為布林值的，它會回傳其中一個被轉型為true的值。</p><p><img src="https://i.imgur.com/O8CA6od.png" alt></p><p><img src="https://i.imgur.com/G7Ma9sN.png" alt></p><p>所以可以用這個運算子來表示，如果一個東西不存在、null 或空字串，就給我另一個。運用<code>||</code> 運算子，讓函數傳入的參數假如沒有值或不存在、空字串等狀況時，就回傳預設值給等號運算子。因為優先性，所以 <code>｜｜</code> 會比等號先執行。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function greet(name) &#123;</span><br><span class="line">   name = name || &apos;&lt;Your name here&gt;&apos;;</span><br><span class="line">    console.log(&apos;hello&apos; + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(&apos;tony&apos;);</span><br><span class="line">greet();</span><br><span class="line">greet(0);</span><br></pre></td></tr></table></figure><p>第一次呼叫的時候傳入參數tony，第二次呼叫則沒有參數。當傳入參數tony時，<code>name=name</code> 會強制型轉為true，所以不會回傳右邊的預設值。比起 if 陳述句，用 <code>｜｜</code> 表達一行預設值的程式碼會更為簡潔。但還是需要注意 0 的狀況。如果傳入 0 呼叫 greet，0 會被轉換為 false，還是會得到預設值。</p><p><img src="https://i.imgur.com/5fNw52i.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;運算子的強制型轉特性，在一些框架或JS程式裡究竟有什麼比較常見的用處？&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br
+      
+    
+    </summary>
+    
+    
+      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JS 30 Days Flex Panels Image Gallery</title>
     <link href="http://yoursite.com/2019/06/04/2019-06-04-2/"/>
     <id>http://yoursite.com/2019/06/04/2019-06-04-2/</id>
@@ -476,32 +502,6 @@
       
         &lt;p&gt;這一天的課程主要說明運用 Array 是 Javascript 很重要的環節，像是 filter、map、sort、reduce。&lt;/p&gt;
 &lt;h3 id=&quot;範例-1&quot;&gt;&lt;a href=&quot;#範例-1&quot; class=&quot;headerlink&quot; title=&quot;範例 1&quot;&gt;&lt;/a&gt;範
-      
-    
-    </summary>
-    
-    
-      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>克服 JavaScript 的奇怪部份 Day20-預設值</title>
-    <link href="http://yoursite.com/2019/06/04/2019-06-04-3/"/>
-    <id>http://yoursite.com/2019/06/04/2019-06-04-3/</id>
-    <published>2019-06-03T16:00:00.000Z</published>
-    <updated>2019-06-28T07:10:10.422Z</updated>
-    
-    <content type="html"><![CDATA[<p>運算子的強制型轉特性，在一些框架或JS程式裡究竟有什麼比較常見的用處？</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function greet(name) &#123;</span><br><span class="line">    console.log(&apos;hello&apos; + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet();</span><br></pre></td></tr></table></figure><p>假使呼叫 greet的時候 沒有參數，在 Javascript 並不會報錯，它會當做<br>name 沒有東西。所以如果 <code>console.log(name)</code> </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function greet(name) &#123;</span><br><span class="line">    console.log(&apos;name&apos;);</span><br><span class="line">    console.log(&apos;hello&apos; + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet();</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/izhIPGe.png" alt></p><p>結果出現 undefined，因為函數被呼叫的時候，一個新的執行環境被創造，然後這個變數<code>name</code> 是在函數內被創造，雖然傳入的值是在呼叫階段被設定，但這個變數在記憶體內已被設定為undefined。</p><p>所以加號運算子，當看到字串加上一個變數和值為undefined的name，它會將純值undefined強制型轉為字串。</p><p>既然我們已經了解運算子和強制型轉如何作用，所以雖然這非理想的行為，但也非完全無法預期的行為。但我們究竟該怎麼做呢？假設我們想要給參數<code>name</code> 一個預設值。</p><h3 id="設定預設值"><a href="#設定預設值" class="headerlink" title="設定預設值"></a>設定預設值</h3><p>如果 undefined 是函數被呼叫時最終的值，因為運算子只是會回傳值的函數，所以這個 <code>||</code>  運算子不只是回傳 true 或 false，它的特殊行為是，如果傳入 2 個可以被型轉為布林值的，它會回傳其中一個被轉型為true的值。</p><p><img src="https://i.imgur.com/O8CA6od.png" alt></p><p><img src="https://i.imgur.com/G7Ma9sN.png" alt></p><p>所以可以用這個運算子來表示，如果一個東西不存在、null 或空字串，就給我另一個。運用<code>||</code> 運算子，讓函數傳入的參數假如沒有值或不存在、空字串等狀況時，就回傳預設值給等號運算子。因為優先性，所以 <code>｜｜</code> 會比等號先執行。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function greet(name) &#123;</span><br><span class="line">   name = name || &apos;&lt;Your name here&gt;&apos;;</span><br><span class="line">    console.log(&apos;hello&apos; + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(&apos;tony&apos;);</span><br><span class="line">greet();</span><br><span class="line">greet(0);</span><br></pre></td></tr></table></figure><p>第一次呼叫的時候傳入參數tony，第二次呼叫則沒有參數。當傳入參數tony時，<code>name=name</code> 會強制型轉為true，所以不會回傳右邊的預設值。比起 if 陳述句，用 <code>｜｜</code> 表達一行預設值的程式碼會更為簡潔。但還是需要注意 0 的狀況。如果傳入 0 呼叫 greet，0 會被轉換為 false，還是會得到預設值。</p><p><img src="https://i.imgur.com/5fNw52i.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;運算子的強制型轉特性，在一些框架或JS程式裡究竟有什麼比較常見的用處？&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br
       
     
     </summary>
