@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en.yml"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Vue 基礎概念-2 methods 與 computed 的使用情境 · Hexo</title><meta name="description" content="Vue 基礎概念-2 methods 與 computed 的使用情境 - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Hexo"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/ChiangYuChi" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Vue 基礎概念-2 methods 與 computed 的使用情境</h1><div class="post-info">Jul 9, 2019</div><div class="post-content"><p>computed 方法，會將結果直接回傳存到變數裡面，而且這個變數可以直接使用在畫面上。在 computed 內的任何屬性都是 function 。 原始 data 結構的值若更動時，computed 裡面的值才會跟著更動。- computed 是在監控資料更動後，重新運算結果呈現於畫面上，一般來說不會修改資料，只會回傳用於畫面呈現的資料。- methods 就是互動的函式，需要觸發才會運作會用來修改資料內容</p>
+<ul>
+<li>methods 就是互動的函式，需要觸發才會運作<br>會用來修改資料內容</li>
+</ul>
+<pre><code>
+&lt;div id=&quot;app&quot;&gt;
+          &lt;input type=&quot;text&quot; class=&quot;form-control&quot; v-model=&quot;text&quot;&gt;
+          &lt;button class=&quot;btn btn-primary mt-1&quot;&gt;反轉字串&lt;/button&gt;
+          &lt;div class=&quot;mt-3&quot;&gt;
+            &lt;!-- {{ text.split('').reverse().join('') }}  表達式太冗長可以直接代替成computed裡的屬性結果會相同--&gt;
+            {{reverseText}}
+          &lt;/div&gt;
+          {{reverseText}}
+        &lt;/div&gt;
+&lt;/div&gt;
+
+  &lt;script&gt;
+          var app = new Vue({
+            el: &apos;#app&apos;,
+            data: {
+              text: &apos;&apos;,
+              newText: &apos;&apos;
+            },
+            // 請在此撰寫 JavaScript
+            computed: {
+              reverseText: function () {
+                return this.text.split(&apos;&apos;).reverse().join(&apos;&apos;);
+
+
+              } 
+            },
+          });
+  &lt;/script&gt;
+</code></pre></div></article></div></main><footer><div class="paginator"><a href="/2019/07/10/2019-07-10-2/" class="prev">PREV</a><a href="/2019/07/09/2019-07-09/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
+var disqus_identifier = '2019/07/09/2019-07-10-1/';
+var disqus_title = 'Vue 基礎概念-2 methods 與 computed 的使用情境';
+var disqus_url = 'http://yoursite.com/2019/07/09/2019-07-10-1/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//chiangyuchi.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2019 <a href="http://yoursite.com">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
