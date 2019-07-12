@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>CYC&#39;s Blog</title>
   
   
   <link href="/atom.xml" rel="self"/>
@@ -471,21 +471,20 @@
   </entry>
   
   <entry>
-    <title>克服 JavaScript 的奇怪部份 Day21-框架小叮嚀：預設值</title>
-    <link href="http://yoursite.com/2019/06/06/2019-06-06-3/"/>
-    <id>http://yoursite.com/2019/06/06/2019-06-06-3/</id>
+    <title>let 與 const 的差異</title>
+    <link href="http://yoursite.com/2019/06/06/2019-06-06-1/"/>
+    <id>http://yoursite.com/2019/06/06/2019-06-06-1/</id>
     <published>2019-06-05T16:00:00.000Z</published>
-    <updated>2019-06-28T07:10:39.134Z</updated>
+    <updated>2019-07-04T05:36:19.423Z</updated>
     
-    <content type="html"><![CDATA[<p>有時候我們會同時在專案匯入好幾個框架</p><p><img src="https://i.imgur.com/HuW7aRJ.png" alt></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//在 lib1.js設定一個變數</span><br><span class="line"></span><br><span class="line">var libraryName = &quot;lib1&quot;;</span><br><span class="line">`</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//在 lib2.js設定一個同樣名稱的變數</span><br><span class="line">var libraryName = &quot;lib1&quot;;</span><br></pre></td></tr></table></figure><p>當我們回到 app.js 查詢 console.log的時候，這時三個 script 標籤並不會創造新的執行環境，而是直接把程式碼堆在對方上面，然後執行所有的 JavaScript 檔案，好像它們是在同一個檔案裡，在產生檔案的時候，會結合和最小化 JavaScript 程式成為一個檔案，所以讓這三個檔案不互相衝突很重要。</p><p>lib1 和 lib2  都被當成是全域執行環境裡的全域變數，所以宣告 libraryName 在瀏覽器裡會連結到 window 物件，第二個變數則會取代它。可能我們因此不小心讓框架相互衝突了。</p><p>所以我們可以回到 lib2 檢查 libraryName 是否已經在全域執行環境、全域變數裡面。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.libraryName = window.libraryName || &quot;lib2&quot;;</span><br></pre></td></tr></table></figure><p>如果在框架的原始碼裡看到這樣一行程式碼，這是在定義框架的物件或函數，<br>此處在檢查是否已經有一個框架已經在全域執行環境裡有一個在 window 上的全域變數，如果有，就不做任何事情。如果沒有就用 <code>||</code> 運算子設定預設值，因為如果沒有被任何人設值，就會變成 undefined。這樣如果那個名稱已經存在，也不會影響到其它東西。<strong>這樣的一行程式碼，檢查的是全域命名空間（globe namespace)</strong>，看是否有重複的東西，所以它不會造成衝突，或覆蓋它。</p>]]></content>
+    <content type="html"><![CDATA[<p>let 與 const 用來宣告區塊裡的變數。區塊＝{}。</p><p>const 是用來宣告不能修改的唯讀變數，不能被變更的變數，例如 url 網址。 但是如果const宣告的變數是一個陣列或物件，則裡面的內容就能夠被修改。為了避免這種狀況，可以利用以下組合式語法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const obj =&#123;</span><br><span class="line">url:&apos;http://xx.com&apos;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.freeze(obj);</span><br></pre></td></tr></table></figure><p>要注意以下用法：</p><p>一、向上提昇</p><p>var 有向上提昇的特性</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(a);</span><br><span class="line">var a = 3;</span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/JyQieMi.png" alt></p><p>但是const 與 let 不具備這種特性</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(a);</span><br><span class="line">let a = 3;</span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/E2O0ewE.png" alt></p><p>二、同個區塊上不能重複命名</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var a = 3;</span><br><span class="line">var a=4;</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/AcOtZb7.png" alt></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">let a = 3;</span><br><span class="line">let a=4;</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/VtV0tHG.png" alt></p><p>三、無法繼承到全域變數</p><p>let與const在ES6就是為了避免var會干擾全域變數的特性，因此不能使用在全域變數。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let a = 3;</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/8hZizyC.png" alt></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var b = 3;</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/MXAMKvG.png" alt></p><p>延伸閱讀<br><a href="https://ithelp.ithome.com.tw/articles/10185142" target="_blank" rel="noopener">https://ithelp.ithome.com.tw/articles/10185142</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;有時候我們會同時在專案匯入好幾個框架&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/HuW7aRJ.png&quot; alt&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutte
+        &lt;p&gt;let 與 const 用來宣告區塊裡的變數。區塊＝{}。&lt;/p&gt;
+&lt;p&gt;const 是用來宣告不能修改的唯讀變數，不能被變更的變數，例如 url 網址。 但是如果const宣告的變數是一個陣列或物件，則裡面的內容就能夠被修改。為了避免這種狀況，可以利用以下組合式語法：&lt;/
       
     
     </summary>
@@ -523,20 +522,21 @@
   </entry>
   
   <entry>
-    <title>let 與 const 的差異</title>
-    <link href="http://yoursite.com/2019/06/06/2019-06-06-1/"/>
-    <id>http://yoursite.com/2019/06/06/2019-06-06-1/</id>
+    <title>克服 JavaScript 的奇怪部份 Day21-框架小叮嚀：預設值</title>
+    <link href="http://yoursite.com/2019/06/06/2019-06-06-3/"/>
+    <id>http://yoursite.com/2019/06/06/2019-06-06-3/</id>
     <published>2019-06-05T16:00:00.000Z</published>
-    <updated>2019-07-04T05:36:19.423Z</updated>
+    <updated>2019-06-28T07:10:39.134Z</updated>
     
-    <content type="html"><![CDATA[<p>let 與 const 用來宣告區塊裡的變數。區塊＝{}。</p><p>const 是用來宣告不能修改的唯讀變數，不能被變更的變數，例如 url 網址。 但是如果const宣告的變數是一個陣列或物件，則裡面的內容就能夠被修改。為了避免這種狀況，可以利用以下組合式語法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const obj =&#123;</span><br><span class="line">url:&apos;http://xx.com&apos;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.freeze(obj);</span><br></pre></td></tr></table></figure><p>要注意以下用法：</p><p>一、向上提昇</p><p>var 有向上提昇的特性</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(a);</span><br><span class="line">var a = 3;</span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/JyQieMi.png" alt></p><p>但是const 與 let 不具備這種特性</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(a);</span><br><span class="line">let a = 3;</span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/E2O0ewE.png" alt></p><p>二、同個區塊上不能重複命名</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var a = 3;</span><br><span class="line">var a=4;</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/AcOtZb7.png" alt></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">let a = 3;</span><br><span class="line">let a=4;</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/VtV0tHG.png" alt></p><p>三、無法繼承到全域變數</p><p>let與const在ES6就是為了避免var會干擾全域變數的特性，因此不能使用在全域變數。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let a = 3;</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/8hZizyC.png" alt></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var b = 3;</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/MXAMKvG.png" alt></p><p>延伸閱讀<br><a href="https://ithelp.ithome.com.tw/articles/10185142" target="_blank" rel="noopener">https://ithelp.ithome.com.tw/articles/10185142</a></p>]]></content>
+    <content type="html"><![CDATA[<p>有時候我們會同時在專案匯入好幾個框架</p><p><img src="https://i.imgur.com/HuW7aRJ.png" alt></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//在 lib1.js設定一個變數</span><br><span class="line"></span><br><span class="line">var libraryName = &quot;lib1&quot;;</span><br><span class="line">`</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//在 lib2.js設定一個同樣名稱的變數</span><br><span class="line">var libraryName = &quot;lib1&quot;;</span><br></pre></td></tr></table></figure><p>當我們回到 app.js 查詢 console.log的時候，這時三個 script 標籤並不會創造新的執行環境，而是直接把程式碼堆在對方上面，然後執行所有的 JavaScript 檔案，好像它們是在同一個檔案裡，在產生檔案的時候，會結合和最小化 JavaScript 程式成為一個檔案，所以讓這三個檔案不互相衝突很重要。</p><p>lib1 和 lib2  都被當成是全域執行環境裡的全域變數，所以宣告 libraryName 在瀏覽器裡會連結到 window 物件，第二個變數則會取代它。可能我們因此不小心讓框架相互衝突了。</p><p>所以我們可以回到 lib2 檢查 libraryName 是否已經在全域執行環境、全域變數裡面。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.libraryName = window.libraryName || &quot;lib2&quot;;</span><br></pre></td></tr></table></figure><p>如果在框架的原始碼裡看到這樣一行程式碼，這是在定義框架的物件或函數，<br>此處在檢查是否已經有一個框架已經在全域執行環境裡有一個在 window 上的全域變數，如果有，就不做任何事情。如果沒有就用 <code>||</code> 運算子設定預設值，因為如果沒有被任何人設值，就會變成 undefined。這樣如果那個名稱已經存在，也不會影響到其它東西。<strong>這樣的一行程式碼，檢查的是全域命名空間（globe namespace)</strong>，看是否有重複的東西，所以它不會造成衝突，或覆蓋它。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;let 與 const 用來宣告區塊裡的變數。區塊＝{}。&lt;/p&gt;
-&lt;p&gt;const 是用來宣告不能修改的唯讀變數，不能被變更的變數，例如 url 網址。 但是如果const宣告的變數是一個陣列或物件，則裡面的內容就能夠被修改。為了避免這種狀況，可以利用以下組合式語法：&lt;/
+        &lt;p&gt;有時候我們會同時在專案匯入好幾個框架&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/HuW7aRJ.png&quot; alt&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutte
       
     
     </summary>
