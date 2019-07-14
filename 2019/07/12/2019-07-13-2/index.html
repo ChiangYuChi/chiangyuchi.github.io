@@ -5,7 +5,7 @@
 
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> &lt;ul&gt;</span><br><span class="line">           &lt;li v-for=&quot;(item, key) in arrayData&quot;&gt;</span><br><span class="line">             &#123;&#123; key &#125;&#125; - &#123;&#123; item.name &#125;&#125; &#123;&#123; item.age &#125;&#125; 歲</span><br><span class="line">           &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
 
-<p> <img src alt="Uploading file..._tbl81879g"></p>
+<p> <img src="https://i.imgur.com/5HFiqxL.png" alt></p>
 <h3 id="key"><a href="#key" class="headerlink" title="key"></a>key</h3><p> Vue 在切換畫面的時候，是部份置換，所以下面反轉陣列的例子在切換 input 的時候，不會完整切換 DOM 元素，所以這裡使用 <code>key</code> 來改善這個問題</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">         &lt;li v-for=&quot;(item, key) in arrayData&quot; :key=&quot;item.age&quot;&gt;</span><br><span class="line">           &#123;&#123; key &#125;&#125; - &#123;&#123; item.name &#125;&#125; &#123;&#123; item.age &#125;&#125; 歲 &lt;input type=&quot;text&quot;&gt;</span><br><span class="line">         &lt;/li&gt;</span><br><span class="line">       &lt;/ul&gt;</span><br><span class="line">       &lt;button class=&quot;btn btn-outline-primary&quot; @click=&quot;reverseArray&quot;&gt;反轉陣列&lt;/button&gt;</span><br></pre></td></tr></table></figure>
 
@@ -14,12 +14,8 @@
 <h3 id="過濾資料"><a href="#過濾資料" class="headerlink" title="過濾資料"></a>過濾資料</h3><p><code>filterArry</code> 一開始是一個空的陣列，現在新增一個 <code>filterText</code>，以輸入的文字，輸出後第一個出現的是我們輸入的資料、陣列迴圈內容，如果是 match 狀態就會回傳一個陣列（只要在filter裡是回傳 true，就會將 item push 回 filterArray)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> &lt;input type=&quot;text&quot; class=&quot;form-control&quot; v-model=&quot;filterText&quot; @keyup.enter=&quot;filterData&quot;&gt;</span><br><span class="line"> &lt;ul&gt;</span><br><span class="line">            &lt;li v-for=&quot;(item, key) in filterArray&quot; :key=&quot;item.age&quot;&gt;</span><br><span class="line">              &#123;&#123; key &#125;&#125; - &#123;&#123; item.name &#125;&#125; &#123;&#123; item.age &#125;&#125; 歲 &lt;input type=&quot;text&quot;&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">```</span><br></pre></td></tr></table></figure>
 
-<p>methods: {</p>
-<pre><code>     filterData: function () {
-       var vm = this; //指向的是vue應用程式的this，因此可以直接取用data
-       vm.filterArray = vm.arrayData.filter(function (item) {
-
-       console.log(vm.filterText, item.name, item.name.match(vm.filterText))
+<p>methods: {<br> filterData: function () {<br>                var vm = this; //指向的是vue應用程式的this，因此可以直接取用data<br>                vm.filterArray = vm.arrayData.filter(function (item) {</p>
+<pre><code>       console.log(vm.filterText, item.name, item.name.match(vm.filterText))
        });
        return item.name.match(vm.filterText);
 
@@ -27,7 +23,7 @@
 }</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 不能運作的狀況</span><br><span class="line"></span><br><span class="line">以下狀況不被 Vue 允許，所以陣列不會改變</span><br></pre></td></tr></table></figure>
 
 <p>&lt;button class=”btn btn-outline-primary” @click=”cantWork”&gt;無法運行<br>          <ul><br>            <li v-for="(item, key) in arrayData" :key="item.age"><br>               -   歲 <input type="text"><br>            </li><br>          </ul></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 直接修改陣列長度</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.  直接修改陣列長度</span><br></pre></td></tr></table></figure>
 
 <p>methods: {</p>
 <pre><code>    cantWork: function () {
@@ -35,7 +31,7 @@
        console.log(this.arrayData);
 
 
-}</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//雖然陣列長度的「數字」被修改為 0，但畫面上的資料並沒有因此消失</span><br><span class="line">![](https://i.imgur.com/6JBc8gt.png)</span><br><span class="line"></span><br><span class="line">- 從陣列索引修改資料</span><br><span class="line"></span><br><span class="line">要操作陣列的資料，不能直接透過索引方式</span><br></pre></td></tr></table></figure>
+}</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//雖然陣列長度的「數字」被修改為 0，但畫面上的資料並沒有因此消失</span><br><span class="line">![](https://i.imgur.com/6JBc8gt.png)</span><br><span class="line"></span><br><span class="line">2. 從陣列索引修改資料</span><br><span class="line"></span><br><span class="line">要操作陣列的資料，不能直接透過索引方式</span><br></pre></td></tr></table></figure>
 
 <p>methods: {</p>
 <pre><code>cantWork: function () {
@@ -43,21 +39,21 @@ this.arrayData[0]={
     name:&apos;小強&apos;;
     age:&apos;99&apos;,
 }</code></pre><p>console.log(this.arrayData);<br>         }</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">![](https://i.imgur.com/COHEbEU.png)</span><br><span class="line"></span><br><span class="line">如果要操作的資料不在原有資料結構裡，用 Vue.set() 解決，寫進資料裡面讓它可重新被監控。</span><br><span class="line"></span><br><span class="line">    Vue.set( target, propertyName/index, value )</span><br><span class="line">    参数：</span><br><span class="line">    &#123;Object | Array&#125; target</span><br><span class="line">    &#123;string | number&#125; propertyName/index</span><br><span class="line">    &#123;any&#125; value</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">![](https://i.imgur.com/COHEbEU.png)</span><br><span class="line"></span><br><span class="line">解決方式：如果要操作的資料不在原有資料結構裡，用 Vue.set() 解決，寫進資料裡面讓它可重新被監控。</span><br><span class="line"></span><br><span class="line">    Vue.set( target, propertyName/index, value )</span><br><span class="line">    参数：</span><br><span class="line">    &#123;Object | Array&#125; target</span><br><span class="line">    &#123;string | number&#125; propertyName/index</span><br><span class="line">    &#123;any&#125; value</span><br></pre></td></tr></table></figure>
 
 <p>methods: {</p>
 <pre><code>  Vue.set(this.arrayData, 0, {
          name: &apos;joy&apos;,
          age: 33
        });
-}</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">- 使用純數字迴圈</span><br></pre></td></tr></table></figure>
+}</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. 使用純數字迴圈</span><br></pre></td></tr></table></figure>
 
 <ul>
             <li v-for="item in 9">
               
             </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- templete 的運用</span><br><span class="line"></span><br><span class="line">有兩個 tr 一組使用 v-for，這時就可以運用 templete</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">### templete 的運用</span><br><span class="line"></span><br><span class="line">有兩個 tr 一組使用 v-for，這時就可以運用 templete</span><br></pre></td></tr></table></figure>
 
  <table class="table">
             <template v-for="item in arrayData">
@@ -70,20 +66,19 @@ this.arrayData[0]={
 
 <pre><code>  &lt;/template&gt;
 
-&lt;/table&gt;</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- v-for、v-if 的判斷式</span><br><span class="line"></span><br><span class="line">v-for、v-if 一起寫在一個元素上的時候，會先執行 v-for 再執行 v-if</span><br></pre></td></tr></table></figure>
+&lt;/table&gt;</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### v-for、v-if 的判斷式</span><br><span class="line"></span><br><span class="line">v-for、v-if 一起寫在一個元素上的時候，會先執行 v-for 再執行 v-if</span><br></pre></td></tr></table></figure>
 
 <ul>
             <li v-for="(item, key) in arrayData" v-if="item.age <=20">
                -   歲
             </li>
           </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- v-for 與元件</span><br><span class="line">現在建議元件使用 v-for 都加上 key。</span><br><span class="line">&lt;a</span><br><span class="line">              href=&quot;https://cn.vuejs.org/v2/guide/list.html#%E4%B8%80%E4%B8%AA%E7%BB%84%E4%BB%B6%E7%9A%84-v-for&quot;&gt;參考&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">###  v-for 與元件</span><br><span class="line">現在建議元件使用 v-for 都加上 key。</span><br></pre></td></tr></table></figure>
 
-<ul>
-            <list-item :item="item" v-for="(item, key) in arrayData" :key="item.age"></list-item>
-          </ul>
+<p><a href="https://cn.vuejs.org/v2/guide/list.html#%E4%B8%80%E4%B8%AA%E7%BB%84%E4%BB%B6%E7%9A%84-v-for" target="_blank" rel="noopener">參考</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">            &lt;list-item :item=&quot;item&quot; v-for=&quot;(item, key) in arrayData&quot; :key=&quot;item.age&quot;&gt;&lt;/list-item&gt;</span><br><span class="line">          &lt;/ul&gt;</span><br></pre></td></tr></table></figure>
 
-<pre><code></code></pre></template></table></div></article></div></main><footer><div class="paginator"><a href="/2019/07/13/2019-07-13-1/" class="prev">PREV</a><a href="/2019/07/12/2019-07-12-1/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
+</template></table></div></article></div></main><footer><div class="paginator"><a href="/2019/07/13/2019-07-13-1/" class="prev">上一篇</a><a href="/2019/07/12/2019-07-12-3/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
 var disqus_identifier = '2019/07/12/2019-07-13-2/';
 var disqus_title = 'Vue 基礎概念 [6] - v-for 使用細節';
 var disqus_url = 'http://yoursite.com/2019/07/12/2019-07-13-2/';
