@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="en.yml"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 認識 Webpack · CYC'S BLOG</title><meta name="description" content="認識 Webpack - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="CYC'S BLOG"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/ChiangYuChi" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">認識 Webpack</h1><div class="post-info">Aug 6, 2019</div><div class="post-content"><p>Webpack 是一個開源的前端打包工具。Webpack 提供了前端開發缺乏的模組化開發方式，將各種靜態資源視為模組，並從它生成最佳化過的程式碼。</p>
+<h1 id="安裝並開一個新的-webpack"><a href="#安裝並開一個新的-webpack" class="headerlink" title="安裝並開一個新的 webpack"></a>安裝並開一個新的 webpack</h1><p><img src="https://i.imgur.com/mSgaiRx.png" alt></p>
+<h1 id="安裝套件在-webpack-裡"><a href="#安裝套件在-webpack-裡" class="headerlink" title="安裝套件在 webpack 裡"></a>安裝套件在 webpack 裡</h1><ol>
+<li>透過 sass 載入 bootstrap 4</li>
+<li>vue-axios ，一個 ajax 工具</li>
+</ol>
+<p>因為 sass 在 vue cli 沒有安裝完整的 loader 所以這裡要再安裝 node-sass 、sass-loader</p>
+<ul>
+<li>安裝</li>
+</ul>
+<p>建議將 node-sass 與 sass-loader 添加到開發環境中，因為這兩個套件只有在開發時需要使用到，</p>
+<p>可使用以下指令：</p>
+<p>sudo npm install node-sass sass-loader –save-dev</p>
+<p>加上 -dev 能夠將套件限制在開發環境下才能使用，</p>
+<p>boostrap 因為打包後也要使用因此可以不用加上 -dev ，</p>
+<p>可使用以下指令安裝：</p>
+<p>sudo npm install bootstrap –save</p>
+<ul>
+<li>載入 bootstrap</li>
+</ul>
+<p>這一段的路徑是連接到 node_modules 裡的 bootstrap</p>
+<p><img src="https://i.imgur.com/p4z47lM.png" alt></p>
+<p>Vue 的 style 還有一個特色，可以用 scope 限制樣式運用範圍<br>例如下面的紅色就限制在元件的 h1 裡面</p>
+<p><img src="https://i.imgur.com/wQgnTBA.png" alt></p>
+<h1 id="使用-vue-axios"><a href="#使用-vue-axios" class="headerlink" title="使用 vue-axios"></a>使用 vue-axios</h1><p>一個 ajax 套件，安裝方式<br>sudo npm install –save axios vue-axios</p>
+<p>載入並且啟動它<br><img src="https://i.imgur.com/oozyr8I.png" alt></p>
+<p>使用 randomuser 的 API 取用隨機個人資料，利用 Ajax 取得 data</p>
+<p><img src="https://i.imgur.com/2VMlhgc.png" alt></p>
+<h1 id="webpack-腳本介紹及自定義環境變數"><a href="#webpack-腳本介紹及自定義環境變數" class="headerlink" title="webpack 腳本介紹及自定義環境變數"></a>webpack 腳本介紹及自定義環境變數</h1><p>webpack 會有一個 main.js 的主要檔案，它會載入其他相依的內容。webpack 會監控 main.js 及它載入的相關檔案，一更動的時候就會進行編譯。這些編譯的內容就會輸出成 .jpg、.js 等檔案</p>
+<p><img src="https://i.imgur.com/3WZXwqP.png" alt></p>
+<p>webpack.base 是最主要的腳本檔案，另外兩個會 required 它，透過 webpack merge 合併這兩個腳本。<br><img src="https://i.imgur.com/JWKwhve.jpg" alt></p>
+<p>dev 腳本的 serve 提供開發中預覽畫面用，包含 hot reload 及一些 host 與 port 供給預覽使用</p>
+<p><img src="https://i.imgur.com/fPxCNQd.png" alt></p>
+<p>在 production 版本就沒有 dev serve 功能，比較重視輸出結果，下方有一個套件將檔案內容輸出，它使用的是 index.html 這個 templete<br>。inject 是要不要把編譯完的內容注入進去。下方還包含壓縮：是否移除多餘空白字元、移除多餘的 html 屬性以及引號<br><img src="https://i.imgur.com/UhhlPtb.png" alt></p>
+<p>核心腳本是 webpack.base</p>
+<p>監控 main.js 的檔案叫做 entry。它指向的是 src/main.js</p>
+<p><img src="https://i.imgur.com/r0sxF3J.png" alt></p>
+<p>這個檔案是整個 Vue Cli 的進入點它會 import 許多檔案並在此編譯。<br><img src="https://i.imgur.com/3RKpzt6.png" alt></p>
+<p>並在 output 輸出，底下有對應一些路徑，像是 path:config<br><img src="https://i.imgur.com/uyOt5tQ.png" alt></p>
+<p>resolove 是省略附檔名用，像 extension 是 main.js import 的檔案可以省略的附檔名,alias 是路徑的縮寫，像是＠就是 src</p>
+<p><img src="https://i.imgur.com/8WE6dKf.png" alt></p>
+<p>但 main.js 是一個 js 檔，它沒辦法閱讀.png 等等的檔案，webpack 有一個叫 loader 的工具，會依據不同的類別不同的設定檔，決定該怎樣呈現在 js 裡面，最後再執行輸出（output） 。這些 loader 都在 module 裡，有一些規則例如處理圖片的 loader ，如果圖片在 10 kb 以下就會轉成 base64，否則它會轉成圖檔並加上一些 hash 字串<br><img src="https://i.imgur.com/auiQ1eT.png" alt></p>
+<p>一些沒有寫在 webpack.base 的重要 loader 像是 css loader、sass loader 都在 utils.js 裡面</p>
+<p><img src="https://i.imgur.com/yLVbVMn.png" alt></p>
+<p>剛剛上面提到的 webpack.base 裡面的 config 怎樣調整呢？config 裡的 index.js 是針對整個編譯環境使用，像是可以設定 host 、port。而 dev.js、prod.js 則是寫 Vue 的時候可以用到的環境變數。這些變數是可以輸出到 Vue 檔裡面的。</p>
+<p>例如這兩處可以使用不同的變數，經常使用到 Ajax 裡面，Ajax 在開發及正式版的時候會使用不同路徑，這時就可以把兩個路徑明顯切分</p>
+<p><img src="https://i.imgur.com/CKjsXi7.png" alt></p>
+<p>現在切換到 helloworld.vue 裡面，這裡指向的是呈現在畫面上的訊息，config 底下的 env 指的是環境變數。用 npm run build 指令的話會執行的是 prod.env.js 這個檔案。<br><img src="https://i.imgur.com/Jo9Vwri.png" alt></p>
+<p>現再再加入另一個變數，這是 Ajax 使用的路徑，記得要用 2 種引號否則會跳錯。另外加入環境變數之後，要記得重啟 vue 的環境 (npm run dev)，以下已經替換成正確路徑</p>
+<p><img src="https://i.imgur.com/CWfHo2p.png" alt></p>
+<p>別忘了正式版本也要加上我們新增的環境變數<br><img src="https://i.imgur.com/dA1PSCJ.png" alt></p>
+</div></article></div></main><footer><div class="paginator"><a href="/2019/08/09/2019-08-23-2/" class="prev">PREV</a><a href="/2019/08/02/2019-08-23-1/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
+var disqus_identifier = '2019/08/06/2019-08-23-3/';
+var disqus_title = '認識 Webpack';
+var disqus_url = 'http://yoursite.com/2019/08/06/2019-08-23-3/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//chiangyuchi.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2019 <a href="http://yoursite.com">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
