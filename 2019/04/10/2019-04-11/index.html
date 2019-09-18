@@ -1,23 +1,23 @@
-<!DOCTYPE html><html lang="en.yml"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 克服 JavaScript 的奇怪部份 [Day3] - 全域環境與全域物件 · CYC'S BLOG</title><meta name="description" content="克服 JavaScript 的奇怪部份 [Day3] - 全域環境與全域物件 - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="CYC'S BLOG"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/ChiangYuChi" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">克服 JavaScript 的奇怪部份 [Day3] - 全域環境與全域物件</h1><div class="post-info">Apr 10, 2019</div><div class="post-content"><p>Javascript程式永遠都是在執行環境中運作，也就是透過解譯器（一個已經寫好的程式）驗證和執行你的程式碼。把你的程式碼包起來，把正在執行的程式碼包在執行環境裡面。所以我們第一次看Javascript程式時，看到的是執行環境被建立和執行。</p>
+<!DOCTYPE html><html lang="en.yml"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 克服 JavaScript 的奇怪部份 (3) 全域環境與全域物件 · CYC'S BLOG</title><meta name="description" content="克服 JavaScript 的奇怪部份 (3) 全域環境與全域物件 - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="CYC'S BLOG"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/ChiangYuChi" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">克服 JavaScript 的奇怪部份 (3) 全域環境與全域物件</h1><div class="post-info">Apr 10, 2019</div><div class="post-content"><p>Javascript 程式永遠都是在執行環境中運作，也就是透過解譯器（一個已經寫好的程式）驗證和執行你的程式碼。把你的程式碼包起來，把正在執行的程式碼包在執行環境裡面。所以我們第一次看 Javascript 程式時，看到的是執行環境被建立和執行。</p>
 <p>而基礎的執行環境和其他被執行的程式碼不同，基礎執行環境是全域執行環境。所謂全域，即是指可以在任何地方取用他。</p>
-<p>即便一個Javascript檔案裡還沒有寫入任何程式碼、空的，只要一旦載入，語法解析器開始運作，雖然發現並無任何東西可以解析，但是因為已經開始執行Javascript，因為它執行那個檔案，全域執行環境被創造出來。全域執行環境在你所寫的程式碼之外，創造兩件事情—</p>
+<p>即便一個 Javascript 檔案裡還沒有寫入任何程式碼、空的，只要一旦載入，語法解析器開始運作，雖然發現並無任何東西可以解析，但是因為已經開始執行 Javascript，因為它執行那個檔案，全域執行環境被創造出來。全域執行環境在你所寫的程式碼之外，創造兩件事情—</p>
 <ul>
 <li>全域物件（globe object):<br>物件只是名稱值的組合</li>
 <li>this 變數</li>
 </ul>
 <p><img src="https://i.imgur.com/uKFL2dE.png" alt></p>
-<p>在上圖裡，在還沒有建立任何程式碼時，因為執行環境已經被Javascript建立，它可以決定this裡是什麼，現在變數this指的就是「現在這個運行Javascript的瀏覽器視窗」</p>
-<p>在執行Javascript時，永遠都會有一個全域物件，在瀏覽器裡就是指window。如果開啟另一個分頁，就會有另一個全域物件，一個視窗會有一個全域物件。每個視窗有自己的執行環境和自己的全域物件。</p>
-<p>綜合以上，執行環境是在全域等級被創造出來的。其中創造的全域物件是可以在視窗內的任何程式、任何JS檔案、詞彙環境取用的。在全域等級裡，this 指的就是正在執行的視窗，<strong><em>this參照到window物件</em></strong></p>
+<p>在上圖裡，在還沒有建立任何程式碼時，因為執行環境已經被 Javascript 建立，它可以決定 this 裡是什麼，現在變數 this 指的就是「現在這個運行 Javascript 的瀏覽器視窗」</p>
+<p>在執行 Javascript 時，永遠都會有一個全域物件，在瀏覽器裡就是指 window。如果開啟另一個分頁，就會有另一個全域物件，一個視窗會有一個全域物件。每個視窗有自己的執行環境和自己的全域物件。</p>
+<p>綜合以上，執行環境是在全域等級被創造出來的。其中創造的全域物件是可以在視窗內的任何程式、任何 JS 檔案、詞彙環境取用的。在全域等級裡，this 指的就是正在執行的視窗，<strong><em>this 參照到 window 物件</em></strong></p>
 <p><img src="https://i.imgur.com/VrXOJcD.png" alt></p>
-<p>換言之，全域指的就是不在Javascript的函數裡。<strong><em>程式碼或變數不在函數裡，就是全域的。</em></strong></p>
+<p>換言之，全域指的就是不在 Javascript 的函數裡。<strong><em>程式碼或變數不在函數裡，就是全域的。</em></strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = &quot;hello world&quot;</span><br><span class="line"></span><br><span class="line">function b()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>現在全域環境已經被建立。也創造的變數a，附與一個值，它不在函數裡，所以它是全域變數；全部的程式碼也不在函數裡，它們都是全域的。在Javascript裡，當你創造變數或函式，會和全域物件連結。</p>
+<p>現在全域環境已經被建立。也創造的變數 a，附與一個值，它不在函數裡，所以它是全域變數；全部的程式碼也不在函數裡，它們都是全域的。在 Javascript 裡，當你創造變數或函式，會和全域物件連結。</p>
 <p><img src="https://i.imgur.com/R04DK2F.png" alt></p>
-</div></article></div></main><footer><div class="paginator"><a href="/2019/04/10/2019-04-10/" class="prev">PREV</a><a href="/2019/04/01/2019-04-01/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
+</div></article></div></main><footer><div class="paginator"><a href="/2019/04/12/2019-04-12/" class="prev">PREV</a><a href="/2019/04/10/2019-04-10/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
 var disqus_identifier = '2019/04/10/2019-04-11/';
-var disqus_title = '克服 JavaScript 的奇怪部份 [Day3] - 全域環境與全域物件';
+var disqus_title = '克服 JavaScript 的奇怪部份 (3) 全域環境與全域物件';
 var disqus_url = 'http://yoursite.com/2019/04/10/2019-04-11/';
 (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
