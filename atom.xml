@@ -156,34 +156,6 @@
   </entry>
   
   <entry>
-    <title>克服 JavaScript 的奇怪部份 [Day32] - 框架小叮嚀：重載函數</title>
-    <link href="http://yoursite.com/2019/07/14/2019-07-14-1/"/>
-    <id>http://yoursite.com/2019/07/14/2019-07-14-1/</id>
-    <published>2019-07-13T16:00:00.000Z</published>
-    <updated>2019-07-14T06:15:59.350Z</updated>
-    
-    <content type="html"><![CDATA[<p>這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。</p><h3 id="重載函數-Function-overloading"><a href="#重載函數-Function-overloading" class="headerlink" title="重載函數 (Function overloading)"></a>重載函數 (Function overloading)</h3><p>像是 Java、C++ 等程式語言都有重載函數的概念，這表示我讓同一個函數可以擁有不同數量的參數。但是這在 JavaScript 行不通，因為函數就是物件。儘管 JavaScript 不具備這個功能，但是我們也可以用 JavaScript 的一級函式概念處理</p><p>好比說「我不想要每次一直傳入 <code>language</code> 參數」。我們已經看過可以使用預設參數或 <code>||</code> 運算子，然後使用這個函數裡的邏輯條件運算來決定。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function greet(firstname, lastname, language) &#123;</span><br><span class="line">      language = language || &apos;en&apos;;</span><br><span class="line">      if (language === &apos;en&apos;) &#123;</span><br><span class="line">        console.log(&apos;Hello &apos; + firstname + &apos; &apos; + lastname);   </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (language === &apos;es&apos;) &#123;</span><br><span class="line">        console.log(&apos;Hola &apos; + firstname + &apos; &apos; + lastname);   </span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(&apos;John&apos;, &apos;Doe&apos;,&apos;en&apos;);</span><br><span class="line">greet(&apos;John&apos;, &apos;Doe&apos;,&apos;es&apos;);</span><br></pre></td></tr></table></figure><p>第二種方式是再包覆一層函式的方式</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function greetEnglish(firstname, lastname) &#123;</span><br><span class="line">    greet(firstname, lastname, &apos;en&apos;);   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function greetSpanish(firstname, lastname) &#123;</span><br><span class="line">    greet(firstname, lastname, &apos;es&apos;);   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greetEnglish(&apos;John&apos;, &apos;Doe&apos;);</span><br><span class="line">greetSpanish(&apos;John&apos;, &apos;Doe&apos;);</span><br></pre></td></tr></table></figure><p>儘管 JavaScript 沒有重載函式的概念，但是仍然有處理這一類問題的方式。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。&lt;/p&gt;
-&lt;h3 id=&quot;重載函數-Function-overloading&quot;&gt;&lt;a href=&quot;#重載函數-Function-overloadin
-      
-    
-    </summary>
-    
-    
-      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-      <category term="克服Javascript奇怪部份" scheme="http://yoursite.com/tags/%E5%85%8B%E6%9C%8DJavascript%E5%A5%87%E6%80%AA%E9%83%A8%E4%BB%BD/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Vue 基礎概念 [6] - 表格排序練習</title>
     <link href="http://yoursite.com/2019/07/14/2019-07-14-2/"/>
     <id>http://yoursite.com/2019/07/14/2019-07-14-2/</id>
@@ -214,6 +186,34 @@
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
       <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>克服 JavaScript 的奇怪部份 [Day32] - 框架小叮嚀：重載函數</title>
+    <link href="http://yoursite.com/2019/07/14/2019-07-14-1/"/>
+    <id>http://yoursite.com/2019/07/14/2019-07-14-1/</id>
+    <published>2019-07-13T16:00:00.000Z</published>
+    <updated>2019-07-14T06:15:59.350Z</updated>
+    
+    <content type="html"><![CDATA[<p>這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。</p><h3 id="重載函數-Function-overloading"><a href="#重載函數-Function-overloading" class="headerlink" title="重載函數 (Function overloading)"></a>重載函數 (Function overloading)</h3><p>像是 Java、C++ 等程式語言都有重載函數的概念，這表示我讓同一個函數可以擁有不同數量的參數。但是這在 JavaScript 行不通，因為函數就是物件。儘管 JavaScript 不具備這個功能，但是我們也可以用 JavaScript 的一級函式概念處理</p><p>好比說「我不想要每次一直傳入 <code>language</code> 參數」。我們已經看過可以使用預設參數或 <code>||</code> 運算子，然後使用這個函數裡的邏輯條件運算來決定。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function greet(firstname, lastname, language) &#123;</span><br><span class="line">      language = language || &apos;en&apos;;</span><br><span class="line">      if (language === &apos;en&apos;) &#123;</span><br><span class="line">        console.log(&apos;Hello &apos; + firstname + &apos; &apos; + lastname);   </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (language === &apos;es&apos;) &#123;</span><br><span class="line">        console.log(&apos;Hola &apos; + firstname + &apos; &apos; + lastname);   </span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(&apos;John&apos;, &apos;Doe&apos;,&apos;en&apos;);</span><br><span class="line">greet(&apos;John&apos;, &apos;Doe&apos;,&apos;es&apos;);</span><br></pre></td></tr></table></figure><p>第二種方式是再包覆一層函式的方式</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function greetEnglish(firstname, lastname) &#123;</span><br><span class="line">    greet(firstname, lastname, &apos;en&apos;);   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function greetSpanish(firstname, lastname) &#123;</span><br><span class="line">    greet(firstname, lastname, &apos;es&apos;);   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greetEnglish(&apos;John&apos;, &apos;Doe&apos;);</span><br><span class="line">greetSpanish(&apos;John&apos;, &apos;Doe&apos;);</span><br></pre></td></tr></table></figure><p>儘管 JavaScript 沒有重載函式的概念，但是仍然有處理這一類問題的方式。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。&lt;/p&gt;
+&lt;h3 id=&quot;重載函數-Function-overloading&quot;&gt;&lt;a href=&quot;#重載函數-Function-overloadin
+      
+    
+    </summary>
+    
+    
+      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="克服Javascript奇怪部份" scheme="http://yoursite.com/tags/%E5%85%8B%E6%9C%8DJavascript%E5%A5%87%E6%80%AA%E9%83%A8%E4%BB%BD/"/>
     
   </entry>
   
