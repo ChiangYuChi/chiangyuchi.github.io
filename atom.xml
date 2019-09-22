@@ -245,34 +245,6 @@
   </entry>
   
   <entry>
-    <title>克服 JavaScript 的奇怪部份 [Day30]-觀念小叮嚀：陣列--任何東西的集合</title>
-    <link href="http://yoursite.com/2019/07/12/2019-07-12-2/"/>
-    <id>http://yoursite.com/2019/07/12/2019-07-12-2/</id>
-    <published>2019-07-11T16:00:00.000Z</published>
-    <updated>2019-07-14T04:50:52.600Z</updated>
-    
-    <content type="html"><![CDATA[<p>陣列是包含許多東西的集合，陣列可以被宣告，例如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var arr = new Array();</span><br></pre></td></tr></table></figure><p>或者使用陣列實體語法，和物件實體語法類似，除了它是用中括號而不是大括號。放進我要的值，並且在陣列裡面用逗號分隔。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3];</span><br><span class="line">arr[2];</span><br></pre></td></tr></table></figure><p>陣列索引值從 0 開始，所以我可以用中括號決定我要抓出哪一個值。2 是第三個值，以此類推。這對以其他程式語言處理陣列的人來說，似乎沒什麼需要解釋的地方。但因為 JavaScript 是動態型別，所以它的陣列有一點不一樣。</p><p>在大部分程式語言，陣列可以包含一連串相同型別的東西，像是一個數字陣列、一個字串陣列、一個物件陣列。但因為 JavaScript 是動態型別，所以我可以在陣列裡混合不同的型別。我可以有一個數字、一個布林值、一個物件實體（裡面有名稱屬性、地址屬性等等）、放進一個函數（因為函數就是物件，所以這裡用的是函數表示式）、再放進一個字串</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var arr =[</span><br><span class="line">1,</span><br><span class="line">false,</span><br><span class="line">&#123;</span><br><span class="line">    name:&apos;Tony&apos;,</span><br><span class="line">    address:&apos;111 Main St.&apos;</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line">function(name)&#123;</span><br><span class="line">    var greeting =&apos;Hello&apos;;</span><br><span class="line">    console.log(greeting + name)&apos;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;hello&quot;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">console.log(arr);</span><br></pre></td></tr></table></figure><p>上驗的例子在輸出的時候會報錯嗎？ 顯然沒有。所以 JavaScript 的陣列可以是任何型別的集合</p><p><img src="https://i.imgur.com/PAOhUzj.png" alt></p><p>基於這個原因，所以我們可以參照並且執行上面陣列裡的函數，用小括號呼叫，我要怎樣取用函數裡的名稱？作法是到上面陣列裡的函數，找第三個元件，接著用點運算子傳入名稱屬性</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var arr =[</span><br><span class="line">1,</span><br><span class="line">false,</span><br><span class="line">&#123;</span><br><span class="line">    name:&apos;Tony&apos;,</span><br><span class="line">    address:&apos;111 Main St.&apos;</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line">function(name)&#123;</span><br><span class="line">    var greeting =&apos;Hello&apos;;</span><br><span class="line">    console.log(greeting + name)&apos;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;hello&quot;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">console.log(arr);</span><br><span class="line">arr[3](arr[2].name);</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/df7eDry.png" alt></p><p>所以陣列可以包含不同型別的東西，我可以參照到它，它也可以包括函數，所以我可以呼叫它。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;陣列是包含許多東西的集合，陣列可以被宣告，例如：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td
-      
-    
-    </summary>
-    
-    
-      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-      <category term="克服Javascript奇怪部份" scheme="http://yoursite.com/tags/%E5%85%8B%E6%9C%8DJavascript%E5%A5%87%E6%80%AA%E9%83%A8%E4%BB%BD/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Vue 基礎概念 [5] - 動態切換 ClassName 及 Style 多種方法</title>
     <link href="http://yoursite.com/2019/07/12/2019-07-12-3/"/>
     <id>http://yoursite.com/2019/07/12/2019-07-12-3/</id>
@@ -298,6 +270,34 @@
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
       <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>克服 JavaScript 的奇怪部份 [Day30]-觀念小叮嚀：陣列--任何東西的集合</title>
+    <link href="http://yoursite.com/2019/07/12/2019-07-12-2/"/>
+    <id>http://yoursite.com/2019/07/12/2019-07-12-2/</id>
+    <published>2019-07-11T16:00:00.000Z</published>
+    <updated>2019-07-14T04:50:52.600Z</updated>
+    
+    <content type="html"><![CDATA[<p>陣列是包含許多東西的集合，陣列可以被宣告，例如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var arr = new Array();</span><br></pre></td></tr></table></figure><p>或者使用陣列實體語法，和物件實體語法類似，除了它是用中括號而不是大括號。放進我要的值，並且在陣列裡面用逗號分隔。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3];</span><br><span class="line">arr[2];</span><br></pre></td></tr></table></figure><p>陣列索引值從 0 開始，所以我可以用中括號決定我要抓出哪一個值。2 是第三個值，以此類推。這對以其他程式語言處理陣列的人來說，似乎沒什麼需要解釋的地方。但因為 JavaScript 是動態型別，所以它的陣列有一點不一樣。</p><p>在大部分程式語言，陣列可以包含一連串相同型別的東西，像是一個數字陣列、一個字串陣列、一個物件陣列。但因為 JavaScript 是動態型別，所以我可以在陣列裡混合不同的型別。我可以有一個數字、一個布林值、一個物件實體（裡面有名稱屬性、地址屬性等等）、放進一個函數（因為函數就是物件，所以這裡用的是函數表示式）、再放進一個字串</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var arr =[</span><br><span class="line">1,</span><br><span class="line">false,</span><br><span class="line">&#123;</span><br><span class="line">    name:&apos;Tony&apos;,</span><br><span class="line">    address:&apos;111 Main St.&apos;</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line">function(name)&#123;</span><br><span class="line">    var greeting =&apos;Hello&apos;;</span><br><span class="line">    console.log(greeting + name)&apos;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;hello&quot;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">console.log(arr);</span><br></pre></td></tr></table></figure><p>上驗的例子在輸出的時候會報錯嗎？ 顯然沒有。所以 JavaScript 的陣列可以是任何型別的集合</p><p><img src="https://i.imgur.com/PAOhUzj.png" alt></p><p>基於這個原因，所以我們可以參照並且執行上面陣列裡的函數，用小括號呼叫，我要怎樣取用函數裡的名稱？作法是到上面陣列裡的函數，找第三個元件，接著用點運算子傳入名稱屬性</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var arr =[</span><br><span class="line">1,</span><br><span class="line">false,</span><br><span class="line">&#123;</span><br><span class="line">    name:&apos;Tony&apos;,</span><br><span class="line">    address:&apos;111 Main St.&apos;</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line">function(name)&#123;</span><br><span class="line">    var greeting =&apos;Hello&apos;;</span><br><span class="line">    console.log(greeting + name)&apos;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;hello&quot;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">console.log(arr);</span><br><span class="line">arr[3](arr[2].name);</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/df7eDry.png" alt></p><p>所以陣列可以包含不同型別的東西，我可以參照到它，它也可以包括函數，所以我可以呼叫它。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;陣列是包含許多東西的集合，陣列可以被宣告，例如：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td
+      
+    
+    </summary>
+    
+    
+      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="克服Javascript奇怪部份" scheme="http://yoursite.com/tags/%E5%85%8B%E6%9C%8DJavascript%E5%A5%87%E6%80%AA%E9%83%A8%E4%BB%BD/"/>
     
   </entry>
   
