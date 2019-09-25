@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-25T08:55:21.795Z</updated>
+  <updated>2019-09-25T08:57:03.931Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2019/09/22/2019-09-22/"/>
     <id>http://yoursite.com/2019/09/22/2019-09-22/</id>
     <published>2019-09-21T16:00:00.000Z</published>
-    <updated>2019-09-25T08:55:21.795Z</updated>
+    <updated>2019-09-25T08:57:03.931Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><p>JavaScript 練習 - Rolling Dice Game - <a href="https://chiangyuchi.github.io/rolldice/" target="_blank" rel="noopener">https://chiangyuchi.github.io/rolldice/</a></p><h1 id="1-Introduction-介紹"><a href="#1-Introduction-介紹" class="headerlink" title="1. Introduction 介紹"></a>1. Introduction 介紹</h1><p>這是 JavaScript 操作 DOM，並搭配新增 class 切換玩家，配合隨機產生的數字，實現擲骰子遊戲。<br><img src="https://i.imgur.com/I9kiceq.jpg" alt></p><ul><li>設定變數</li><li>需兩方輪流操作，按照隨機出現的數字獲取分數，並加入總分</li><li>判定兩方誰先達到 100</li><li>須判定擲出 1 ，則該輪不算數</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><p>JavaScript 練習 - Rolling Dice Game - <a href="https://chiangyuchi.github.io/rolldice/" target="_blank" rel="noopener">Demo</a></p><h1 id="1-Introduction-介紹"><a href="#1-Introduction-介紹" class="headerlink" title="1. Introduction 介紹"></a>1. Introduction 介紹</h1><p>這是 JavaScript 操作 DOM，並搭配新增 class 切換玩家，配合隨機產生的數字，實現擲骰子遊戲。<br><img src="https://i.imgur.com/I9kiceq.jpg" alt></p><ul><li>設定變數</li><li>需兩方輪流操作，按照隨機出現的數字獲取分數，並加入總分</li><li>判定兩方誰先達到 100</li><li>須判定擲出 1 ，則該輪不算數</li></ul>]]></content>
     
     <summary type="html">
     
@@ -183,6 +183,34 @@
   </entry>
   
   <entry>
+    <title>克服 JavaScript 的奇怪部份 [Day32] - 框架小叮嚀：重載函數</title>
+    <link href="http://yoursite.com/2019/07/14/2019-07-14-1/"/>
+    <id>http://yoursite.com/2019/07/14/2019-07-14-1/</id>
+    <published>2019-07-13T16:00:00.000Z</published>
+    <updated>2019-07-14T06:15:59.350Z</updated>
+    
+    <content type="html"><![CDATA[<p>這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。</p><h3 id="重載函數-Function-overloading"><a href="#重載函數-Function-overloading" class="headerlink" title="重載函數 (Function overloading)"></a>重載函數 (Function overloading)</h3><p>像是 Java、C++ 等程式語言都有重載函數的概念，這表示我讓同一個函數可以擁有不同數量的參數。但是這在 JavaScript 行不通，因為函數就是物件。儘管 JavaScript 不具備這個功能，但是我們也可以用 JavaScript 的一級函式概念處理</p><p>好比說「我不想要每次一直傳入 <code>language</code> 參數」。我們已經看過可以使用預設參數或 <code>||</code> 運算子，然後使用這個函數裡的邏輯條件運算來決定。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function greet(firstname, lastname, language) &#123;</span><br><span class="line">      language = language || &apos;en&apos;;</span><br><span class="line">      if (language === &apos;en&apos;) &#123;</span><br><span class="line">        console.log(&apos;Hello &apos; + firstname + &apos; &apos; + lastname);   </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (language === &apos;es&apos;) &#123;</span><br><span class="line">        console.log(&apos;Hola &apos; + firstname + &apos; &apos; + lastname);   </span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(&apos;John&apos;, &apos;Doe&apos;,&apos;en&apos;);</span><br><span class="line">greet(&apos;John&apos;, &apos;Doe&apos;,&apos;es&apos;);</span><br></pre></td></tr></table></figure><p>第二種方式是再包覆一層函式的方式</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function greetEnglish(firstname, lastname) &#123;</span><br><span class="line">    greet(firstname, lastname, &apos;en&apos;);   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function greetSpanish(firstname, lastname) &#123;</span><br><span class="line">    greet(firstname, lastname, &apos;es&apos;);   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greetEnglish(&apos;John&apos;, &apos;Doe&apos;);</span><br><span class="line">greetSpanish(&apos;John&apos;, &apos;Doe&apos;);</span><br></pre></td></tr></table></figure><p>儘管 JavaScript 沒有重載函式的概念，但是仍然有處理這一類問題的方式。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。&lt;/p&gt;
+&lt;h3 id=&quot;重載函數-Function-overloading&quot;&gt;&lt;a href=&quot;#重載函數-Function-overloadin
+      
+    
+    </summary>
+    
+    
+      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="克服Javascript奇怪部份" scheme="http://yoursite.com/tags/%E5%85%8B%E6%9C%8DJavascript%E5%A5%87%E6%80%AA%E9%83%A8%E4%BB%BD/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vue 基礎概念 [6] - 表格排序練習</title>
     <link href="http://yoursite.com/2019/07/14/2019-07-14-2/"/>
     <id>http://yoursite.com/2019/07/14/2019-07-14-2/</id>
@@ -217,34 +245,6 @@
   </entry>
   
   <entry>
-    <title>克服 JavaScript 的奇怪部份 [Day32] - 框架小叮嚀：重載函數</title>
-    <link href="http://yoursite.com/2019/07/14/2019-07-14-1/"/>
-    <id>http://yoursite.com/2019/07/14/2019-07-14-1/</id>
-    <published>2019-07-13T16:00:00.000Z</published>
-    <updated>2019-07-14T06:15:59.350Z</updated>
-    
-    <content type="html"><![CDATA[<p>這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。</p><h3 id="重載函數-Function-overloading"><a href="#重載函數-Function-overloading" class="headerlink" title="重載函數 (Function overloading)"></a>重載函數 (Function overloading)</h3><p>像是 Java、C++ 等程式語言都有重載函數的概念，這表示我讓同一個函數可以擁有不同數量的參數。但是這在 JavaScript 行不通，因為函數就是物件。儘管 JavaScript 不具備這個功能，但是我們也可以用 JavaScript 的一級函式概念處理</p><p>好比說「我不想要每次一直傳入 <code>language</code> 參數」。我們已經看過可以使用預設參數或 <code>||</code> 運算子，然後使用這個函數裡的邏輯條件運算來決定。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function greet(firstname, lastname, language) &#123;</span><br><span class="line">      language = language || &apos;en&apos;;</span><br><span class="line">      if (language === &apos;en&apos;) &#123;</span><br><span class="line">        console.log(&apos;Hello &apos; + firstname + &apos; &apos; + lastname);   </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (language === &apos;es&apos;) &#123;</span><br><span class="line">        console.log(&apos;Hola &apos; + firstname + &apos; &apos; + lastname);   </span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(&apos;John&apos;, &apos;Doe&apos;,&apos;en&apos;);</span><br><span class="line">greet(&apos;John&apos;, &apos;Doe&apos;,&apos;es&apos;);</span><br></pre></td></tr></table></figure><p>第二種方式是再包覆一層函式的方式</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function greetEnglish(firstname, lastname) &#123;</span><br><span class="line">    greet(firstname, lastname, &apos;en&apos;);   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function greetSpanish(firstname, lastname) &#123;</span><br><span class="line">    greet(firstname, lastname, &apos;es&apos;);   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greetEnglish(&apos;John&apos;, &apos;Doe&apos;);</span><br><span class="line">greetSpanish(&apos;John&apos;, &apos;Doe&apos;);</span><br></pre></td></tr></table></figure><p>儘管 JavaScript 沒有重載函式的概念，但是仍然有處理這一類問題的方式。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。&lt;/p&gt;
-&lt;h3 id=&quot;重載函數-Function-overloading&quot;&gt;&lt;a href=&quot;#重載函數-Function-overloadin
-      
-    
-    </summary>
-    
-    
-      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-      <category term="克服Javascript奇怪部份" scheme="http://yoursite.com/tags/%E5%85%8B%E6%9C%8DJavascript%E5%A5%87%E6%80%AA%E9%83%A8%E4%BB%BD/"/>
-    
-  </entry>
-  
-  <entry>
     <title>克服 JavaScript 的奇怪部份 [Day31]-argument 與 spread</title>
     <link href="http://yoursite.com/2019/07/13/2019-07-13-1/"/>
     <id>http://yoursite.com/2019/07/13/2019-07-13-1/</id>
@@ -258,34 +258,6 @@
       
       
         &lt;p&gt;這一節是是關於另一個 JavaScript 的關鍵字「參數 (arguments)」，這是在執行一個函式的時候引擎會自動幫我們設定好的關鍵字。雖然在下一版本的 JavaScript 就不會這麼常提到這個關鍵字，而是用 &lt;code&gt;spread&lt;/code&gt; 處理 &lt;code
-      
-    
-    </summary>
-    
-    
-      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-      <category term="克服Javascript奇怪部份" scheme="http://yoursite.com/tags/%E5%85%8B%E6%9C%8DJavascript%E5%A5%87%E6%80%AA%E9%83%A8%E4%BB%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>克服 JavaScript 的奇怪部份 [Day30]-觀念小叮嚀：陣列--任何東西的集合</title>
-    <link href="http://yoursite.com/2019/07/12/2019-07-12-2/"/>
-    <id>http://yoursite.com/2019/07/12/2019-07-12-2/</id>
-    <published>2019-07-11T16:00:00.000Z</published>
-    <updated>2019-07-14T04:50:52.600Z</updated>
-    
-    <content type="html"><![CDATA[<p>陣列是包含許多東西的集合，陣列可以被宣告，例如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var arr = new Array();</span><br></pre></td></tr></table></figure><p>或者使用陣列實體語法，和物件實體語法類似，除了它是用中括號而不是大括號。放進我要的值，並且在陣列裡面用逗號分隔。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3];</span><br><span class="line">arr[2];</span><br></pre></td></tr></table></figure><p>陣列索引值從 0 開始，所以我可以用中括號決定我要抓出哪一個值。2 是第三個值，以此類推。這對以其他程式語言處理陣列的人來說，似乎沒什麼需要解釋的地方。但因為 JavaScript 是動態型別，所以它的陣列有一點不一樣。</p><p>在大部分程式語言，陣列可以包含一連串相同型別的東西，像是一個數字陣列、一個字串陣列、一個物件陣列。但因為 JavaScript 是動態型別，所以我可以在陣列裡混合不同的型別。我可以有一個數字、一個布林值、一個物件實體（裡面有名稱屬性、地址屬性等等）、放進一個函數（因為函數就是物件，所以這裡用的是函數表示式）、再放進一個字串</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var arr =[</span><br><span class="line">1,</span><br><span class="line">false,</span><br><span class="line">&#123;</span><br><span class="line">    name:&apos;Tony&apos;,</span><br><span class="line">    address:&apos;111 Main St.&apos;</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line">function(name)&#123;</span><br><span class="line">    var greeting =&apos;Hello&apos;;</span><br><span class="line">    console.log(greeting + name)&apos;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;hello&quot;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">console.log(arr);</span><br></pre></td></tr></table></figure><p>上驗的例子在輸出的時候會報錯嗎？ 顯然沒有。所以 JavaScript 的陣列可以是任何型別的集合</p><p><img src="https://i.imgur.com/PAOhUzj.png" alt></p><p>基於這個原因，所以我們可以參照並且執行上面陣列裡的函數，用小括號呼叫，我要怎樣取用函數裡的名稱？作法是到上面陣列裡的函數，找第三個元件，接著用點運算子傳入名稱屬性</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var arr =[</span><br><span class="line">1,</span><br><span class="line">false,</span><br><span class="line">&#123;</span><br><span class="line">    name:&apos;Tony&apos;,</span><br><span class="line">    address:&apos;111 Main St.&apos;</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line">function(name)&#123;</span><br><span class="line">    var greeting =&apos;Hello&apos;;</span><br><span class="line">    console.log(greeting + name)&apos;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;hello&quot;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">console.log(arr);</span><br><span class="line">arr[3](arr[2].name);</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/df7eDry.png" alt></p><p>所以陣列可以包含不同型別的東西，我可以參照到它，它也可以包括函數，所以我可以呼叫它。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;陣列是包含許多東西的集合，陣列可以被宣告，例如：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td
       
     
     </summary>
@@ -325,6 +297,34 @@
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
       <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>克服 JavaScript 的奇怪部份 [Day30]-觀念小叮嚀：陣列--任何東西的集合</title>
+    <link href="http://yoursite.com/2019/07/12/2019-07-12-2/"/>
+    <id>http://yoursite.com/2019/07/12/2019-07-12-2/</id>
+    <published>2019-07-11T16:00:00.000Z</published>
+    <updated>2019-07-14T04:50:52.600Z</updated>
+    
+    <content type="html"><![CDATA[<p>陣列是包含許多東西的集合，陣列可以被宣告，例如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var arr = new Array();</span><br></pre></td></tr></table></figure><p>或者使用陣列實體語法，和物件實體語法類似，除了它是用中括號而不是大括號。放進我要的值，並且在陣列裡面用逗號分隔。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3];</span><br><span class="line">arr[2];</span><br></pre></td></tr></table></figure><p>陣列索引值從 0 開始，所以我可以用中括號決定我要抓出哪一個值。2 是第三個值，以此類推。這對以其他程式語言處理陣列的人來說，似乎沒什麼需要解釋的地方。但因為 JavaScript 是動態型別，所以它的陣列有一點不一樣。</p><p>在大部分程式語言，陣列可以包含一連串相同型別的東西，像是一個數字陣列、一個字串陣列、一個物件陣列。但因為 JavaScript 是動態型別，所以我可以在陣列裡混合不同的型別。我可以有一個數字、一個布林值、一個物件實體（裡面有名稱屬性、地址屬性等等）、放進一個函數（因為函數就是物件，所以這裡用的是函數表示式）、再放進一個字串</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var arr =[</span><br><span class="line">1,</span><br><span class="line">false,</span><br><span class="line">&#123;</span><br><span class="line">    name:&apos;Tony&apos;,</span><br><span class="line">    address:&apos;111 Main St.&apos;</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line">function(name)&#123;</span><br><span class="line">    var greeting =&apos;Hello&apos;;</span><br><span class="line">    console.log(greeting + name)&apos;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;hello&quot;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">console.log(arr);</span><br></pre></td></tr></table></figure><p>上驗的例子在輸出的時候會報錯嗎？ 顯然沒有。所以 JavaScript 的陣列可以是任何型別的集合</p><p><img src="https://i.imgur.com/PAOhUzj.png" alt></p><p>基於這個原因，所以我們可以參照並且執行上面陣列裡的函數，用小括號呼叫，我要怎樣取用函數裡的名稱？作法是到上面陣列裡的函數，找第三個元件，接著用點運算子傳入名稱屬性</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var arr =[</span><br><span class="line">1,</span><br><span class="line">false,</span><br><span class="line">&#123;</span><br><span class="line">    name:&apos;Tony&apos;,</span><br><span class="line">    address:&apos;111 Main St.&apos;</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line">function(name)&#123;</span><br><span class="line">    var greeting =&apos;Hello&apos;;</span><br><span class="line">    console.log(greeting + name)&apos;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;hello&quot;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">console.log(arr);</span><br><span class="line">arr[3](arr[2].name);</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/df7eDry.png" alt></p><p>所以陣列可以包含不同型別的東西，我可以參照到它，它也可以包括函數，所以我可以呼叫它。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;陣列是包含許多東西的集合，陣列可以被宣告，例如：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td
+      
+    
+    </summary>
+    
+    
+      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="克服Javascript奇怪部份" scheme="http://yoursite.com/tags/%E5%85%8B%E6%9C%8DJavascript%E5%A5%87%E6%80%AA%E9%83%A8%E4%BB%BD/"/>
     
   </entry>
   
