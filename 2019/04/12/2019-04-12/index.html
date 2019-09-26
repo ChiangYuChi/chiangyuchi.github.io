@@ -1,43 +1,43 @@
-<!DOCTYPE html><html lang="en.yml"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 克服 JavaScript 的奇怪部份 (4) 創造與提昇 · CYC'S BLOG</title><meta name="description" content="克服 JavaScript 的奇怪部份 (4) 創造與提昇 - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="CYC'S BLOG"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/ChiangYuChi" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">克服 JavaScript 的奇怪部份 (4) 創造與提昇</h1><div class="post-info">Apr 12, 2019</div><div class="post-content"><p>Javascript 執行時，會經過創造執行環境的階段，這時時會發生的什麼事情呢？</p>
-<p>在下列的範例中，假如我們把呼叫移到程式碼最上方，移到函式之前。</p>
-<p><img src="https://i.imgur.com/viUfK6u.png" alt></p>
-<p>在大部分的程式語言，會報錯，因為他們一次執行一行程式碼，而且還沒宣告 b 函數，所以呼叫是無效的。但 JS 不僅執行函數，而且沒有錯誤。</p>
+<!DOCTYPE html><html lang="en.yml"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> JavaScript Weird Part (4) 創造與提昇 · CYC'S BLOG</title><meta name="description" content="JavaScript Weird Part (4) 創造與提昇 - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="CYC'S BLOG"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/ChiangYuChi" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">JavaScript Weird Part (4) 創造與提昇</h1><div class="post-info">Apr 12, 2019</div><div class="post-content"><p>Javascript 執行時，必經的創造執行環境的階段，究竟底層發生什麼變化？在下列的範例中，假如我們把呼叫移到程式碼最上方，移到函式之前：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">b();</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="keyword">var</span> a = <span class="string">"hello world"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"called b !"</span>);</span><br><span class="line">  ß;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在多數程式語言裡面，這，因為還沒宣告函式就先呼叫，所以呼叫是無效的。但 JavaScript 不僅執行函式，而且沒有錯誤。</p>
 <p><img src="https://i.imgur.com/QHZiTSP.png" alt></p>
-<p>Called b!正常被印出來，代表函式 b 有正常執行，但是 undefined 呢?</p>
-<p>Javascript 程式碼在執行前，會經過一個階段，我們寫的東西並不是直接被執行，而是被直譯器轉換成電腦看得懂ㄉ東西。這個階段當直譯器執行你的程式碼時，它會知道你在哪裡創造變數與函數。這個階段稱為：</p>
-<blockquote>
-<p>創造(creation)：直譯器在記憶體裡設定變數與函數。</p>
-</blockquote>
-<p><strong>這個步驟稱為「提昇」（hoisting)</strong> 。</p>
-<p>它不是真的把程式碼移到最上面，在逐行執行程式碼之前，JS 已經為變數與函數在記憶體中建立空間，所以變數與函數已經存在於記憶體中。所以當程式碼逐行執行時，可以找到它們。</p>
-<p>所以函數跟其函數內容(定義)會先存至記憶體，所以可以正確的呼叫，呼叫後建立這個函式的執行環境，印出 Called b!</p>
-<p>雖然變數也在記憶體中建立空間，可是它的內容並沒有在創造階段時被放入。<br>這邊可以把創造變數與賦值給變數當成兩件事，所以呼叫變數 a 才會印出 undefined。</p>
-<p>上面的程式碼，在電腦執行時可以想像成這樣的順序，結果會是一樣的</p>
-<p><img src="https://i.imgur.com/RphoqDf.png" alt></p>
+<p><code>Called b!</code> 正常印出來，代表函式 b 正常執行，但是 <code>undefined</code> 呢?</p>
+<p>Javascript 程式碼在執時，不是直接被執行，而是被解析器轉換成電腦看得懂的東西。當解析器執行你的程式碼時，它會知道你在什麼位置創造變數與函數。</p>
+<pre><code>這個階段稱為創造 (creation)，而創造階段裡面，直譯器在記憶體裡設定變數與函數的這個步驟稱為「提昇」（hoisting) 。</code></pre><p>它不是真的把程式碼移到最上面。在逐行執行程式碼之前，JavaScript 已經替變數與函數，在記憶體裡面中建立儲存空間。所以當程式碼逐行執行時，可以找到它們。</p>
+<p>所以函式跟它的內容(定義)會先存至記憶體，所以可以正確的呼叫，呼叫後建立這個函式的執行環境，印出 <code>Called b!</code></p>
+<p>雖然變數也在記憶體中建立空間，可是它的內容並沒有在創造階段時被放入。這邊可以把創造變數與賦值給變數當成兩件事，所以呼叫變數 <code>a</code> 才會印出 <code>undefined</code>。</p>
+<p>上面的程式碼，在電腦執行時可以想像成這樣的順序，結果會是一樣的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"called b !"</span>);</span><br><span class="line">&#125;</span><br><span class="line">b();</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line">a = <span class="string">"hello world"</span>;</span><br></pre></td></tr></table></figure>
+
 <p>那如果是下列狀況呢？</p>
-<p><img src="https://i.imgur.com/WdzygsP.png" alt></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">b();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"called b !"</span>);</span><br><span class="line">  <span class="keyword">var</span> a = <span class="string">"hello world"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>結果可以正常顯示</p>
 <p><img src="https://i.imgur.com/HJxAM7w.png" alt></p>
 <p>這是因為函數會先在記憶體裡創造空間，並建立它的區域變數，再執行呼叫。</p>
-<p>可是下列的狀況雖然貌似<br><img src="https://i.imgur.com/geTsJwW.png" alt></p>
+<p>可是下列的狀況雖然貌似</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">b();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"called b !"</span>);</span><br><span class="line">  <span class="keyword">var</span> a = <span class="string">"hello world"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <p>結果卻是</p>
 <p><img src="https://i.imgur.com/YfBNi3J.png" alt></p>
-<p>執行時可以這樣想：</p>
-<p>var b 先被提升到最上面(創造變數 b 並設定進記憶體)，接著呼叫執行 b 函式，為變數 b 賦值(指向)函式。呼叫執行 b 函式時報錯，是因為變數 boy 這個時候根本沒有被賦值，何況是指向函式呼叫呢？所以自然報錯 b is not a function。</p>
+<p>執行怎麼理解呢？可以這樣想：</p>
+<p>變數 <code>b</code> 先被提升 (創造變數 <code>b</code> 並設定進記憶體)，接著呼叫執行 b 函式，為變數 b 賦值(指向)函式。呼叫執行 b 函式時報錯，是因為變數 b 這個時候根本沒有被賦值，何況是指向函式呼叫呢？所以自然報錯 b is not a function。</p>
 <p>可以想像成是這樣：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var b</span><br><span class="line"></span><br><span class="line">b();</span><br><span class="line"></span><br><span class="line">b = function () &#123;</span><br><span class="line">    var a = &apos;Hello World!&apos;;</span><br><span class="line">    console.log(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b;</span><br><span class="line"></span><br><span class="line">b();</span><br><span class="line"></span><br><span class="line">b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="string">"Hello World!"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>當然這不代表我們的 JS 程式被改寫成這樣，而只是這種貌似變數與函式被拉到執行環境最前面的現象稱為 Hoisting</p>
+<p>當然這不代表我們的 JS 程式被改寫成這樣，而只是這種貌似變數與函式被拉到執行環境最前面的現象稱為 <strong>Hoisting</strong></p>
 <p>重點有三：</p>
-<ul>
+<ol>
 <li>變數宣告跟函式宣告都會提升</li>
 <li>只有宣告會提升，賦值不會提升</li>
 <li>別忘了函式裡面還有傳進來的參數</li>
-</ul>
+</ol>
 <p>延伸閱讀：<br><a href="https://" target="_blank" rel="noopener">https://blog.techbridge.cc/2018/11/10/javascript-hoisting/</a><br><a href="https://" target="_blank" rel="noopener">https://github.com/aszx87410/blog/issues/34#issuecomment-500890667</a></p>
-</div></article></div></main><footer><div class="paginator"><a href="/2019/04/13/2019-04-13/" class="prev">上一篇</a><a href="/2019/04/10/2019-04-11/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
+</div></article></div></main><footer><div class="paginator"><a href="/2019/04/13/2019-04-13/" class="prev">PREV</a><a href="/2019/04/10/2019-04-11/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
 var disqus_identifier = '2019/04/12/2019-04-12/';
-var disqus_title = '克服 JavaScript 的奇怪部份 (4) 創造與提昇';
+var disqus_title = 'JavaScript Weird Part (4) 創造與提昇';
 var disqus_url = 'http://yoursite.com/2019/04/12/2019-04-12/';
 (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
