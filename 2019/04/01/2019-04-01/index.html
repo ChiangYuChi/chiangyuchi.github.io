@@ -1,20 +1,19 @@
-<!DOCTYPE html><html lang="en.yml"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> JavaScript Weird Part (1) 語法解析器、執行環境、詞彙環境 · CYC'S BLOG</title><meta name="description" content="JavaScript Weird Part (1) 語法解析器、執行環境、詞彙環境 - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="CYC'S BLOG"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/ChiangYuChi" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">JavaScript Weird Part (1) 語法解析器、執行環境、詞彙環境</h1><div class="post-info">Apr 1, 2019</div><div class="post-content"><p>要理解 JavaScript 的運作原理，包含三項最基本的觀念</p>
-<ul>
-<li>語法解析器(Syntax Parsers)</li>
-<li>執行環境(Execution Contexts)</li>
-<li>詞彙環境(Lexical Environments)</li>
-</ul>
-<h3 id="語法解析器"><a href="#語法解析器" class="headerlink" title="語法解析器"></a>語法解析器</h3><p>語法解析器是什麼？在寫 Javascript 程式碼時，假使語法是有效的，程式碼可被讀取並且執行，並非是程式碼直接告訴電腦如何執行，而是透過別人寫的另一個程式（解譯器），把你寫的 Javascript 程式碼，逐字解讀成電腦可以理解的東西，並且決定這些語法是否有效或正確，並把我們的程式碼轉換為電腦可以理解的指令。這些翻譯的工作，就是由解譯器完成。</p>
-<p>解譯器的概念可以理解成這張圖當中的機器人，例如逐字解讀”F-U-N-C-T-I-O-N”。這也意味著在你所寫的程式碼並非直接被執行，而是在底層的程序裡，被一個翻譯引擎轉換，並且決定執行。</p>
-<p>所以在每次執行 Javascript 時，真正被執行的東西，都是被解譯器的中介程式轉換過的程式碼。</p>
+<!DOCTYPE html><html lang="en.yml"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> JavaScript Weird Part (1) 語法解析器、執行環境、詞彙環境 · CYC'S BLOG</title><meta name="description" content="JavaScript Weird Part (1) 語法解析器、執行環境、詞彙環境 - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="CYC'S BLOG"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/ChiangYuChi" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">JavaScript Weird Part (1) 語法解析器、執行環境、詞彙環境</h1><div class="post-info">Apr 1, 2019</div><div class="post-content"><p>JavaScript 的運作原理，包含三項最基本的觀念：</p>
+<ol>
+<li>語法解析器 (Syntax Parsers)</li>
+<li>執行環境 (Execution Contexts)</li>
+<li>詞彙環境 (Lexical Environments)</li>
+</ol>
+<h1 id="語法解析器"><a href="#語法解析器" class="headerlink" title="語法解析器"></a>語法解析器</h1><p>語法解析器是什麼？如果 JavaScript 的程式碼使用有效的語法，就可被讀取且執行。但這不是程式碼直接告訴電腦怎麼執行，而是透過另一個程式「語法解析器」，把我們寫的 JavaScript 程式碼，逐字解讀成電腦可以理解的東西，並且判定這些語法的有效性及正確性，並且把我們的程式碼轉換為電腦可以理解的指令。這也意味著在你所寫的程式碼並非直接被執行，而是在底層的程序裡，被一個翻譯引擎轉換，並且決定執行。所以在每次執行 Javascript 時，真正被執行的東西，都是被語法解析器的中介程式轉換過的程式碼。</p>
+<p>解譯器的概念可以理解成這張圖當中的機器人，例如逐字解讀”F-U-N-C-T-I-O-N”。</p>
 <p><img src="https://i.imgur.com/HtJoiyN.png" alt></p>
-<h3 id="詞彙環境"><a href="#詞彙環境" class="headerlink" title="詞彙環境"></a>詞彙環境</h3><p>詞彙的意思自然與文法相關，所以此處指的是與程式碼相關的文法、單字。詞彙環境代表程式碼在程式中實際的位置，它被寫在哪裡、它的周圍環境。</p>
-<p><img src="https://i.imgur.com/QDwRR9g.png" alt></p>
-<p>上面的例子裡，變數 total 位於函數裡面，這也就是它在程式碼的詞彙環境裡的實際位置。由於程式碼的位置會影響解譯器解讀的結果，它幫助語法解譯器做出判斷與決定，所以在 Javascript 當中，程式碼的位置在哪裡，就相當重要。因為這關係到在創造執行環境(見下段說明)時會將變數與函數放到對應的記憶體空間裡，也會影響它與其他變數與函數的互動。</p>
-<h3 id="執行環境"><a href="#執行環境" class="headerlink" title="執行環境"></a>執行環境</h3><p>又譯為執行脈絡、執行上下文。是一個包裹，幫助管理正在執行的程式。</p>
-<p>假如我們有多行程式碼（詞彙環境），要怎麼知道哪個才是正在執行的呢？這就是由執行環境來管理正在執行的程式。執行環境包含你所寫的程式碼、正在執行的程式碼，但它所包含的不只這些。因為程式碼正在被轉譯器處理中。</p>
-<p>以上三者在 JavaScript 中扮演非常重要的功能，互相合作，也對於了解 JavaScript 執行的過程十分關鍵。</p>
-</div></article></div></main><footer><div class="paginator"><a href="/2019/04/10/2019-04-10/" class="prev">PREV</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
+<h1 id="詞彙環境"><a href="#詞彙環境" class="headerlink" title="詞彙環境"></a>詞彙環境</h1><p>詞彙環境代表程式碼在程式中實際的位置，它被寫在哪裡、它的周圍環境。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params">oneNum,twoNum</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> total = oneNum * twoNum;</span><br><span class="line">  <span class="built_in">console</span>.log（<span class="string">'總價格'</span>＋total)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">count(<span class="number">8</span>,<span class="number">48</span>);</span><br><span class="line"><span class="built_in">console</span>.log(total);</span><br></pre></td></tr></table></figure>
+
+<p>上面的例子裡，變數 total 位於函式裡面，這就是它在程式碼的詞彙環境裡的位置。程式碼的詞彙環境，會影響解析器解讀的判斷與決定，所以在 Javascript 當中，程式碼的位置在哪裡，就相當重要。因為這關係到在創造執行環境的時候，會將變數與函式所放置的相關記憶體空間裡，也會影響它與其他變數與其他函式的互動。</p>
+<h1 id="執行環境"><a href="#執行環境" class="headerlink" title="執行環境"></a>執行環境</h1><p>又譯為執行脈絡、執行上下文。所有程式碼都必定在執行環境裡運作。執行環境就像工廠的不同工作室，每一個工作室都配備一個執行環境物件，負責管理、記錄該執行環境裡要用到的各種資料、正在執行的程式。</p>
+<p>假如我們有多行程式碼（詞彙環境），要怎麼知道哪個才是正在執行的呢？這就是由執行環境來管理正在執行的程式。執行環境包含你所寫的程式碼、正在執行的程式碼，但它所包含的不只這些。因為程式碼正在被解析器處理中。</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2019/04/10/2019-04-10/" class="prev">上一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
 var disqus_identifier = '2019/04/01/2019-04-01/';
 var disqus_title = 'JavaScript Weird Part (1) 語法解析器、執行環境、詞彙環境';
 var disqus_url = 'http://yoursite.com/2019/04/01/2019-04-01/';
