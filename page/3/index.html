@@ -104,27 +104,6 @@
                       };
                   </script>
                 
-                  
-                    <div class="item">
-                  
-                    <img id="carousel-img1" src="https://unsplash.com/photos/9BJRGlqoIUk">
-                  </div>
-
-                  <!-- 自适应大图 -->
-                  <script>
-                      var img1 = new Image();
-                      var imageTag1 = document.getElementById("carousel-img1");
-                      img1.src = imageTag1.src;
-                      img1.onload=function(){
-                        if (img1.width / img1.height <= document.body.clientWidth / document.body.clientHeight) {
-                          imageTag1.style.width = document.body.clientWidth + "px";
-                        } else {
-                          imageTag1.style.height = document.body.clientHeight + "px";
-                          imageTag1.style.marginLeft = -(document.body.clientHeight * img1.width / img1.height - document.body.clientWidth) / 2 + "px";
-                        }
-                      };
-                  </script>
-                
             </div>
 
             <!-- Controls -->
@@ -458,59 +437,6 @@ JSON (avaScript物件表示法；JavaScript Object Notation)如果我建立一�
 
 
   
-    <article id="post-2019-06-15-1"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/06/15/2019-06-15-1/">克服 JavaScript 的奇怪部份 [Day22] - 物件與「點」</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/06/15/2019-06-15-1/" class="article-date">
-	  <time datetime="2019-06-14T16:00:00.000Z" itemprop="datePublished">2019-06-15</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          在 JavaScript 中，物件與函式兩者是非常相關的，它們在很多情況下幾乎是一樣的，讓我們從本篇之後來談談物件與函式，但在這之前得先了解本篇標題「物件與點」
-物件與「點」一個物件是被賦值的名稱與值的組合（Name/Value），但是這個值是什麼？所以物件可以有一個原始的設定叫做屬性 (primitive property)，例如前面提到的純值、布林或字串；或者物件可以再連結另外的物件，值可以是另一個「名稱/值」的組合或物件。物件裡還可以有函數，這種情況稱為「方法」(method)。
-
-...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/06/15/2019-06-15-1/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-2019-06-15-2"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -546,6 +472,59 @@ JSON (avaScript物件表示法；JavaScript Object Notation)如果我建立一�
         </p>
         <p class="article-more-link">
           <a href="/2019/06/15/2019-06-15-2/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2019-06-15-1"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/06/15/2019-06-15-1/">克服 JavaScript 的奇怪部份 [Day22] - 物件與「點」</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/06/15/2019-06-15-1/" class="article-date">
+	  <time datetime="2019-06-14T16:00:00.000Z" itemprop="datePublished">2019-06-15</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          在 JavaScript 中，物件與函式兩者是非常相關的，它們在很多情況下幾乎是一樣的，讓我們從本篇之後來談談物件與函式，但在這之前得先了解本篇標題「物件與點」
+物件與「點」一個物件是被賦值的名稱與值的組合（Name/Value），但是這個值是什麼？所以物件可以有一個原始的設定叫做屬性 (primitive property)，例如前面提到的純值、布林或字串；或者物件可以再連結另外的物件，值可以是另一個「名稱/值」的組合或物件。物件裡還可以有函數，這種情況稱為「方法」(method)。
+
+...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/06/15/2019-06-15-1/#more">Read More</a>
         </p>
       
     </div>
@@ -619,61 +598,6 @@ JSON (avaScript物件表示法；JavaScript Object Notation)如果我建立一�
 
 
   
-    <article id="post-2019-06-06-2"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/06/06/2019-06-06-2/">calc()</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/06/06/2019-06-06-2/" class="article-date">
-	  <time datetime="2019-06-05T16:00:00.000Z" itemprop="datePublished">2019-06-06</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          calc() 這個 function 需要傳入 1 個加減乘除的運算式，在設定 width、height 這種  相關的屬性時， 在不同單位間也可以進行運算，如剛剛上面的範例：width: calc(100% - 50px);。calc() 的運算式一樣是按照先乘除後加減進行計算，如果需要進行複雜的運算，在 calc() 裡面也可以再加入括號 ()，就可以設為括號先決裡面的先算。
-
-+：加
--：減
-*：乘。其中一個運算參數必須是數字 (number)
-/：除。除數必須是數字，除數不可為零，...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/06/06/2019-06-06-2/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-2019-06-06-3"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -712,6 +636,61 @@ JSON (avaScript物件表示法；JavaScript Object Notation)如果我建立一�
         </p>
         <p class="article-more-link">
           <a href="/2019/06/06/2019-06-06-3/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2019-06-06-2"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/06/06/2019-06-06-2/">calc()</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/06/06/2019-06-06-2/" class="article-date">
+	  <time datetime="2019-06-05T16:00:00.000Z" itemprop="datePublished">2019-06-06</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          calc() 這個 function 需要傳入 1 個加減乘除的運算式，在設定 width、height 這種  相關的屬性時， 在不同單位間也可以進行運算，如剛剛上面的範例：width: calc(100% - 50px);。calc() 的運算式一樣是按照先乘除後加減進行計算，如果需要進行複雜的運算，在 calc() 裡面也可以再加入括號 ()，就可以設為括號先決裡面的先算。
+
++：加
+-：減
+*：乘。其中一個運算參數必須是數字 (number)
+/：除。除數必須是數字，除數不可為零，...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/06/06/2019-06-06-2/#more">Read More</a>
         </p>
       
     </div>
