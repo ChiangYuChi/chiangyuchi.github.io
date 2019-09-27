@@ -107,7 +107,7 @@
                   
                     <div class="item">
                   
-                    <img id="carousel-img1" src="/css/images/sample.jpg">
+                    <img id="carousel-img1" src="https://unsplash.com/photos/9BJRGlqoIUk">
                   </div>
 
                   <!-- 自适应大图 -->
@@ -121,27 +121,6 @@
                         } else {
                           imageTag1.style.height = document.body.clientHeight + "px";
                           imageTag1.style.marginLeft = -(document.body.clientHeight * img1.width / img1.height - document.body.clientWidth) / 2 + "px";
-                        }
-                      };
-                  </script>
-                
-                  
-                    <div class="item">
-                  
-                    <img id="carousel-img2" src="https://source.unsplash.com/collection/954550/1920x1080">
-                  </div>
-
-                  <!-- 自适应大图 -->
-                  <script>
-                      var img2 = new Image();
-                      var imageTag2 = document.getElementById("carousel-img2");
-                      img2.src = imageTag2.src;
-                      img2.onload=function(){
-                        if (img2.width / img2.height <= document.body.clientWidth / document.body.clientHeight) {
-                          imageTag2.style.width = document.body.clientWidth + "px";
-                        } else {
-                          imageTag2.style.height = document.body.clientHeight + "px";
-                          imageTag2.style.marginLeft = -(document.body.clientHeight * img2.width / img2.height - document.body.clientWidth) / 2 + "px";
                         }
                       };
                   </script>
@@ -479,59 +458,6 @@ JSON (avaScript物件表示法；JavaScript Object Notation)如果我建立一�
 
 
   
-    <article id="post-2019-06-15-2"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/06/15/2019-06-15-2/">克服 JavaScript 的奇怪部份 [Day23] - 物件與實體</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/06/15/2019-06-15-2/" class="article-date">
-	  <time datetime="2019-06-14T16:00:00.000Z" itemprop="datePublished">2019-06-15</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          建立物件的捷徑在 JavaScript 裡面，完成一件事情還有許多方式，還記得宣告 new object 並非建立物件的最好方式，有一種建立物件的捷徑是利用大括號 {} 的物件實體語法（object literal syntax)，得到的結果會和 new object 一樣。
-12var person = &#123;&#125;;console.log(person);
-
-如果我列印出 person，會看到一個空物件，就像 new object 一樣，這是比較快的作法。但注意這不是運算子...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/06/15/2019-06-15-2/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-2019-06-15-1"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -567,6 +493,59 @@ JSON (avaScript物件表示法；JavaScript Object Notation)如果我建立一�
         </p>
         <p class="article-more-link">
           <a href="/2019/06/15/2019-06-15-1/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2019-06-15-2"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/06/15/2019-06-15-2/">克服 JavaScript 的奇怪部份 [Day23] - 物件與實體</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/06/15/2019-06-15-2/" class="article-date">
+	  <time datetime="2019-06-14T16:00:00.000Z" itemprop="datePublished">2019-06-15</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          建立物件的捷徑在 JavaScript 裡面，完成一件事情還有許多方式，還記得宣告 new object 並非建立物件的最好方式，有一種建立物件的捷徑是利用大括號 {} 的物件實體語法（object literal syntax)，得到的結果會和 new object 一樣。
+12var person = &#123;&#125;;console.log(person);
+
+如果我列印出 person，會看到一個空物件，就像 new object 一樣，這是比較快的作法。但注意這不是運算子...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/06/15/2019-06-15-2/#more">Read More</a>
         </p>
       
     </div>
