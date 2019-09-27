@@ -2,44 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/04/17/2019-04-17/</loc>
+    
+    <lastmod>2019-09-27T05:22:25.348Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/04/15/2019-04-15/</loc>
     
-    <lastmod>2019-09-26T09:11:57.812Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/04/13/2019-04-13/</loc>
-    
-    <lastmod>2019-09-26T08:22:51.408Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/04/12/2019-04-12/</loc>
-    
-    <lastmod>2019-09-26T07:59:33.273Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/04/10/2019-04-11/</loc>
-    
-    <lastmod>2019-09-26T07:28:57.625Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/04/10/2019-04-10/</loc>
-    
-    <lastmod>2019-09-26T07:14:14.010Z</lastmod>
+    <lastmod>2019-09-27T04:15:13.042Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2019/04/01/2019-04-01/</loc>
     
-    <lastmod>2019-09-26T07:05:52.583Z</lastmod>
+    <lastmod>2019-09-27T04:15:01.426Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/04/10/2019-04-10/</loc>
+    
+    <lastmod>2019-09-27T04:14:57.312Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/04/10/2019-04-11/</loc>
+    
+    <lastmod>2019-09-27T04:14:53.627Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/04/12/2019-04-12/</loc>
+    
+    <lastmod>2019-09-27T04:14:52.473Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/04/13/2019-04-13/</loc>
+    
+    <lastmod>2019-09-27T04:14:50.344Z</lastmod>
     
   </url>
   
@@ -68,13 +75,6 @@
     <loc>http://yoursite.com/2019/04/18/2019-04-18/</loc>
     
     <lastmod>2019-09-18T14:57:45.842Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/04/17/2019-04-17/</loc>
-    
-    <lastmod>2019-09-18T14:57:37.041Z</lastmod>
     
   </url>
   
