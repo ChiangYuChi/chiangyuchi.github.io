@@ -277,61 +277,6 @@
 
 
   
-    <article id="post-2019-08-23-2"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/08/09/2019-08-23-2/">克服 JavaScript 的奇怪部份 [Day36] - 立即呼叫的函數表示式 (IIFEs)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/08/09/2019-08-23-2/" class="article-date">
-	  <time datetime="2019-08-08T16:00:00.000Z" itemprop="datePublished">2019-08-09</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          立即呼叫的函數表示式（immediately invoked function expression, IIFEs) 是一個常用的簡潔觀念。
-先前我們已經知道函數陳述句和函數表達式的差異
-函數陳述句123456function greet(name)&#123;console.log(&apos;Hello&apos; + name);&#125;greet();
-
-JavaScript 即便把函數放到記憶體中還是不會執行任何東西，除非呼叫它
-函數表達式123var greetFunc =...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/08/09/2019-08-23-2/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-2019-08-23-3"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -374,58 +319,6 @@ vue-axios ，一個 ajax 工具
         </p>
         <p class="article-more-link">
           <a href="/2019/08/06/2019-08-23-3/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-08-23-1"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/08/02/2019-08-23-1/">克服 JavaScript 的奇怪部份 [Day33] - 觀念小叮嚀 語法解析器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/08/02/2019-08-23-1/" class="article-date">
-	  <time datetime="2019-08-01T16:00:00.000Z" itemprop="datePublished">2019-08-02</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          我們要再一次熟悉語法解析器，因為這對後面認識底層知識十分重要。
-已經知道我們寫的程式碼不會直接被電腦執行，而是有一個在程式碼和電腦中間中介的程式，轉換你的程式為電腦懂的東西。這就是瀏覽器裡的 JavaScript 引擎做的事情，其中之一就是語法解析器。
-語法解析器會閱讀程式碼，判斷這是否有效。如果它一個一個字看程式碼，看到 ‘r’，它假設你可能要輸入的是 ‘return’，所以它會預期再看到一個 ‘e’，它會一個一個字進行。如果它看到一些非預期的東西，它會認為是錯誤。但如果它看到的是預期的...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/08/02/2019-08-23-1/#more">Read More</a>
         </p>
       
     </div>
@@ -552,6 +445,58 @@ vue-axios ，一個 ajax 工具
 
 
   
+    <article id="post-2019-07-14-1"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/07/14/2019-07-14-1/">克服 JavaScript 的奇怪部份 [Day32] - 框架小叮嚀：重載函數</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/07/14/2019-07-14-1/" class="article-date">
+	  <time datetime="2019-07-13T16:00:00.000Z" itemprop="datePublished">2019-07-14</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。
+重載函數 (Function overloading)像是 Java、C++ 等程式語言都有重載函數的概念，這表示我讓同一個函數可以擁有不同數量的參數。但是這在 JavaScript 行不通，因為函數就是物件。儘管 JavaScript 不具備這個功能，但是我們也可以用 JavaScript 的一級函式概念處理
+好比說「我不想要每次一直傳入 language 參數...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/07/14/2019-07-14-1/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2019-07-14-2"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -610,109 +555,6 @@ computed
 
 
   
-    <article id="post-2019-07-14-1"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/07/14/2019-07-14-1/">克服 JavaScript 的奇怪部份 [Day32] - 框架小叮嚀：重載函數</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/07/14/2019-07-14-1/" class="article-date">
-	  <time datetime="2019-07-13T16:00:00.000Z" itemprop="datePublished">2019-07-14</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。
-重載函數 (Function overloading)像是 Java、C++ 等程式語言都有重載函數的概念，這表示我讓同一個函數可以擁有不同數量的參數。但是這在 JavaScript 行不通，因為函數就是物件。儘管 JavaScript 不具備這個功能，但是我們也可以用 JavaScript 的一級函式概念處理
-好比說「我不想要每次一直傳入 language 參數...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/07/14/2019-07-14-1/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-07-13-1"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/07/13/2019-07-13-1/">克服 JavaScript 的奇怪部份 [Day31]-argument 與 spread</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/07/13/2019-07-13-1/" class="article-date">
-	  <time datetime="2019-07-12T16:00:00.000Z" itemprop="datePublished">2019-07-13</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          這一節是是關於另一個 JavaScript 的關鍵字「參數 (arguments)」，這是在執行一個函式的時候引擎會自動幫我們設定好的關鍵字。雖然在下一版本的 JavaScript 就不會這麼常提到這個關鍵字，而是用 spread 處理 arguments 的工作。但是如果現在去看任何程式碼，尤其是框架和資源庫，還是會在原始碼看到 arguments 變數。所以我們應該要認識及知道它的用處。
-已知執行函數的時候，一個執行環境被創造，然後 JavaScript 引擎會幫你設定一些東西，像是變...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/07/13/2019-07-13-1/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-2019-07-12-3"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -749,6 +591,160 @@ v-bind 綁定一個 class，附加一個物件，但因為是物件的關係，�
         </p>
         <p class="article-more-link">
           <a href="/2019/07/12/2019-07-12-3/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2019-07-11-1"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/07/11/2019-07-11-1/">Vue 基礎概念 [4] - 元件基礎概念</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/07/11/2019-07-11-1/" class="article-date">
+	  <time datetime="2019-07-10T16:00:00.000Z" itemprop="datePublished">2019-07-11</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          Vue 的每一個元件都可以獨立儲存各自的狀態，以下是一個元件的範例，此範例以反引號來定義元件
+123456789101112131415161718192021&lt;script&gt;          // 請在此撰寫 JavaScript          Vue.component(&apos;counter-component&apos;, &#123;            data: function () &#123;              return &#123;...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/07/11/2019-07-11-1/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2019-07-10-2"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/07/10/2019-07-10-2/">Vue 基礎概念 [3] - 常見表單與資料的綁定方式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/07/10/2019-07-10-2/" class="article-date">
+	  <time datetime="2019-07-09T16:00:00.000Z" itemprop="datePublished">2019-07-10</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          使用 v-model 綁定 input 輸入字串12345678910111213141516171819&lt;div id=&quot;app&quot;&gt;          &lt;h4&gt;字串&lt;/h4&gt;          &#123;&#123; text &#125;&#125;          &lt;input type=&quot;text&quot; class=&quot;form-control&quot; v-model=&quot;text...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/07/10/2019-07-10-2/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2019-07-10"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/07/09/2019-07-10/">Vue 基礎概念 [1] - 環境建立、指令與修飾符</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/07/09/2019-07-10/" class="article-date">
+	  <time datetime="2019-07-08T16:00:00.000Z" itemprop="datePublished">2019-07-09</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          環境建立Vue 的載入有 2 個版本，可以使用官網提供的CDN快速引入：
+開發版本- 包含開發者工具、完整的警告、錯誤提示，適合開發時使用生產版本- 刪除了警告，將上述開發工具都拔除，盡量縮小它的體積，適合正式發布時使用。
+為了學習 Vue 的開發，因此我們選擇開發版本，並且在 script 標籤引入 vue.js 即可。
+12345678&lt;head&gt;&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue&quot;&gt;&...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/07/09/2019-07-10/#more">Read More</a>
         </p>
       
     </div>

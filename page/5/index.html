@@ -225,7 +225,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/04/28/2019-04-28/">JavaScript 練習 - 九九乘法表</a>
+      <a class="article-title" href="/2019/04/28/2019-04-28/">克服 JavaScript 的奇怪部份 [Day15] - 運算子</a>
     </h1>
   
 
@@ -245,14 +245,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          DemoJavaScript 練習 - 九九乘法表 - Demo
-1. Introduction 介紹這是 六角學院的一個小挑戰，使用 JavaScript for 迴圈獲取九九乘法表所有內容。
+          運算子是一種特殊的函數，它和其他你自己寫的函數不同。運算子需要 2 個參數來回傳一個結果。但是 Javascript 是怎樣處理運算符號呢？
+12var a = 3+4;console.log(a); /會得出變數值為7/
 
+Javascript 在底層運作時，其實把運算子也等同於一種型態的函式。例如加法，它宣告一個函式，但不是命名它為 add
+123function +(a,b)&#123;return // 兩數相加&#125;
 
-使用 for 迴圈獲取九九成法表全部內容
-不能將數字直接寫在 HTML 上，必須用 JavaScript 渲染
-
-2. 功能12345678910&lt;div class="wrap"&gt;  &lt;div class="title"&gt;    &lt;div class="cont...
+但是上面這樣的寫法很麻煩，上面只是要方便了解運算子的底...
         </p>
         <p class="article-more-link">
           <a href="/2019/04/28/2019-04-28/#more">Read More</a>
@@ -282,7 +281,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/04/27/2019-04-27/">JavaScript 練習 - 時鐘功能</a>
+      <a class="article-title" href="/2019/04/27/2019-04-27/">克服 JavaScript 的奇怪部份 [Day14] - 純值</a>
     </h1>
   
 
@@ -302,16 +301,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          DemoJavaScript 練習 - Clock - Demo
-1. Introduction 介紹這是 六角學院的一個小挑戰，使用 JavaScript 原生語法獲取時間，並且讓時針持續轉動，實現時鐘功能。
+          Javascript 有六種基本型別 （Primitive types)，表示一個值，它不是物件，因為物件是名稱與值的配對。因此基本型別，就只是一個值。
+Javascript 的六種基本型別包括
 
+undefined：表示還不存在，是 Javascript 給所有變數的初始值，直到你賦與變數一個值。所以不應該設定一個值為 undefined，因為這就表示這個變數還沒被設定任何的值。
 
-使用 JavaScript 原生語法的 getDate() 獲取時間
-使用 JavaScript 原生語法的 setInterval() 方式讓指針持續轉動。
-使用 for 迴圈渲染出鐘面
-以 nth-child(n) 改變重疊圖示的傾斜角度
-
-2. 功能12345678910...
+null: null 也表示不存在。因為 undefined 是表示變數處於初始值，還沒有值、現在值還不存...
         </p>
         <p class="article-more-link">
           <a href="/2019/04/27/2019-04-27/#more">Read More</a>
@@ -362,7 +357,7 @@
       
         <p class="article-excerpt-content">
           程式語言都具有資料結構，但在不同的程式語言之間會有些差異。Javascript 在變數的資料型別與其他的程式語言相當不同，它是以「動態型別」（Dynamic Typing) 處理資料型別。
-動態型別JavaScript 是弱型別，也能說是動態的程式語言。這代表你不必特別宣告變數的型別。程式在運作時，型別會自動轉換。這也代表你可以以不同的型別使用同一個變數。它能夠辨別數值、字串和布林值。亦即我們不用自己在程式裡告知 Javascript 變數是哪種型別的資料，它會在程式執行運行時主動判別。因...
+動態型別程式語言會依照語言的型別系統分成「強型別語言」和「弱型別語言」。強型別是指「程式定義的變數型別等於變數在執行的時候的型別」，這類語言的變數在宣告的時候，必須指定一種資料型別給它，如果對這個變數做錯誤型別的運算，就會出現錯誤。弱型別正好相反，因此具有語法簡潔的優點，但要注意型態轉換時產生非預期的問...
         </p>
         <p class="article-more-link">
           <a href="/2019/04/26/2019-04-26/#more">Read More</a>

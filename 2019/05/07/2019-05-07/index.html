@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>克服 javascript 的奇怪部份 [day23] - 物件與實體 | CYC&#39;S BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="JavaScript前端學習">
+  
+  
+  
+  
+  <meta name="description" content="建立物件的捷徑在 JavaScript 裡面，完成一件事情還有許多方式，還記得宣告 new object 並非建立物件的最好方式，有一種建立物件的捷徑是利用大括號 {} 的物件實體語法（object literal syntax)，得到的結果會和 new object 一樣。 12var person = &amp;#123;&amp;#125;;console.log(person);  如果我列印出 pers">
+<meta name="keywords" content="JavaScript,前端學習">
+<meta property="og:type" content="article">
+<meta property="og:title" content="克服 JavaScript 的奇怪部份 [Day23] - 物件與實體">
+<meta property="og:url" content="http://yoursite.com/2019/05/07/2019-05-07/index.html">
+<meta property="og:site_name" content="CYC&#39;S BLOG">
+<meta property="og:description" content="建立物件的捷徑在 JavaScript 裡面，完成一件事情還有許多方式，還記得宣告 new object 並非建立物件的最好方式，有一種建立物件的捷徑是利用大括號 {} 的物件實體語法（object literal syntax)，得到的結果會和 new object 一樣。 12var person = &amp;#123;&amp;#125;;console.log(person);  如果我列印出 pers">
+<meta property="og:locale" content="en.yml">
+<meta property="og:image" content="https://i.imgur.com/RL1V3u9.png">
+<meta property="og:image" content="https://i.imgur.com/fJpq5ku.png">
+<meta property="og:image" content="https://i.imgur.com/SHxajWR.png">
+<meta property="og:image" content="https://i.imgur.com/cZgGlwg.png">
+<meta property="og:updated_time" content="2019-09-29T07:36:34.633Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="克服 JavaScript 的奇怪部份 [Day23] - 物件與實體">
+<meta name="twitter:description" content="建立物件的捷徑在 JavaScript 裡面，完成一件事情還有許多方式，還記得宣告 new object 並非建立物件的最好方式，有一種建立物件的捷徑是利用大括號 {} 的物件實體語法（object literal syntax)，得到的結果會和 new object 一樣。 12var person = &amp;#123;&amp;#125;;console.log(person);  如果我列印出 pers">
+<meta name="twitter:image" content="https://i.imgur.com/RL1V3u9.png">
+  
+    <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2019-05-07" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      克服 JavaScript 的奇怪部份 [Day23] - 物件與實體
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/05/07/2019-05-07/" class="article-date">
+	  <time datetime="2019-05-06T16:00:00.000Z" itemprop="datePublished">2019-05-07</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="建立物件的捷徑"><a href="#建立物件的捷徑" class="headerlink" title="建立物件的捷徑"></a>建立物件的捷徑</h3><p>在 JavaScript 裡面，完成一件事情還有許多方式，還記得宣告 new object 並非建立物件的最好方式，有一種建立物件的捷徑是利用大括號 <code>{}</code> 的物件實體語法（object literal syntax)，得到的結果會和 new object 一樣。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var person = &#123;&#125;;</span><br><span class="line">console.log(person);</span><br></pre></td></tr></table></figure>
+
+<p>如果我列印出 person，會看到一個空物件，就像 new object 一樣，這是比較快的作法。但注意這不是運算子，這是當 JavaScript 在解析語法時，看到大括號，但這個大括號不是用在 if 條件式或者迴圈時，它就會假設你在創造一個物件。</p>
+<p><img src="https://i.imgur.com/RL1V3u9.png" alt></p>
+<p>我們還可以初始化物件，可以同時在這個大括號裡面建立屬性和方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//命名屬性與方法，並賦值。以逗號增加另一個名稱/值的配對</span><br><span class="line">var person=&#123;</span><br><span class="line">firstname:&apos;Tony&apos;,</span><br><span class="line">lastname:&apos;Alicea&apos;</span><br><span class="line">&#125;;</span><br><span class="line">console.log(person);</span><br></pre></td></tr></table></figure>
+
+<p>物件有 2 個屬性<br><img src="https://i.imgur.com/fJpq5ku.png" alt></p>
+<p>這跟建立 <code>var person = new Object()</code> 再依序一個一個增加屬性 <code>person.firstname = &#39;Tony&#39;;</code> 、<code>person.lastname=&#39;Alicea&#39;;</code> 一樣</p>
+<p>物件裡還可以包含另一個物件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//命名屬性與方法，並賦值。以逗號增加另一個名稱/值的配對</span><br><span class="line">var person=&#123;</span><br><span class="line">firstname:&apos;Tony&apos;,</span><br><span class="line">lastname:&apos;Alicea&apos;,</span><br><span class="line">address:&#123;</span><br><span class="line">street:&apos;123 Main St.&apos;,</span><br><span class="line">City:&apos;NY&apos;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所以當 JavaScript 的語法解析器，執行程式碼的時候，遇到大括號的區塊，它會當成同一行程式碼，並且知道你要建立物件。所以我可以在任何地方新增物件、定義屬性和方法。這比一次定義一個屬性還分成很多行，要快上許多。</p>
+<h3 id="建立函數的捷徑"><a href="#建立函數的捷徑" class="headerlink" title="建立函數的捷徑"></a>建立函數的捷徑</h3><p>當我們了解這個捷徑的處理方式後，就可以快速的建立物件和變數。因此我們也可以快速建立函數。</p>
+<p>有一個打招呼的函數，包含物件，函數需要知道 firstname 屬性，才能打招呼。呼叫 <code>greet</code> 並傳入 <code>Tony</code>。 物件再記憶體裡，被傳入函數中，而且可以使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function greet(person)&#123;</span><br><span class="line">console.log(&apos;Hi&apos;+person.firstname);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">greet(person);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/SHxajWR.png" alt></p>
+<h3 id="同時建立函數與物件"><a href="#同時建立函數與物件" class="headerlink" title="同時建立函數與物件"></a>同時建立函數與物件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var person=&#123;</span><br><span class="line">firstname:&apos;Tony&apos;,</span><br><span class="line">lastname:&apos;Alicea&apos;,</span><br><span class="line">address:&#123;</span><br><span class="line">street:&apos;123 Main St.&apos;,</span><br><span class="line">City:&apos;NY&apos;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function greet(person)&#123;</span><br><span class="line">console.log(&apos;Hi&apos;+person.firstname);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">greet(person);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">greet(&#123;</span><br><span class="line">firstname:&apos;Mary&apos;,</span><br><span class="line">lastname:&apos;Doll&apos;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>用逗號區隔名稱/值配對，然後名稱和值用冒號區隔，再用大括號包起來。JavaScript 可以用物件實體語法，在看到函數的時候，檢查你需要傳入什麼，當它看到大括號的時候，知道你在建立物件，所以建立完就傳入這個物件。這和傳入數值和字串沒有差別。在這個情況下，我同時建立物件，我也可以把它當作一般變數使用。</p>
+<p>在這個情況下，我傳入 <code>person</code> 這個變數，並包含 firstname 屬性，然後再次呼叫函數，裡面包含另一個物件。這個物件在呼叫時同時被建立，然後 firstname 是 Mary。</p>
+<p><img src="https://i.imgur.com/cZgGlwg.png" alt></p>
+<h3 id="混合語法"><a href="#混合語法" class="headerlink" title="混合語法"></a>混合語法</h3><p>用<code>person</code> 這個變數，然後新增一個屬性。用 <code>.</code> 點運算子，而不是物件實體語法，然後再用物件實體語法定義物件。這樣就能結合 2 種語法了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">person.address=&#123;</span><br><span class="line">street:&apos;123 Second St.&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>為什麼可以這樣做？因為程式碼並不是真的直接被處理，它會先被 JavaScript 轉化成電腦能懂的東西。所以不論物件實體語法或用點運算子建立物件，都是一樣的，對 JavaScript 底層來說，它就是在建立物件、屬性和方法到記憶體裡面。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong></a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/05/07/2019-05-07/" target="_blank" title="克服 JavaScript 的奇怪部份 [Day23] - 物件與實體">http://yoursite.com/2019/05/07/2019-05-07/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端學習/">前端學習</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/08/2019-05-08/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          克服 JavaScript 的奇怪部份 [Day24] - 框架小叮嚀：偽裝命名空間
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/06/2019-05-06/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">克服 JavaScript 的奇怪部份 [Day22] - 物件與「點」</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立物件的捷徑"><span class="nav-number">1.</span> <span class="nav-text">建立物件的捷徑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立函數的捷徑"><span class="nav-number">2.</span> <span class="nav-text">建立函數的捷徑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同時建立函數與物件"><span class="nav-number">3.</span> <span class="nav-text">同時建立函數與物件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混合語法"><span class="nav-number">4.</span> <span class="nav-text">混合語法</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 CYC&#39;S BLOG All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            CYC&#39;S BLOG
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 CYC&#39;S BLOG All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

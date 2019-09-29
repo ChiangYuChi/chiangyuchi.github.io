@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>克服 javascript 的奇怪部份 [day22] - 物件與「點」 | CYC&#39;S BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="JavaScript前端學習">
+  
+  
+  
+  
+  <meta name="description" content="在 JavaScript 中，物件與函式兩者是非常相關的，它們在很多情況下幾乎是一樣的，讓我們從本篇之後來談談物件與函式，但在這之前得先了解本篇標題「物件與點」 物件與「點」一個物件是被賦值的名稱與值的組合（Name/Value），但是這個值是什麼？所以物件可以有一個原始的設定叫做屬性 (primitive property)，例如前面提到的純值、布林或字串；或者物件可以再連結另外的物件，值可以是">
+<meta name="keywords" content="JavaScript,前端學習">
+<meta property="og:type" content="article">
+<meta property="og:title" content="克服 JavaScript 的奇怪部份 [Day22] - 物件與「點」">
+<meta property="og:url" content="http://yoursite.com/2019/05/06/2019-05-06/index.html">
+<meta property="og:site_name" content="CYC&#39;S BLOG">
+<meta property="og:description" content="在 JavaScript 中，物件與函式兩者是非常相關的，它們在很多情況下幾乎是一樣的，讓我們從本篇之後來談談物件與函式，但在這之前得先了解本篇標題「物件與點」 物件與「點」一個物件是被賦值的名稱與值的組合（Name/Value），但是這個值是什麼？所以物件可以有一個原始的設定叫做屬性 (primitive property)，例如前面提到的純值、布林或字串；或者物件可以再連結另外的物件，值可以是">
+<meta property="og:locale" content="en.yml">
+<meta property="og:image" content="https://i.imgur.com/RMIVyvR.png">
+<meta property="og:image" content="https://i.imgur.com/2undtXe.png">
+<meta property="og:image" content="https://i.imgur.com/YaXuy4F.png">
+<meta property="og:updated_time" content="2019-09-29T07:36:27.181Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="克服 JavaScript 的奇怪部份 [Day22] - 物件與「點」">
+<meta name="twitter:description" content="在 JavaScript 中，物件與函式兩者是非常相關的，它們在很多情況下幾乎是一樣的，讓我們從本篇之後來談談物件與函式，但在這之前得先了解本篇標題「物件與點」 物件與「點」一個物件是被賦值的名稱與值的組合（Name/Value），但是這個值是什麼？所以物件可以有一個原始的設定叫做屬性 (primitive property)，例如前面提到的純值、布林或字串；或者物件可以再連結另外的物件，值可以是">
+<meta name="twitter:image" content="https://i.imgur.com/RMIVyvR.png">
+  
+    <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2019-05-06" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      克服 JavaScript 的奇怪部份 [Day22] - 物件與「點」
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/05/06/2019-05-06/" class="article-date">
+	  <time datetime="2019-05-05T16:00:00.000Z" itemprop="datePublished">2019-05-06</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在 JavaScript 中，物件與函式兩者是非常相關的，它們在很多情況下幾乎是一樣的，讓我們從本篇之後來談談物件與函式，但在這之前得先了解本篇標題「物件與點」</p>
+<h3 id="物件與「點」"><a href="#物件與「點」" class="headerlink" title="物件與「點」"></a>物件與「點」</h3><p>一個物件是被賦值的名稱與值的組合（Name/Value），但是這個值是什麼？所以物件可以有一個原始的設定叫做屬性 (primitive property)，例如前面提到的純值、布林或字串；或者物件可以再連結另外的物件，值可以是另一個「名稱/值」的組合或物件。物件裡還可以有函數，這種情況稱為「方法」(method)。</p>
+<p><img src="https://i.imgur.com/RMIVyvR.png" alt></p>
+<h3 id="JavaScript-怎麼取得物件的屬性和方法？"><a href="#JavaScript-怎麼取得物件的屬性和方法？" class="headerlink" title="JavaScript 怎麼取得物件的屬性和方法？"></a>JavaScript 怎麼取得物件的屬性和方法？</h3><p>在記憶體裡面，核心物件會有一個記憶體的位址空間，供物件參照到這些電腦記憶體中的屬性和方法，找到這些屬性和方法的所在。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var person = new Object();</span><br><span class="line">person[&quot;firstname&quot;] = tony;</span><br></pre></td></tr></table></figure>
+
+<p>在 JavaScript 當中，取得屬性和方法有兩種方式。以上是其中一種，利用中括號方式，稱為「計算取用成員」（computer member access）的運算子。</p>
+<p>在中括號內放進值的名稱，這是要放進記憶體的東西，這時它還不存在，所以我們令它等於 <code>tony</code>。這會在記憶體中創造空間，並且有個名稱叫做<code>firstname</code> 的東西。然後 <code>person</code> 物件就能參考到 <code>firstname</code> 在記憶體內的位置，並且知道<code>firstname</code> 的值是一個字串，這就是取得物件屬性的一種方法。</p>
+<p>這個運算子好用的地方是可以用變數修改物件的屬性名稱。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var person = new Object();</span><br><span class="line">person[&apos;firstName&apos;] = &apos;Tony&apos;;</span><br><span class="line">person[&apos;lastName&apos;] = &apos;Alicea&apos;;</span><br><span class="line">var firstNameProperty = &apos;firstName&apos;;</span><br><span class="line">console.log(person);</span><br><span class="line">console.log(person[firstNameProperty]);</span><br></pre></td></tr></table></figure>
+
+<p>印出物件看看：</p>
+<p><img src="https://i.imgur.com/2undtXe.png" alt></p>
+<p>這個方法有時可以在框架中看到，因為可以決定要取用哪種屬性，但比較起來還是 <code>.</code> 運算子比較方便。</p>
+<h3 id="使用-運算子"><a href="#使用-運算子" class="headerlink" title="使用 . 運算子"></a>使用 . 運算子</h3><p><code>.</code> 運算子的方式比較常見且簡單</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(person.firstName);</span><br><span class="line">// tony</span><br></pre></td></tr></table></figure>
+
+<p>也可以用 <code>.</code> 運算子創立物件的新屬性名稱</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">person.address.street = &apos;1111. Main St. &apos;;</span><br></pre></td></tr></table></figure>
+
+<p>簡單來說這個點就和中括號一樣，是「成員取用」運算子，這個成員指的是物件的成員。所以這些運算子會幫我們找到物件的成員，像是方法和屬性。</p>
+<h3 id="物件內的物件"><a href="#物件內的物件" class="headerlink" title="物件內的物件"></a>物件內的物件</h3><p>前面提到物件可以內含另一個物件，這也可以用 . 運算子來做。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var person = new Object();</span><br><span class="line">person[&apos;firstName&apos;] = &apos;Tony&apos;;</span><br><span class="line">person[&apos;lastName&apos;] = &apos;Alicea&apos;;</span><br><span class="line">var firstNameProperty = &apos;firstName&apos;;</span><br><span class="line">console.log(person);</span><br><span class="line">console.log(person[firstNameProperty]);</span><br><span class="line">person.dog=&quot;Paul&quot;;</span><br><span class="line">console.log(person.dog);</span><br><span class="line">person.address=new Object;</span><br><span class="line">person.address.street = &apos;1111. Main St. &apos;;</span><br><span class="line">console.log(person.address.street);</span><br><span class="line">// 也可以這樣寫 console.log(person[&apos;address&apos;][&apos;street&apos;]);</span><br></pre></td></tr></table></figure>
+
+<p>再次輸出<code>person</code>物件觀察，可以發現新增的物件被包覆在 <code>person</code> 物件內了。<br><img src="https://i.imgur.com/YaXuy4F.png" alt></p>
+<p>另外程式碼中的「person.address.street= ‘111 Main St.’;」因為用到了兩次運算子，所以我們查一下運算子的優先性與相依性得知，「.」運算子為左相依性，因此會從左邊開始運算到右邊。</p>
+<p>白話來說就是會先到 person 物件內找到屬性物件 address ， 然後再從 address 內找到 street 屬性並且設定字串值。</p>
+<h4 id="附註"><a href="#附註" class="headerlink" title="附註"></a>附註</h4><p>物件在記憶體中是「名稱/值」的組合，它也能夠包含不同的屬性配對，像是字串、布林，也可以包含函式（在此稱為方法），但本篇還不會討論到方法，在此之前有其他部分需先了解。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong></a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/05/06/2019-05-06/" target="_blank" title="克服 JavaScript 的奇怪部份 [Day22] - 物件與「點」">http://yoursite.com/2019/05/06/2019-05-06/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端學習/">前端學習</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/07/2019-05-07/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          克服 JavaScript 的奇怪部份 [Day23] - 物件與實體
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/04/2019-05-04/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">克服 JavaScript 的奇怪部份 [Day21] - 框架小叮嚀：預設值</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#物件與「點」"><span class="nav-number">1.</span> <span class="nav-text">物件與「點」</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript-怎麼取得物件的屬性和方法？"><span class="nav-number">2.</span> <span class="nav-text">JavaScript 怎麼取得物件的屬性和方法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-運算子"><span class="nav-number">3.</span> <span class="nav-text">使用 . 運算子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物件內的物件"><span class="nav-number">4.</span> <span class="nav-text">物件內的物件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#附註"><span class="nav-number">4.1.</span> <span class="nav-text">附註</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 CYC&#39;S BLOG All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            CYC&#39;S BLOG
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 CYC&#39;S BLOG All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

@@ -11,18 +11,20 @@
   
   
   
-  <meta name="description" content="程式語言都具有資料結構，但在不同的程式語言之間會有些差異。Javascript 在變數的資料型別與其他的程式語言相當不同，它是以「動態型別」（Dynamic Typing) 處理資料型別。 動態型別JavaScript 是弱型別，也能說是動態的程式語言。這代表你不必特別宣告變數的型別。程式在運作時，型別會自動轉換。這也代表你可以以不同的型別使用同一個變數。它能夠辨別數值、字串和布林值。亦即我們不用">
+  <meta name="description" content="程式語言都具有資料結構，但在不同的程式語言之間會有些差異。Javascript 在變數的資料型別與其他的程式語言相當不同，它是以「動態型別」（Dynamic Typing) 處理資料型別。 動態型別程式語言會依照語言的型別系統分成「強型別語言」和「弱型別語言」。強型別是指「程式定義的變數型別等於變數在執行的時候的型別」，這類語言的變數在宣告的時候，必須指定一種資料型別給它，如果對這個變數做錯誤型別">
 <meta name="keywords" content="JavaScript,JavaScript Weird Part">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript Weird Part (13) - 型別與 JavaScript">
 <meta property="og:url" content="http://yoursite.com/2019/04/26/2019-04-26/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="程式語言都具有資料結構，但在不同的程式語言之間會有些差異。Javascript 在變數的資料型別與其他的程式語言相當不同，它是以「動態型別」（Dynamic Typing) 處理資料型別。 動態型別JavaScript 是弱型別，也能說是動態的程式語言。這代表你不必特別宣告變數的型別。程式在運作時，型別會自動轉換。這也代表你可以以不同的型別使用同一個變數。它能夠辨別數值、字串和布林值。亦即我們不用">
+<meta property="og:description" content="程式語言都具有資料結構，但在不同的程式語言之間會有些差異。Javascript 在變數的資料型別與其他的程式語言相當不同，它是以「動態型別」（Dynamic Typing) 處理資料型別。 動態型別程式語言會依照語言的型別系統分成「強型別語言」和「弱型別語言」。強型別是指「程式定義的變數型別等於變數在執行的時候的型別」，這類語言的變數在宣告的時候，必須指定一種資料型別給它，如果對這個變數做錯誤型別">
 <meta property="og:locale" content="en.yml">
-<meta property="og:updated_time" content="2019-09-27T12:18:33.532Z">
+<meta property="og:image" content="https://i.imgur.com/GydjUXh.png">
+<meta property="og:updated_time" content="2019-09-29T07:26:02.551Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript Weird Part (13) - 型別與 JavaScript">
-<meta name="twitter:description" content="程式語言都具有資料結構，但在不同的程式語言之間會有些差異。Javascript 在變數的資料型別與其他的程式語言相當不同，它是以「動態型別」（Dynamic Typing) 處理資料型別。 動態型別JavaScript 是弱型別，也能說是動態的程式語言。這代表你不必特別宣告變數的型別。程式在運作時，型別會自動轉換。這也代表你可以以不同的型別使用同一個變數。它能夠辨別數值、字串和布林值。亦即我們不用">
+<meta name="twitter:description" content="程式語言都具有資料結構，但在不同的程式語言之間會有些差異。Javascript 在變數的資料型別與其他的程式語言相當不同，它是以「動態型別」（Dynamic Typing) 處理資料型別。 動態型別程式語言會依照語言的型別系統分成「強型別語言」和「弱型別語言」。強型別是指「程式定義的變數型別等於變數在執行的時候的型別」，這類語言的變數在宣告的時候，必須指定一種資料型別給它，如果對這個變數做錯誤型別">
+<meta name="twitter:image" content="https://i.imgur.com/GydjUXh.png">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -198,17 +200,32 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>程式語言都具有資料結構，但在不同的程式語言之間會有些差異。Javascript 在變數的資料型別與其他的程式語言相當不同，它是以「動態型別」（Dynamic Typing) 處理資料型別。</p>
-<h1 id="動態型別"><a href="#動態型別" class="headerlink" title="動態型別"></a>動態型別</h1><p>JavaScript 是弱型別，也能說是動態的程式語言。這代表你不必特別宣告變數的型別。程式在運作時，型別會自動轉換。這也代表你可以以不同的型別使用同一個變數。它能夠辨別數值、字串和布林值。亦即我們不用自己在程式裡告知 Javascript 變數是哪種型別的資料，它會在程式執行運行時主動判別。因此一個變數可以在執行程式的不同階段，擁有不同的型別，因為型別都是在執行時才判別的。</p>
+<h1 id="動態型別"><a href="#動態型別" class="headerlink" title="動態型別"></a>動態型別</h1><p>程式語言會依照語言的型別系統分成「強型別語言」和「弱型別語言」。強型別是指「程式定義的變數型別等於變數在執行的時候的型別」，這類語言的變數在宣告的時候，必須指定一種資料型別給它，如果對這個變數做錯誤型別的運算，就會出現錯誤。弱型別正好相反，因此具有語法簡潔的優點，但要注意型態轉換時產生非預期的問題。</p>
+<p>變數是用來儲存資料和運算的基本單位，就像一個存放資料的盒子。JavaScript 是弱型別，也能說是動態的程式語言。這代表你不必特別宣告變數的型別。</p>
+<p>JavaScript 程式在運作時，型別會自動轉換。這也代表你可以以不同的型別使用同一個變數。因為型別的資訊只在「值」或「物件」本身，變數只是用來取得值或物件的參考。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 透過 var 宣告變數 n,因為沒有給 n 數值，因此 n 的內容為 undefined</span></span><br><span class="line"><span class="keyword">var</span> n;</span><br><span class="line"><span class="comment">// 透過 var 宣告變數 m,給了變數 m 一個數值，因此 m 的內容為 1</span></span><br><span class="line"><span class="keyword">var</span> m = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>它能夠辨別數值、字串和布林值。亦即我們不用自己在程式裡告知 Javascript 變數是哪種型別的資料，它會在程式執行運行時主動判別。因此一個變數可以在執行程式的不同階段，擁有不同的型別，因為型別都是在執行時才判別的。</p>
 <p>動態型別是說不用任何關鍵字宣告變數的型別，程式執行的時候，它會自己判別要給這個變數怎樣的型別，不需要表明它隸屬於哪種資料型別。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="number">42</span>; <span class="comment">// foo 目前是數字</span></span><br><span class="line"><span class="keyword">var</span> foo = <span class="string">"bar"</span>; <span class="comment">// foo 目前是字串</span></span><br><span class="line"><span class="keyword">var</span> foo = <span class="literal">true</span>; <span class="comment">// foo 目前是布林值</span></span><br></pre></td></tr></table></figure>
 
+<p>但即便變數沒有先夠過 var 宣告的時候，仍可以給某個變數值要避免這種狀況:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//對未宣告的 m 直接賦值</span></span><br><span class="line">m = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>會讓已經被 <code>var</code> 宣告過的變數依然可以再次宣告，這是合法的:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> m = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<p>但是透過 <code>let</code> 宣告的變數就不行;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> m = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> m = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/GydjUXh.png" alt></p>
 <h1 id="什麼是型別？"><a href="#什麼是型別？" class="headerlink" title="什麼是型別？"></a>什麼是型別？</h1><p>以下的補充資料是 JavaScript Weird Part 課程裡面沒有提到的，主要可分為兩點：</p>
 <ol>
 <li>型別究竟是什麼？內建型別有哪些？常見疑難雜症與解法。</li>
 <li>未定義（undefined）vs 未宣告（undeclared）</li>
 </ol>
-<p>資料來源 <a href="https://cythilya.github.io/2018/10/11/types/" target="_blank" rel="noopener">https://cythilya.github.io/2018/10/11/types/</a></p>
-<p>「型別」是固有的、內建的特徵，能唯一識別特定值的行為。例如：數字 123 和字串 ‘123’ 就是不一樣的，數字 123 可做數學運算處理，而字串 ‘123’ 可能就是做些顯示到畫面上的操作。JavaScript 定義了以下七種內建型別，內建型別又可分為基本型別（primitives）和物件型別（object）。基本型別有 number、string、boolean、null、undefined、symbol，而物件型別就是物件與其子型別（subtype），例如：物件、陣列、函式、日期等。:</p>
+<p>「型別」是固有的、內建的特徵，能唯一識別特定值的行為。例如：數字 123 和字串 ‘123’ 就是不一樣的，數字 123 可做數學運算處理，而字串 ‘123’ 可能就是做些顯示到畫面上的操作。</p>
+<p>JavaScript 支援的型別主要可分為基本型別（primitives）和物件型別（object）。基本型別有 number、string、boolean、null、undefined、ES6 之後又多了新的型別：symbol 除了上述幾種之外，其他都可以歸類到物件型別 (Object)，例如：物件、陣列、函式、日期等。:</p>
 <ul>
 <li>number 數字，例如：12345。</li>
 <li>string 字串，例如：’Hello World’。</li>
@@ -219,7 +236,10 @@
 <li>symbol</li>
 </ul>
 <p>可用 <code>typeof</code> 檢測值的資料型別為何</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">typeof &apos;Hello World!&apos; // &apos;string&apos;</span><br><span class="line">typeof true // &apos;boolean&apos;</span><br><span class="line">typeof 1234567 // &apos;number&apos;</span><br><span class="line">typeof null // &apos;object&apos;</span><br><span class="line">typeof undefined // &apos;undefined&apos;</span><br><span class="line">typeof &#123; name: &apos;Jack&apos; &#125; // &apos;object&apos;</span><br><span class="line">typeof Symbol() // &apos;symbol&apos;</span><br><span class="line">typeof function() &#123;&#125; // &apos;function&apos;</span><br><span class="line">typeof [1, 2, 3] // &apos;object&apos;</span><br><span class="line">typeof NaN // &apos;number&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="string">'Hello World!'</span> <span class="comment">// 'string'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">true</span> <span class="comment">// 'boolean'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="number">1234567</span> <span class="comment">// 'number'</span></span><br><span class="line"><span class="keyword">typeof</span> &#123;&#125;;<span class="comment">//'object'</span></span><br><span class="line">tyoeof [];<span class="comment">//'object'</span></span><br></pre></td></tr></table></figure>
+
+<p>也會有例外狀況</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>;<span class="comment">//'object'</span></span><br><span class="line">tyoeof <span class="built_in">window</span>.alert;<span class="comment">//'function'</span></span><br></pre></td></tr></table></figure>
 
 <p>這裡會看到幾個有趣的（奇怪的）地方：</p>
 <ol>
@@ -247,30 +267,6 @@
 <p>我們可利用 null 會被 typeof 檢測為 object 並且會轉為 false 的結果來驗證值是否為 null。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> happy = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!happy &amp;&amp; <span class="keyword">typeof</span> happy === <span class="string">"object"</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"我是 null！"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="Q2：既然函式與陣列都是物件，那其中的屬性-length-有什麼不同？"><a href="#Q2：既然函式與陣列都是物件，那其中的屬性-length-有什麼不同？" class="headerlink" title="Q2：既然函式與陣列都是物件，那其中的屬性 length 有什麼不同？"></a>Q2：既然函式與陣列都是物件，那其中的屬性 length 有什麼不同？</h1><p>函式的 length 是指參數個數，而陣列的 length 是指內部成員個數。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testMe</span>(<span class="params">arg1, arg2, arg3</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"This is testMe!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line">testMe.length; <span class="comment">// 3</span></span><br><span class="line">list.length; <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="Q3：typeof-檢測的對象是誰？"><a href="#Q3：typeof-檢測的對象是誰？" class="headerlink" title="Q3：typeof 檢測的對象是誰？"></a>Q3：typeof 檢測的對象是誰？</h1><p>再次強調，變數沒有型別，變數可在不同時間點持有不同型別的值，因此，只有「值」才有型別。雖然我們可用 typeof 檢測某個變數所儲存的值的型別，但記得並不是檢測變數本身，而是變數所存的值。</p>
-<p>const name = ‘Jack’;<br>typeof name // ‘string’</p>
-<h1 id="Q4：辨識物件子型別的方法？"><a href="#Q4：辨識物件子型別的方法？" class="headerlink" title="Q4：辨識物件子型別的方法？"></a>Q4：辨識物件子型別的方法？</h1><p>稍後在 Natives（原生功能）的部份會說明取得物件內部分類的方法，這裡就先大略提一下。</p>
-<p>物件型別的值其內部有一個 [[Class]] 屬性來標記這個值是屬於物件的哪個子分類，雖然無法直接取用，但可透過 Object.prototype.toString 間接取得，範例如下。</p>
-<p>Object.prototype.toString.call([1, 2, 3]); // “[object Array]”<br>Object.prototype.toString.call({ name: ‘Jack’ }); // “[object Object]”<br>Object.prototype.toString.call(function sayHi() {}); // “[object Function]”<br>Object.prototype.toString.call(/helloworld/i); // “[object RegExp]”<br>Object.prototype.toString.call(new Date()); // “[object Date]”</p>
-<h1 id="未定義（undefined）vs-未宣告（undeclared）"><a href="#未定義（undefined）vs-未宣告（undeclared）" class="headerlink" title="未定義（undefined）vs 未宣告（undeclared）"></a>未定義（undefined）vs 未宣告（undeclared）</h1><ol>
-<li>未定義（undefined）：未賦值的變數所儲存的值是 undefined，對此變數做 typeof 也會得到 ‘undefined’。</li>
-<li>未宣告（undeclared）：變數在未宣告並使用的狀況下會得到 ReferenceError，並指出該變數並未宣告；變數在未宣告並賦值的狀況下，在嚴格模式下會報錯 ReferenceError，而在非嚴格模式下，變數會成為全域變數的屬性。注意，對未宣告的變數做 typeof 也會得到 ‘undefined’。<br>總結就是，無論變數是未定義或未宣告，typeof 這兩種狀況皆會得到 ‘undefined’。</li>
-</ol>
-<p>那麼，對未宣告的變數做 typeof 而得到 ‘undefined’，有什麼用處呢？</p>
-<p>對未宣告的變數做 typeof<br>對未宣告的變數做 typeof 而得到 ‘undefined’ 可說是一種保護措施，可避免瀏覽器丟出 ReferenceError 的錯誤訊息，在撰寫測試特定條件時常會用到。</p>
-<p>範例如下，我們可能在非正式環境下會引用了某支 js 檔案，其中會設定 DEBUG 為 true，而其他檔案會根據 DEBUG 變數是否被宣告或宣告並設定為 true 時做出相對應的事情。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> DEBUG !== <span class="string">"undefined"</span>) &#123;</span><br><span class="line">  <span class="comment">// start to debug...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>或著，我們也可以不用 typeof 的作法，而改用檢測 window 屬性的方式，同樣也不會丟出 ReferenceError。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span>.DEBUG) &#123;</span><br><span class="line">  <span class="comment">// start to debug...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>再或者，使用依存性注入（dependency injection）的方式也是可以的，將要檢測的條件當參數傳入函式，若條件不存在則使用預設值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomethingCool</span>(<span class="params">DEBUG</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> helper =</span><br><span class="line">    DEBUG ||</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      /_ 預設值 _/;</span><br><span class="line">    &#125;;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>只是這解法已被 ES6 的預設傳入參數（Default Paramaters）取代了。</p>
 
       
     </div>
@@ -351,7 +347,7 @@ var a = new Donate({
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          JavaScript 練習 - 時鐘功能
+          克服 JavaScript 的奇怪部份 [Day14] - 純值
         
       </div>
     </a>
@@ -373,7 +369,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#動態型別"><span class="nav-number">1.</span> <span class="nav-text">動態型別</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什麼是型別？"><span class="nav-number">2.</span> <span class="nav-text">什麼是型別？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q1：如何檢測-null？"><span class="nav-number">3.</span> <span class="nav-text">Q1：如何檢測 null？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q2：既然函式與陣列都是物件，那其中的屬性-length-有什麼不同？"><span class="nav-number">4.</span> <span class="nav-text">Q2：既然函式與陣列都是物件，那其中的屬性 length 有什麼不同？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q3：typeof-檢測的對象是誰？"><span class="nav-number">5.</span> <span class="nav-text">Q3：typeof 檢測的對象是誰？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q4：辨識物件子型別的方法？"><span class="nav-number">6.</span> <span class="nav-text">Q4：辨識物件子型別的方法？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#未定義（undefined）vs-未宣告（undeclared）"><span class="nav-number">7.</span> <span class="nav-text">未定義（undefined）vs 未宣告（undeclared）</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#動態型別"><span class="nav-number">1.</span> <span class="nav-text">動態型別</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什麼是型別？"><span class="nav-number">2.</span> <span class="nav-text">什麼是型別？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q1：如何檢測-null？"><span class="nav-number">3.</span> <span class="nav-text">Q1：如何檢測 null？</span></a></li></ol>
     
     </div>
   </aside>

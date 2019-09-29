@@ -3,28 +3,26 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>javascript 練習 - 九九乘法表 | CYC&#39;S BLOG</title>
+  <title>克服 javascript 的奇怪部份 [day15] - 運算子 | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="JavaScript前端學習CSS">
+  <meta name="keywords" content="JavaScript前端學習">
   
   
   
   
-  <meta name="description" content="DemoJavaScript 練習 - 九九乘法表 - Demo 1. Introduction 介紹這是 六角學院的一個小挑戰，使用 JavaScript for 迴圈獲取九九乘法表所有內容。   使用 for 迴圈獲取九九成法表全部內容 不能將數字直接寫在 HTML 上，必須用 JavaScript 渲染  2. 功能12345678910&amp;lt;div class=&quot;wrap&quot;&amp;gt;  &amp;">
-<meta name="keywords" content="JavaScript,前端學習,CSS">
+  <meta name="description" content="運算子是一種特殊的函數，它和其他你自己寫的函數不同。運算子需要 2 個參數來回傳一個結果。但是 Javascript 是怎樣處理運算符號呢？ 12var a = 3+4;console.log(a); /會得出變數值為7/  Javascript 在底層運作時，其實把運算子也等同於一種型態的函式。例如加法，它宣告一個函式，但不是命名它為 add 123function +(a,b)&amp;#123;re">
+<meta name="keywords" content="JavaScript,前端學習">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript 練習 - 九九乘法表">
+<meta property="og:title" content="克服 JavaScript 的奇怪部份 [Day15] - 運算子">
 <meta property="og:url" content="http://yoursite.com/2019/04/28/2019-04-28/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="DemoJavaScript 練習 - 九九乘法表 - Demo 1. Introduction 介紹這是 六角學院的一個小挑戰，使用 JavaScript for 迴圈獲取九九乘法表所有內容。   使用 for 迴圈獲取九九成法表全部內容 不能將數字直接寫在 HTML 上，必須用 JavaScript 渲染  2. 功能12345678910&amp;lt;div class=&quot;wrap&quot;&amp;gt;  &amp;">
+<meta property="og:description" content="運算子是一種特殊的函數，它和其他你自己寫的函數不同。運算子需要 2 個參數來回傳一個結果。但是 Javascript 是怎樣處理運算符號呢？ 12var a = 3+4;console.log(a); /會得出變數值為7/  Javascript 在底層運作時，其實把運算子也等同於一種型態的函式。例如加法，它宣告一個函式，但不是命名它為 add 123function +(a,b)&amp;#123;re">
 <meta property="og:locale" content="en.yml">
-<meta property="og:image" content="https://i.imgur.com/l5wfo8D.png">
-<meta property="og:updated_time" content="2019-09-27T06:51:59.805Z">
+<meta property="og:updated_time" content="2019-09-29T07:35:26.121Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript 練習 - 九九乘法表">
-<meta name="twitter:description" content="DemoJavaScript 練習 - 九九乘法表 - Demo 1. Introduction 介紹這是 六角學院的一個小挑戰，使用 JavaScript for 迴圈獲取九九乘法表所有內容。   使用 for 迴圈獲取九九成法表全部內容 不能將數字直接寫在 HTML 上，必須用 JavaScript 渲染  2. 功能12345678910&amp;lt;div class=&quot;wrap&quot;&amp;gt;  &amp;">
-<meta name="twitter:image" content="https://i.imgur.com/l5wfo8D.png">
+<meta name="twitter:title" content="克服 JavaScript 的奇怪部份 [Day15] - 運算子">
+<meta name="twitter:description" content="運算子是一種特殊的函數，它和其他你自己寫的函數不同。運算子需要 2 個參數來回傳一個結果。但是 Javascript 是怎樣處理運算符號呢？ 12var a = 3+4;console.log(a); /會得出變數值為7/  Javascript 在底層運作時，其實把運算子也等同於一種型態的函式。例如加法，它宣告一個函式，但不是命名它為 add 123function +(a,b)&amp;#123;re">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -174,7 +172,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      JavaScript 練習 - 九九乘法表
+      克服 JavaScript 的奇怪部份 [Day15] - 運算子
     </h1>
   
 
@@ -199,23 +197,14 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><p>JavaScript 練習 - 九九乘法表 - <a href="https://chiangyuchi.github.io/multiplication-chart/" target="_blank" rel="noopener">Demo</a></p>
-<h1 id="1-Introduction-介紹"><a href="#1-Introduction-介紹" class="headerlink" title="1. Introduction 介紹"></a>1. Introduction 介紹</h1><p>這是 六角學院的一個小挑戰，使用 JavaScript for 迴圈獲取九九乘法表所有內容。</p>
-<p><img src="https://i.imgur.com/l5wfo8D.png" alt></p>
-<ul>
-<li>使用 for 迴圈獲取九九成法表全部內容</li>
-<li>不能將數字直接寫在 HTML 上，必須用 JavaScript 渲染</li>
-</ul>
-<h1 id="2-功能"><a href="#2-功能" class="headerlink" title="2. 功能"></a>2. 功能</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"mainTitle"</span>&gt;</span>九九乘法表<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"secondTitle"</span>&gt;</span>MULTIPLICATION CHART<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <p>運算子是一種特殊的函數，它和其他你自己寫的函數不同。運算子需要 2 個參數來回傳一個結果。但是 Javascript 是怎樣處理運算符號呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = 3+4;</span><br><span class="line">console.log(a); /會得出變數值為7/</span><br></pre></td></tr></table></figure>
 
-<p>這個練習，用到的是最基本的 <code>for Loop</code>、<code>createElement</code>、<code>setAttribute</code> 觀念。創造一個原本不在 HTML 結構裡的畫面。</p>
-<ol>
-<li>使用雙迴圈獲得九九乘法表前後相乘的 2 個數字</li>
-<li>以 <code>Document.createElement()</code> 方法可以依指定的標籤名稱（tagName）建立 HTML 元素，</li>
-<li>以 <code>Element.setAttribute()</code>，設定元素的屬性值</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wrap = <span class="built_in">document</span>.querySelector(<span class="string">".wrap"</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createChart</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> box = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">    box.setAttribute(<span class="string">"class"</span>, <span class="string">"box"</span>);</span><br><span class="line">    wrap.appendChild(box);</span><br><span class="line">    <span class="keyword">const</span> chart = <span class="built_in">document</span>.createElement(<span class="string">"ul"</span>);</span><br><span class="line">    chart.setAttribute(<span class="string">"class"</span>, <span class="string">"chart"</span>);</span><br><span class="line">    box.appendChild(chart);</span><br><span class="line">    <span class="keyword">const</span> title = <span class="built_in">document</span>.createElement(<span class="string">"li"</span>);</span><br><span class="line">    title.textContent = i;</span><br><span class="line">    title.setAttribute(<span class="string">"class"</span>, <span class="string">"chart_title"</span>);</span><br><span class="line">    chart.appendChild(title);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt; <span class="number">10</span>; j++) &#123;</span><br><span class="line">      <span class="keyword">const</span> answer = i * j;</span><br><span class="line">      <span class="keyword">const</span> list = <span class="built_in">document</span>.createElement(<span class="string">"li"</span>);</span><br><span class="line">      list.textContent = <span class="string">`<span class="subst">$&#123;i&#125;</span>x<span class="subst">$&#123;j&#125;</span>=<span class="subst">$&#123;answer&#125;</span>`</span>;</span><br><span class="line">      chart.appendChild(list);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">createChart();</span><br></pre></td></tr></table></figure>
+<p>Javascript 在底層運作時，其實把運算子也等同於一種型態的函式。例如加法，它宣告一個函式，但不是命名它為 add</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function +(a,b)&#123;</span><br><span class="line">return // 兩數相加</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>但是上面這樣的寫法很麻煩，上面只是要方便了解運算子的底層運作。所以 Javascript 在這邊運用的是中綴表示法，只要將函數名稱寫在 2 個參數中間就好。</p>
+<p>當我們輸入任何一種型態的運算子，它實際上就是有兩個參數的特殊函數，這些參數被傳入函數當中。</p>
 
       
     </div>
@@ -242,7 +231,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/04/28/2019-04-28/" target="_blank" title="JavaScript 練習 - 九九乘法表">http://yoursite.com/2019/04/28/2019-04-28/</a>
+          <a href="/2019/04/28/2019-04-28/" target="_blank" title="克服 JavaScript 的奇怪部份 [Day15] - 運算子">http://yoursite.com/2019/04/28/2019-04-28/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -282,7 +271,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端學習/">前端學習</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端學習/">前端學習</a></li></ul>
 
       
 
@@ -292,11 +281,11 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2019/05/29/2019-05-29/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/04/29/2019-04-29/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          克服 JavaScript 的奇怪部份 [Day14] - 純值
+          克服 JavaScript 的奇怪部份 [Day16] - 運算子的優先性與相依性
         
       </div>
     </a>
@@ -304,7 +293,7 @@ var a = new Donate({
   
     <a href="/2019/04/27/2019-04-27/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">JavaScript 練習 - 時鐘功能</div>
+      <div class="article-nav-title">克服 JavaScript 的奇怪部份 [Day14] - 純值</div>
     </a>
   
 </nav>
@@ -318,7 +307,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo"><span class="nav-number">1.</span> <span class="nav-text">Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Introduction-介紹"><span class="nav-number">2.</span> <span class="nav-text">1. Introduction 介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-功能"><span class="nav-number">3.</span> <span class="nav-text">2. 功能</span></a></li></ol>
+        <ol class="nav">None</ol>
     
     </div>
   </aside>

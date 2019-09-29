@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>克服 javascript 的奇怪部份 [day28] - 傳值與參考值 | CYC&#39;S BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="JavaScript前端學習克服Javascript奇怪部份">
+  
+  
+  
+  
+  <meta name="description" content="這一節又來到另一個重要觀念「傳值（by value)」與「參考值(by reference)」，這兩者都和變數關係密切。 傳值好比說有一種純值（primitive value)，可能是數字、布林或字串。我設定一個值到這個變數中，變數就有一個位址，它知道那個純值的記憶體位址。因為參考是參照到一個記憶體的位址。  設定一個新變數，設定它等於 a，也可以說是我傳入 a 到一個函數，兒這個函數的名稱是 b">
+<meta name="keywords" content="JavaScript,前端學習,克服Javascript奇怪部份">
+<meta property="og:type" content="article">
+<meta property="og:title" content="克服 JavaScript 的奇怪部份 [Day28] - 傳值與參考值">
+<meta property="og:url" content="http://yoursite.com/2019/05/12/2019-05-12/index.html">
+<meta property="og:site_name" content="CYC&#39;S BLOG">
+<meta property="og:description" content="這一節又來到另一個重要觀念「傳值（by value)」與「參考值(by reference)」，這兩者都和變數關係密切。 傳值好比說有一種純值（primitive value)，可能是數字、布林或字串。我設定一個值到這個變數中，變數就有一個位址，它知道那個純值的記憶體位址。因為參考是參照到一個記憶體的位址。  設定一個新變數，設定它等於 a，也可以說是我傳入 a 到一個函數，兒這個函數的名稱是 b">
+<meta property="og:locale" content="en.yml">
+<meta property="og:image" content="https://i.imgur.com/2DyKYst.png">
+<meta property="og:image" content="https://i.imgur.com/UqX7I5C.png">
+<meta property="og:image" content="https://i.imgur.com/Z7tJRaX.png">
+<meta property="og:image" content="https://i.imgur.com/g0Z3oED.png">
+<meta property="og:image" content="https://i.imgur.com/R6I4eMd.png">
+<meta property="og:image" content="https://i.imgur.com/DpClwIO.png">
+<meta property="og:image" content="https://i.imgur.com/uxDDUlL.png">
+<meta property="og:updated_time" content="2019-09-29T07:37:19.740Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="克服 JavaScript 的奇怪部份 [Day28] - 傳值與參考值">
+<meta name="twitter:description" content="這一節又來到另一個重要觀念「傳值（by value)」與「參考值(by reference)」，這兩者都和變數關係密切。 傳值好比說有一種純值（primitive value)，可能是數字、布林或字串。我設定一個值到這個變數中，變數就有一個位址，它知道那個純值的記憶體位址。因為參考是參照到一個記憶體的位址。  設定一個新變數，設定它等於 a，也可以說是我傳入 a 到一個函數，兒這個函數的名稱是 b">
+<meta name="twitter:image" content="https://i.imgur.com/2DyKYst.png">
+  
+    <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2019-05-12" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      克服 JavaScript 的奇怪部份 [Day28] - 傳值與參考值
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/05/12/2019-05-12/" class="article-date">
+	  <time datetime="2019-05-11T16:00:00.000Z" itemprop="datePublished">2019-05-12</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>這一節又來到另一個重要觀念「傳值（by value)」與「參考值(by reference)」，這兩者都和變數關係密切。</p>
+<h3 id="傳值"><a href="#傳值" class="headerlink" title="傳值"></a>傳值</h3><p>好比說有一種純值（primitive value)，可能是數字、布林或字串。我設定一個值到這個變數中，變數就有一個位址，它知道那個純值的記憶體位址。因為參考是參照到一個記憶體的位址。</p>
+<p><img src="https://i.imgur.com/2DyKYst.png" alt></p>
+<p>設定一個新變數，設定它等於 <code>a</code>，也可以說是我傳入 <code>a</code> 到一個函數，兒這個函數的名稱是 <code>b</code>。如果這是 JavaScript 中的純值，b 這個新變數，將會指向一個新位址，一個新的記憶體地點。而那個純值的拷貝，被放到記憶體中的另一個地點。</p>
+<p><img src="https://i.imgur.com/UqX7I5C.png" alt></p>
+<p>所以如果 <code>a</code> 是 3，它在一個記憶體中的地點，接著 <code>b</code> 會指向 <code>3</code>，然後這個拷貝的地點，會被填上相同的值。這種方式叫做 <strong><em>by value</em></strong>&gt;。意思是會傳入一個值是直接拷貝另一個值，這兩個變數就相等了。藉由拷貝一個直到另一個記憶體中的地點。</p>
+<h3 id="參考值"><a href="#參考值" class="headerlink" title="參考值"></a>參考值</h3><p>如果我在 JavaScript 裡面有一個物件，包含特殊類型的物件，像是函數。當我設定一個變數為物件，我仍然會得到一個記憶體位址，讓我可以參照到它。當 <code>b</code> 被設定等於 <code>a</code>，意思就是我要讓這兩個東西一樣，或者是把<code>a</code> 傳到函數裡面。這個新的變數 <code>b</code>，不會得到一個新的記憶體位址，而是指向 <code>a</code>的記憶體位址。沒有新的物件被創造，沒有物件的拷貝被創造。這兩個名稱都指向同一位址，就像有一個名字跟綽號一樣。這兩個名字都指向同一個地址的同一個人。<code>a</code> 和 <code>b</code> 有相同的值，因為當你要取用它們的值，他們會指向相同的記憶體位址。這叫做 <strong>by reference</strong>。</p>
+<p><img src="https://i.imgur.com/Z7tJRaX.png" alt></p>
+<p>參考值和傳值是很不同的，很重要的是要了解所有物件都是 by reference 的，當用等號設定他們相等的時候。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// by value (primitive)</span><br><span class="line">var a = 3</span><br><span class="line">var b;</span><br><span class="line">b = a</span><br><span class="line">a=2;</span><br><span class="line">console.log(a);</span><br><span class="line">console.log(b);</span><br></pre></td></tr></table></figure>
+
+<p>這時會怎樣呢？ <code>a</code> 會是 3 ，<code>b</code> 也是。但記住，這是傳值，因為 3 是一個純值、一個數值（其他純值也會有相同作用）。所以當<code>b</code> 被設定等於<code>a</code> 的時候，等號運算子看到這些是純值，就創造一個新的記憶體位址給<code>b</code>，拷貝<code>a</code>的值到<code>b</code>的地址。所以兩者都是 3 。但他們兩個是在不同的記憶體位址。</p>
+<blockquote>
+<p>這表示我可以改變 <code>a</code> 的值，而不影響到 <code>b</code>，因為他們是記憶體中不同的 2 點。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/g0Z3oED.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// by reference (all objects include functions)</span><br><span class="line">var c = &#123;greeting:&quot;hi&quot;&#125;;</span><br><span class="line">var d;</span><br><span class="line">d = c;</span><br><span class="line">c.greeting=&quot;hello&quot; // mutate</span><br><span class="line">console.log(c);</span><br><span class="line">console.log(d);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>mutate : 改變某件事情 （to change something)<br>如果深入看一些 JavaScript 文件，可能會看見”mutate a object”、”mutate a value”，可能是新增或移除屬性。<br>immutable : 不能被改變 （it can’t be changed)</p>
+</blockquote>
+<p>等號運算子知道它們是物件，所以不會建立一個新的記憶體位址給 <code>d</code>，而是把 <code>d</code> 指向和 <code>c</code> 相同的記憶體位址。所以當我輸出這兩個東西，會看到同樣的值，但它們不是對方值的拷貝，它們只是指向同一個記憶體位址。我有一個物件在記憶體中，它有一個 greeting 屬性，我把它的值從 <code>hi</code> 改變為 <code>hello</code>，我改變 (mutate) 了它。</p>
+<p>要記得，當處理物件的時候，你設定它等於另一個物件，你只是把兩個變數名稱指向同一個位址。</p>
+<p><img src="https://i.imgur.com/R6I4eMd.png" alt></p>
+<p>所以如果我改變那個物件的值，它用什麼名稱並不重要，它們只是別名而已。由於物件指向同一個位址，一旦你改變其中一個，另一個也跟著改變。</p>
+<p>當我用函數的參數時也一樣。儘管是參數，物件也經由參考被傳入。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// by reference (even as paremeters)</span><br><span class="line"></span><br><span class="line">var c = &#123;greeting:&quot;hi&quot;&#125;;</span><br><span class="line">var d;</span><br><span class="line">d = c;</span><br><span class="line">c.greeting=&quot;hello&quot; // mutate</span><br><span class="line">console.log(c);</span><br><span class="line">console.log(d);</span><br><span class="line"></span><br><span class="line">function changeGreeting(obj)&#123;</span><br><span class="line">obj.greeting =&quot;hola&quot;; // mutate</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">changeGreeting(d);</span><br><span class="line"></span><br><span class="line">console.log(c);</span><br><span class="line">console.log(d);</span><br></pre></td></tr></table></figure>
+
+<p>傳入 <code>d</code> 到函數，<code>d</code> 就是 <code>obj</code>，所以它被改變了。就像等號一樣，把一個物件傳入函數裡，表示它們是傳入它們的參考點 （by reference)，所以<code>obj</code> 會指向<code>d</code>的記憶體位址，而<code>d</code>已經指向<code>c</code> 的記憶體位址。當它被改變，表示會更新這個物件所指向的記憶體位址裡面的值。</p>
+<p><img src="https://i.imgur.com/DpClwIO.png" alt></p>
+<h3 id="等號運算子設定一個新的記憶體空間"><a href="#等號運算子設定一個新的記憶體空間" class="headerlink" title="等號運算子設定一個新的記憶體空間"></a>等號運算子設定一個新的記憶體空間</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//equals operator sets up a new memory space (a new address)</span><br><span class="line"></span><br><span class="line">c=&#123;greeting:&apos;howdy&apos;&#125;;</span><br><span class="line">console.log(c);</span><br><span class="line">console.log(d);</span><br></pre></td></tr></table></figure>
+
+<p>這個例子中的等號，我設定 <code>c</code> 為一個新的值，等號運算子會設定一個新的記憶體空間給<code>c</code>，放進那個值，所以 <code>d</code> 和<code>c</code>就不再指向同一個記憶體位址。 <code>d</code> 仍然指向 hola。<br><img src="https://i.imgur.com/uxDDUlL.png" alt></p>
+<p>這是一個特殊例子，這不是 by reference，因為等號運算子看到這些東西還不存在於記憶體裡面，它看到第二個參數不是已經存在的物件，它必須創造一個新的記憶體空間給物件，所以它建立一個新的空間，然後指向 <code>c</code>。在上個例子中我設定<code>d</code> 等於 <code>c</code>，<code>c</code>已經存在了。但在這個例子中， <code>c</code>現在指向不同於<code>d</code>的記憶體位址。</p>
+<h3 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h3><p>了解 by value 和 by reference 的差異很重要，因為在 JavaScript 裡面所有的純值都是 by value 而所有的物件都是 by reference。這在除錯時是非常重要的關鍵觀念。但是了解之後，就會知道當物件被改變了，那所有的物件、所有的變數，指向相同位址的東西都會被改變。所以屆時我們就可以了解，如果不小心無意改變了物件，那可能是傳入了這個物件的參考點而不自知。另一方面，改變一個純值，但原始的值並不會被改變，因為它是 by value。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong></a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/05/12/2019-05-12/" target="_blank" title="克服 JavaScript 的奇怪部份 [Day28] - 傳值與參考值">http://yoursite.com/2019/05/12/2019-05-12/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/克服Javascript奇怪部份/">克服Javascript奇怪部份</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端學習/">前端學習</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/13/2019-05-13/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          克服 JavaScript 的奇怪部份 [Day29] - 物件、函數與 this
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/11/2019-05-11/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">克服 JavaScript 的奇怪部份 [Day27] - 函數陳述句與函數表示式</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#傳值"><span class="nav-number">1.</span> <span class="nav-text">傳值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#參考值"><span class="nav-number">2.</span> <span class="nav-text">參考值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#等號運算子設定一個新的記憶體空間"><span class="nav-number">3.</span> <span class="nav-text">等號運算子設定一個新的記憶體空間</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小結"><span class="nav-number">4.</span> <span class="nav-text">小結</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 CYC&#39;S BLOG All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            CYC&#39;S BLOG
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 CYC&#39;S BLOG All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

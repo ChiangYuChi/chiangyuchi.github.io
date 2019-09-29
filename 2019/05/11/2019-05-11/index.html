@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>克服 javascript 的奇怪部份 [day27] - 函數陳述句與函數表示式 | CYC&#39;S BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="JavaScript前端學習">
+  
+  
+  
+  
+  <meta name="description" content="了解函數就是物件後，接著要實際運用這個觀念。開始之前，我們要先了解函數陳述句 （Function Statements) 與函數表示式 (Function Expressions) 的用法差異。 表示式 表示式是程式碼的單位，會形成一個值 (A unit of code that results in a value) 直接地說，任何表示式最終都會創造一個值，而這個值不一定要儲存在某個變數。  舉">
+<meta name="keywords" content="JavaScript,前端學習">
+<meta property="og:type" content="article">
+<meta property="og:title" content="克服 JavaScript 的奇怪部份 [Day27] - 函數陳述句與函數表示式">
+<meta property="og:url" content="http://yoursite.com/2019/05/11/2019-05-11/index.html">
+<meta property="og:site_name" content="CYC&#39;S BLOG">
+<meta property="og:description" content="了解函數就是物件後，接著要實際運用這個觀念。開始之前，我們要先了解函數陳述句 （Function Statements) 與函數表示式 (Function Expressions) 的用法差異。 表示式 表示式是程式碼的單位，會形成一個值 (A unit of code that results in a value) 直接地說，任何表示式最終都會創造一個值，而這個值不一定要儲存在某個變數。  舉">
+<meta property="og:locale" content="en.yml">
+<meta property="og:image" content="https://i.imgur.com/TnvqLDE.png">
+<meta property="og:image" content="https://i.imgur.com/dqeJb8a.png">
+<meta property="og:image" content="https://i.imgur.com/csgpRQs.png">
+<meta property="og:image" content="https://i.imgur.com/Brtzuj1.png">
+<meta property="og:image" content="https://i.imgur.com/wWwuPXa.png">
+<meta property="og:image" content="https://i.imgur.com/Mxan84C.png">
+<meta property="og:updated_time" content="2019-09-29T07:37:07.524Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="克服 JavaScript 的奇怪部份 [Day27] - 函數陳述句與函數表示式">
+<meta name="twitter:description" content="了解函數就是物件後，接著要實際運用這個觀念。開始之前，我們要先了解函數陳述句 （Function Statements) 與函數表示式 (Function Expressions) 的用法差異。 表示式 表示式是程式碼的單位，會形成一個值 (A unit of code that results in a value) 直接地說，任何表示式最終都會創造一個值，而這個值不一定要儲存在某個變數。  舉">
+<meta name="twitter:image" content="https://i.imgur.com/TnvqLDE.png">
+  
+    <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2019-05-11" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      克服 JavaScript 的奇怪部份 [Day27] - 函數陳述句與函數表示式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/05/11/2019-05-11/" class="article-date">
+	  <time datetime="2019-05-10T16:00:00.000Z" itemprop="datePublished">2019-05-11</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>了解函數就是物件後，接著要實際運用這個觀念。開始之前，我們要先了解函數陳述句 （Function Statements) 與函數表示式 (Function Expressions) 的用法差異。</p>
+<h3 id="表示式"><a href="#表示式" class="headerlink" title="表示式"></a>表示式</h3><blockquote>
+<p>表示式是程式碼的單位，會形成一個值 (A unit of code that results in a value)</p>
+<p>直接地說，任何表示式最終都會創造一個值，而這個值不一定要儲存在某個變數。</p>
+</blockquote>
+<p>舉例來說，我們宣告一個變數 <code>a</code>，並且打開開發者工具輸入以下</p>
+<p><img src="https://i.imgur.com/TnvqLDE.png" alt></p>
+<p>上面是一個簡單的表示式，我們透過等號運算子把 3 賦與給變數 <code>a</code>，執行它，得到回傳的結果。</p>
+<p>但是上面說過值不一定要儲存在變數裡面，所以表示式也可以這樣寫：<br><img src="https://i.imgur.com/dqeJb8a.png" alt></p>
+<p>回傳了 3，但是我們並沒有使用等號運算子把這個值放入變數裡面。這個值可以是數值、字串或者物件。所以表示式也可以這樣寫</p>
+<p><img src="https://i.imgur.com/csgpRQs.png" alt></p>
+<h3 id="陳述句"><a href="#陳述句" class="headerlink" title="陳述句"></a>陳述句</h3><blockquote>
+<p>當我們提到陳述句，陳述句表示「做某件事情」。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a;</span><br><span class="line"></span><br><span class="line">if(a===3)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>當 <code>a===3</code> 就做某件事情。在 if 陳述句的括號內，必須放入表示式，因為會形成一個值，這樣這個陳述句才能運作。陳述句本身不會回傳任何值。</p>
+<p>像是我不能這麼做，這不會有任何效用，因為沒有任何值會回傳給變數 b</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var b=if(a===3)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>結論：陳述句會做其他事情，表示式則回傳值</p>
+</blockquote>
+<h3 id="函式表示式與函式陳述句的差異"><a href="#函式表示式與函式陳述句的差異" class="headerlink" title="函式表示式與函式陳述句的差異"></a>函式表示式與函式陳述句的差異</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function greet() &#123;</span><br><span class="line">    console.log(&apos;hi&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="函式陳述句"><a href="#函式陳述句" class="headerlink" title="函式陳述句"></a>函式陳述句</h4><p>這是一個簡單的函式陳述句，在創造執行環境的時候，這個函式被放進記憶體中，但這只是陳述句，所以不會回傳任何的值，直到函式被呼叫執行。</p>
+<p>雖然函式陳述句不會回傳任何值，但它會有提升 (hoisting) 現象，所以可以在任何地方取用它</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">greet();</span><br><span class="line">function greet() &#123;</span><br><span class="line">    console.log(&apos;hi&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="函式表示式"><a href="#函式表示式" class="headerlink" title="函式表示式"></a>函式表示式</h4><p>宣告一個 anonymousGreet 變數並且使用等號運算子，然後在右側使用函式陳述句。</p>
+<p>記得「函數就是物件」，所以「建立一個物件，並且設定它等於這個變數」，這個變數也就是它在記憶體中指向的位置。</p>
+<p>我們已經有一個已經知道函式物件位址的變數 anonymousGreet ，所以等號右邊的陳述句可以改寫成這樣，稱為匿名函式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var anonymousGreet = function () &#123;</span><br><span class="line">    console.log(&apos;hi&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/Brtzuj1.png" alt></p>
+<h3 id="如何觸發函式表示式"><a href="#如何觸發函式表示式" class="headerlink" title="如何觸發函式表示式"></a>如何觸發函式表示式</h3><p>我們需要指向那個物件，告訴它要執行程式，像這樣</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">anonymousGreet();</span><br></pre></td></tr></table></figure>
+
+<p>因為變數已經知道函數記憶體的位址，所以只要加上 <code>()</code>，就可以觸發函式。</p>
+<p>但是因為函式表示式的提升 (hoisting) 現象，造成一個值得注意的問題。如果我們把程式碼改寫成這樣</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">anonymousGreets();</span><br><span class="line">var anonymousGreets = function() &#123;</span><br><span class="line">  console.log(&apos;Hi&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>結果變這樣，為什麼？<br><img src="https://i.imgur.com/wWwuPXa.png" alt></p>
+<p>還記得當執行環境被創造，創造執行階段會把函式陳述句以及變數都放入記憶體，變數被賦予初始值 undefined ，然後逐行執行程式碼。</p>
+<p>於是程式的第一行是「anonymousGreets();」，但此時仍未賦予變數值，變數的值仍然是 undefined 。自然的，錯誤便會告訴我們 undefined 不是函式，它沒辦法被使用 () 呼叫執行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var anonymousGreets = function() &#123;</span><br><span class="line">  console.log(&apos;Hi&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>直到上述這行程式碼，anonymousGreets 變數的值才被賦予函式物件。</p>
+<blockquote>
+<p>所以函式表示式不受到提升 (hoisting) 影響。</p>
+</blockquote>
+<h3 id="傳入函式表示式做為參數"><a href="#傳入函式表示式做為參數" class="headerlink" title="傳入函式表示式做為參數"></a>傳入函式表示式做為參數</h3><p>記得我們說的函式是物件，函式表示式可以馬上創造函式物件，因此我們可延伸出以下寫法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function log(a)&#123;</span><br><span class="line">  console.log(a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">log(function()&#123;</span><br><span class="line">  console.log(&apos;hi&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>我們立即創造了一個函式物件，在裡面寫了一些程式碼。然後把這個函式物件當成參數傳入 log 函式內</p>
+<p><img src="https://i.imgur.com/Mxan84C.png" alt></p>
+<p>不過這樣只是印出函式物件的內容而已，但透過這樣的觀察得知「一級函式可以很快地被創造、使用，且變數也可以設值成為一級函式」</p>
+<p>我們結合上述這些並做些修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function log(a)&#123;</span><br><span class="line">  a();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var anonymousGreets = function()&#123;</span><br><span class="line">  console.log(&apos;hi&apos;);</span><br><span class="line">&#125;</span><br><span class="line">log(anonymousGreets);　// hi</span><br></pre></td></tr></table></figure>
+
+<p>因為我們傳入 log 函式的參數為函式物件，所以變數 a 參照到了這個函式物件。同樣地，要呼叫執行函式僅需要加上 () 即可。</p>
+<p>本例來看，我使用函式表示式，接著把這個函式傳入當作另一個函式的參數，這樣另一個函式就可以使用這個函式表示式，這就是我們提到的一級函式的觀念「可以將函式傳入別處」。</p>
+<p>可以把函式給另一個函式，就像使用變數一樣，這樣的做法也稱為函式程式語言 ( functional programming )。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong></a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/05/11/2019-05-11/" target="_blank" title="克服 JavaScript 的奇怪部份 [Day27] - 函數陳述句與函數表示式">http://yoursite.com/2019/05/11/2019-05-11/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端學習/">前端學習</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/12/2019-05-12/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          克服 JavaScript 的奇怪部份 [Day28] - 傳值與參考值
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/10/2019-05-10/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">克服 JavaScript 的奇怪部份 [Day26] - 函數就是物件</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#表示式"><span class="nav-number">1.</span> <span class="nav-text">表示式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#陳述句"><span class="nav-number">2.</span> <span class="nav-text">陳述句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函式表示式與函式陳述句的差異"><span class="nav-number">3.</span> <span class="nav-text">函式表示式與函式陳述句的差異</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函式陳述句"><span class="nav-number">3.1.</span> <span class="nav-text">函式陳述句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函式表示式"><span class="nav-number">3.2.</span> <span class="nav-text">函式表示式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何觸發函式表示式"><span class="nav-number">4.</span> <span class="nav-text">如何觸發函式表示式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#傳入函式表示式做為參數"><span class="nav-number">5.</span> <span class="nav-text">傳入函式表示式做為參數</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 CYC&#39;S BLOG All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            CYC&#39;S BLOG
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 CYC&#39;S BLOG All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
