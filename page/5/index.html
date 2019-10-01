@@ -225,7 +225,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/04/28/2019-04-28/">克服 JavaScript 的奇怪部份 [Day15] - 運算子</a>
+      <a class="article-title" href="/2019/04/28/2019-04-28/">JavaScript Weird Part (15))- 運算子</a>
     </h1>
   
 
@@ -245,13 +245,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          運算子是一種特殊的函數，它和其他你自己寫的函數不同。運算子需要 2 個參數來回傳一個結果。但是 Javascript 是怎樣處理運算符號呢？
+          運算子是一種特殊的函數，它和其他你自己寫的函數不同，運算子需要 2 個參數來回傳一個結果。但是 Javascript 是怎樣處理運算符號呢？
 12var a = 3+4;console.log(a); /會得出變數值為7/
 
-Javascript 在底層運作時，其實把運算子也等同於一種型態的函式。例如加法，它宣告一個函式，但不是命名它為 add
+Javascript 在底層運作時，其實把運算子也等同於一種型態的函式。例如加法，它以運算符號宣告一個函式，但不是直接將命名它為 add
 123function +(a,b)&#123;return // 兩數相加&#125;
 
-但是上面這樣的寫法很麻煩，上面只是要方便了解運算子的底...
+但是上面這樣的寫法很麻煩，上面只是要方...
         </p>
         <p class="article-more-link">
           <a href="/2019/04/28/2019-04-28/#more">Read More</a>
@@ -281,7 +281,7 @@ Javascript 在底層運作時，其實把運算子也等同於一種型態的函
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/04/27/2019-04-27/">克服 JavaScript 的奇怪部份 [Day14] - 純值</a>
+      <a class="article-title" href="/2019/04/27/2019-04-27/">JavaScript Weird Part (14) - 純值</a>
     </h1>
   
 
@@ -301,12 +301,8 @@ Javascript 在底層運作時，其實把運算子也等同於一種型態的函
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          Javascript 有六種基本型別 （Primitive types)，表示一個值，它不是物件，因為物件是名稱與值的配對。因此基本型別，就只是一個值。
-Javascript 的六種基本型別包括
-
-undefined：表示還不存在，是 Javascript 給所有變數的初始值，直到你賦與變數一個值。所以不應該設定一個值為 undefined，因為這就表示這個變數還沒被設定任何的值。
-
-null: null 也表示不存在。因為 undefined 是表示變數處於初始值，還沒有值、現在值還不存...
+          JavaScript 處理型別是以「動態型別」的方式處理資料,所以當執行程式時，一個變數可以在不同時候擁有不同型別。在深入了解動態型別的運作與優缺點之前，我們要先了解 JavaScript 可以存進變數的資料型別，在 JavsScript 執行的時候，它會自動判斷型別，其中有六種純值 （Primitive types，或稱基本型別)。純值是什麼意思？純值是一種資料的型別，表示一個值，基本型別就只是一個值。
+所以它不是物件，因為物件是名稱與值的配對。因此基本型別，就只是一個值。Javascr...
         </p>
         <p class="article-more-link">
           <a href="/2019/04/27/2019-04-27/#more">Read More</a>

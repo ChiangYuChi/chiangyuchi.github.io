@@ -3,26 +3,26 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>克服 javascript 的奇怪部份 [day14] - 純值 | CYC&#39;S BLOG</title>
+  <title>javascript weird part (14) - 純值 | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="JavaScript前端學習">
+  <meta name="keywords" content="JavaScript Weird PartJavaScript">
   
   
   
   
-  <meta name="description" content="Javascript 有六種基本型別 （Primitive types)，表示一個值，它不是物件，因為物件是名稱與值的配對。因此基本型別，就只是一個值。 Javascript 的六種基本型別包括  undefined：表示還不存在，是 Javascript 給所有變數的初始值，直到你賦與變數一個值。所以不應該設定一個值為 undefined，因為這就表示這個變數還沒被設定任何的值。  null:">
-<meta name="keywords" content="JavaScript,前端學習">
+  <meta name="description" content="JavaScript 處理型別是以「動態型別」的方式處理資料,所以當執行程式時，一個變數可以在不同時候擁有不同型別。在深入了解動態型別的運作與優缺點之前，我們要先了解 JavaScript 可以存進變數的資料型別，在 JavsScript 執行的時候，它會自動判斷型別，其中有六種純值 （Primitive types，或稱基本型別)。純值是什麼意思？純值是一種資料的型別，表示一個值，基本型別就只是">
+<meta name="keywords" content="JavaScript Weird Part,JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="克服 JavaScript 的奇怪部份 [Day14] - 純值">
+<meta property="og:title" content="JavaScript Weird Part (14) - 純值">
 <meta property="og:url" content="http://yoursite.com/2019/04/27/2019-04-27/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="Javascript 有六種基本型別 （Primitive types)，表示一個值，它不是物件，因為物件是名稱與值的配對。因此基本型別，就只是一個值。 Javascript 的六種基本型別包括  undefined：表示還不存在，是 Javascript 給所有變數的初始值，直到你賦與變數一個值。所以不應該設定一個值為 undefined，因為這就表示這個變數還沒被設定任何的值。  null:">
+<meta property="og:description" content="JavaScript 處理型別是以「動態型別」的方式處理資料,所以當執行程式時，一個變數可以在不同時候擁有不同型別。在深入了解動態型別的運作與優缺點之前，我們要先了解 JavaScript 可以存進變數的資料型別，在 JavsScript 執行的時候，它會自動判斷型別，其中有六種純值 （Primitive types，或稱基本型別)。純值是什麼意思？純值是一種資料的型別，表示一個值，基本型別就只是">
 <meta property="og:locale" content="en.yml">
-<meta property="og:updated_time" content="2019-09-29T07:35:14.590Z">
+<meta property="og:updated_time" content="2019-10-01T05:22:05.003Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="克服 JavaScript 的奇怪部份 [Day14] - 純值">
-<meta name="twitter:description" content="Javascript 有六種基本型別 （Primitive types)，表示一個值，它不是物件，因為物件是名稱與值的配對。因此基本型別，就只是一個值。 Javascript 的六種基本型別包括  undefined：表示還不存在，是 Javascript 給所有變數的初始值，直到你賦與變數一個值。所以不應該設定一個值為 undefined，因為這就表示這個變數還沒被設定任何的值。  null:">
+<meta name="twitter:title" content="JavaScript Weird Part (14) - 純值">
+<meta name="twitter:description" content="JavaScript 處理型別是以「動態型別」的方式處理資料,所以當執行程式時，一個變數可以在不同時候擁有不同型別。在深入了解動態型別的運作與優缺點之前，我們要先了解 JavaScript 可以存進變數的資料型別，在 JavsScript 執行的時候，它會自動判斷型別，其中有六種純值 （Primitive types，或稱基本型別)。純值是什麼意思？純值是一種資料的型別，表示一個值，基本型別就只是">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -172,7 +172,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      克服 JavaScript 的奇怪部份 [Day14] - 純值
+      JavaScript Weird Part (14) - 純值
     </h1>
   
 
@@ -197,12 +197,12 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Javascript 有六種基本型別 （Primitive types)，表示一個值，它不是物件，因為物件是名稱與值的配對。因此基本型別，就只是一個值。</p>
-<p>Javascript 的六種基本型別包括</p>
+        <p>JavaScript 處理型別是以「動態型別」的方式處理資料,所以當執行程式時，一個變數可以在不同時候擁有不同型別。在深入了解動態型別的運作與優缺點之前，我們要先了解 JavaScript 可以存進變數的資料型別，在 JavsScript 執行的時候，它會自動判斷型別，其中有六種純值 （Primitive types，或稱基本型別)。純值是什麼意思？純值是一種資料的型別，表示一個值，基本型別就只是一個值。</p>
+<pre><code>所以它不是物件，因為物件是名稱與值的配對。因此基本型別，就只是一個值。</code></pre><p>Javascript 的六種基本型別包括</p>
 <ul>
 <li><p>undefined：表示還不存在，是 Javascript 給所有變數的初始值，直到你賦與變數一個值。所以不應該設定一個值為 undefined，因為這就表示這個變數還沒被設定任何的值。</p>
 </li>
-<li><p>null: null 也表示不存在。因為 undefined 是表示變數處於初始值，還沒有值、現在值還不存在，而非「not exist」，因此 null 比起」undeifned 更適合表示一個東西不存在，當你刻意把變數設定為空值的時候。</p>
+<li><p>null: null 也表示不存在。因為 undefined 是表示變數處於初始值，還沒有值、現在值還不存在，而非「not exist」，因此 null 比起 undeifned 更適合表示一個東西不存在，當你刻意把變數設定為空值的時候。</p>
 </li>
 <li><p>Boolean: 指得是 true/false 其中一種可能性</p>
 </li>
@@ -239,7 +239,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/04/27/2019-04-27/" target="_blank" title="克服 JavaScript 的奇怪部份 [Day14] - 純值">http://yoursite.com/2019/04/27/2019-04-27/</a>
+          <a href="/2019/04/27/2019-04-27/" target="_blank" title="JavaScript Weird Part (14) - 純值">http://yoursite.com/2019/04/27/2019-04-27/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -279,7 +279,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端學習/">前端學習</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript-Weird-Part/">JavaScript Weird Part</a></li></ul>
 
       
 
@@ -293,7 +293,7 @@ var a = new Donate({
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          克服 JavaScript 的奇怪部份 [Day15] - 運算子
+          JavaScript Weird Part (15))- 運算子
         
       </div>
     </a>

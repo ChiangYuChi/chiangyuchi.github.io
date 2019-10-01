@@ -6,13 +6,13 @@
   <title>javascript weird part (13) - 型別與 javascript | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="JavaScriptJavaScript Weird Part">
+  <meta name="keywords" content="JavaScript Weird PartJavaScript">
   
   
   
   
   <meta name="description" content="程式語言都具有資料結構，但在不同的程式語言之間會有些差異。Javascript 在變數的資料型別與其他的程式語言相當不同，它是以「動態型別」（Dynamic Typing) 處理資料型別。 動態型別程式語言會依照語言的型別系統分成「強型別語言」和「弱型別語言」。強型別是指「程式定義的變數型別等於變數在執行的時候的型別」，這類語言的變數在宣告的時候，必須指定一種資料型別給它，如果對這個變數做錯誤型別">
-<meta name="keywords" content="JavaScript,JavaScript Weird Part">
+<meta name="keywords" content="JavaScript Weird Part,JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript Weird Part (13) - 型別與 JavaScript">
 <meta property="og:url" content="http://yoursite.com/2019/04/26/2019-04-26/index.html">
@@ -20,7 +20,7 @@
 <meta property="og:description" content="程式語言都具有資料結構，但在不同的程式語言之間會有些差異。Javascript 在變數的資料型別與其他的程式語言相當不同，它是以「動態型別」（Dynamic Typing) 處理資料型別。 動態型別程式語言會依照語言的型別系統分成「強型別語言」和「弱型別語言」。強型別是指「程式定義的變數型別等於變數在執行的時候的型別」，這類語言的變數在宣告的時候，必須指定一種資料型別給它，如果對這個變數做錯誤型別">
 <meta property="og:locale" content="en.yml">
 <meta property="og:image" content="https://i.imgur.com/GydjUXh.png">
-<meta property="og:updated_time" content="2019-09-29T07:26:02.551Z">
+<meta property="og:updated_time" content="2019-09-30T09:59:47.090Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript Weird Part (13) - 型別與 JavaScript">
 <meta name="twitter:description" content="程式語言都具有資料結構，但在不同的程式語言之間會有些差異。Javascript 在變數的資料型別與其他的程式語言相當不同，它是以「動態型別」（Dynamic Typing) 處理資料型別。 動態型別程式語言會依照語言的型別系統分成「強型別語言」和「弱型別語言」。強型別是指「程式定義的變數型別等於變數在執行的時候的型別」，這類語言的變數在宣告的時候，必須指定一種資料型別給它，如果對這個變數做錯誤型別">
@@ -225,7 +225,7 @@
 <li>未定義（undefined）vs 未宣告（undeclared）</li>
 </ol>
 <p>「型別」是固有的、內建的特徵，能唯一識別特定值的行為。例如：數字 123 和字串 ‘123’ 就是不一樣的，數字 123 可做數學運算處理，而字串 ‘123’ 可能就是做些顯示到畫面上的操作。</p>
-<p>JavaScript 支援的型別主要可分為基本型別（primitives）和物件型別（object）。基本型別有 number、string、boolean、null、undefined、ES6 之後又多了新的型別：symbol 除了上述幾種之外，其他都可以歸類到物件型別 (Object)，例如：物件、陣列、函式、日期等。:</p>
+<p>JavaScript 支援的型別主要可分為基本型別（primitives）和物件型別（object）。基本型別有 <code>number</code>、<code>string</code>、<code>boolean</code>、<code>null</code>、<code>undefined</code>。ES6 之後又多了新的型別：<code>symbol</code> 除了上述幾種之外，其他都可以歸類到物件型別 (Object)，例如：物件、陣列、函式、日期等。:</p>
 <ul>
 <li>number 數字，例如：12345。</li>
 <li>string 字串，例如：’Hello World’。</li>
@@ -241,31 +241,71 @@
 <p>也會有例外狀況</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>;<span class="comment">//'object'</span></span><br><span class="line">tyoeof <span class="built_in">window</span>.alert;<span class="comment">//'function'</span></span><br></pre></td></tr></table></figure>
 
-<p>這裡會看到幾個有趣的（奇怪的）地方：</p>
+<h2 id="string-字串"><a href="#string-字串" class="headerlink" title="string 字串"></a>string 字串</h2><p>依照習慣可以用 ‘’ (單引號) 或 “ “ （雙引號）收合，但不能同時混用。而且單引號內包負擔引號或雙引號內包覆雙引號就會出錯：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str =<span class="string">' Let'</span>s go shopping <span class="string">' // 錯誤</span></span><br></pre></td></tr></table></figure>
+
+<p>這樣可以：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">" Let's go shopping "</span>;</span><br></pre></td></tr></table></figure>
+
+<p>如果一定要用，可以用 \ (跳脫字元，escape character) 處理：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">" Let＼'s go shopping "</span>;</span><br></pre></td></tr></table></figure>
+
+<p>多行字串也可以透過 ＼ 連接：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str =</span><br><span class="line">  <span class="string">" 第一行\</span></span><br><span class="line"><span class="string">第二行\</span></span><br><span class="line"><span class="string">第三行"</span>;</span><br></pre></td></tr></table></figure>
+
+<pre><code>反斜線符號後面不能有任何東西，包括空白字元</code></pre><h3 id="ES6-樣板字面值"><a href="#ES6-樣板字面值" class="headerlink" title="ES6 樣板字面值"></a>ES6 樣板字面值</h3><p>ES6 新增一種樣板字面值 (template literal)，增加字串靈活性。這種樣板字面值是由一組反引號 ` 包覆。多行字串不需要再加上 \。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">`</span></span><br><span class="line"><span class="string">第一行</span></span><br><span class="line"><span class="string">第二行</span></span><br><span class="line"><span class="string">第三行</span></span><br><span class="line"><span class="string">`</span>;</span><br></pre></td></tr></table></figure>
+
+<p>組合變數與字串不用再加+連接，可直接塞進字串：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> amount = <span class="number">30</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">`I buy <span class="subst">$&#123;amount&#125;</span> bottles of cola `</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str);</span><br><span class="line"><span class="comment">// I buy 30 bottles of cola.</span></span><br></pre></td></tr></table></figure>
+
+<p>或者運算式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`Seven is <span class="subst">$&#123;a + b&#125;</span> and not <span class="subst">$&#123;a * b&#125;</span>.`</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="number-數字"><a href="#number-數字" class="headerlink" title="number 數字"></a>number 數字</h2><p>除了常見的整數與小數點，還有一種特殊的數字 NaN (不是數值，Not a Number)， <code>NaN</code> 表示是無效的數字，但依舊還是數字，因此在資料型別的檢測 <code>typeof NaN</code> 結果就是 <code>number</code>，不要被字面上的意思「不是數字」（not a number）給弄糊塗了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span>; <span class="comment">//number</span></span><br></pre></td></tr></table></figure>
+
+<p>另外，<code>NaN</code> 與任何數字運算都會得到 <code>NaN</code>，並且 <code>NaN</code> 不大於、不小於也不等於任何數字，也就是說，包含 <code>NaN</code> 它自己。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">NaN</span> === <span class="literal">NaN</span>; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Q1：如何檢測變數是否為-NaN？"><a href="#Q1：如何檢測變數是否為-NaN？" class="headerlink" title="Q1：如何檢測變數是否為 NaN？"></a>Q1：如何檢測變數是否為 NaN？</h1><p>可以透過 isNaN (value) 來判斷：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">isNaN</span>(<span class="literal">NaN</span>); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="number">123</span>); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="string">"123"</span>); <span class="comment">//false,因為字串 '123' 會透過隱含的 Number()轉型成數字</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="string">"NaN"</span>); <span class="comment">//true,因為字串 "NaN" 無法轉成數字</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="boolean-布林值"><a href="#boolean-布林值" class="headerlink" title="boolean 布林值"></a>boolean 布林值</h2><p>布林值通常用在判斷式，當做控制程式流程的用途。JavaScript 判斷比較的運算式裡，所有東西都可以轉換成布林值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="null-與-undefined"><a href="#null-與-undefined" class="headerlink" title="null 與 undefined"></a>null 與 undefined</h2><p>多數程式語言都有 <code>null</code> 及空值的設定，但是 JavaScript 又多了一種 <code>undefined</code>。兩者的共通點是都只有一種值：<code>null</code> 就只有一種 <code>null</code> 值，而 <code>undefined</code> 就只有 <code>undefined</code> 值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a; <span class="comment">//undefined，尚未給值，未定一</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">null</span>; <span class="comment">//null，明確代表此數沒有值</span></span><br></pre></td></tr></table></figure>
+
+<p>這兩種值透過 <code>Boolean()</code>型轉的時候，都是 false，但確切一似的差別是：</p>
 <ol>
-<li>null 是基本型別之一，但 typeof null 卻得到 object，而非 null！這可說是一個 bug，可是若修正了這個 bug 則可能會導致很多網站壞掉，因此就不修了！</li>
-<li>雖然說 function 是物件的子型別，但 typeof function() {} 是得到 function 而非 object，和陣列依舊得到 object 是不一樣的。另外，順道一提，函式是一種「可呼叫的物件」（callable object），它擁有 [[Call]] 的內部特性，讓它成為能夠被調用的物件。</li>
-<li>NaN 表示是無效的數字，但依舊還是數字，因此在資料型別的檢測 typeof NaN 結果就是 number，不要被字面上的意思「不是數字」（not a number）給弄糊塗了。另外，NaN 與任何數字運算都會得到 NaN，並且 NaN 不大於、不小於也不等於任何數字，包含 NaN 它自己。</li>
+<li><code>undefined</code> 代表此變數還沒有給一個值，所以不知道是什麼</li>
+<li><code>null</code>代表「曾經有值，或曾經也沒值」，但現在沒有值</li>
 </ol>
-<h1 id="Q1：如何檢測-null？"><a href="#Q1：如何檢測-null？" class="headerlink" title="Q1：如何檢測 null？"></a>Q1：如何檢測 null？</h1><p>在 JavaScript 中會被轉為 false 的值有</p>
-<ul>
-<li>“” 空字串</li>
-<li>0, -0, NaN</li>
-<li>null</li>
-<li>undefined</li>
-<li>false</li>
-</ul>
-<p>而除了以上之外，都會被轉為 true，舉例如下</p>
-<ul>
-<li>‘Hello World’ 非空字串</li>
-<li>42 非零的有效數字</li>
-<li>[], [1, 2, 3] 陣列，不管是不是空的</li>
-<li>{}, { name: ‘Jack’ } 物件，不管是不是空的</li>
-<li>function foo() {} 函式</li>
-<li>true</li>
-</ul>
-<p>我們可利用 null 會被 typeof 檢測為 object 並且會轉為 false 的結果來驗證值是否為 null。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> happy = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!happy &amp;&amp; <span class="keyword">typeof</span> happy === <span class="string">"object"</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"我是 null！"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="object-物件"><a href="#object-物件" class="headerlink" title="object 物件"></a>object 物件</h2><p>物件是零至多種屬性的集合，物件就像是屬性的容器。屬性就是鍵 (key) 與值 (value) 的組合。在值中可以放入任何型別的值，當然也包括物件、函式。</p>
+<h3 id="物件及屬性"><a href="#物件及屬性" class="headerlink" title="物件及屬性"></a>物件及屬性</h3><p>目前常見建立物件的方法，直接使用大括號 {} 建立物件，並直接指定屬性到物件裡面，這稱為「物件實體」(Object literal) 方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name:<span class="string">'David'</span></span><br><span class="line">  job:<span class="string">'Teacher'</span>,</span><br><span class="line">  sayName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="物件屬性存取"><a href="#物件屬性存取" class="headerlink" title="物件屬性存取"></a>物件屬性存取</h3><p>透過 「.」 存取</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name:<span class="string">'David'</span></span><br><span class="line">  job:<span class="string">'Teacher'</span>,</span><br><span class="line">  sayName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person.name; <span class="comment">// 'David'</span></span><br></pre></td></tr></table></figure>
+
+<p>透過 [ ] 存取</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name:<span class="string">'David'</span></span><br><span class="line">  job:<span class="string">'Teacher'</span>,</span><br><span class="line">  sayName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person[<span class="string">'name'</span>]; <span class="comment">// 'David'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="屬性新增"><a href="#屬性新增" class="headerlink" title="屬性新增"></a>屬性新增</h3><p>如果要為物件新增屬性，直接用 <code>=</code> 指定</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">obj.name = <span class="string">"Object"</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="屬性刪除"><a href="#屬性刪除" class="headerlink" title="屬性刪除"></a>屬性刪除</h3><p>透過 <code>delete</code> 關鍵字刪除屬性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">obj.name = <span class="string">"Object"</span>;</span><br><span class="line"><span class="keyword">delete</span> object.name;</span><br><span class="line"></span><br><span class="line">object.name; <span class="comment">//刪除後屬性變成 undefined</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="陣列"><a href="#陣列" class="headerlink" title="陣列"></a>陣列</h2><p>陣列是一種特別的物件，裡面可以是原始資料類型、另一個陣列、物件或函式。與物件不同的地方是，陣列是有順序性的集合，只能夠過 [] 加上索引存取。現今建立陣列多用陣列實體 （Array literal)，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line">a [<span class="number">0</span>] = <span class="string">'apple'</span>;</span><br><span class="line">a [<span class="number">1</span>] = <span class="string">'boy'</span>;</span><br><span class="line">a [<span class="number">2</span>] = <span class="string">'cat'</span>;</span><br><span class="line"></span><br><span class="line">a.length =; <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+
+<p>要在陣列末端新增元素，可以透過 <code>push()</code> 方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [<span class="string">"a"</span>, <span class="string">"b"</span>];</span><br><span class="line">array.length; <span class="comment">//3</span></span><br><span class="line"></span><br><span class="line">array.push(<span class="string">"c"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(array); <span class="comment">//['a','b','c']</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="如何判別是不是陣列"><a href="#如何判別是不是陣列" class="headerlink" title="如何判別是不是陣列"></a>如何判別是不是陣列</h3><p>利用 <code>typeof</code> 檢查陣列，會得到 <code>object</code> 的結果，但是實務上如果要判別變數是陣列而非物件，ES6 新增 isArray() 方法方便判斷</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.isArray([]); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="literal">null</span>); <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
 
 
       
@@ -347,7 +387,7 @@ var a = new Donate({
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          克服 JavaScript 的奇怪部份 [Day14] - 純值
+          JavaScript Weird Part (14) - 純值
         
       </div>
     </a>
@@ -369,7 +409,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#動態型別"><span class="nav-number">1.</span> <span class="nav-text">動態型別</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什麼是型別？"><span class="nav-number">2.</span> <span class="nav-text">什麼是型別？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q1：如何檢測-null？"><span class="nav-number">3.</span> <span class="nav-text">Q1：如何檢測 null？</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#動態型別"><span class="nav-number">1.</span> <span class="nav-text">動態型別</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什麼是型別？"><span class="nav-number">2.</span> <span class="nav-text">什麼是型別？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#string-字串"><span class="nav-number">2.1.</span> <span class="nav-text">string 字串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6-樣板字面值"><span class="nav-number">2.1.1.</span> <span class="nav-text">ES6 樣板字面值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#number-數字"><span class="nav-number">2.2.</span> <span class="nav-text">number 數字</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q1：如何檢測變數是否為-NaN？"><span class="nav-number">3.</span> <span class="nav-text">Q1：如何檢測變數是否為 NaN？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#boolean-布林值"><span class="nav-number">3.1.</span> <span class="nav-text">boolean 布林值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null-與-undefined"><span class="nav-number">3.2.</span> <span class="nav-text">null 與 undefined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#object-物件"><span class="nav-number">3.3.</span> <span class="nav-text">object 物件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#物件及屬性"><span class="nav-number">3.3.1.</span> <span class="nav-text">物件及屬性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物件屬性存取"><span class="nav-number">3.3.2.</span> <span class="nav-text">物件屬性存取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#屬性新增"><span class="nav-number">3.3.3.</span> <span class="nav-text">屬性新增</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#屬性刪除"><span class="nav-number">3.3.4.</span> <span class="nav-text">屬性刪除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#陣列"><span class="nav-number">3.4.</span> <span class="nav-text">陣列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何判別是不是陣列"><span class="nav-number">3.4.1.</span> <span class="nav-text">如何判別是不是陣列</span></a></li></ol></li></ol></li></ol>
     
     </div>
   </aside>
