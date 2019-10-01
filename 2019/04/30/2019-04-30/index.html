@@ -6,26 +6,23 @@
   <title>javascript weird part (17) - 強制型轉 | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="JavaScript Weird PartJavaScript">
+  <meta name="keywords" content="JavaScriptJavaScript Weird Part">
   
   
   
   
-  <meta name="description" content="Javascript 是一種動態型別語言（Dynamic Typing），所以強制型轉也是常見的情況。 強制型轉(Coercion) 也就是轉換一個值的型別，例如數值型別轉換成字串。 舉例來說：先前我們已經知道運算子是一種特殊的函數，需要傳入 2 個參數，並且回傳 1 個值。 12var a=1+2;console.log(a);  出現正常的結果 3  但是以下傳入 2 個不同型別的參數，卻出現">
-<meta name="keywords" content="JavaScript Weird Part,JavaScript">
+  <meta name="description" content="Javascript 是一種動態型別語言（Dynamic Typing），所以強制型轉也是常見的情況。強制型轉(Coercion) 也就是轉換一個值的型別，例如數值型別轉換成字串。舉例來說，先前我們已經知道運算子是一種特殊的函數，需要傳入 2 個參數，並且回傳 1 個值。 123var a = 1 + 2;console.log(a);// 3  以上是單純數字的運作狀況，可是如果是特殊的數字如">
+<meta name="keywords" content="JavaScript,JavaScript Weird Part">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript Weird Part (17) - 強制型轉">
 <meta property="og:url" content="http://yoursite.com/2019/04/30/2019-04-30/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="Javascript 是一種動態型別語言（Dynamic Typing），所以強制型轉也是常見的情況。 強制型轉(Coercion) 也就是轉換一個值的型別，例如數值型別轉換成字串。 舉例來說：先前我們已經知道運算子是一種特殊的函數，需要傳入 2 個參數，並且回傳 1 個值。 12var a=1+2;console.log(a);  出現正常的結果 3  但是以下傳入 2 個不同型別的參數，卻出現">
+<meta property="og:description" content="Javascript 是一種動態型別語言（Dynamic Typing），所以強制型轉也是常見的情況。強制型轉(Coercion) 也就是轉換一個值的型別，例如數值型別轉換成字串。舉例來說，先前我們已經知道運算子是一種特殊的函數，需要傳入 2 個參數，並且回傳 1 個值。 123var a = 1 + 2;console.log(a);// 3  以上是單純數字的運作狀況，可是如果是特殊的數字如">
 <meta property="og:locale" content="en.yml">
-<meta property="og:image" content="https://i.imgur.com/QzOMH7R.png">
-<meta property="og:image" content="https://i.imgur.com/TAYRxGF.png">
-<meta property="og:updated_time" content="2019-10-01T05:24:00.889Z">
+<meta property="og:updated_time" content="2019-10-01T07:34:13.450Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript Weird Part (17) - 強制型轉">
-<meta name="twitter:description" content="Javascript 是一種動態型別語言（Dynamic Typing），所以強制型轉也是常見的情況。 強制型轉(Coercion) 也就是轉換一個值的型別，例如數值型別轉換成字串。 舉例來說：先前我們已經知道運算子是一種特殊的函數，需要傳入 2 個參數，並且回傳 1 個值。 12var a=1+2;console.log(a);  出現正常的結果 3  但是以下傳入 2 個不同型別的參數，卻出現">
-<meta name="twitter:image" content="https://i.imgur.com/QzOMH7R.png">
+<meta name="twitter:description" content="Javascript 是一種動態型別語言（Dynamic Typing），所以強制型轉也是常見的情況。強制型轉(Coercion) 也就是轉換一個值的型別，例如數值型別轉換成字串。舉例來說，先前我們已經知道運算子是一種特殊的函數，需要傳入 2 個參數，並且回傳 1 個值。 123var a = 1 + 2;console.log(a);// 3  以上是單純數字的運作狀況，可是如果是特殊的數字如">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -200,18 +197,46 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Javascript 是一種動態型別語言（Dynamic Typing），所以強制型轉也是常見的情況。</p>
-<p>強制型轉(Coercion) 也就是轉換一個值的型別，例如數值型別轉換成字串。</p>
-<p>舉例來說：<br>先前我們已經知道運算子是一種特殊的函數，需要傳入 2 個參數，並且回傳 1 個值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a=1+2;</span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure>
+        <p>Javascript 是一種動態型別語言（Dynamic Typing），所以強制型轉也是常見的情況。強制型轉(Coercion) 也就是轉換一個值的型別，例如數值型別轉換成字串。舉例來說，先前我們已經知道運算子是一種特殊的函數，需要傳入 2 個參數，並且回傳 1 個值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span> + <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
 
-<p>出現正常的結果 3</p>
-<p><img src="https://i.imgur.com/QzOMH7R.png" alt></p>
-<p>但是以下傳入 2 個不同型別的參數，卻出現 12，發生什麼事？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a=1+&apos;2&apos;;</span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure>
+<p>以上是單純數字的運作狀況，可是如果是特殊的數字如 NaN，在運算式裡面，只要有一個是 NaN ，結果都會是 NaN :</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">11</span> + <span class="literal">NaN</span>; <span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://i.imgur.com/TAYRxGF.png" alt></p>
-<p>因為第一個參數被強制型轉成字串，對 Javascript 而言，當字串與數字相加時，它會自動把數值自動轉型為字串，改變 1 的表現方式來完成這個函數，它選擇轉換型別而非報錯，所以 1 變成’1’，字串’1’與字串’2’相加就是字串’12’，而不是數學意義上的相加。</p>
+<h2 id="加號"><a href="#加號" class="headerlink" title="加號 +"></a>加號 +</h2><p>但是以下傳入 2 個不同型別的參數，卻出現 12，發生什麼事？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span> + <span class="string">"2"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="comment">// 12</span></span><br></pre></td></tr></table></figure>
+
+<p>在上面的範例中，當 + 號兩側其中一方是字串的時候，另一端就會被「自動型轉」為字串。第一個參數被強制型轉成字串，對 Javascript 而言，當字串與數字相加時，它會自動把數值自動轉型為字串，改變 1 的表現方式來完成這個函數，它選擇轉換型別而非報錯，所以 1 變成’1’，字串’1’與字串’2’相加就是字串’12’，而不是數學意義上的相加。</p>
+<p>以 number、boolean、object 來看，型轉的時候會呼叫 <code>toString()</code>去取得對應的字串。但是 null 與 undefined 則透過 <code>String()</code> 分別轉為 <code>null</code> 與 <code>undefined</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span> + <span class="string">"abc"</span>; <span class="comment">//'10abc'</span></span><br><span class="line"><span class="literal">true</span> + <span class="string">"abc"</span>; <span class="comment">//'trueabc'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//數字與 undefined 相加時，undefined 會被嘗試轉成數字 NaN</span></span><br><span class="line"><span class="number">123</span> + <span class="literal">undefined</span>; <span class="comment">//NaN</span></span><br><span class="line"><span class="comment">//數字與 null 相加時，null 會被嘗試轉成數字 0</span></span><br><span class="line"><span class="number">123</span> + <span class="literal">null</span>; <span class="comment">// 123</span></span><br></pre></td></tr></table></figure>
+
+<p>以下範例，由於運算式是「由左到右」且「先乘除後加減」所以前面的字串會先跟 num1 相加，再把結果跟 num2 相加</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num <span class="number">1</span> = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> num <span class="number">2</span> = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">var</span> str =<span class="string">"10 加 100 的識字會是"</span> + num1 + num2;</span><br><span class="line"><span class="comment">// '10 加 100 的數字會是 10100'</span></span><br></pre></td></tr></table></figure>
+
+<p>要避免這種問題，可以先用小括號 () 把 num1+num2 包起來</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"10 加 100 的數字會是"</span> + (num1 + num2);</span><br></pre></td></tr></table></figure>
+
+<h2 id="減號"><a href="#減號" class="headerlink" title="減號 -"></a>減號 -</h2><p>與加號不同，減法運算式的其中一方不是數字，會有幾種狀況，基本型別：(string、boolean、undefined、null)在做減法運算的時候，JavaScript 會先把基本型別的一方先透過 Number()轉為數字後再運算。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// abc 被 Number() 型轉成 NaN</span></span><br><span class="line"><span class="number">100</span> - <span class="string">"abc"</span>; <span class="comment">// NaN</span></span><br><span class="line"><span class="comment">// false 被 Number() 型轉成 0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="乘法-＊"><a href="#乘法-＊" class="headerlink" title="乘法 ＊"></a>乘法 ＊</h2><p>乘法運算子比較單純，就由 * 來計算前後兩個數值的乘積。如果前後兩者都是數字，計算結果就是兩個數值的乘積。如果其中有一個不是數字，JavaScript 就會先嘗試用 Number()轉換後再計算</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">100</span> * <span class="string">"abc"</span>; <span class="comment">//NaN</span></span><br><span class="line"><span class="comment">// true 被型轉成 1</span></span><br><span class="line"><span class="number">100</span> * <span class="literal">true</span>; <span class="comment">// 100</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="除號"><a href="#除號" class="headerlink" title="除號 /"></a>除號 /</h2><p>除法和乘法規則類似，如果其中一個是 NaN ，結果也會是 NaN，如果其中一個不是數字，就會先用 Number()轉換後再計算。但是在被除數為 0 的情況下：</p>
+<ul>
+<li>除數為正數，結果為 infinity</li>
+<li>除數為負數，結果為 - infinity</li>
+<li>除數為 0，結果為 NaN</li>
+</ul>
+<h2 id="取餘數"><a href="#取餘數" class="headerlink" title="取餘數 %"></a>取餘數 %</h2><p>四則運算外，還有一種取餘數，取的是除法運算後的「餘數」。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">100</span> % <span class="number">33</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+
+<p>如果被除術是 Infinity 或 -Infinity，取餘數後的結果都會是 NaN</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">Infinity</span> % <span class="number">0</span>; <span class="comment">//NaN</span></span><br><span class="line">infinity % -infinity; <span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
+
+<p>如果被除數是一般值，䁒哦結果為被除數</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">100</span> % <span class="literal">Infinity</span>; <span class="comment">//100</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -314,7 +339,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav">None</ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#加號"><span class="nav-number">1.</span> <span class="nav-text">加號 +</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#減號"><span class="nav-number">2.</span> <span class="nav-text">減號 -</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#乘法-＊"><span class="nav-number">3.</span> <span class="nav-text">乘法 ＊</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#除號"><span class="nav-number">4.</span> <span class="nav-text">除號 /</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取餘數"><span class="nav-number">5.</span> <span class="nav-text">取餘數 %</span></a></li></ol>
     
     </div>
   </aside>

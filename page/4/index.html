@@ -679,15 +679,11 @@ JSON (avaScript 物件表示法；JavaScript Object Notation)如果我建立一�
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          Javascript 是一種動態型別語言（Dynamic Typing），所以強制型轉也是常見的情況。
-強制型轉(Coercion) 也就是轉換一個值的型別，例如數值型別轉換成字串。
-舉例來說：先前我們已經知道運算子是一種特殊的函數，需要傳入 2 個參數，並且回傳 1 個值。
-12var a=1+2;console.log(a);
+          Javascript 是一種動態型別語言（Dynamic Typing），所以強制型轉也是常見的情況。強制型轉(Coercion) 也就是轉換一個值的型別，例如數值型別轉換成字串。舉例來說，先前我們已經知道運算子是一種特殊的函數，需要傳入 2 個參數，並且回傳 1 個值。
+123var a = 1 + 2;console.log(a);// 3
 
-出現正常的結果 3
-
-但是以下傳入 2 個不同型別的參數，卻出現 12，發生什麼事？
-12var a=1+&apos;2&apos;;console.log(...
+以上是單純數字的運作狀況，可是如果是特殊的數字如 NaN，在運算式裡面，只要有一個是 NaN ，結果都會是 NaN :
+111 + NaN; /...
         </p>
         <p class="article-more-link">
           <a href="/2019/04/30/2019-04-30/#more">Read More</a>

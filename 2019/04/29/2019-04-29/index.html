@@ -6,13 +6,13 @@
   <title>javascript weird part (16) - 運算子的優先性與相依性 | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="JavaScript Weird PartJavaScript">
+  <meta name="keywords" content="JavaScriptJavaScript Weird Part">
   
   
   
   
   <meta name="description" content="了解運算子後，繼續了解運算子的優先性與相依性。這兩個概念沒有想像中的複雜。 運算子優先性運算子優先性表示當一行程式碼裡面有多個運算子的時候，哪個運算子被優先運算，函數會依序運算。具有高優先性的運算子，會先計算，然後依序到低優先性的 運算子相依性運算子相依性是和運算子優先性相關的概念，優先性表示運算子被計算的順序，當兩個運算子有相同的優先性，優先性能協助判斷誰先誰後。可是如果所有的運算子優先順序都相">
-<meta name="keywords" content="JavaScript Weird Part,JavaScript">
+<meta name="keywords" content="JavaScript,JavaScript Weird Part">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript Weird Part (16) - 運算子的優先性與相依性">
 <meta property="og:url" content="http://yoursite.com/2019/04/29/2019-04-29/index.html">
@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en.yml">
 <meta property="og:image" content="https://i.imgur.com/yybxp2m.png">
 <meta property="og:image" content="https://i.imgur.com/Qtg1sD9.png">
-<meta property="og:updated_time" content="2019-10-01T05:23:34.702Z">
+<meta property="og:updated_time" content="2019-10-01T05:36:51.683Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript Weird Part (16) - 運算子的優先性與相依性">
 <meta name="twitter:description" content="了解運算子後，繼續了解運算子的優先性與相依性。這兩個概念沒有想像中的複雜。 運算子優先性運算子優先性表示當一行程式碼裡面有多個運算子的時候，哪個運算子被優先運算，函數會依序運算。具有高優先性的運算子，會先計算，然後依序到低優先性的 運算子相依性運算子相依性是和運算子優先性相關的概念，優先性表示運算子被計算的順序，當兩個運算子有相同的優先性，優先性能協助判斷誰先誰後。可是如果所有的運算子優先順序都相">
@@ -204,14 +204,14 @@
 <h1 id="運算子優先性"><a href="#運算子優先性" class="headerlink" title="運算子優先性"></a>運算子優先性</h1><p>運算子優先性表示當一行程式碼裡面有多個運算子的時候，哪個運算子被優先運算，函數會依序運算。具有高優先性的運算子，會先計算，然後依序到低優先性的</p>
 <h1 id="運算子相依性"><a href="#運算子相依性" class="headerlink" title="運算子相依性"></a>運算子相依性</h1><p>運算子相依性是和運算子優先性相關的概念，優先性表示運算子被計算的順序，當兩個運算子有相同的優先性，優先性能協助判斷誰先誰後。可是如果所有的運算子優先順序都相同呢？</p>
 <p>這時就要看相依性，判斷是由左到右的「左相依性」，或者是由右到左的「右相依性」。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = 3+4*5;</span><br><span class="line">consoloe.log(a);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">3</span> + <span class="number">4</span> * <span class="number">5</span>;</span><br><span class="line">consoloe.log(a);</span><br></pre></td></tr></table></figure>
 
 <p>在前面說明運算子的時候，可以知道運算子是被當成一種函式在處理。所以這個例子裡，需要處理兩個函式。我們知道四則運算裡先乘除後加減的原理，JS 也是這樣處理。</p>
 <p>雖然 Javascript 是同步的（synchronous)，但不會同時處理這兩個函式的呼叫。它只會先呼叫其中一個，再處理另一個。首先是用運算子的優先性判斷，優先性高的會先被呼叫。</p>
 <p><a href="https://" target="_blank" rel="noopener">https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Operator_Precedence</a></p>
 <p>在 MDN 的優先性表格裡，數字越大的會優先被呼叫。所以乘法的優先性高於加法，此外，等號也是一種運算子。所以上面的範例會得出 a 的值等於 23。</p>
 <p>但是如果像除法、乘法，都有一樣的優先性的時候，底層是怎樣判斷呢？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a=2, b=3,c=4;</span><br><span class="line">a=b=c;</span><br><span class="line">console.log(a);</span><br><span class="line">console.log(b);</span><br><span class="line">console.log(c);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>,</span><br><span class="line">  b = <span class="number">3</span>,</span><br><span class="line">  c = <span class="number">4</span>;</span><br><span class="line">a = b = c;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="built_in">console</span>.log(c);</span><br></pre></td></tr></table></figure>
 
 <p>照理來說，會顯示相等的值，但究竟會呈現什麼值呢？<br><img src="https://i.imgur.com/yybxp2m.png" alt></p>
 <p>為什麼結果都是 4 呢？ 這是因為相依性 (associativity)，這裡使用的運算子是等號，是用來傳入值的，它的相依性是由右到左，所以等號是右相依的，從右運算到左。所以在一行程式碼裡面所有運算子都有相同優先性的時候，就要用相依性決定順序，決定哪一邊要先被呼叫。</p>
