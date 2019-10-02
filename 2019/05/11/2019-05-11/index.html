@@ -11,25 +11,22 @@
   
   
   
-  <meta name="description" content="了解函數就是物件後，接著要實際運用這個觀念。開始之前，我們要先了解函數陳述句 （Function Statements) 與函數表示式 (Function Expressions) 的用法差異。 表示式 表示式是程式碼的單位，會形成一個值 (A unit of code that results in a value) 直接地說，任何表示式最終都會創造一個值，而這個值不一定要儲存在某個變數。  舉">
+  <meta name="description" content="了解函數就是物件後，接著要實際運用這個觀念。開始之前，我們要先了解函數陳述句 （Function Statements) 與函數表示式 (Function Expressions) 的用法差異。 表示式表示式是程式碼的單位，會形成一個值 (A unit of code that results in a value)直接地說，任何表示式最終都會創造一個值，而這個值不一定要儲存在某個變數。 舉例來說">
 <meta name="keywords" content="JavaScript,前端學習">
 <meta property="og:type" content="article">
 <meta property="og:title" content="克服 JavaScript 的奇怪部份 [Day27] - 函數陳述句與函數表示式">
 <meta property="og:url" content="http://yoursite.com/2019/05/11/2019-05-11/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="了解函數就是物件後，接著要實際運用這個觀念。開始之前，我們要先了解函數陳述句 （Function Statements) 與函數表示式 (Function Expressions) 的用法差異。 表示式 表示式是程式碼的單位，會形成一個值 (A unit of code that results in a value) 直接地說，任何表示式最終都會創造一個值，而這個值不一定要儲存在某個變數。  舉">
+<meta property="og:description" content="了解函數就是物件後，接著要實際運用這個觀念。開始之前，我們要先了解函數陳述句 （Function Statements) 與函數表示式 (Function Expressions) 的用法差異。 表示式表示式是程式碼的單位，會形成一個值 (A unit of code that results in a value)直接地說，任何表示式最終都會創造一個值，而這個值不一定要儲存在某個變數。 舉例來說">
 <meta property="og:locale" content="en.yml">
-<meta property="og:image" content="https://i.imgur.com/TnvqLDE.png">
-<meta property="og:image" content="https://i.imgur.com/dqeJb8a.png">
-<meta property="og:image" content="https://i.imgur.com/csgpRQs.png">
 <meta property="og:image" content="https://i.imgur.com/Brtzuj1.png">
 <meta property="og:image" content="https://i.imgur.com/wWwuPXa.png">
 <meta property="og:image" content="https://i.imgur.com/Mxan84C.png">
-<meta property="og:updated_time" content="2019-09-29T07:37:07.524Z">
+<meta property="og:updated_time" content="2019-10-02T04:20:26.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="克服 JavaScript 的奇怪部份 [Day27] - 函數陳述句與函數表示式">
-<meta name="twitter:description" content="了解函數就是物件後，接著要實際運用這個觀念。開始之前，我們要先了解函數陳述句 （Function Statements) 與函數表示式 (Function Expressions) 的用法差異。 表示式 表示式是程式碼的單位，會形成一個值 (A unit of code that results in a value) 直接地說，任何表示式最終都會創造一個值，而這個值不一定要儲存在某個變數。  舉">
-<meta name="twitter:image" content="https://i.imgur.com/TnvqLDE.png">
+<meta name="twitter:description" content="了解函數就是物件後，接著要實際運用這個觀念。開始之前，我們要先了解函數陳述句 （Function Statements) 與函數表示式 (Function Expressions) 的用法差異。 表示式表示式是程式碼的單位，會形成一個值 (A unit of code that results in a value)直接地說，任何表示式最終都會創造一個值，而這個值不一定要儲存在某個變數。 舉例來說">
+<meta name="twitter:image" content="https://i.imgur.com/Brtzuj1.png">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -205,35 +202,28 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>了解函數就是物件後，接著要實際運用這個觀念。開始之前，我們要先了解函數陳述句 （Function Statements) 與函數表示式 (Function Expressions) 的用法差異。</p>
-<h3 id="表示式"><a href="#表示式" class="headerlink" title="表示式"></a>表示式</h3><blockquote>
-<p>表示式是程式碼的單位，會形成一個值 (A unit of code that results in a value)</p>
-<p>直接地說，任何表示式最終都會創造一個值，而這個值不一定要儲存在某個變數。</p>
-</blockquote>
+<h1 id="表示式"><a href="#表示式" class="headerlink" title="表示式"></a>表示式</h1><p>表示式是程式碼的單位，會形成一個值 (A unit of code that results in a value)<br>直接地說，任何表示式最終都會創造一個值，而這個值不一定要儲存在某個變數。</p>
 <p>舉例來說，我們宣告一個變數 <code>a</code>，並且打開開發者工具輸入以下</p>
-<p><img src="https://i.imgur.com/TnvqLDE.png" alt></p>
-<p>上面是一個簡單的表示式，我們透過等號運算子把 3 賦與給變數 <code>a</code>，執行它，得到回傳的結果。</p>
-<p>但是上面說過值不一定要儲存在變數裡面，所以表示式也可以這樣寫：<br><img src="https://i.imgur.com/dqeJb8a.png" alt></p>
-<p>回傳了 3，但是我們並沒有使用等號運算子把這個值放入變數裡面。這個值可以是數值、字串或者物件。所以表示式也可以這樣寫</p>
-<p><img src="https://i.imgur.com/csgpRQs.png" alt></p>
-<h3 id="陳述句"><a href="#陳述句" class="headerlink" title="陳述句"></a>陳述句</h3><blockquote>
-<p>當我們提到陳述句，陳述句表示「做某件事情」。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a;</span><br><span class="line"></span><br><span class="line">if(a===3)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">3</span>;</span><br><span class="line"><span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+
+<p>上面是一個簡單的表示式，我們透過等號運算子把 3 賦與給變數 <code>a</code>，執行它，得到回傳的結果。所以表示式也可以這樣寫</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = &#123; <span class="attr">greet</span>: <span class="string">"Hi"</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="陳述句"><a href="#陳述句" class="headerlink" title="陳述句"></a>陳述句</h3><p>當我們提到陳述句，陳述句表示「做某件事情」。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (a === <span class="number">3</span>) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>當 <code>a===3</code> 就做某件事情。在 if 陳述句的括號內，必須放入表示式，因為會形成一個值，這樣這個陳述句才能運作。陳述句本身不會回傳任何值。</p>
 <p>像是我不能這麼做，這不會有任何效用，因為沒有任何值會回傳給變數 b</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var b=if(a===3)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b=<span class="keyword">if</span>(a===<span class="number">3</span>)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<blockquote>
 <p>結論：陳述句會做其他事情，表示式則回傳值</p>
-</blockquote>
-<h3 id="函式表示式與函式陳述句的差異"><a href="#函式表示式與函式陳述句的差異" class="headerlink" title="函式表示式與函式陳述句的差異"></a>函式表示式與函式陳述句的差異</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function greet() &#123;</span><br><span class="line">    console.log(&apos;hi&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="函式表示式與函式陳述句的差異"><a href="#函式表示式與函式陳述句的差異" class="headerlink" title="函式表示式與函式陳述句的差異"></a>函式表示式與函式陳述句的差異</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hi"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="函式陳述句"><a href="#函式陳述句" class="headerlink" title="函式陳述句"></a>函式陳述句</h4><p>這是一個簡單的函式陳述句，在創造執行環境的時候，這個函式被放進記憶體中，但這只是陳述句，所以不會回傳任何的值，直到函式被呼叫執行。</p>
+<h1 id="函式陳述句"><a href="#函式陳述句" class="headerlink" title="函式陳述句"></a>函式陳述句</h1><p>這是一個簡單的函式陳述句，在創造執行環境的時候，這個函式被放進記憶體中，但這只是陳述句，所以不會回傳任何的值，直到函式被呼叫執行。</p>
 <p>雖然函式陳述句不會回傳任何值，但它會有提升 (hoisting) 現象，所以可以在任何地方取用它</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">greet();</span><br><span class="line">function greet() &#123;</span><br><span class="line">    console.log(&apos;hi&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="函式表示式"><a href="#函式表示式" class="headerlink" title="函式表示式"></a>函式表示式</h4><p>宣告一個 anonymousGreet 變數並且使用等號運算子，然後在右側使用函式陳述句。</p>
+<h1 id="函式表示式"><a href="#函式表示式" class="headerlink" title="函式表示式"></a>函式表示式</h1><p>宣告一個 anonymousGreet 變數並且使用等號運算子，然後在右側使用函式陳述句。</p>
 <p>記得「函數就是物件」，所以「建立一個物件，並且設定它等於這個變數」，這個變數也就是它在記憶體中指向的位置。</p>
 <p>我們已經有一個已經知道函式物件位址的變數 anonymousGreet ，所以等號右邊的陳述句可以改寫成這樣，稱為匿名函式。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var anonymousGreet = function () &#123;</span><br><span class="line">    console.log(&apos;hi&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -369,7 +359,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#表示式"><span class="nav-number">1.</span> <span class="nav-text">表示式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#陳述句"><span class="nav-number">2.</span> <span class="nav-text">陳述句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函式表示式與函式陳述句的差異"><span class="nav-number">3.</span> <span class="nav-text">函式表示式與函式陳述句的差異</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函式陳述句"><span class="nav-number">3.1.</span> <span class="nav-text">函式陳述句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函式表示式"><span class="nav-number">3.2.</span> <span class="nav-text">函式表示式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何觸發函式表示式"><span class="nav-number">4.</span> <span class="nav-text">如何觸發函式表示式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#傳入函式表示式做為參數"><span class="nav-number">5.</span> <span class="nav-text">傳入函式表示式做為參數</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#表示式"><span class="nav-number">1.</span> <span class="nav-text">表示式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#陳述句"><span class="nav-number">1.0.1.</span> <span class="nav-text">陳述句</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函式表示式與函式陳述句的差異"><span class="nav-number">2.</span> <span class="nav-text">函式表示式與函式陳述句的差異</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函式陳述句"><span class="nav-number">3.</span> <span class="nav-text">函式陳述句</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函式表示式"><span class="nav-number">4.</span> <span class="nav-text">函式表示式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何觸發函式表示式"><span class="nav-number">4.0.1.</span> <span class="nav-text">如何觸發函式表示式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#傳入函式表示式做為參數"><span class="nav-number">4.0.2.</span> <span class="nav-text">傳入函式表示式做為參數</span></a></li></ol></li></ol></li></ol>
     
     </div>
   </aside>

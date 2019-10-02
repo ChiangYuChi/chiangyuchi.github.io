@@ -217,6 +217,113 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-2019-04-17"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/04/17/2019-04-17/">JavaScript Weird Part (7) - 單執行緒、同步執行</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/04/17/2019-04-17/" class="article-date">
+	  <time datetime="2019-04-16T16:00:00.000Z" itemprop="datePublished">2019-04-17</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          在學習 JavaScript 時，必須要知道它是單執行緒 (single threaded) ，也就是單線程。
+可以理解成它一次只做一件事情。瀏覽器無論什麼時候，都只有一個單線程在執行 JavaScript。單執行緒單執行緒的意思是一次執行一個指令，可是在使用瀏覽器的時候，瀏覽器只分配給 JavaScript 一個主執行緒(stack)，用來執行任務（函式），但一次只能執行一個任務，這些任務形成一個事件佇列 (Queue) 排隊等候執行，
+但是瀏覽器不只運作 JavaScript 這個程式...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/04/17/2019-04-17/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2019-04-15"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/04/15/2019-04-15/">JavaScript Weird Part (6) - 執行環境：程式執行</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/04/15/2019-04-15/" class="article-date">
+	  <time datetime="2019-04-14T16:00:00.000Z" itemprop="datePublished">2019-04-15</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          Javascript 產生執行環境時，第一階段是創造，設定變數和函數到記憶體中。第二階段是執行。
+1234567function b() &#123;  console.log("called b!");&#125;b();console.log(a);var a = "hello world!";console.log(a);
+
+上面的程式碼會得出什麼執行結果呢？
+
+為什麼呢？ 因為現在已經是執行階段，首先先設定函數，接著變數 a 被設定為 undefied。隨後開始執行程式碼，從第 5...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/04/15/2019-04-15/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2019-04-13"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -327,58 +434,6 @@ Called b! 正...
 
 
   
-    <article id="post-2019-04-11"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/04/10/2019-04-11/">JavaScript Weird Part (3) - 全域環境與全域物件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/04/10/2019-04-11/" class="article-date">
-	  <time datetime="2019-04-09T16:00:00.000Z" itemprop="datePublished">2019-04-10</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          Javascript 程式永遠都是在執行環境中運作，也就是透過解譯器 - 一個已經寫好的程式  - 驗證和執行你的程式碼。執行環境將正在執行的程式碼包裹在其中管理。
-所以 JavaScript 的程式碼開始被運作的最初基礎，是執行環境的建立和執行。和其他被執行的程式碼不同，基礎執行環境是全域執行環境。全域是指可以在任何地方取用他。
-即便一個 Javascript 檔案裡還沒有寫入任何程式碼、空的，但只要一旦載入，語法解析器開始運作，雖然發現並無任何東西可以解析，但是因為已經開始執行 Jav...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/04/10/2019-04-11/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-2019-04-10"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -415,6 +470,58 @@ Javascript 最簡單的物件定義：物件就是名稱/值配對的組合。�
         </p>
         <p class="article-more-link">
           <a href="/2019/04/10/2019-04-10/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2019-04-11"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/04/10/2019-04-11/">JavaScript Weird Part (3) - 全域環境與全域物件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/04/10/2019-04-11/" class="article-date">
+	  <time datetime="2019-04-09T16:00:00.000Z" itemprop="datePublished">2019-04-10</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          Javascript 程式永遠都是在執行環境中運作，也就是透過解譯器 - 一個已經寫好的程式  - 驗證和執行你的程式碼。執行環境將正在執行的程式碼包裹在其中管理。
+所以 JavaScript 的程式碼開始被運作的最初基礎，是執行環境的建立和執行。和其他被執行的程式碼不同，基礎執行環境是全域執行環境。全域是指可以在任何地方取用他。
+即便一個 Javascript 檔案裡還沒有寫入任何程式碼、空的，但只要一旦載入，語法解析器開始運作，雖然發現並無任何東西可以解析，但是因為已經開始執行 Jav...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/04/10/2019-04-11/#more">Read More</a>
         </p>
       
     </div>

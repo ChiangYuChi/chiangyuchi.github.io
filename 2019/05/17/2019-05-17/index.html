@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>克服 javascript 的奇怪部份 [day36] - 立即呼叫的函數表示式 (iifes) | CYC&#39;S BLOG</title>
+  <title>javascript weird part (36)- 立即呼叫的函數表示式 (iifes) | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="JavaScript前端學習克服Javascript奇怪部份">
@@ -11,13 +11,13 @@
   
   
   
-  <meta name="description" content="立即呼叫的函數表示式（immediately invoked function expression, IIFEs) 是一個常用的簡潔觀念。 先前我們已經知道函數陳述句和函數表達式的差異 函數陳述句123456function greet(name)&amp;#123;console.log(&amp;apos;Hello&amp;apos; + name);&amp;#125;greet();  JavaScript 即便把函">
+  <meta name="description" content="立即呼叫的函數表示式（immediately invoked function expression, IIFEs) 是一個常用的簡潔觀念。 先前我們已經知道函數陳述句和函數表示式的差異 函數陳述句JavaScript 即便把函數放到記憶體中還是不會執行任何東西，呼叫它才會執行。 12345function greet(name) &amp;#123;  console.log(&quot;Hello&quot; + nam">
 <meta name="keywords" content="JavaScript,前端學習,克服Javascript奇怪部份">
 <meta property="og:type" content="article">
-<meta property="og:title" content="克服 JavaScript 的奇怪部份 [Day36] - 立即呼叫的函數表示式 (IIFEs)">
+<meta property="og:title" content="JavaScript Weird Part (36)- 立即呼叫的函數表示式 (IIFEs)">
 <meta property="og:url" content="http://yoursite.com/2019/05/17/2019-05-17/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="立即呼叫的函數表示式（immediately invoked function expression, IIFEs) 是一個常用的簡潔觀念。 先前我們已經知道函數陳述句和函數表達式的差異 函數陳述句123456function greet(name)&amp;#123;console.log(&amp;apos;Hello&amp;apos; + name);&amp;#125;greet();  JavaScript 即便把函">
+<meta property="og:description" content="立即呼叫的函數表示式（immediately invoked function expression, IIFEs) 是一個常用的簡潔觀念。 先前我們已經知道函數陳述句和函數表示式的差異 函數陳述句JavaScript 即便把函數放到記憶體中還是不會執行任何東西，呼叫它才會執行。 12345function greet(name) &amp;#123;  console.log(&quot;Hello&quot; + nam">
 <meta property="og:locale" content="en.yml">
 <meta property="og:image" content="https://i.imgur.com/c2qO1hy.png">
 <meta property="og:image" content="https://i.imgur.com/KMYfTLA.png">
@@ -27,10 +27,10 @@
 <meta property="og:image" content="https://i.imgur.com/vAH9FM1.png">
 <meta property="og:image" content="https://i.imgur.com/GdpG9ed.png">
 <meta property="og:image" content="https://i.imgur.com/S9wVybU.png">
-<meta property="og:updated_time" content="2019-09-29T07:37:57.811Z">
+<meta property="og:updated_time" content="2019-10-02T04:22:08.500Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="克服 JavaScript 的奇怪部份 [Day36] - 立即呼叫的函數表示式 (IIFEs)">
-<meta name="twitter:description" content="立即呼叫的函數表示式（immediately invoked function expression, IIFEs) 是一個常用的簡潔觀念。 先前我們已經知道函數陳述句和函數表達式的差異 函數陳述句123456function greet(name)&amp;#123;console.log(&amp;apos;Hello&amp;apos; + name);&amp;#125;greet();  JavaScript 即便把函">
+<meta name="twitter:title" content="JavaScript Weird Part (36)- 立即呼叫的函數表示式 (IIFEs)">
+<meta name="twitter:description" content="立即呼叫的函數表示式（immediately invoked function expression, IIFEs) 是一個常用的簡潔觀念。 先前我們已經知道函數陳述句和函數表示式的差異 函數陳述句JavaScript 即便把函數放到記憶體中還是不會執行任何東西，呼叫它才會執行。 12345function greet(name) &amp;#123;  console.log(&quot;Hello&quot; + nam">
 <meta name="twitter:image" content="https://i.imgur.com/c2qO1hy.png">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
@@ -181,7 +181,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      克服 JavaScript 的奇怪部份 [Day36] - 立即呼叫的函數表示式 (IIFEs)
+      JavaScript Weird Part (36)- 立即呼叫的函數表示式 (IIFEs)
     </h1>
   
 
@@ -207,20 +207,24 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>立即呼叫的函數表示式（immediately invoked function expression, IIFEs) 是一個常用的簡潔觀念。</p>
-<p>先前我們已經知道函數陳述句和函數表達式的差異</p>
-<h1 id="函數陳述句"><a href="#函數陳述句" class="headerlink" title="函數陳述句"></a>函數陳述句</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function greet(name)&#123;</span><br><span class="line">console.log(&apos;Hello&apos; + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>先前我們已經知道函數陳述句和函數表示式的差異</p>
+<h1 id="函數陳述句"><a href="#函數陳述句" class="headerlink" title="函數陳述句"></a>函數陳述句</h1><p>JavaScript 即便把函數放到記憶體中還是不會執行任何東西，呼叫它才會執行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Hello"</span> + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet();</span><br></pre></td></tr></table></figure>
 
-<p>JavaScript 即便把函數放到記憶體中還是不會執行任何東西，除非呼叫它</p>
-<h1 id="函數表達式"><a href="#函數表達式" class="headerlink" title="函數表達式"></a>函數表達式</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> greetFunc = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Hello"</span> + name);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="函數表示式"><a href="#函數表示式" class="headerlink" title="函數表示式"></a>函數表示式</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> greetFunc = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Hello"</span> + name);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>JavaScript 一開始不會把函數表示式部分被放進記憶體裡面，而是在執行該行程式碼的時候，<strong>立即地創造這個函數物件</strong>，然後可以使用指向該函式記憶體位置的變數呼叫它。</p>
-<h1 id="立即呼叫的函數表達式-IIFE"><a href="#立即呼叫的函數表達式-IIFE" class="headerlink" title="立即呼叫的函數表達式 IIFE"></a>立即呼叫的函數表達式 IIFE</h1><p>既然我們是使用 <code>()</code> 呼叫函數，現在我們已經創造函數了，如果我們在<br>函數物件的尾巴加上一個括號 <code>()</code>，結果會如何呢？像這樣：</p>
+<p>如何觸發函式表示式？我們需要指向那個物件，告訴它要執行程式，像這樣</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">greetFunc(&quot;Jacob&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>因為變數已經知道函數記憶體的位址，所以只要加上 <code>()</code>，就可以觸發函式。</p>
+<h1 id="立即呼叫的函數表示式-IIFE"><a href="#立即呼叫的函數表示式-IIFE" class="headerlink" title="立即呼叫的函數表示式 IIFE"></a>立即呼叫的函數表示式 IIFE</h1><p>既然我們是使用 <code>()</code> 呼叫函數，現在我們已經創造函數了，如果我們在<br>函數物件的尾巴加上一個括號 <code>()</code>，結果會如何呢？像這樣：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> greeting = (<span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Hello"</span> + name);</span><br><span class="line">&#125;)(); <span class="comment">// Hello undefined</span></span><br></pre></td></tr></table></figure>
 
 <p>仿照之前帶入參數的方式</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> greeting = (<span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Hello "</span> + name);</span><br><span class="line">&#125;)(<span class="string">"John"</span>); <span class="comment">// Hello John</span></span><br></pre></td></tr></table></figure>
 
-<p>立即呼叫函數表達式(IIFE)的原理並不複雜，就是在創造函數的時候，立刻呼叫它。</p>
+<p>立即呼叫函數表示式(IIFE)的原理並不複雜，就是在創造函數的時候，立刻呼叫它。</p>
 <h2 id="修改程式碼的其他觀察"><a href="#修改程式碼的其他觀察" class="headerlink" title="修改程式碼的其他觀察"></a>修改程式碼的其他觀察</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> greeting = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"Hello"</span> + name;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(greeting); <span class="comment">//函數的程式碼內容</span></span><br></pre></td></tr></table></figure>
 
 <p>會回傳 greeting 函數的內容<br><img src="https://i.imgur.com/c2qO1hy.png" alt><br>然後呼叫它</p>
@@ -307,7 +311,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/05/17/2019-05-17/" target="_blank" title="克服 JavaScript 的奇怪部份 [Day36] - 立即呼叫的函數表示式 (IIFEs)">http://yoursite.com/2019/05/17/2019-05-17/</a>
+          <a href="/2019/05/17/2019-05-17/" target="_blank" title="JavaScript Weird Part (36)- 立即呼叫的函數表示式 (IIFEs)">http://yoursite.com/2019/05/17/2019-05-17/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -367,9 +371,9 @@ var a = new Donate({
     </a>
   
   
-    <a href="/2019/05/16/2019-05-16/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/05/17/2019-05-18/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">克服 JavaScript 的奇怪部份 [Day33] - 觀念小叮嚀 語法解析器</div>
+      <div class="article-nav-title">JavaScript Weird Part (37)- IIFEs 與安全程式碼</div>
     </a>
   
 </nav>
@@ -383,7 +387,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#函數陳述句"><span class="nav-number">1.</span> <span class="nav-text">函數陳述句</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函數表達式"><span class="nav-number">2.</span> <span class="nav-text">函數表達式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#立即呼叫的函數表達式-IIFE"><span class="nav-number">3.</span> <span class="nav-text">立即呼叫的函數表達式 IIFE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改程式碼的其他觀察"><span class="nav-number">3.1.</span> <span class="nav-text">修改程式碼的其他觀察</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-的表達式"><span class="nav-number">4.</span> <span class="nav-text">JavaScript 的表達式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#進一步觀察"><span class="nav-number">4.1.</span> <span class="nav-text">進一步觀察</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IFFE-的用處"><span class="nav-number">5.</span> <span class="nav-text">IFFE 的用處</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#經典實例"><span class="nav-number">6.</span> <span class="nav-text">經典實例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解法一：使用-let"><span class="nav-number">6.1.</span> <span class="nav-text">解法一：使用 let</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解法二：使用-IIFE"><span class="nav-number">6.2.</span> <span class="nav-text">解法二：使用 IIFE</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#函數陳述句"><span class="nav-number">1.</span> <span class="nav-text">函數陳述句</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函數表示式"><span class="nav-number">2.</span> <span class="nav-text">函數表示式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#立即呼叫的函數表示式-IIFE"><span class="nav-number">3.</span> <span class="nav-text">立即呼叫的函數表示式 IIFE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改程式碼的其他觀察"><span class="nav-number">3.1.</span> <span class="nav-text">修改程式碼的其他觀察</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-的表達式"><span class="nav-number">4.</span> <span class="nav-text">JavaScript 的表達式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#進一步觀察"><span class="nav-number">4.1.</span> <span class="nav-text">進一步觀察</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IFFE-的用處"><span class="nav-number">5.</span> <span class="nav-text">IFFE 的用處</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#經典實例"><span class="nav-number">6.</span> <span class="nav-text">經典實例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解法一：使用-let"><span class="nav-number">6.1.</span> <span class="nav-text">解法一：使用 let</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解法二：使用-IIFE"><span class="nav-number">6.2.</span> <span class="nav-text">解法二：使用 IIFE</span></a></li></ol></li></ol>
     
     </div>
   </aside>
