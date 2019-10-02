@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>javascript weird part (6) - 執行環境：程式執行 | CYC&#39;S BLOG</title>
+  <title>javascript weird part (37)- iifes 與安全程式碼 | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="JavaScriptJavaScript Weird Part">
@@ -11,20 +11,23 @@
   
   
   
-  <meta name="description" content="Javascript 產生執行環境時，第一階段是創造，設定變數和函數到記憶體中。第二階段是執行。 1234567function b() &amp;#123;  console.log(&quot;called b!&quot;);&amp;#125;b();console.log(a);var a = &quot;hello world!&quot;;console.log(a);  上面的程式碼會得出什麼執行結果呢？  為什麼呢？ 因為現在已經是執">
+  <meta name="description" content="IIFEs 大量使用在資源庫及框架中，用處非常廣泛，以下是一個 IIFE 的例子： 12345(function(name) &amp;#123;  var greeting = &quot;Hello&quot;;  console.log(greeting + &quot;&quot; + name);&amp;#125;)(&quot;John&quot;);// Hello John  回到執行堆思考底層的運作方式，程式第一次載入，會建立全域執行環境，但是裡面沒有">
 <meta name="keywords" content="JavaScript,JavaScript Weird Part">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript Weird Part (6) - 執行環境：程式執行">
-<meta property="og:url" content="http://yoursite.com/2019/04/15/2019-04-15/index.html">
+<meta property="og:title" content="JavaScript Weird Part (37)- IIFEs 與安全程式碼">
+<meta property="og:url" content="http://yoursite.com/2019/05/18/2019-05-18/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="Javascript 產生執行環境時，第一階段是創造，設定變數和函數到記憶體中。第二階段是執行。 1234567function b() &amp;#123;  console.log(&quot;called b!&quot;);&amp;#125;b();console.log(a);var a = &quot;hello world!&quot;;console.log(a);  上面的程式碼會得出什麼執行結果呢？  為什麼呢？ 因為現在已經是執">
+<meta property="og:description" content="IIFEs 大量使用在資源庫及框架中，用處非常廣泛，以下是一個 IIFE 的例子： 12345(function(name) &amp;#123;  var greeting = &quot;Hello&quot;;  console.log(greeting + &quot;&quot; + name);&amp;#125;)(&quot;John&quot;);// Hello John  回到執行堆思考底層的運作方式，程式第一次載入，會建立全域執行環境，但是裡面沒有">
 <meta property="og:locale" content="en.yml">
-<meta property="og:image" content="https://i.imgur.com/ysrLrS0.png">
-<meta property="og:updated_time" content="2019-10-01T05:27:40.693Z">
+<meta property="og:image" content="https://i.imgur.com/qC6BqKf.png">
+<meta property="og:image" content="https://i.imgur.com/fH7E8Ga.png">
+<meta property="og:image" content="https://i.imgur.com/HkFOuWJ.png">
+<meta property="og:image" content="https://i.imgur.com/nxy7UFh.png">
+<meta property="og:updated_time" content="2019-10-02T05:40:11.794Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript Weird Part (6) - 執行環境：程式執行">
-<meta name="twitter:description" content="Javascript 產生執行環境時，第一階段是創造，設定變數和函數到記憶體中。第二階段是執行。 1234567function b() &amp;#123;  console.log(&quot;called b!&quot;);&amp;#125;b();console.log(a);var a = &quot;hello world!&quot;;console.log(a);  上面的程式碼會得出什麼執行結果呢？  為什麼呢？ 因為現在已經是執">
-<meta name="twitter:image" content="https://i.imgur.com/ysrLrS0.png">
+<meta name="twitter:title" content="JavaScript Weird Part (37)- IIFEs 與安全程式碼">
+<meta name="twitter:description" content="IIFEs 大量使用在資源庫及框架中，用處非常廣泛，以下是一個 IIFE 的例子： 12345(function(name) &amp;#123;  var greeting = &quot;Hello&quot;;  console.log(greeting + &quot;&quot; + name);&amp;#125;)(&quot;John&quot;);// Hello John  回到執行堆思考底層的運作方式，程式第一次載入，會建立全域執行環境，但是裡面沒有">
+<meta name="twitter:image" content="https://i.imgur.com/qC6BqKf.png">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -166,7 +169,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-2019-04-15" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-2019-05-18" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -174,7 +177,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      JavaScript Weird Part (6) - 執行環境：程式執行
+      JavaScript Weird Part (37)- IIFEs 與安全程式碼
     </h1>
   
 
@@ -182,8 +185,8 @@
     
     <div class="article-meta">
       
-	<a href="/2019/04/15/2019-04-15/" class="article-date">
-	  <time datetime="2019-04-14T16:00:00.000Z" itemprop="datePublished">2019-04-15</time>
+	<a href="/2019/05/18/2019-05-18/" class="article-date">
+	  <time datetime="2019-05-17T16:00:00.000Z" itemprop="datePublished">2019-05-18</time>
 	</a>
 
       
@@ -199,13 +202,22 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Javascript 產生執行環境時，第一階段是創造，設定變數和函數到記憶體中。第二階段是執行。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"called b!"</span>);</span><br><span class="line">&#125;</span><br><span class="line">b();</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="keyword">var</span> a = <span class="string">"hello world!"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
+        <p>IIFEs 大量使用在資源庫及框架中，用處非常廣泛，以下是一個 IIFE 的例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> greeting = <span class="string">"Hello"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(greeting + <span class="string">""</span> + name);</span><br><span class="line">&#125;)(<span class="string">"John"</span>);</span><br><span class="line"><span class="comment">// Hello John</span></span><br></pre></td></tr></table></figure>
 
-<p>上面的程式碼會得出什麼執行結果呢？</p>
-<p><img src="https://i.imgur.com/ysrLrS0.png" alt></p>
-<p>為什麼呢？ 因為現在已經是執行階段，首先先設定函數，接著變數 <code>a</code> 被設定為 <code>undefied</code>。隨後開始執行程式碼，從第 5 行開始執行，它執行函數 b，並輸出’called b’;接著執行第七行並輸出變數 a 到 console，由於變數 a 在創造階段被設定為 undefined，因此得出 undefined; 第 9 行的變數 a 再度被給值為’hello world’,因此第 11 行得出 hello world;</p>
-<p>因此我們可以看到 Javascript 在創造與執行階段逐行執行程式碼之間，是如何運作的。</p>
+<p>回到執行堆思考底層的運作方式，程式第一次載入，會建立全域執行環境，但是裡面沒有東西，因為上面的例子沒有變數也沒有函數陳述句被提昇。但是當解析器執行到整個 IIFE<br><img src="https://i.imgur.com/qC6BqKf.png" alt><br>當它到了函數表示式部分，它會創函數物件記憶體，這是匿名的。然後它看到這些呼叫函數的括號的時候，一個新的執行環境建立，給這個剛剛創造的匿名函數，並且逐行執行函數內的程式<br><img src="https://i.imgur.com/fH7E8Ga.png" alt></p>
+<p>這一行程式碼會在執行階段進到執行環境的變數環境中，而不是在全域環境。因為它在函數自己的執行環境裡面。所以任何宣告的變數，都在函數內部創造，不會接觸到全域環境</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> greeting = <span class="string">"Hello"</span>;</span><br></pre></td></tr></table></figure>
+
+<p>這是一個對撰寫程式碼很有用的做法，例如現在引入 2 個 JavaScript 檔案，像這樣：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./greet.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./app.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// greeting.js 的程式碼內容</span></span><br><span class="line"><span class="keyword">var</span> greeting = <span class="string">"Hola"</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js 的程式碼內容</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> greeting = <span class="string">"Hello"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(greeting + <span class="string">""</span> + name);</span><br><span class="line">&#125;)(<span class="string">"John"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"greeting"</span>); <span class="comment">//Hola</span></span><br></pre></td></tr></table></figure>
+
+<p>以前這會產生衝突，但使用 IIFE 之後卻不會，為什麼？因為當執行 greeting.js 的內容的時候，全域執行環境在這行後面被執行，記憶體裡有變數<code>greeting</code>及其值<code>Hola</code><br><img src="https://i.imgur.com/HkFOuWJ.png" alt><br>然後解析器看到整個 IIFE，藉由呼叫函數表示式，而建立新的執行環境。到了函數內變數 <code>greeting</code>的變數環境的時候，這兩個變數 <code>greeting</code> 都存在，但是位於不同的執行環境內、不同的記憶體位址。所以我們可以把程式碼包在 IIFE 裡面，保證它不會和其他匯入應用程式的程式碼產生衝突。<br><img src="https://i.imgur.com/nxy7UFh.png" alt><br>所以打開一些資源庫或套件、函數的時候，如果打開原始碼，在最底部看到的東西就是括號及函數，因為所有程式碼都被包裹在 IIFE 裡面。</p>
+<p>了解這些模式，就有助於我們在創造一些可重複利用的東西時，可以確保程式碼不會產生衝突，或者不小心把程式碼放入全域物件。</p>
 
       
     </div>
@@ -232,7 +244,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/04/15/2019-04-15/" target="_blank" title="JavaScript Weird Part (6) - 執行環境：程式執行">http://yoursite.com/2019/04/15/2019-04-15/</a>
+          <a href="/2019/05/18/2019-05-18/" target="_blank" title="JavaScript Weird Part (37)- IIFEs 與安全程式碼">http://yoursite.com/2019/05/18/2019-05-18/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -282,19 +294,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2019/04/17/2019-04-17/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/05/26/2019-05-26/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          JavaScript Weird Part (7) - 單執行緒、同步執行
+          JavaScript 練習 - 時鐘功能
         
       </div>
     </a>
   
   
-    <a href="/2019/04/13/2019-04-13/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/05/17/2019-05-17/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">JavaScript Weird Part (5) - JavaScript 與 undefined</div>
+      <div class="article-nav-title">JavaScript Weird Part (36)- 立即呼叫的函數表示式 (IIFEs)</div>
     </a>
   
 </nav>

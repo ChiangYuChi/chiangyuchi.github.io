@@ -384,6 +384,59 @@
 
 
   
+    <article id="post-2019-05-18"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/05/18/2019-05-18/">JavaScript Weird Part (37)- IIFEs 與安全程式碼</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/05/18/2019-05-18/" class="article-date">
+	  <time datetime="2019-05-17T16:00:00.000Z" itemprop="datePublished">2019-05-18</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          IIFEs 大量使用在資源庫及框架中，用處非常廣泛，以下是一個 IIFE 的例子：
+12345(function(name) &#123;  var greeting = "Hello";  console.log(greeting + "" + name);&#125;)("John");// Hello John
+
+回到執行堆思考底層的運作方式，程式第一次載入，會建立全域執行環境，但是裡面沒有東西，因為上面的例子沒有變數也沒有函數陳述句被提昇。但是當解析器執行到整個 IIFE當它到了函...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/05/18/2019-05-18/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2019-05-17"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -421,59 +474,6 @@
         </p>
         <p class="article-more-link">
           <a href="/2019/05/17/2019-05-17/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-05-18"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/17/2019-05-18/">JavaScript Weird Part (37)- IIFEs 與安全程式碼</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/05/17/2019-05-18/" class="article-date">
-	  <time datetime="2019-05-16T16:00:00.000Z" itemprop="datePublished">2019-05-17</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          IIFEs 大量使用在資源庫及框架中，用處非常廣泛，以下是一個 IIFE 的例子：
-12345(function(name) &#123;  var greeting = "Hello";  console.log(greeting + "" + name);&#125;)("John");// Hello John
-
-回到執行堆思考底層的運作方式，程式第一次載入，會建立全域執行環境，但是裡面沒有東西，因為上面的例子沒有變數也沒有函數陳述句被提昇。但是當解析器執行到整個 IIFE當它到了函...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/05/17/2019-05-18/#more">Read More</a>
         </p>
       
     </div>
