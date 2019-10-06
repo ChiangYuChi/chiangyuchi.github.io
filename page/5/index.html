@@ -217,6 +217,62 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-2019-05-01"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/05/01/2019-05-01/">克服 JavaScript 的奇怪部份 [Day18] - 比較運算子</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/05/01/2019-05-01/" class="article-date">
+	  <time datetime="2019-04-30T16:00:00.000Z" itemprop="datePublished">2019-05-01</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          
+以上的小於運算子範例，我們會預設結果為 true
+但是這個例子竟然也是 true ? 這可以用運算子優先性和相依性來解釋。這兩個運算子的優先性一樣，所以用相依性來決定執行順序，所以相依性是從左到右，左邊先執行。所以是 3&lt;2 先執行，並且得出 false。
+
+接下來，因為運算子遇到兩個不同型別的比較，這裡是一個布林值與數字，所以布林被強制型轉為數字。
+
+我們可以用內建函數查詢，發現 false 被型轉為數字 0。所以 0&lt;1 得到為 true 的結果，因為由相依性決定的函數運...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/05/01/2019-05-01/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2019-04-30"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -671,60 +727,6 @@ Javascript 在執行時，它並非獨立存在，...
         </p>
         <p class="article-more-link">
           <a href="/2019/04/22/2019-04-22/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-04-18"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/04/18/2019-04-18/">JavaScript Weird Part (8) - 函數呼叫與執行堆</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/04/18/2019-04-18/" class="article-date">
-	  <time datetime="2019-04-17T16:00:00.000Z" itemprop="datePublished">2019-04-18</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          全域執行環境的創造與執行與和函式脫不了關係，函式呼叫與執行堆更是其中兩個重要環節。
-在 Javascript 裡，只要是「函數名稱＋（）」就是執行或呼叫這個函數時，稱作 “invoke the function” 或 “function invocation”。但是 JavaScript 呼叫函數時發生什麼事情？
-呼叫函式1234567function b() &#123;&#125;function a() &#123;  b();&#125;a();
-
-因為會先創造全域執行環境，語法解...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/04/18/2019-04-18/#more">Read More</a>
         </p>
       
     </div>
