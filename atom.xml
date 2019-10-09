@@ -94,6 +94,34 @@
   </entry>
   
   <entry>
+    <title>克服 JavaScript 的奇怪部份 [Day32] - 框架小叮嚀：重載函數</title>
+    <link href="http://yoursite.com/2019/07/14/2019-07-14-1/"/>
+    <id>http://yoursite.com/2019/07/14/2019-07-14-1/</id>
+    <published>2019-07-13T16:00:00.000Z</published>
+    <updated>2019-07-14T06:15:59.350Z</updated>
+    
+    <content type="html"><![CDATA[<p>這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。</p><h3 id="重載函數-Function-overloading"><a href="#重載函數-Function-overloading" class="headerlink" title="重載函數 (Function overloading)"></a>重載函數 (Function overloading)</h3><p>像是 Java、C++ 等程式語言都有重載函數的概念，這表示我讓同一個函數可以擁有不同數量的參數。但是這在 JavaScript 行不通，因為函數就是物件。儘管 JavaScript 不具備這個功能，但是我們也可以用 JavaScript 的一級函式概念處理</p><p>好比說「我不想要每次一直傳入 <code>language</code> 參數」。我們已經看過可以使用預設參數或 <code>||</code> 運算子，然後使用這個函數裡的邏輯條件運算來決定。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function greet(firstname, lastname, language) &#123;</span><br><span class="line">      language = language || &apos;en&apos;;</span><br><span class="line">      if (language === &apos;en&apos;) &#123;</span><br><span class="line">        console.log(&apos;Hello &apos; + firstname + &apos; &apos; + lastname);   </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (language === &apos;es&apos;) &#123;</span><br><span class="line">        console.log(&apos;Hola &apos; + firstname + &apos; &apos; + lastname);   </span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(&apos;John&apos;, &apos;Doe&apos;,&apos;en&apos;);</span><br><span class="line">greet(&apos;John&apos;, &apos;Doe&apos;,&apos;es&apos;);</span><br></pre></td></tr></table></figure><p>第二種方式是再包覆一層函式的方式</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function greetEnglish(firstname, lastname) &#123;</span><br><span class="line">    greet(firstname, lastname, &apos;en&apos;);   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function greetSpanish(firstname, lastname) &#123;</span><br><span class="line">    greet(firstname, lastname, &apos;es&apos;);   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greetEnglish(&apos;John&apos;, &apos;Doe&apos;);</span><br><span class="line">greetSpanish(&apos;John&apos;, &apos;Doe&apos;);</span><br></pre></td></tr></table></figure><p>儘管 JavaScript 沒有重載函式的概念，但是仍然有處理這一類問題的方式。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。&lt;/p&gt;
+&lt;h3 id=&quot;重載函數-Function-overloading&quot;&gt;&lt;a href=&quot;#重載函數-Function-overloadin
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
+    
+      <category term="克服Javascript奇怪部份" scheme="http://yoursite.com/tags/%E5%85%8B%E6%9C%8DJavascript%E5%A5%87%E6%80%AA%E9%83%A8%E4%BB%BD/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vue 基礎概念 [6] - 表格排序練習</title>
     <link href="http://yoursite.com/2019/07/14/2019-07-14-2/"/>
     <id>http://yoursite.com/2019/07/14/2019-07-14-2/</id>
@@ -124,34 +152,6 @@
       <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
     
       <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>克服 JavaScript 的奇怪部份 [Day32] - 框架小叮嚀：重載函數</title>
-    <link href="http://yoursite.com/2019/07/14/2019-07-14-1/"/>
-    <id>http://yoursite.com/2019/07/14/2019-07-14-1/</id>
-    <published>2019-07-13T16:00:00.000Z</published>
-    <updated>2019-07-14T06:15:59.350Z</updated>
-    
-    <content type="html"><![CDATA[<p>這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。</p><h3 id="重載函數-Function-overloading"><a href="#重載函數-Function-overloading" class="headerlink" title="重載函數 (Function overloading)"></a>重載函數 (Function overloading)</h3><p>像是 Java、C++ 等程式語言都有重載函數的概念，這表示我讓同一個函數可以擁有不同數量的參數。但是這在 JavaScript 行不通，因為函數就是物件。儘管 JavaScript 不具備這個功能，但是我們也可以用 JavaScript 的一級函式概念處理</p><p>好比說「我不想要每次一直傳入 <code>language</code> 參數」。我們已經看過可以使用預設參數或 <code>||</code> 運算子，然後使用這個函數裡的邏輯條件運算來決定。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function greet(firstname, lastname, language) &#123;</span><br><span class="line">      language = language || &apos;en&apos;;</span><br><span class="line">      if (language === &apos;en&apos;) &#123;</span><br><span class="line">        console.log(&apos;Hello &apos; + firstname + &apos; &apos; + lastname);   </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (language === &apos;es&apos;) &#123;</span><br><span class="line">        console.log(&apos;Hola &apos; + firstname + &apos; &apos; + lastname);   </span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(&apos;John&apos;, &apos;Doe&apos;,&apos;en&apos;);</span><br><span class="line">greet(&apos;John&apos;, &apos;Doe&apos;,&apos;es&apos;);</span><br></pre></td></tr></table></figure><p>第二種方式是再包覆一層函式的方式</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function greetEnglish(firstname, lastname) &#123;</span><br><span class="line">    greet(firstname, lastname, &apos;en&apos;);   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function greetSpanish(firstname, lastname) &#123;</span><br><span class="line">    greet(firstname, lastname, &apos;es&apos;);   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greetEnglish(&apos;John&apos;, &apos;Doe&apos;);</span><br><span class="line">greetSpanish(&apos;John&apos;, &apos;Doe&apos;);</span><br></pre></td></tr></table></figure><p>儘管 JavaScript 沒有重載函式的概念，但是仍然有處理這一類問題的方式。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。&lt;/p&gt;
-&lt;h3 id=&quot;重載函數-Function-overloading&quot;&gt;&lt;a href=&quot;#重載函數-Function-overloadin
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
-    
-      <category term="克服Javascript奇怪部份" scheme="http://yoursite.com/tags/%E5%85%8B%E6%9C%8DJavascript%E5%A5%87%E6%80%AA%E9%83%A8%E4%BB%BD/"/>
     
   </entry>
   
@@ -346,6 +346,31 @@
   </entry>
   
   <entry>
+    <title>calc()</title>
+    <link href="http://yoursite.com/2019/06/12/2019-06-12/"/>
+    <id>http://yoursite.com/2019/06/12/2019-06-12/</id>
+    <published>2019-06-11T16:00:00.000Z</published>
+    <updated>2019-10-09T05:52:23.302Z</updated>
+    
+    <content type="html"><![CDATA[<p>calc() 這個 function 需要傳入 1 個加減乘除的運算式，在設定 width、height 這種 <length> 相關的屬性時， 在不同單位間也可以進行運算，如剛剛上面的範例：width: calc(100% - 50px);。calc() 的運算式一樣是按照先乘除後加減進行計算，如果需要進行複雜的運算，在 calc() 裡面也可以再加入括號 ()，就可以設為括號先決裡面的先算。</length></p><ul><li>+：加</li><li>-：減</li><li>*：乘。其中一個運算參數必須是數字 (number)</li><li>/：除。除數必須是數字，除數不可為零，會造成 HTML 解析錯誤。</li></ul><p>必須注意在使用 + 和 - 的時候，在前後一定要加上空白，不然會被誤為是給了個負值。* 和 / 可以不用加，但為了格式統一方便和閱讀建議還是加一下。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">width: calc(50% + 8px)</span><br><span class="line">/* 意思是 50% 的寬度 + 上 8px */</span><br><span class="line">width: calc(50% + -8px)</span><br><span class="line">/* 意思是 50% 的寬度 + 上 -8px，也等於 &apos;50% - 8px&apos; */</span><br></pre></td></tr></table></figure><h3 id="Example-應用範例"><a href="#Example-應用範例" class="headerlink" title="Example 應用範例"></a>Example 應用範例</h3><h4 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h4><p>calc() 可以用來定位，如下面所設定的 CSS，就能作出一個滿版的藍色 banner 區塊有固定 40px 的邊距，也是一種將區塊置中的寫法。</p><p><img src="https://i.imgur.com/2XfqtR9.png" alt></p><h4 id="根據父層容器尺寸自動調整尺寸"><a href="#根據父層容器尺寸自動調整尺寸" class="headerlink" title="根據父層容器尺寸自動調整尺寸"></a>根據父層容器尺寸自動調整尺寸</h4><p>設定 width 或 height 屬性使用 calc() 計算的數字是 100% 的時候，會自動去抓父層容器的尺寸。例如：做 autocomplete 的時候，希望在輸入框下，出現和輸入框等寬的列表：</p><p>由於 CSS 在加上 border、padding 的時候都是從原本設定得尺寸再往外加，所以長出來的東西看起來的尺寸會比原本設定的 width 還要大，因此要做到 ul 和 input 等寬的結果，在 input 加上的 padding 和 border 在算 ul 的 width 的時候也要幫他算進去，所以 ul { width: calc(100% + 1rem + 1rem + 2px + 2px); } 指的是：符合父容器的 100% 寬度，加上 input 的 padding-left: 1rem 和 padding-right: 1rem，再加上 border-left: 2px 和 border-right: 2px。</p><p>用 calc() 計算尺寸非常方便，即使不同單位也沒有問題。</p><p><img src="https://i.imgur.com/8kRhxLf.png" alt></p><h4 id="將-calc-巢狀包入-CSS-變數中"><a href="#將-calc-巢狀包入-CSS-變數中" class="headerlink" title="將 calc() 巢狀包入 CSS 變數中"></a>將 calc() 巢狀包入 CSS 變數中</h4><p>只要用括號 () 包好包滿，就可以無限次使用 calc() 方法，會一層一層從括號裡面計算出來。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.foo &#123;</span><br><span class="line">  --widthA: 100px;</span><br><span class="line">  --widthB: calc(var(--widthA) / 2);</span><br><span class="line">  --widthC: calc(var(--widthB) / 2);</span><br><span class="line">  width: var(--widthC);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在上面這段程式碼裡面展開所有變數之後 widthC 就等於：</p><p>–widthC: calc( calc( 100px / 2) / 2)</p><p>所以 .foo 的 width 最後算出來的值就是 25px。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;calc() 這個 function 需要傳入 1 個加減乘除的運算式，在設定 width、height 這種 &lt;length&gt; 相關的屬性時， 在不同單位間也可以進行運算，如剛剛上面的範例：width: calc(100% - 50px);。calc() 的運算式一樣是按
+      
+    
+    </summary>
+    
+    
+      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JS 30 Days - Flex Panels Image Gallery</title>
     <link href="http://yoursite.com/2019/06/11/2019-06-11/"/>
     <id>http://yoursite.com/2019/06/11/2019-06-11/</id>
@@ -411,31 +436,6 @@
     
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>calc()</title>
-    <link href="http://yoursite.com/2019/06/06/2019-06-12/"/>
-    <id>http://yoursite.com/2019/06/06/2019-06-12/</id>
-    <published>2019-06-05T16:00:00.000Z</published>
-    <updated>2019-10-09T05:40:58.545Z</updated>
-    
-    <content type="html"><![CDATA[<p>calc() 這個 function 需要傳入 1 個加減乘除的運算式，在設定 width、height 這種 <length> 相關的屬性時， 在不同單位間也可以進行運算，如剛剛上面的範例：width: calc(100% - 50px);。calc() 的運算式一樣是按照先乘除後加減進行計算，如果需要進行複雜的運算，在 calc() 裡面也可以再加入括號 ()，就可以設為括號先決裡面的先算。</length></p><ul><li>+：加</li><li>-：減</li><li>*：乘。其中一個運算參數必須是數字 (number)</li><li>/：除。除數必須是數字，除數不可為零，會造成 HTML 解析錯誤。</li></ul><p>必須注意在使用 + 和 - 的時候，在前後一定要加上空白，不然會被誤為是給了個負值。* 和 / 可以不用加，但為了格式統一方便和閱讀建議還是加一下。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">width: calc(50% + 8px)</span><br><span class="line">/* 意思是 50% 的寬度 + 上 8px */</span><br><span class="line">width: calc(50% + -8px)</span><br><span class="line">/* 意思是 50% 的寬度 + 上 -8px，也等於 &apos;50% - 8px&apos; */</span><br></pre></td></tr></table></figure><h3 id="Example-應用範例"><a href="#Example-應用範例" class="headerlink" title="Example 應用範例"></a>Example 應用範例</h3><h4 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h4><p>calc() 可以用來定位，如下面所設定的 CSS，就能作出一個滿版的藍色 banner 區塊有固定 40px 的邊距，也是一種將區塊置中的寫法。</p><p><img src="https://i.imgur.com/2XfqtR9.png" alt></p><h4 id="根據父層容器尺寸自動調整尺寸"><a href="#根據父層容器尺寸自動調整尺寸" class="headerlink" title="根據父層容器尺寸自動調整尺寸"></a>根據父層容器尺寸自動調整尺寸</h4><p>設定 width 或 height 屬性使用 calc() 計算的數字是 100% 的時候，會自動去抓父層容器的尺寸。例如：做 autocomplete 的時候，希望在輸入框下，出現和輸入框等寬的列表：</p><p>由於 CSS 在加上 border、padding 的時候都是從原本設定得尺寸再往外加，所以長出來的東西看起來的尺寸會比原本設定的 width 還要大，因此要做到 ul 和 input 等寬的結果，在 input 加上的 padding 和 border 在算 ul 的 width 的時候也要幫他算進去，所以 ul { width: calc(100% + 1rem + 1rem + 2px + 2px); } 指的是：符合父容器的 100% 寬度，加上 input 的 padding-left: 1rem 和 padding-right: 1rem，再加上 border-left: 2px 和 border-right: 2px。</p><p>用 calc() 計算尺寸非常方便，即使不同單位也沒有問題。</p><p><img src="https://i.imgur.com/8kRhxLf.png" alt></p><h4 id="將-calc-巢狀包入-CSS-變數中"><a href="#將-calc-巢狀包入-CSS-變數中" class="headerlink" title="將 calc() 巢狀包入 CSS 變數中"></a>將 calc() 巢狀包入 CSS 變數中</h4><p>只要用括號 () 包好包滿，就可以無限次使用 calc() 方法，會一層一層從括號裡面計算出來。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.foo &#123;</span><br><span class="line">  --widthA: 100px;</span><br><span class="line">  --widthB: calc(var(--widthA) / 2);</span><br><span class="line">  --widthC: calc(var(--widthB) / 2);</span><br><span class="line">  width: var(--widthC);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在上面這段程式碼裡面展開所有變數之後 widthC 就等於：</p><p>–widthC: calc( calc( 100px / 2) / 2)</p><p>所以 .foo 的 width 最後算出來的值就是 25px。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;calc() 這個 function 需要傳入 1 個加減乘除的運算式，在設定 width、height 這種 &lt;length&gt; 相關的屬性時， 在不同單位間也可以進行運算，如剛剛上面的範例：width: calc(100% - 50px);。calc() 的運算式一樣是按
-      
-    
-    </summary>
-    
-    
-      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
-    
-      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
     
   </entry>
   
