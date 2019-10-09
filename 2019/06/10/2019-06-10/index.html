@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>js 30 days - array cardio 1 | CYC&#39;S BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="JavaScript前端學習">
+  
+  
+  
+  
+  <meta name="description" content="這一天的課程主要說明運用 Array 是 Javascript 很重要的環節，像是 filter、map、sort、reduce。 範例 11234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697">
+<meta name="keywords" content="JavaScript,前端學習">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS 30 Days - Array Cardio 1">
+<meta property="og:url" content="http://yoursite.com/2019/06/10/2019-06-10/index.html">
+<meta property="og:site_name" content="CYC&#39;S BLOG">
+<meta property="og:description" content="這一天的課程主要說明運用 Array 是 Javascript 很重要的環節，像是 filter、map、sort、reduce。 範例 11234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697">
+<meta property="og:locale" content="en.yml">
+<meta property="og:updated_time" content="2019-10-09T05:39:59.103Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS 30 Days - Array Cardio 1">
+<meta name="twitter:description" content="這一天的課程主要說明運用 Array 是 Javascript 很重要的環節，像是 filter、map、sort、reduce。 範例 11234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697">
+  
+    <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2019-06-10" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      JS 30 Days - Array Cardio 1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/06/10/2019-06-10/" class="article-date">
+	  <time datetime="2019-06-09T16:00:00.000Z" itemprop="datePublished">2019-06-10</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>這一天的課程主要說明運用 Array 是 Javascript 很重要的環節，像是 filter、map、sort、reduce。</p>
+<h3 id="範例-1"><a href="#範例-1" class="headerlink" title="範例 1"></a>範例 1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const inventors = [&#123;</span><br><span class="line">    first: &apos;Albert&apos;,</span><br><span class="line">    last: &apos;Einstein&apos;,</span><br><span class="line">    year: 1879,</span><br><span class="line">    passed: 1955</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    first: &apos;Isaac&apos;,</span><br><span class="line">    last: &apos;Newton&apos;,</span><br><span class="line">    year: 1643,</span><br><span class="line">    passed: 1727</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    first: &apos;Galileo&apos;,</span><br><span class="line">    last: &apos;Galilei&apos;,</span><br><span class="line">    year: 1564,</span><br><span class="line">    passed: 1642</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    first: &apos;Marie&apos;,</span><br><span class="line">    last: &apos;Curie&apos;,</span><br><span class="line">    year: 1867,</span><br><span class="line">    passed: 1934</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    first: &apos;Johannes&apos;,</span><br><span class="line">    last: &apos;Kepler&apos;,</span><br><span class="line">    year: 1571,</span><br><span class="line">    passed: 1630</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    first: &apos;Nicolaus&apos;,</span><br><span class="line">    last: &apos;Copernicus&apos;,</span><br><span class="line">    year: 1473,</span><br><span class="line">    passed: 1543</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    first: &apos;Max&apos;,</span><br><span class="line">    last: &apos;Planck&apos;,</span><br><span class="line">    year: 1858,</span><br><span class="line">    passed: 1947</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    first: &apos;Katherine&apos;,</span><br><span class="line">    last: &apos;Blodgett&apos;,</span><br><span class="line">    year: 1898,</span><br><span class="line">    passed: 1979</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    first: &apos;Ada&apos;,</span><br><span class="line">    last: &apos;Lovelace&apos;,</span><br><span class="line">    year: 1815,</span><br><span class="line">    passed: 1852</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    first: &apos;Sarah E.&apos;,</span><br><span class="line">    last: &apos;Goode&apos;,</span><br><span class="line">    year: 1855,</span><br><span class="line">    passed: 1905</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    first: &apos;Lise&apos;,</span><br><span class="line">    last: &apos;Meitner&apos;,</span><br><span class="line">    year: 1878,</span><br><span class="line">    passed: 1968</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    first: &apos;Hanna&apos;,</span><br><span class="line">    last: &apos;Hammarström&apos;,</span><br><span class="line">    year: 1829,</span><br><span class="line">    passed: 1909</span><br><span class="line">  &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* Array.prototype.filter()</span><br><span class="line"></span><br><span class="line">過濾的方法，就是傳入一個函數，並且以迴圈檢查運算每個物件，由原陣列中通過該函式檢驗之元素所構成的新陣列</span><br></pre></td></tr></table></figure>
+
+<p>const fifteen = inventors.filter(function(inventor){<br>if(inventor.year&gt;=1500&amp;&amp;inventor.year&lt;=1599){<br>return true; //means keep it<br>}</p>
+<p>});</p>
+<p>// arrow function 寫法<br>const fifteen = inventors.filter(inventor =&gt; (inventor.year &gt;= 1500 &amp;&amp; inventor.year &lt;= 1600));</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* Array.prototype.map()</span><br><span class="line"></span><br><span class="line">map() 方法會建立一個新的陣列，其內容為原陣列的每一個元素經由回呼函式運算後所回傳的結果之集合。</span><br></pre></td></tr></table></figure>
+
+<p>//寫法 1</p>
+<p>const fullNames = inventors.map(inventor =&gt;inventor.first+’’+inventor.last);</p>
+<p>//寫法 2</p>
+<p>const fullNames = inventors.map(inventor =&gt; (<code>${inventor.first}${inventor.last}</code>));</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* Array.prototype.sort()</span><br><span class="line">sort() 方法會原地對一個陣列的所有元素進行排序，並回傳此陣列。</span><br></pre></td></tr></table></figure>
+
+<p>//寫法 1</p>
+<p>const ordered = inventor.sort(function(a,b){<br>if(a.year&gt;b.year){<br>return 1;<br>}else{<br>return -1<br>}
+});</p>
+<p>// 寫法 2</p>
+<p>const ordered= inventor.sort((a,b)=&gt;a.year&gt;b.year ? 1:-1);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>const oldest = inventors.sort(function (a, b) {<br>const lastGuy = a.passed - a.year;<br>const nextGuy = b.passed - b.year;<br>return lastGuy &gt; nextGuy ? 1 : -1;<br>});<br>console.table(oldest);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* Array.prototype.reduce()</span><br><span class="line">reduce() 方法將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列化為單一值。</span><br></pre></td></tr></table></figure>
+
+<p>const totalYear = inventors.reduce((total, inventor) =&gt; { return total + (inventor.passed - inventor.year);<br>}, 0);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 範例 2</span><br><span class="line"></span><br><span class="line">怎麼過濾出網頁裡有 &quot;de&quot; 的地址？</span><br></pre></td></tr></table></figure>
+
+<p>//<a href="https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris</a></p>
+<p>const category = document.querySelector(‘.mw-category’);<br>const link = category.querySelectorAll(‘a’);</p>
+<p>const aElement = Array.from(document.querySelectorAll(‘.mw-category a’))<br>let list = aElement.map(item =&gt; item.textContent)<br>.filter(item =&gt; item.includes(‘de’))<br>console.log(list)</p>
+<h3 id="範例-3"><a href="#範例-3" class="headerlink" title="範例 3"></a>範例 3</h3><p>依照姓來排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const people = [&apos;Beck, Glenn&apos;, &apos;Becker, Carl&apos;, &apos;Beckett, Samuel&apos;, &apos;Beddoes, Mick&apos;, &apos;Beecher, Henry&apos;,</span><br><span class="line">      &apos;Beethoven, Ludwig&apos;, &apos;Begin, Menachem&apos;, &apos;Belloc, Hilaire&apos;, &apos;Bellow, Saul&apos;, &apos;Benchley, Robert&apos;,</span><br><span class="line">      &apos;Benenson, Peter&apos;, &apos;Ben-Gurion, David&apos;, &apos;Benjamin, Walter&apos;, &apos;Benn, Tony&apos;, &apos;Bennington, Chester&apos;,</span><br><span class="line">      &apos;Benson, Leana&apos;, &apos;Bent, Silas&apos;, &apos;Bentsen, Lloyd&apos;, &apos;Berger, Ric&apos;, &apos;Bergman, Ingmar&apos;, &apos;Berio, Luciano&apos;,</span><br><span class="line">      &apos;Berle, Milton&apos;, &apos;Berlin, Irving&apos;, &apos;Berne, Eric&apos;, &apos;Bernhard, Sandra&apos;, &apos;Berra, Yogi&apos;, &apos;Berry, Halle&apos;,</span><br><span class="line">      &apos;Berry, Wendell&apos;, &apos;Bethea, Erin&apos;, &apos;Bevan, Aneurin&apos;, &apos;Bevel, Ken&apos;, &apos;Biden, Joseph&apos;, &apos;Bierce, Ambrose&apos;,</span><br><span class="line">      &apos;Biko, Steve&apos;, &apos;Billings, Josh&apos;, &apos;Biondo, Frank&apos;, &apos;Birrell, Augustine&apos;, &apos;Black, Elk&apos;, &apos;Blair, Robert&apos;,</span><br><span class="line">      &apos;Blair, Tony&apos;, &apos;Blake, William&apos;</span><br><span class="line">    ];</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const alpha = people.sort((lastOne, nextOne) =&gt; &#123;</span><br><span class="line">   const [aLast, aFirst] = lastOne.split(&apos;,&apos;);</span><br><span class="line">   const [bLast, bFirst] = nextOne.split(&apos;,&apos;);</span><br><span class="line">   return aLast &gt; bFirst ? 1 : -1;</span><br><span class="line"></span><br><span class="line"> &#125;);</span><br><span class="line"></span><br><span class="line"> console.table(alpha);</span><br></pre></td></tr></table></figure>
+
+<h3 id="範例-4"><a href="#範例-4" class="headerlink" title="範例 4"></a>範例 4</h3><p>加總個別項目的總數</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const data = [&apos;car&apos;, &apos;car&apos;, &apos;truck&apos;, &apos;truck&apos;, &apos;bike&apos;, &apos;walk&apos;, &apos;car&apos;, &apos;van&apos;, &apos;bike&apos;, &apos;walk&apos;,</span><br><span class="line">&apos;car&apos;, &apos;van&apos;, &apos;car&apos;, &apos;truck&apos;, &apos;pogostick&apos;];</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> const transportation = data.reduce(function (obj, item) &#123;if (!obj[item]) &#123;</span><br><span class="line">obj[item] = 0; &#125;</span><br><span class="line"> obj[item]++;</span><br><span class="line">return obj;</span><br><span class="line">&#125;, &#123;&#125;);</span><br><span class="line"></span><br><span class="line">console.table(transportation);</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong></a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/06/10/2019-06-10/" target="_blank" title="JS 30 Days - Array Cardio 1">http://yoursite.com/2019/06/10/2019-06-10/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端學習/">前端學習</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/06/11/2019-06-11/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JS 30 Days - Flex Panels Image Gallery
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/06/06/2019-06-05/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">串接 Open Data (1)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#範例-1"><span class="nav-number">1.</span> <span class="nav-text">範例 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#範例-3"><span class="nav-number">2.</span> <span class="nav-text">範例 3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#範例-4"><span class="nav-number">3.</span> <span class="nav-text">範例 4</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 CYC&#39;S BLOG All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            CYC&#39;S BLOG
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 CYC&#39;S BLOG All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

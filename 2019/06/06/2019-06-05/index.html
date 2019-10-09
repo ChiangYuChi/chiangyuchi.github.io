@@ -3,26 +3,23 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>javascript weird part (2) - 名稱/值配對與物件 | CYC&#39;S BLOG</title>
+  <title>串接 open data (1) | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="JavaScriptJavaScript Weird Part">
+  <meta name="keywords" content="JavaScript">
   
   
   
   
-  <meta name="description" content="要理解 Javascript 當中非常重要的「物件」(Object)，首先要釐清名稱/值的配對。 一個執行環境底下，任何一段正在執行的程式碼，只會有一個單獨的名稱，不會有另一個相同的名稱，一個名稱只能定義一個值。但是這個值，還可以是另一個名稱/值的配對。 Javascript 最簡單的物件定義：物件就是名稱/值配對的組合。總歸而言，一個名稱只會配對一個值。 例如： 12345678Address:">
-<meta name="keywords" content="JavaScript,JavaScript Weird Part">
+  <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript Weird Part (2) - 名稱&#x2F;值配對與物件">
-<meta property="og:url" content="http://yoursite.com/2019/04/10/2019-04-10/index.html">
+<meta property="og:title" content="串接 Open Data (1)">
+<meta property="og:url" content="http://yoursite.com/2019/06/06/2019-06-05/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="要理解 Javascript 當中非常重要的「物件」(Object)，首先要釐清名稱/值的配對。 一個執行環境底下，任何一段正在執行的程式碼，只會有一個單獨的名稱，不會有另一個相同的名稱，一個名稱只能定義一個值。但是這個值，還可以是另一個名稱/值的配對。 Javascript 最簡單的物件定義：物件就是名稱/值配對的組合。總歸而言，一個名稱只會配對一個值。 例如： 12345678Address:">
 <meta property="og:locale" content="en.yml">
-<meta property="og:updated_time" content="2019-10-01T05:26:57.354Z">
+<meta property="og:updated_time" content="2019-10-09T05:44:47.354Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript Weird Part (2) - 名稱&#x2F;值配對與物件">
-<meta name="twitter:description" content="要理解 Javascript 當中非常重要的「物件」(Object)，首先要釐清名稱/值的配對。 一個執行環境底下，任何一段正在執行的程式碼，只會有一個單獨的名稱，不會有另一個相同的名稱，一個名稱只能定義一個值。但是這個值，還可以是另一個名稱/值的配對。 Javascript 最簡單的物件定義：物件就是名稱/值配對的組合。總歸而言，一個名稱只會配對一個值。 例如： 12345678Address:">
+<meta name="twitter:title" content="串接 Open Data (1)">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -164,7 +161,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-2019-04-10" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-2019-06-05" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -172,7 +169,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      JavaScript Weird Part (2) - 名稱/值配對與物件
+      串接 Open Data (1)
     </h1>
   
 
@@ -180,8 +177,8 @@
     
     <div class="article-meta">
       
-	<a href="/2019/04/10/2019-04-10/" class="article-date">
-	  <time datetime="2019-04-09T16:00:00.000Z" itemprop="datePublished">2019-04-10</time>
+	<a href="/2019/06/06/2019-06-05/" class="article-date">
+	  <time datetime="2019-06-05T16:00:00.000Z" itemprop="datePublished">2019-06-06</time>
 	</a>
 
       
@@ -197,14 +194,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>要理解 Javascript 當中非常重要的「物件」(Object)，首先要釐清名稱/值的配對。</p>
-<p>一個執行環境底下，任何一段正在執行的程式碼，只會有一個單獨的名稱，不會有另一個相同的名稱，一個名稱只能定義一個值。但是這個值，還可以是另一個名稱/值的配對。</p>
-<p>Javascript 最簡單的物件定義：物件就是名稱/值配對的組合。總歸而言，一個名稱只會配對一個值。</p>
-<p>例如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Address:&#123;</span><br><span class="line">    Street:<span class="string">'Main'</span>,</span><br><span class="line">    <span class="built_in">Number</span>: <span class="number">100</span>,</span><br><span class="line">    Apartment:&#123;</span><br><span class="line">            Floor:<span class="number">3</span>,</span><br><span class="line">            <span class="built_in">Number</span>:<span class="number">300</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Address 是物件，它的值是另一個名稱/值配對的組合。所以 Apartment 是另一個名稱/值配對的組合。</p>
-
+        
       
     </div>
     <footer class="article-footer">
@@ -230,7 +220,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/04/10/2019-04-10/" target="_blank" title="JavaScript Weird Part (2) - 名稱/值配對與物件">http://yoursite.com/2019/04/10/2019-04-10/</a>
+          <a href="/2019/06/06/2019-06-05/" target="_blank" title="串接 Open Data (1)">http://yoursite.com/2019/06/06/2019-06-05/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -270,7 +260,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript-Weird-Part/">JavaScript Weird Part</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
       
 
@@ -280,19 +270,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2019/04/12/2019-04-12/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/06/10/2019-06-10/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          JavaScript Weird Part (4) - 創造與提昇
+          JS 30 Days - Array Cardio 1
         
       </div>
     </a>
   
   
-    <a href="/2019/04/10/2019-04-11/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/06/06/2019-06-12/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">JavaScript Weird Part (3) - 全域環境與全域物件</div>
+      <div class="article-nav-title">calc()</div>
     </a>
   
 </nav>
