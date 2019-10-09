@@ -3,26 +3,30 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>克服 javascript 的奇怪部份 [day14] - 純值 | CYC&#39;S BLOG</title>
+  <title>javascript 練習 - 骰子遊戲 | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="JavaScript前端學習">
+  <meta name="keywords" content="JavaScript">
   
   
   
   
-  <meta name="description" content="Javascript 有六種基本型別 （Primitive types)，表示一個值，它不是物件，因為物件是名稱與值的配對。因此基本型別，就只是一個值。 Javascript 的六種基本型別包括  undefined：表示還不存在，是Javascript給所有變數的初始值，直到你賦與變數一個值。所以不應該設定一個值為undefined，因為這就表示這個變數還沒被設定任何的值。  null: nul">
-<meta name="keywords" content="JavaScript,前端學習">
+  <meta name="description" content="DemoJavaScript 練習 - Rolling Dice Game - Demo 1. Introduction 介紹這是 Udemy 上的課程的一個小遊戲，操作 click 事件，並搭配判斷式切換玩家，以及新增 class，實現擲骰子遊戲。   以判斷式當擲出 1，則切換玩家，並且此輪不累積分數 當連續擲出 2 個 6 的時候，判定兩方誰目前累積的所有分數歸零 可儲存該輪暫存分數到總分">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="克服 JavaScript 的奇怪部份 [Day14] - 純值">
+<meta property="og:title" content="JavaScript 練習 - 骰子遊戲">
 <meta property="og:url" content="http://yoursite.com/2019/05/29/2019-05-29/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="Javascript 有六種基本型別 （Primitive types)，表示一個值，它不是物件，因為物件是名稱與值的配對。因此基本型別，就只是一個值。 Javascript 的六種基本型別包括  undefined：表示還不存在，是Javascript給所有變數的初始值，直到你賦與變數一個值。所以不應該設定一個值為undefined，因為這就表示這個變數還沒被設定任何的值。  null: nul">
+<meta property="og:description" content="DemoJavaScript 練習 - Rolling Dice Game - Demo 1. Introduction 介紹這是 Udemy 上的課程的一個小遊戲，操作 click 事件，並搭配判斷式切換玩家，以及新增 class，實現擲骰子遊戲。   以判斷式當擲出 1，則切換玩家，並且此輪不累積分數 當連續擲出 2 個 6 的時候，判定兩方誰目前累積的所有分數歸零 可儲存該輪暫存分數到總分">
 <meta property="og:locale" content="en.yml">
-<meta property="og:updated_time" content="2019-07-14T05:05:28.360Z">
+<meta property="og:image" content="https://i.imgur.com/YbiR3M7.jpg">
+<meta property="og:image" content="https://i.imgur.com/vbWIyxZ.jpg">
+<meta property="og:image" content="https://i.imgur.com/jU47Md2.jpg">
+<meta property="og:updated_time" content="2019-10-09T05:25:03.951Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="克服 JavaScript 的奇怪部份 [Day14] - 純值">
-<meta name="twitter:description" content="Javascript 有六種基本型別 （Primitive types)，表示一個值，它不是物件，因為物件是名稱與值的配對。因此基本型別，就只是一個值。 Javascript 的六種基本型別包括  undefined：表示還不存在，是Javascript給所有變數的初始值，直到你賦與變數一個值。所以不應該設定一個值為undefined，因為這就表示這個變數還沒被設定任何的值。  null: nul">
+<meta name="twitter:title" content="JavaScript 練習 - 骰子遊戲">
+<meta name="twitter:description" content="DemoJavaScript 練習 - Rolling Dice Game - Demo 1. Introduction 介紹這是 Udemy 上的課程的一個小遊戲，操作 click 事件，並搭配判斷式切換玩家，以及新增 class，實現擲骰子遊戲。   以判斷式當擲出 1，則切換玩家，並且此輪不累積分數 當連續擲出 2 個 6 的時候，判定兩方誰目前累積的所有分數歸零 可儲存該輪暫存分數到總分">
+<meta name="twitter:image" content="https://i.imgur.com/YbiR3M7.jpg">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -172,7 +176,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      克服 JavaScript 的奇怪部份 [Day14] - 純值
+      JavaScript 練習 - 骰子遊戲
     </h1>
   
 
@@ -197,22 +201,43 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Javascript 有六種基本型別 （Primitive types)，表示一個值，它不是物件，因為物件是名稱與值的配對。因此基本型別，就只是一個值。</p>
-<p>Javascript 的六種基本型別包括</p>
+        <h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><p>JavaScript 練習 - Rolling Dice Game - <a href="https://chiangyuchi.github.io/rolldice/" target="_blank" rel="noopener">Demo</a></p>
+<h1 id="1-Introduction-介紹"><a href="#1-Introduction-介紹" class="headerlink" title="1. Introduction 介紹"></a>1. Introduction 介紹</h1><p>這是 Udemy 上的課程的一個小遊戲，操作 click 事件，並搭配判斷式切換玩家，以及新增 class，實現擲骰子遊戲。</p>
+<p><img src="https://i.imgur.com/YbiR3M7.jpg" alt></p>
 <ul>
-<li><p>undefined：表示還不存在，是Javascript給所有變數的初始值，直到你賦與變數一個值。所以不應該設定一個值為undefined，因為這就表示這個變數還沒被設定任何的值。</p>
-</li>
-<li><p>null: null 也表示不存在。因為undefined是表示變數處於初始值，還沒有值、現在值還不存在，而非「not exist」，因此 null 比起」undeifned 更適合表示一個東西不存在，當你刻意把變數設定為空值的時候。</p>
-</li>
-<li><p>Boolean: 指得是 true/false 其中一種可能性</p>
-</li>
-<li><p>number: 在Javascript只有一種型別叫做number（數值），它一定有小數點跟隨在後（floating point number)。其他程式語言可能有整數型態或其他特定的數值型態，Javascript只有一種</p>
-</li>
-<li><p>字串:由一連串的字符組成，外面可包覆雙引號或單引號來表示</p>
-</li>
-<li><p>符號：ES6將符號視為一種純值</p>
-</li>
+<li>以判斷式當擲出 1，則切換玩家，並且此輪不累積分數</li>
+<li>當連續擲出 2 個 6 的時候，判定兩方誰目前累積的所有分數歸零</li>
+<li>可儲存該輪暫存分數到總分裡</li>
+<li>需判定誰達到勝利標準</li>
+<li>可由玩家輸入自行決定最後的勝利標準</li>
 </ul>
+<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><p>宣告儲存累積總分、每一輪獲得的分數、該輪玩家、啟動遊戲的變數，並且在載入畫面的時候，就呼叫一個初始化的函數，裡面會將累積總分、每一輪獲得的分數、遊戲啟動狀態、骰子是否顯示、預設玩家…都恢復到初始值。這樣的寫法，可促進程式碼的簡潔度，只要在需要的時候，如展開新遊戲的時候，在該函式內再度呼叫初始化。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"player-0-panel active"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"player-name"</span> <span class="attr">id</span>=<span class="string">"name-0"</span>&gt;</span>Player 1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"player-score"</span> <span class="attr">id</span>=<span class="string">"score-0"</span>&gt;</span>43<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"player-current-box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"player-current-label"</span>&gt;</span>Current<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"player-current-score"</span> <span class="attr">id</span>=<span class="string">"current-0"</span>&gt;</span>11<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"player-1-panel"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"player-name"</span> <span class="attr">id</span>=<span class="string">"name-1"</span>&gt;</span>Player 2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"player-score"</span> <span class="attr">id</span>=<span class="string">"score-1"</span>&gt;</span>72<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"player-current-box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"player-current-label"</span>&gt;</span>Current<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"player-current-score"</span> <span class="attr">id</span>=<span class="string">"current-1"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn-new"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"ion-ios-plus-outline"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>New game<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn-roll"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"ion-ios-loop"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>Roll dice<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn-hold"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"ion-ios-download-outline"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>Hold<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./dice-5.png"</span> <span class="attr">alt</span>=<span class="string">" dice"</span> <span class="attr">class</span>=<span class="string">"dice"</span> <span class="attr">id</span>=<span class="string">"dice-1"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"Final score"</span> <span class="attr">class</span>=<span class="string">"final-score"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scores, roundScore, activePlayer, gamePlaying;</span><br><span class="line">init();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  scores = [<span class="number">0</span>, <span class="number">0</span>];</span><br><span class="line">  roundScore = <span class="number">0</span>;</span><br><span class="line">  activePlayer = <span class="number">0</span>;</span><br><span class="line">  gamePlaying = <span class="literal">true</span>;</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">".dice"</span>).style.display = <span class="string">"none"</span>;</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">"score-0"</span>).textContent = <span class="string">"0"</span>;</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">"score-1"</span>).textContent = <span class="string">"0"</span>;</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">"current-0"</span>).textContent = <span class="string">"0"</span>;</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">"current-1"</span>).textContent = <span class="string">"0"</span>;</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">"name-0"</span>).textContent = <span class="string">"Player 1"</span>;</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">"name-1"</span>).textContent = <span class="string">"Player 2"</span>;</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">".player-0-panel"</span>).classList.remove(<span class="string">"winner"</span>);</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">".player-1-panel"</span>).classList.remove(<span class="string">"winner"</span>);</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">".player-0-panel"</span>).classList.remove(<span class="string">"active"</span>);</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">".player-1-panel"</span>).classList.remove(<span class="string">"active"</span>);</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">".player-0-panel"</span>).classList.add(<span class="string">"active"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>遊戲的進行，主要都是由 <code>if</code>、<code>else if</code>、<code>else</code> 來判斷。觸發 click 事件後，先判定遊戲啟動，再產生隨機數字，並且將產生的隨機數字儲存在宣告在判斷式當中的變數裡面，依據儲存的數字，調用要顯示在畫面上的骰子圖案。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">".btn-roll"</span>).addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (gamePlaying) &#123;</span><br><span class="line">    <span class="keyword">var</span> dice = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">6</span>) + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">var</span> diceDOM = <span class="built_in">document</span>.querySelector(<span class="string">".dice"</span>);</span><br><span class="line">    diceDOM.style.display = <span class="string">"block"</span>;</span><br><span class="line">    diceDOM.src = <span class="string">"dice-"</span> + dice + <span class="string">".png"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>這裡加入兩個遊戲規則：第一個規則、如果連續擲出 2 個 6，則目前累積的總分，以及該輪的暫存分數都歸 0。所以要設定儲存前一個骰子的變數。<code>lastDice</code>。
+<img src="https://i.imgur.com/vbWIyxZ.jpg" alt></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (dice === <span class="number">6</span> &amp;&amp; lastDice === <span class="number">6</span>) &#123;</span><br><span class="line">  scores[activePlayer] = <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">"#score-"</span> + activePlayer).textContent = <span class="string">"0"</span>;</span><br><span class="line">  nextPlayer();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">lastDice = dice;</span><br></pre></td></tr></table></figure>
+
+<p>第二個規則、如果擲出 1，該輪暫存分數不能計分，會直接跳到下一個玩家。<br><img src="https://i.imgur.com/jU47Md2.jpg" alt></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (dice !== <span class="number">1</span>) &#123;</span><br><span class="line">            roundScore += dice;</span><br><span class="line">            <span class="built_in">document</span>.querySelector(<span class="string">'#current-'</span> + activePlayer).textContent = roundScore;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            nextPlayer();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用 ternary operator 及 toggle 切換玩家</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">nextPlayer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  activePlayer === <span class="number">0</span> ? (activePlayer = <span class="number">1</span>) : (activePlayer = <span class="number">0</span>);</span><br><span class="line">  roundScore = <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">"current-0"</span>).textContent = <span class="string">"0"</span>;</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">"current-1"</span>).textContent = <span class="string">"0"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">".player-0-panel"</span>).classList.toggle(<span class="string">"active"</span>);</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">".player-1-panel"</span>).classList.toggle(<span class="string">"active"</span>);</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">".dice"</span>).style.display = <span class="string">"none"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>玩家可擲無限多次骰子後，再選擇把分數儲存到總分裡面</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">".btn-hold"</span>).addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (gamePlaying) &#123;</span><br><span class="line">    scores[activePlayer] += roundScore;</span><br><span class="line">    <span class="built_in">document</span>.querySelector(<span class="string">"#score-"</span> + activePlayer).textContent =</span><br><span class="line">      scores[activePlayer];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>預設勝利分數是 20 分，也可以由玩家自行決定勝利總分</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> input = <span class="built_in">document</span>.querySelector(<span class="string">".final-score"</span>).value;</span><br><span class="line"><span class="keyword">var</span> winningScore;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (input) &#123;</span><br><span class="line">  winningScore = input;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  winningScore = <span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (scores[activePlayer] &gt;= winningScore) &#123;</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">"#name-"</span> + activePlayer).textContent = <span class="string">"Winner!"</span>;</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">".dice"</span>).style.display = <span class="string">"none"</span>;</span><br><span class="line">  <span class="built_in">document</span></span><br><span class="line">    .querySelector(<span class="string">".player-"</span> + activePlayer + <span class="string">"-panel"</span>)</span><br><span class="line">    .classList.add(<span class="string">"winner"</span>);</span><br><span class="line">  <span class="built_in">document</span></span><br><span class="line">    .querySelector(<span class="string">".player-"</span> + activePlayer + <span class="string">"-panel"</span>)</span><br><span class="line">    .classList.remove(<span class="string">"active"</span>);</span><br><span class="line">  gamePlaying = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>重新開始遊戲</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">".btn-new"</span>).addEventListener(<span class="string">"click"</span>, init);</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -239,7 +264,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/05/29/2019-05-29/" target="_blank" title="克服 JavaScript 的奇怪部份 [Day14] - 純值">http://yoursite.com/2019/05/29/2019-05-29/</a>
+          <a href="/2019/05/29/2019-05-29/" target="_blank" title="JavaScript 練習 - 骰子遊戲">http://yoursite.com/2019/05/29/2019-05-29/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -279,7 +304,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端學習/">前端學習</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
       
 
@@ -289,17 +314,17 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2019/05/29/2019-05-30/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/06/02/2019-06-02-1/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          克服 JavaScript 的奇怪部份 [Day15] - 運算子
+          map() 和 forEach() 的差別在哪？
         
       </div>
     </a>
   
   
-    <a href="/2019/04/28/2019-04-28/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/05/28/2019-05-28/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">JavaScript 練習 - 九九乘法表</div>
     </a>
@@ -315,7 +340,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav">None</ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo"><span class="nav-number">1.</span> <span class="nav-text">Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Introduction-介紹"><span class="nav-number">2.</span> <span class="nav-text">1. Introduction 介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#功能"><span class="nav-number">3.</span> <span class="nav-text">功能</span></a></li></ol>
     
     </div>
   </aside>
