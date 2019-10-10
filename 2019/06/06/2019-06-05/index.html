@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://i.imgur.com/iuIlX7J.jpg">
 <meta property="og:image" content="https://i.imgur.com/XUX9ROK.png">
 <meta property="og:image" content="https://i.imgur.com/AkWZeTS.png">
-<meta property="og:updated_time" content="2019-10-09T07:33:02.935Z">
+<meta property="og:updated_time" content="2019-10-10T04:38:36.870Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery 練習 - 串接新北市 Youbike 開放資料">
 <meta name="twitter:description" content="DemojQuery 練習 - 取得開放數據資料 - [Demo](https://chiangyuchi.github.io/youbike/） 1. Introduction 介紹串接新北市政府提供的 Youbike 位置資訊，這個項目將達到以下目標   利用 Ajax 取得數據資料 解決跨來源資源共用（Cross-Origin Resource Sharing）問題 運用 jQuery 載入">
@@ -211,7 +211,7 @@
 <li>載入畫面時呈現全部資料</li>
 <li>可過濾點擊地區</li>
 </ul>
-<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><p>基礎的 HTML 結構先設定選單，由於選擇區域的顯示數量不一定，所以我們先單純設定選單及待會要放置的項目類別即可</p>
+<h1 id="2-功能"><a href="#2-功能" class="headerlink" title="2.功能"></a>2.功能</h1><p>基礎的 HTML 結構先設定選單，由於選擇區域的顯示數量不一定，所以我們先單純設定選單及待會要放置的項目類別即可</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span>新北市 YouBike 租借資訊<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"select-area"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"choosePos"</span> <span class="attr">id</span>=<span class="string">"select"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- ..... --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"五股區"</span>&gt;</span>五股<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"八里區"</span>&gt;</span>八里<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"淡水區"</span>&gt;</span>淡水<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"三芝區"</span>&gt;</span>三芝<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"石門區"</span>&gt;</span>石門<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">section</span> <span class="attr">id</span>=<span class="string">"site-content"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"site-items"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>先設定監聽事件，並且觸發事件的時候，到時會先呈現所有的資料</p>
@@ -303,11 +303,11 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2019/06/10/2019-06-10/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/06/06/2019-06-06/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          JS 30 Days - Array Cardio 1
+          JavaScript 練習 -  串接環保署開放資料
         
       </div>
     </a>
@@ -329,7 +329,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo"><span class="nav-number">1.</span> <span class="nav-text">Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Introduction-介紹"><span class="nav-number">2.</span> <span class="nav-text">1. Introduction 介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#功能"><span class="nav-number">3.</span> <span class="nav-text">功能</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo"><span class="nav-number">1.</span> <span class="nav-text">Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Introduction-介紹"><span class="nav-number">2.</span> <span class="nav-text">1. Introduction 介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-功能"><span class="nav-number">3.</span> <span class="nav-text">2.功能</span></a></li></ol>
     
     </div>
   </aside>
