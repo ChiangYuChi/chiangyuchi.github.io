@@ -217,64 +217,6 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-2019-06-11"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/06/11/2019-06-11/">JS 30 Days - Flex Panels Image Gallery</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/06/11/2019-06-11/" class="article-date">
-	  <time datetime="2019-06-10T16:00:00.000Z" itemprop="datePublished">2019-06-11</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          完成品https://codepen.io/Shengzhi/pen/zQyZZv
-使用 CSS Flex
-最外層的父元素 display 要設定為 flex 才會產生作為一個 container 容器的效果
-
-設定子元素在畫面上都佔據一樣大小，並且將它設定為另一個 container。
-Flex 是可以嵌套的，也就是 flex container 可以同時是其他 flex container 的 flex item。
-
-設定 translate文字將會在 Y 軸的上下點擊動態隱藏或出現
-...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/06/11/2019-06-11/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-2019-06-10"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -326,7 +268,7 @@ Flex 是可以嵌套的，也就是 flex container 可以同時是其他 flex co
 
 
   
-    <article id="post-2019-05-18"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-2019-06-04"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -334,7 +276,7 @@ Flex 是可以嵌套的，也就是 flex container 可以同時是其他 flex co
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/18/2019-05-18/">JavaScript Weird Part (37)- IIFEs 與安全程式碼</a>
+      <a class="article-title" href="/2019/06/04/2019-06-04/">JavaScript Weird Part (38)- 閉包 [1]</a>
     </h1>
   
 
@@ -342,8 +284,8 @@ Flex 是可以嵌套的，也就是 flex container 可以同時是其他 flex co
     
     <div class="article-meta">
       
-	<a href="/2019/05/18/2019-05-18/" class="article-date">
-	  <time datetime="2019-05-17T16:00:00.000Z" itemprop="datePublished">2019-05-18</time>
+	<a href="/2019/06/04/2019-06-04/" class="article-date">
+	  <time datetime="2019-06-03T16:00:00.000Z" itemprop="datePublished">2019-06-04</time>
 	</a>
 
       
@@ -354,13 +296,12 @@ Flex 是可以嵌套的，也就是 flex container 可以同時是其他 flex co
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          IIFEs 大量使用在資源庫及框架中，用處非常廣泛，以下是一個 IIFE 的例子：
-12345(function(name) &#123;  var greeting = "Hello";  console.log(greeting + "" + name);&#125;)("John");// Hello John
-
-回到執行堆思考底層的運作方式，程式第一次載入，會建立全域執行環境，但是裡面沒有東西，因為上面的例子沒有變數也沒有函數陳述句被提昇。但是當解析器執行到整個 IIFE當它到了函...
+          閉包 (closures) 是深入了解 JavaScript 不可或缺的概念。先前學習的一級函數、執行堆、執行環境的觀念，都有助我們學習閉包概念。
+以下創造一個 greet 函數，並且接受一個參數whattosay，並且用函數表示式回傳一個函數，再利用範圍鏈引入 whattosay
+12345function greet(whattosay) &#123;  return function(name) &#123;    console.log(whattosay + "" + name)...
         </p>
         <p class="article-more-link">
-          <a href="/2019/05/18/2019-05-18/#more">Read More</a>
+          <a href="/2019/06/04/2019-06-04/#more">Read More</a>
         </p>
       
     </div>
@@ -379,7 +320,7 @@ Flex 是可以嵌套的，也就是 flex container 可以同時是其他 flex co
 
 
   
-    <article id="post-2019-05-19"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-2019-06-03"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -387,7 +328,7 @@ Flex 是可以嵌套的，也就是 flex container 可以同時是其他 flex co
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/18/2019-05-19/">JavaScript Weird Part (38)- 閉包 [1]</a>
+      <a class="article-title" href="/2019/06/03/2019-06-03/">JavaScript Weird Part (37)- IIFEs 與安全程式碼</a>
     </h1>
   
 
@@ -395,8 +336,8 @@ Flex 是可以嵌套的，也就是 flex container 可以同時是其他 flex co
     
     <div class="article-meta">
       
-	<a href="/2019/05/18/2019-05-19/" class="article-date">
-	  <time datetime="2019-05-17T16:00:00.000Z" itemprop="datePublished">2019-05-18</time>
+	<a href="/2019/06/03/2019-06-03/" class="article-date">
+	  <time datetime="2019-06-02T16:00:00.000Z" itemprop="datePublished">2019-06-03</time>
 	</a>
 
       
@@ -407,12 +348,68 @@ Flex 是可以嵌套的，也就是 flex container 可以同時是其他 flex co
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          閉包 (closures) 是深入了解 JavaScript 不可或缺的概念。先前學習的一級函數、執行堆、執行環境的觀念，都有助我們學習閉包概念。
-以下創造一個 greet 函數，並且接受一個參數whattosay，並且用函數表示式回傳一個函數，再利用範圍鏈引入 whattosay
-12345function greet(whattosay) &#123;  return function(name) &#123;    console.log(whattosay + "" + name)...
+          IIFEs 大量使用在資源庫及框架中，用處非常廣泛，以下是一個 IIFE 的例子：
+12345(function(name) &#123;  var greeting = "Hello";  console.log(greeting + "" + name);&#125;)("John");// Hello John
+
+回到執行堆思考底層的運作方式，程式第一次載入，會建立全域執行環境，但是裡面沒有東西，因為上面的例子沒有變數也沒有函數陳述句被提昇。但是當解析器執行到整個 IIFE當它到了函...
         </p>
         <p class="article-more-link">
-          <a href="/2019/05/18/2019-05-19/#more">Read More</a>
+          <a href="/2019/06/03/2019-06-03/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2019-06-02"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/06/02/2019-06-02/">JavaScript Weird Part (33)- 立即呼叫的函數表示式 (IIFEs)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/06/02/2019-06-02/" class="article-date">
+	  <time datetime="2019-06-01T16:00:00.000Z" itemprop="datePublished">2019-06-02</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          立即呼叫的函數表示式（immediately invoked function expression, IIFEs) 是一個常用的簡潔觀念。
+先前我們已經知道函數陳述句和函數表示式的差異
+函數陳述句JavaScript 即便把函數放到記憶體中還是不會執行任何東西，呼叫它才會執行。
+12345function greet(name) &#123;  console.log("Hello" + name);&#125;greet();
+
+函數表示式123var greetFunc = func...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/06/02/2019-06-02/#more">Read More</a>
         </p>
       
     </div>
@@ -439,7 +436,7 @@ Flex 是可以嵌套的，也就是 flex container 可以同時是其他 flex co
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/17/2019-05-17/">JavaScript Weird Part (33)- 立即呼叫的函數表示式 (IIFEs)</a>
+      <a class="article-title" href="/2019/05/17/2019-05-17/">JavaScript Weird Part (32) - 框架小叮嚀：重載函數</a>
     </h1>
   
 
@@ -459,12 +456,9 @@ Flex 是可以嵌套的，也就是 flex container 可以同時是其他 flex co
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          立即呼叫的函數表示式（immediately invoked function expression, IIFEs) 是一個常用的簡潔觀念。
-先前我們已經知道函數陳述句和函數表示式的差異
-函數陳述句JavaScript 即便把函數放到記憶體中還是不會執行任何東西，呼叫它才會執行。
-12345function greet(name) &#123;  console.log("Hello" + name);&#125;greet();
-
-函數表示式123var greetFunc = func...
+          這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。
+重載函數 (Function overloading)像是 Java、C++ 等程式語言都有重載函數的概念，這表示我讓同一個函數可以擁有不同數量的參數。但是這在 JavaScript 行不通，因為函數就是物件。儘管 JavaScript 不具備這個功能，但是我們也可以用 JavaScript 的一級函式概念處理
+好比說「我不想要每次一直傳入 language 參數...
         </p>
         <p class="article-more-link">
           <a href="/2019/05/17/2019-05-17/#more">Read More</a>
