@@ -3,18 +3,18 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>克服 javascript 的奇怪部份 [day28] - 傳值與參考值 | CYC&#39;S BLOG</title>
+  <title>javascript weird part (28) - 傳值與參考值 | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="JavaScript前端學習克服Javascript奇怪部份">
+  <meta name="keywords" content="JavaScript Weird PartJavaScript">
   
   
   
   
   <meta name="description" content="這一節又來到另一個重要觀念「傳值（by value)」與「參考值(by reference)」，這兩者都和變數關係密切。 傳值好比說有一種純值（primitive value)，可能是數字、布林或字串。我設定一個值到這個變數中，變數就有一個位址，它知道那個純值的記憶體位址。因為參考是參照到一個記憶體的位址。  設定一個新變數，設定它等於 a，也可以說是我傳入 a 到一個函數，兒這個函數的名稱是 b">
-<meta name="keywords" content="JavaScript,前端學習,克服Javascript奇怪部份">
+<meta name="keywords" content="JavaScript Weird Part,JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="克服 JavaScript 的奇怪部份 [Day28] - 傳值與參考值">
+<meta property="og:title" content="JavaScript Weird Part (28) - 傳值與參考值">
 <meta property="og:url" content="http://yoursite.com/2019/05/12/2019-05-12/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
 <meta property="og:description" content="這一節又來到另一個重要觀念「傳值（by value)」與「參考值(by reference)」，這兩者都和變數關係密切。 傳值好比說有一種純值（primitive value)，可能是數字、布林或字串。我設定一個值到這個變數中，變數就有一個位址，它知道那個純值的記憶體位址。因為參考是參照到一個記憶體的位址。  設定一個新變數，設定它等於 a，也可以說是我傳入 a 到一個函數，兒這個函數的名稱是 b">
@@ -26,9 +26,9 @@
 <meta property="og:image" content="https://i.imgur.com/R6I4eMd.png">
 <meta property="og:image" content="https://i.imgur.com/DpClwIO.png">
 <meta property="og:image" content="https://i.imgur.com/uxDDUlL.png">
-<meta property="og:updated_time" content="2019-09-29T07:37:19.740Z">
+<meta property="og:updated_time" content="2019-10-11T05:28:09.597Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="克服 JavaScript 的奇怪部份 [Day28] - 傳值與參考值">
+<meta name="twitter:title" content="JavaScript Weird Part (28) - 傳值與參考值">
 <meta name="twitter:description" content="這一節又來到另一個重要觀念「傳值（by value)」與「參考值(by reference)」，這兩者都和變數關係密切。 傳值好比說有一種純值（primitive value)，可能是數字、布林或字串。我設定一個值到這個變數中，變數就有一個位址，它知道那個純值的記憶體位址。因為參考是參照到一個記憶體的位址。  設定一個新變數，設定它等於 a，也可以說是我傳入 a 到一個函數，兒這個函數的名稱是 b">
 <meta name="twitter:image" content="https://i.imgur.com/2DyKYst.png">
   
@@ -180,7 +180,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      克服 JavaScript 的奇怪部份 [Day28] - 傳值與參考值
+      JavaScript Weird Part (28) - 傳值與參考值
     </h1>
   
 
@@ -266,7 +266,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/05/12/2019-05-12/" target="_blank" title="克服 JavaScript 的奇怪部份 [Day28] - 傳值與參考值">http://yoursite.com/2019/05/12/2019-05-12/</a>
+          <a href="/2019/05/12/2019-05-12/" target="_blank" title="JavaScript Weird Part (28) - 傳值與參考值">http://yoursite.com/2019/05/12/2019-05-12/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -306,7 +306,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/克服Javascript奇怪部份/">克服Javascript奇怪部份</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端學習/">前端學習</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript-Weird-Part/">JavaScript Weird Part</a></li></ul>
 
       
 
@@ -320,7 +320,7 @@ var a = new Donate({
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          克服 JavaScript 的奇怪部份 [Day29] - 物件、函數與 this
+          JavaScript Weird Part (29) - 物件、函數與 this
         
       </div>
     </a>
@@ -328,7 +328,7 @@ var a = new Donate({
   
     <a href="/2019/05/11/2019-05-11/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">克服 JavaScript 的奇怪部份 [Day27] - 函數陳述句與函數表示式</div>
+      <div class="article-nav-title">JavaScript Weird Part (27) - 函數陳述句與函數表示式</div>
     </a>
   
 </nav>

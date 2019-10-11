@@ -3,18 +3,18 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>克服 javascript 的奇怪部份 [day29] - 物件、函數與 this | CYC&#39;S BLOG</title>
+  <title>javascript weird part (29) - 物件、函數與 this | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="JavaScript前端學習克服Javascript奇怪部份">
+  <meta name="keywords" content="JavaScript Weird PartJavaScript">
   
   
   
   
   <meta name="description" content="函數是一種物件，具有屬性及其他特徵。回到執行環境來看，在函數被呼叫的時候，底層究竟發生什麼變化呢？ 現在要繼續深究物件、函數以及有時讓人感到困惑的關鍵字 ”this” 之間的關係。 當函式被呼叫的時候必須放在心中的是，當函數被呼叫的時候，會創造新的執行環境，放進執行堆，這決定了程式的執行方式。如果想一想執行環境，關注在函數物件的程式部分，當我執行程式屬性裡面的程式會怎麼樣？ 我們知道執行環境被">
-<meta name="keywords" content="JavaScript,前端學習,克服Javascript奇怪部份">
+<meta name="keywords" content="JavaScript Weird Part,JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="克服 JavaScript 的奇怪部份 [Day29] - 物件、函數與 this">
+<meta property="og:title" content="JavaScript Weird Part (29) - 物件、函數與 this">
 <meta property="og:url" content="http://yoursite.com/2019/05/13/2019-05-13/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
 <meta property="og:description" content="函數是一種物件，具有屬性及其他特徵。回到執行環境來看，在函數被呼叫的時候，底層究竟發生什麼變化呢？ 現在要繼續深究物件、函數以及有時讓人感到困惑的關鍵字 ”this” 之間的關係。 當函式被呼叫的時候必須放在心中的是，當函數被呼叫的時候，會創造新的執行環境，放進執行堆，這決定了程式的執行方式。如果想一想執行環境，關注在函數物件的程式部分，當我執行程式屬性裡面的程式會怎麼樣？ 我們知道執行環境被">
@@ -30,9 +30,9 @@
 <meta property="og:image" content="https://i.imgur.com/IHHz0os.png">
 <meta property="og:image" content="https://i.imgur.com/oxnycv8.png">
 <meta property="og:image" content="https://i.imgur.com/SrzDBfY.png">
-<meta property="og:updated_time" content="2019-09-29T07:37:26.082Z">
+<meta property="og:updated_time" content="2019-10-11T05:28:38.630Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="克服 JavaScript 的奇怪部份 [Day29] - 物件、函數與 this">
+<meta name="twitter:title" content="JavaScript Weird Part (29) - 物件、函數與 this">
 <meta name="twitter:description" content="函數是一種物件，具有屬性及其他特徵。回到執行環境來看，在函數被呼叫的時候，底層究竟發生什麼變化呢？ 現在要繼續深究物件、函數以及有時讓人感到困惑的關鍵字 ”this” 之間的關係。 當函式被呼叫的時候必須放在心中的是，當函數被呼叫的時候，會創造新的執行環境，放進執行堆，這決定了程式的執行方式。如果想一想執行環境，關注在函數物件的程式部分，當我執行程式屬性裡面的程式會怎麼樣？ 我們知道執行環境被">
 <meta name="twitter:image" content="https://i.imgur.com/BaS1SUh.png">
   
@@ -184,7 +184,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      克服 JavaScript 的奇怪部份 [Day29] - 物件、函數與 this
+      JavaScript Weird Part (29) - 物件、函數與 this
     </h1>
   
 
@@ -291,7 +291,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/05/13/2019-05-13/" target="_blank" title="克服 JavaScript 的奇怪部份 [Day29] - 物件、函數與 this">http://yoursite.com/2019/05/13/2019-05-13/</a>
+          <a href="/2019/05/13/2019-05-13/" target="_blank" title="JavaScript Weird Part (29) - 物件、函數與 this">http://yoursite.com/2019/05/13/2019-05-13/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -331,7 +331,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/克服Javascript奇怪部份/">克服Javascript奇怪部份</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端學習/">前端學習</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript-Weird-Part/">JavaScript Weird Part</a></li></ul>
 
       
 
@@ -345,7 +345,7 @@ var a = new Donate({
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          克服 JavaScript 的奇怪部份 [Day30]-觀念小叮嚀：陣列--任何東西的集合
+          JavaScript Weird Part (30) - 陣列--任何東西的集合
         
       </div>
     </a>
@@ -353,7 +353,7 @@ var a = new Donate({
   
     <a href="/2019/05/12/2019-05-12/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">克服 JavaScript 的奇怪部份 [Day28] - 傳值與參考值</div>
+      <div class="article-nav-title">JavaScript Weird Part (28) - 傳值與參考值</div>
     </a>
   
 </nav>

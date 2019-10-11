@@ -3,18 +3,18 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>克服 javascript 的奇怪部份 [day24] - 框架小叮嚀：偽裝命名空間 | CYC&#39;S BLOG</title>
+  <title>javascript weird part (24) - 框架小叮嚀：偽裝命名空間 | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="JavaScript前端學習">
+  <meta name="keywords" content="JavaScript Weird PartJavaScript">
   
   
   
   
   <meta name="description" content="這一節是關於打開知名的框架原始碼經常會看到的東西。前面討論的那些主題，像是運算子、物件實體語法後，現在要學習偽裝命名空間 （faking namespaces)。 變數之間的衝突在現代的程式語言，命名空間是變數和函數的容器，只是一個包裝物、一個容器。通常這是用來分開那些有著相同名稱的函數和變數。 在 JavaScript 裡，因為物件的本質，不需要命名空間這個功能，所以並沒有命名空間，但可以假裝。">
-<meta name="keywords" content="JavaScript,前端學習">
+<meta name="keywords" content="JavaScript Weird Part,JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="克服 JavaScript 的奇怪部份 [Day24] - 框架小叮嚀：偽裝命名空間">
+<meta property="og:title" content="JavaScript Weird Part (24) - 框架小叮嚀：偽裝命名空間">
 <meta property="og:url" content="http://yoursite.com/2019/05/08/2019-05-08/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
 <meta property="og:description" content="這一節是關於打開知名的框架原始碼經常會看到的東西。前面討論的那些主題，像是運算子、物件實體語法後，現在要學習偽裝命名空間 （faking namespaces)。 變數之間的衝突在現代的程式語言，命名空間是變數和函數的容器，只是一個包裝物、一個容器。通常這是用來分開那些有著相同名稱的函數和變數。 在 JavaScript 裡，因為物件的本質，不需要命名空間這個功能，所以並沒有命名空間，但可以假裝。">
@@ -24,9 +24,9 @@
 <meta property="og:image" content="https://i.imgur.com/rj1OwBU.png">
 <meta property="og:image" content="https://i.imgur.com/aqEMBm7.png">
 <meta property="og:image" content="https://i.imgur.com/flFBlte.png">
-<meta property="og:updated_time" content="2019-09-29T07:36:43.631Z">
+<meta property="og:updated_time" content="2019-10-11T05:26:49.102Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="克服 JavaScript 的奇怪部份 [Day24] - 框架小叮嚀：偽裝命名空間">
+<meta name="twitter:title" content="JavaScript Weird Part (24) - 框架小叮嚀：偽裝命名空間">
 <meta name="twitter:description" content="這一節是關於打開知名的框架原始碼經常會看到的東西。前面討論的那些主題，像是運算子、物件實體語法後，現在要學習偽裝命名空間 （faking namespaces)。 變數之間的衝突在現代的程式語言，命名空間是變數和函數的容器，只是一個包裝物、一個容器。通常這是用來分開那些有著相同名稱的函數和變數。 在 JavaScript 裡，因為物件的本質，不需要命名空間這個功能，所以並沒有命名空間，但可以假裝。">
 <meta name="twitter:image" content="https://i.imgur.com/RYsiSp7.png">
   
@@ -178,7 +178,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      克服 JavaScript 的奇怪部份 [Day24] - 框架小叮嚀：偽裝命名空間
+      JavaScript Weird Part (24) - 框架小叮嚀：偽裝命名空間
     </h1>
   
 
@@ -256,7 +256,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/05/08/2019-05-08/" target="_blank" title="克服 JavaScript 的奇怪部份 [Day24] - 框架小叮嚀：偽裝命名空間">http://yoursite.com/2019/05/08/2019-05-08/</a>
+          <a href="/2019/05/08/2019-05-08/" target="_blank" title="JavaScript Weird Part (24) - 框架小叮嚀：偽裝命名空間">http://yoursite.com/2019/05/08/2019-05-08/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -296,7 +296,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端學習/">前端學習</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript-Weird-Part/">JavaScript Weird Part</a></li></ul>
 
       
 
@@ -310,7 +310,7 @@ var a = new Donate({
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          克服 JavaScript 的奇怪部份 [Day25] - JSON 與物件實體
+          JavaScript Weird Part (25) - JSON 與物件實體
         
       </div>
     </a>
@@ -318,7 +318,7 @@ var a = new Donate({
   
     <a href="/2019/05/07/2019-05-07/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">克服 JavaScript 的奇怪部份 [Day23] - 物件與實體</div>
+      <div class="article-nav-title">JavaScript Weird Part (23) - 物件與實體</div>
     </a>
   
 </nav>

@@ -217,119 +217,6 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-2019-05-02"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/02/2019-05-02/">克服 JavaScript 的奇怪部份 [Day19] - 存在與布林</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/05/02/2019-05-02/" class="article-date">
-	  <time datetime="2019-05-01T16:00:00.000Z" itemprop="datePublished">2019-05-02</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          動態型別和強制型轉到底有什麼功能？
-
-以上這些東西都表示不存在，所以被布林轉換成 false。然而，這些特性是可以利用的嗎？
-12345var a;if (a) &#123;    console.log(&apos;something is there&apos;);&#125;
-
-宣告 var a 但不設值
-在陳述句括號裡的東西，會轉換成布林，所以 a 是什麼不重要。如果 a 是上述三個任何一種，那麼這個 if 陳述句會不成立，因為 a 不存在。
-因為在執行環境的創造階段，會在記憶體為...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/05/02/2019-05-02/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-05-01"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/01/2019-05-01/">克服 JavaScript 的奇怪部份 [Day18] - 比較運算子</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/05/01/2019-05-01/" class="article-date">
-	  <time datetime="2019-04-30T16:00:00.000Z" itemprop="datePublished">2019-05-01</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          
-以上的小於運算子範例，我們會預設結果為 true
-但是這個例子竟然也是 true ? 這可以用運算子優先性和相依性來解釋。這兩個運算子的優先性一樣，所以用相依性來決定執行順序，所以相依性是從左到右，左邊先執行。所以是 3&lt;2 先執行，並且得出 false。
-
-接下來，因為運算子遇到兩個不同型別的比較，這裡是一個布林值與數字，所以布林被強制型轉為數字。
-
-我們可以用內建函數查詢，發現 false 被型轉為數字 0。所以 0&lt;1 得到為 true 的結果，因為由相依性決定的函數運...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/05/01/2019-05-01/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-2019-04-30"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -733,6 +620,111 @@ Javascript 在執行時，它並非獨立存在，...
         </p>
         <p class="article-more-link">
           <a href="/2019/04/23/2019-04-23/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2019-04-22"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/04/22/2019-04-22/">JavaScript Weird Part (9) - 函數、環境與變數環境</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/04/22/2019-04-22/" class="article-date">
+	  <time datetime="2019-04-21T16:00:00.000Z" itemprop="datePublished">2019-04-22</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          變數環境(variable environments) 是另一個理解 Javascript 底層運作原理的基礎概念。變數環境就是指你創造變數的位置，以及他在記憶體中和其他變數的關係。因此在思考變數環境的時候，只要思考變數在哪裡。
+變數環境有函式 a 及函式 b，函式 b 內宣告一變數 myVar，並且不設定值，函式 a 內設定變數 myVar=2，在函式外再次宣告 myVar＝1，接著呼叫函式 a，裡面逐行執行呼叫 b。 所以 myVar 的值是多少？此時我們必須回到執行環境，思考函數執行...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/04/22/2019-04-22/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2019-04-18"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/04/18/2019-04-18/">JavaScript Weird Part (8) - 函數呼叫與執行堆</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/04/18/2019-04-18/" class="article-date">
+	  <time datetime="2019-04-17T16:00:00.000Z" itemprop="datePublished">2019-04-18</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          全域執行環境的創造與執行與和函式脫不了關係，函式呼叫與執行堆更是其中兩個重要環節。
+在 Javascript 裡，只要是「函數名稱＋（）」就是執行或呼叫這個函數時，稱作 “invoke the function” 或 “function invocation”。但是 JavaScript 呼叫函數時發生什麼事情？
+呼叫函式1234567function b() &#123;&#125;function a() &#123;  b();&#125;a();
+
+因為會先創造全域執行環境，語法解...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/04/18/2019-04-18/#more">Read More</a>
         </p>
       
     </div>

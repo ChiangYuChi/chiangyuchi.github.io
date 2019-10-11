@@ -3,31 +3,26 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>克服 javascript 的奇怪部份 [day20] - 預設值 | CYC&#39;S BLOG</title>
+  <title>javascript weird part（20） - 比較運算子、強制型轉的常見用途與問題 | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="JavaScript前端學習">
+  <meta name="keywords" content="JavaScript Weird PartJavaScript">
   
   
   
   
-  <meta name="description" content="運算子的強制型轉特性，在一些框架或 JS 程式裡究竟有什麼比較常見的用處？ 12345function greet(name) &amp;#123;    console.log(&amp;apos;hello&amp;apos; + name);&amp;#125;greet();  假使呼叫 greet 的時候 沒有參數，在 Javascript 並不會報錯，它會當做name 沒有東西。所以如果 console.log(na">
-<meta name="keywords" content="JavaScript,前端學習">
+  <meta name="description" content="型轉時要注意的問題JavaScript 是「弱型別語言」，因此具有語法簡潔的優點，但要注意型態轉換時產生非預期的問題。 12console.log(1 &amp;lt; 2 &amp;lt; 3);true;  以上的小於運算子範例，我們會預設結果為 true 12console.log(3 &amp;lt; 2 &amp;lt; 1);//true  但是這個例子竟然也是 true ? 這可以用運算子優先性和相依性來解釋。這兩">
+<meta name="keywords" content="JavaScript Weird Part,JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="克服 JavaScript 的奇怪部份 [Day20] - 預設值">
+<meta property="og:title" content="JavaScript Weird Part（20） - 比較運算子、強制型轉的常見用途與問題">
 <meta property="og:url" content="http://yoursite.com/2019/05/03/2019-05-03/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="運算子的強制型轉特性，在一些框架或 JS 程式裡究竟有什麼比較常見的用處？ 12345function greet(name) &amp;#123;    console.log(&amp;apos;hello&amp;apos; + name);&amp;#125;greet();  假使呼叫 greet 的時候 沒有參數，在 Javascript 並不會報錯，它會當做name 沒有東西。所以如果 console.log(na">
+<meta property="og:description" content="型轉時要注意的問題JavaScript 是「弱型別語言」，因此具有語法簡潔的優點，但要注意型態轉換時產生非預期的問題。 12console.log(1 &amp;lt; 2 &amp;lt; 3);true;  以上的小於運算子範例，我們會預設結果為 true 12console.log(3 &amp;lt; 2 &amp;lt; 1);//true  但是這個例子竟然也是 true ? 這可以用運算子優先性和相依性來解釋。這兩">
 <meta property="og:locale" content="en.yml">
-<meta property="og:image" content="https://i.imgur.com/izhIPGe.png">
-<meta property="og:image" content="https://i.imgur.com/O8CA6od.png">
-<meta property="og:image" content="https://i.imgur.com/G7Ma9sN.png">
-<meta property="og:image" content="https://i.imgur.com/5fNw52i.png">
-<meta property="og:updated_time" content="2019-09-29T07:36:11.271Z">
+<meta property="og:updated_time" content="2019-10-11T05:11:58.175Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="克服 JavaScript 的奇怪部份 [Day20] - 預設值">
-<meta name="twitter:description" content="運算子的強制型轉特性，在一些框架或 JS 程式裡究竟有什麼比較常見的用處？ 12345function greet(name) &amp;#123;    console.log(&amp;apos;hello&amp;apos; + name);&amp;#125;greet();  假使呼叫 greet 的時候 沒有參數，在 Javascript 並不會報錯，它會當做name 沒有東西。所以如果 console.log(na">
-<meta name="twitter:image" content="https://i.imgur.com/izhIPGe.png">
+<meta name="twitter:title" content="JavaScript Weird Part（20） - 比較運算子、強制型轉的常見用途與問題">
+<meta name="twitter:description" content="型轉時要注意的問題JavaScript 是「弱型別語言」，因此具有語法簡潔的優點，但要注意型態轉換時產生非預期的問題。 12console.log(1 &amp;lt; 2 &amp;lt; 3);true;  以上的小於運算子範例，我們會預設結果為 true 12console.log(3 &amp;lt; 2 &amp;lt; 1);//true  但是這個例子竟然也是 true ? 這可以用運算子優先性和相依性來解釋。這兩">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -177,7 +172,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      克服 JavaScript 的奇怪部份 [Day20] - 預設值
+      JavaScript Weird Part（20） - 比較運算子、強制型轉的常見用途與問題
     </h1>
   
 
@@ -202,24 +197,66 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>運算子的強制型轉特性，在一些框架或 JS 程式裡究竟有什麼比較常見的用處？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function greet(name) &#123;</span><br><span class="line">    console.log(&apos;hello&apos; + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet();</span><br></pre></td></tr></table></figure>
+        <h1 id="型轉時要注意的問題"><a href="#型轉時要注意的問題" class="headerlink" title="型轉時要注意的問題"></a>型轉時要注意的問題</h1><p>JavaScript 是「弱型別語言」，因此具有語法簡潔的優點，但要注意型態轉換時產生非預期的問題。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> &lt; <span class="number">2</span> &lt; <span class="number">3</span>);</span><br><span class="line"><span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+
+<p>以上的小於運算子範例，我們會預設結果為 <code>true</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span> &lt; <span class="number">2</span> &lt; <span class="number">1</span>);</span><br><span class="line"><span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>但是這個例子竟然也是 <code>true</code> ? 這可以用運算子優先性和相依性來解釋。這兩個運算子的優先性一樣，所以用相依性來決定執行順序，所以相依性是從左到右，左邊先執行。所以是 <code>3&lt;2</code> 先執行，並且得出 <code>false</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="literal">false</span> &lt; <span class="number">1</span>);</span><br><span class="line"><span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>接下來，因為運算子遇到兩個不同型別的比較，這裡是一個布林值與數字，所以布林被強制型轉為數字。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(<span class="literal">false</span>);</span><br><span class="line"><span class="comment">//0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">true</span>);</span><br><span class="line"><span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+
+<p>我們可以用內建函數查詢，發現 <code>false</code> 被型轉為數字 0。所以 0&lt;1 得到為 <code>true</code> 的結果，因為由相依性決定的函數運算子執行順序及值的強制型轉。所以需要注意的是，Javascript 並不是以我們直覺的邏輯在運作，強制型轉可能會得出一些人類直覺看來詭異的結果，但在 Javascript 卻是非常正常的狀況。NaN 表示有一個東西想要轉換成數值型別，但他不是數字，所以無法型轉。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(<span class="literal">undefined</span>);</span><br><span class="line"><span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="比較運算子"><a href="#比較運算子" class="headerlink" title="比較運算子"></a>比較運算子</h1><p>所以我們在特殊狀況下不要型轉不就好了嗎？只要看兩者是否相等即可？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span> == <span class="number">3</span>;</span><br><span class="line"><span class="comment">//true</span></span><br><span class="line"><span class="string">"3"</span> == <span class="number">3</span>;</span><br><span class="line"><span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>但這會造成一些奇怪的狀況，例如以下很難除錯的情況</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">false</span> == <span class="number">0</span>;</span><br><span class="line"><span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="literal">false</span>;</span><br><span class="line"><span class="comment">//undefined</span></span><br><span class="line"></span><br><span class="line">a == <span class="number">0</span>;</span><br><span class="line"><span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="literal">false</span> == <span class="number">0</span>;</span><br><span class="line"><span class="comment">//true</span></span><br><span class="line"><span class="literal">null</span> == <span class="number">0</span>;</span><br><span class="line"><span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<p>為了避免這種狀況，可以用 <code>===</code> (強制等於）或 <code>!==</code> (強制不等於) 來避免強制型轉的狀況。 三個等號這個內建函數會判定兩者是不同型別，所以不相等，這可以避免一些奇怪的潛在錯誤。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">false</span> == <span class="number">0</span>;</span><br><span class="line"><span class="comment">//false;</span></span><br><span class="line"><span class="string">"3"</span> == <span class="number">3</span>;</span><br><span class="line"><span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<p>如果只用雙等號，以下兩個值就會被強制型轉，如果用三等號，因為他們型別不同就可以避免意外的狀況</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> b=<span class="literal">false</span>;</span><br><span class="line"><span class="keyword">if</span>(a ===b)&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'they are equal'</span>);</span><br><span class="line"></span><br><span class="line">&#125;elsw&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Nope, not equal'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因此注意最好用三等號來比較相等性。</p>
+<p>動態型別和強制型轉到底有什麼功能？所以我們可以用強制型轉的特性，來檢查變數有沒有值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Boolean</span>(<span class="literal">undefined</span>);</span><br><span class="line"><span class="comment">//false</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="literal">null</span>);</span><br><span class="line"><span class="comment">//false</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="string">""</span>);</span><br><span class="line"><span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<p>以上這些東西都表示不存在，所以被布林轉換成 false。然而，這些特性是可以利用的嗎？ 現在我們宣告 <code>var a</code> 但不給值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (a) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"something is there"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>在陳述句括號裡的東西，會轉換成布林，所以 <code>a</code> 是什麼不重要。如果 <code>a</code> 是上述三個任何一種，那麼這個 if 陳述句會不成立，因為 <code>a</code> 不存在。</p>
+<p>因為在執行環境的創造階段，會在記憶體為這個變數建立位置，然後會設定它的初始值為 <code>undefined</code>，而 <code>undefined</code> 會被轉換為 <code>false</code>。</p>
+<p>所以我們可以用強制型轉來檢查 <code>a</code> 是否存在。如果 a 因為沒有設值所以是 <code>undefined</code>，或者 <code>a</code> 是 <code>null</code>，檢查的時候不會出現任何東西。</p>
+<p>但是當我有比如字串的東西，不是空的時候。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"></span><br><span class="line">a = <span class="string">"hi"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (a) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"something is there"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//something is there</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="強制型轉的危險"><a href="#強制型轉的危險" class="headerlink" title="強制型轉的危險"></a>強制型轉的危險</h1><p>如果 <code>a=0</code> 變數最後的值為 0 ，它也是 fasle。就會出現問題，因為 0 不是不存在，這是一個有效的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"></span><br><span class="line">a = <span class="string">"0"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (a || a === <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"something is there"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果檢查運算子優先性和相依性，<code>||</code> 的優先性比<code>===</code> 低，所以完全相等函數會比<code>||</code>執行。但是如果值不太可能為 0 的話。以這種方式檢查，看它是不是存在就好。這個利用強制型轉的模式去檢查東西是否存在，例如 debug 的時候。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a;</span><br><span class="line"></span><br><span class="line">a=&quot;1&quot;</span><br><span class="line"></span><br><span class="line">if (a) &#123;</span><br><span class="line">    console.log(&apos;something is there&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>運算子的強制型轉特性，在一些框架或 JS 程式裡究竟有什麼比較常見的用處？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello"</span> + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet();</span><br></pre></td></tr></table></figure>
 
 <p>假使呼叫 greet 的時候 沒有參數，在 Javascript 並不會報錯，它會當做<br>name 沒有東西。所以如果 <code>console.log(name)</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function greet(name) &#123;</span><br><span class="line">    console.log(&apos;name&apos;);</span><br><span class="line">    console.log(&apos;hello&apos; + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet();</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"name"</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello"</span> + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet();</span><br><span class="line"></span><br><span class="line"><span class="comment">//helloundefined</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://i.imgur.com/izhIPGe.png" alt></p>
-<p>結果出現 undefined，因為函數被呼叫的時候，一個新的執行環境被創造，然後這個變數<code>name</code> 是在函數內被創造，雖然傳入的值是在呼叫階段被設定，但這個變數在記憶體內已被設定為 undefined。</p>
-<p>所以加號運算子，當看到字串加上一個變數和值為 undefined 的 name，它會將純值 undefined 強制型轉為字串。</p>
-<p>既然我們已經了解運算子和強制型轉如何作用，所以雖然這非理想的行為，但也非完全無法預期的行為。但我們究竟該怎麼做呢？假設我們想要給參數<code>name</code> 一個預設值。</p>
-<h3 id="設定預設值"><a href="#設定預設值" class="headerlink" title="設定預設值"></a>設定預設值</h3><p>如果 undefined 是函數被呼叫時最終的值，因為運算子只是會回傳值的函數，所以這個 <code>||</code> 運算子不只是回傳 true 或 false，它的特殊行為是，如果傳入 2 個可以被型轉為布林值的，它會回傳其中一個被轉型為 true 的值。</p>
-<p><img src="https://i.imgur.com/O8CA6od.png" alt></p>
-<p><img src="https://i.imgur.com/G7Ma9sN.png" alt></p>
-<p>所以可以用這個運算子來表示，如果一個東西不存在、null 或空字串，就給我另一個。運用<code>||</code> 運算子，讓函數傳入的參數假如沒有值或不存在、空字串等狀況時，就回傳預設值給等號運算子。因為優先性，所以 <code>｜｜</code> 會比等號先執行。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function greet(name) &#123;</span><br><span class="line">   name = name || &apos;&lt;Your name here&gt;&apos;;</span><br><span class="line">    console.log(&apos;hello&apos; + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(&apos;tony&apos;);</span><br><span class="line">greet();</span><br><span class="line">greet(0);</span><br></pre></td></tr></table></figure>
+<p>結果出現 undefined，因為函數被呼叫的時候，一個新的執行環境被創造，然後這個變數<code>name</code> 是在函數內被創造，雖然傳入的值是在呼叫階段被設定，但這個變數在記憶體內已被設定為 undefined。所以加號運算子，當看到字串加上一個變數和值為 <code>undefined</code> + name，它會將純值 undefined 強制型轉為字串。</p>
+<p>既然我們已經了解運算子和強制型轉如何作用，所以雖然這非理想的行為，但也非完全無法預期的行為。</p>
+<h1 id="常見用途：設定預設值"><a href="#常見用途：設定預設值" class="headerlink" title="常見用途：設定預設值"></a>常見用途：設定預設值</h1><p>如果 undefined 是函數被呼叫時最終的值，因為運算子只是會回傳值的函數，所以這個 <code>||</code> 運算子不只是回傳 true 或 false，它的特殊行為是如果傳入 2 個可以被型轉為布林值的，它會回傳其中一個被轉型為 true 的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span> || hello;</span><br><span class="line"><span class="comment">//hello</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="string">"hello"</span>);</span><br><span class="line"><span class="comment">//true</span></span><br><span class="line"><span class="number">0</span> || <span class="number">1</span>;</span><br><span class="line"><span class="comment">//1</span></span><br><span class="line"><span class="literal">null</span> || hello;</span><br><span class="line"><span class="comment">//hello</span></span><br></pre></td></tr></table></figure>
 
-<p>第一次呼叫的時候傳入參數 tony，第二次呼叫則沒有參數。當傳入參數 tony 時，<code>name=name</code> 會強制型轉為 true，所以不會回傳右邊的預設值。比起 if 陳述句，用 <code>｜｜</code> 表達一行預設值的程式碼會更為簡潔。但還是需要注意 0 的狀況。如果傳入 0 呼叫 greet，0 會被轉換為 false，還是會得到預設值。</p>
-<p><img src="https://i.imgur.com/5fNw52i.png" alt></p>
+<p>所以可以用這個運算子來表示，如果一個東西不存在、null 或空字串，就給我另一個。運用<code>||</code> 運算子讓函數傳入的參數假如沒有值或不存在、空字串等狀況時，就回傳預設值給等號運算子。因為優先性，所以 <code>｜｜</code> 會比等號先執行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  name = name || <span class="string">"&lt;Your name here&gt;"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello"</span> + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(<span class="string">"tony"</span>); <span class="comment">//hellotony</span></span><br><span class="line">greet(); <span class="comment">//hello&lt;Your name here&gt;</span></span><br><span class="line">greet(<span class="number">0</span>); <span class="comment">//hello&lt;Your name here&gt;</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -246,7 +283,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/05/03/2019-05-03/" target="_blank" title="克服 JavaScript 的奇怪部份 [Day20] - 預設值">http://yoursite.com/2019/05/03/2019-05-03/</a>
+          <a href="/2019/05/03/2019-05-03/" target="_blank" title="JavaScript Weird Part（20） - 比較運算子、強制型轉的常見用途與問題">http://yoursite.com/2019/05/03/2019-05-03/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -286,7 +323,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端學習/">前端學習</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript-Weird-Part/">JavaScript Weird Part</a></li></ul>
 
       
 
@@ -300,15 +337,15 @@ var a = new Donate({
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          克服 JavaScript 的奇怪部份 [Day21] - 框架小叮嚀：預設值
+          JavaScript Weird Part（21） - 框架裡運用 || 避免全域命名空間的衝突
         
       </div>
     </a>
   
   
-    <a href="/2019/05/02/2019-05-02/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/04/30/2019-04-30/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">克服 JavaScript 的奇怪部份 [Day19] - 存在與布林</div>
+      <div class="article-nav-title">JavaScript Weird Part (17) - 強制型轉</div>
     </a>
   
 </nav>
@@ -322,7 +359,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#設定預設值"><span class="nav-number">1.</span> <span class="nav-text">設定預設值</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#型轉時要注意的問題"><span class="nav-number">1.</span> <span class="nav-text">型轉時要注意的問題</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比較運算子"><span class="nav-number">2.</span> <span class="nav-text">比較運算子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#強制型轉的危險"><span class="nav-number">3.</span> <span class="nav-text">強制型轉的危險</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常見用途：設定預設值"><span class="nav-number">4.</span> <span class="nav-text">常見用途：設定預設值</span></a></li></ol>
     
     </div>
   </aside>

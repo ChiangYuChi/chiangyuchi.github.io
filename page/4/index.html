@@ -225,7 +225,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/13/2019-05-13/">克服 JavaScript 的奇怪部份 [Day29] - 物件、函數與 this</a>
+      <a class="article-title" href="/2019/05/13/2019-05-13/">JavaScript Weird Part (29) - 物件、函數與 this</a>
     </h1>
   
 
@@ -277,7 +277,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/12/2019-05-12/">克服 JavaScript 的奇怪部份 [Day28] - 傳值與參考值</a>
+      <a class="article-title" href="/2019/05/12/2019-05-12/">JavaScript Weird Part (28) - 傳值與參考值</a>
     </h1>
   
 
@@ -330,7 +330,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/11/2019-05-11/">克服 JavaScript 的奇怪部份 [Day27] - 函數陳述句與函數表示式</a>
+      <a class="article-title" href="/2019/05/11/2019-05-11/">JavaScript Weird Part (27) - 函數陳述句與函數表示式</a>
     </h1>
   
 
@@ -385,7 +385,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/10/2019-05-10/">克服 JavaScript 的奇怪部份 [Day26] - 函數就是物件</a>
+      <a class="article-title" href="/2019/05/10/2019-05-10/">JavaScript Weird Part (26) - 函數就是物件</a>
     </h1>
   
 
@@ -443,7 +443,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/09/2019-05-09/">克服 JavaScript 的奇怪部份 [Day25] - JSON 與物件實體</a>
+      <a class="article-title" href="/2019/05/09/2019-05-09/">JavaScript Weird Part (25) - JSON 與物件實體</a>
     </h1>
   
 
@@ -495,7 +495,7 @@ JSON (avaScript 物件表示法；JavaScript Object Notation)如果我建立一�
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/08/2019-05-08/">克服 JavaScript 的奇怪部份 [Day24] - 框架小叮嚀：偽裝命名空間</a>
+      <a class="article-title" href="/2019/05/08/2019-05-08/">JavaScript Weird Part (24) - 框架小叮嚀：偽裝命名空間</a>
     </h1>
   
 
@@ -548,7 +548,7 @@ JSON (avaScript 物件表示法；JavaScript Object Notation)如果我建立一�
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/07/2019-05-07/">克服 JavaScript 的奇怪部份 [Day23] - 物件與實體</a>
+      <a class="article-title" href="/2019/05/07/2019-05-07/">JavaScript Weird Part (23) - 物件與實體</a>
     </h1>
   
 
@@ -601,7 +601,7 @@ JSON (avaScript 物件表示法；JavaScript Object Notation)如果我建立一�
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/06/2019-05-06/">克服 JavaScript 的奇怪部份 [Day22] - 物件與「點」</a>
+      <a class="article-title" href="/2019/05/06/2019-05-06/">JavaScript Weird Part (22) - 物件與「點」</a>
     </h1>
   
 
@@ -654,7 +654,7 @@ JSON (avaScript 物件表示法；JavaScript Object Notation)如果我建立一�
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/04/2019-05-04/">克服 JavaScript 的奇怪部份 [Day21] - 框架小叮嚀：預設值</a>
+      <a class="article-title" href="/2019/05/04/2019-05-04/">JavaScript Weird Part（21） - 框架裡運用 || 避免全域命名空間的衝突</a>
     </h1>
   
 
@@ -674,13 +674,9 @@ JSON (avaScript 物件表示法；JavaScript Object Notation)如果我建立一�
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          有時候我們會同時在專案匯入好幾個框架
-
-123//在 lib1.js設定一個變數var libraryName = &quot;lib1&quot;;
-
-12//在 lib2.js設定一個同樣名稱的變數var libraryName = &quot;lib1&quot;;
-
-當我們回到 app.js 查詢 console.log 的時候，這時三個 script 標籤並不會創造新的執行環境，而是直接把程式碼堆在對方上面，然後執行所有的 JavaScript 檔案，好像它們是在同一個檔案裡，在...
+          有時候我們會同時在專案匯入好幾個框架，這樣的一行程式碼，檢查的是全域命名空間（globe namespace) 看是否有重複的東西，所以它不會造成衝突，或覆蓋它。
+舉例來說在 lib1.js 設定一個變數，接著在 lib2.js 設定一個同樣名稱的變數
+12345&lt;body&gt;  &lt;script src="lib1.js"&gt;&lt;/script&gt;  &lt;script src="lib2.js"&gt;&lt;/script&gt;  &lt;script ...
         </p>
         <p class="article-more-link">
           <a href="/2019/05/04/2019-05-04/#more">Read More</a>
@@ -710,7 +706,7 @@ JSON (avaScript 物件表示法；JavaScript Object Notation)如果我建立一�
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/03/2019-05-03/">克服 JavaScript 的奇怪部份 [Day20] - 預設值</a>
+      <a class="article-title" href="/2019/05/03/2019-05-03/">JavaScript Weird Part（20） - 比較運算子、強制型轉的常見用途與問題</a>
     </h1>
   
 
@@ -730,11 +726,13 @@ JSON (avaScript 物件表示法；JavaScript Object Notation)如果我建立一�
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          運算子的強制型轉特性，在一些框架或 JS 程式裡究竟有什麼比較常見的用處？
-12345function greet(name) &#123;    console.log(&apos;hello&apos; + name);&#125;greet();
+          型轉時要注意的問題JavaScript 是「弱型別語言」，因此具有語法簡潔的優點，但要注意型態轉換時產生非預期的問題。
+12console.log(1 &lt; 2 &lt; 3);true;
 
-假使呼叫 greet 的時候 沒有參數，在 Javascript 並不會報錯，它會當做name 沒有東西。所以如果 console.log(name)
-123456function greet(name) &#123;    consol...
+以上的小於運算子範例，我們會預設結果為 true
+12console.log(3 &lt; 2 &lt; 1);//true
+
+但是這個例子竟然也是 true ? 這可以用運算子優先性和相依性來解釋。這兩個運算子的優先性一樣，所以用相依性來決定執行順序，所以相依性是從左到右，左邊先執行。所以是 3...
         </p>
         <p class="article-more-link">
           <a href="/2019/05/03/2019-05-03/#more">Read More</a>

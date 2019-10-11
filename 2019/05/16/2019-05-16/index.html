@@ -3,18 +3,18 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>克服 javascript 的奇怪部份 [day33] - 觀念小叮嚀 語法解析器 | CYC&#39;S BLOG</title>
+  <title>javascript weird part (32) - 觀念小叮嚀 語法解析器 | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="JavaScript前端學習克服Javascript奇怪部份">
+  <meta name="keywords" content="JavaScript Weird PartJavaScript">
   
   
   
   
   <meta name="description" content="我們要再一次熟悉語法解析器，因為這對後面認識底層知識十分重要。 已經知道我們寫的程式碼不會直接被電腦執行，而是有一個在程式碼和電腦中間中介的程式，轉換你的程式為電腦懂的東西。這就是瀏覽器裡的 JavaScript 引擎做的事情，其中之一就是語法解析器。 語法解析器會閱讀程式碼，判斷這是否有效。如果它一個一個字看程式碼，看到 ‘r’，它假設你可能要輸入的是 ‘return’，所以它會預期再看到一個">
-<meta name="keywords" content="JavaScript,前端學習,克服Javascript奇怪部份">
+<meta name="keywords" content="JavaScript Weird Part,JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="克服 JavaScript 的奇怪部份 [Day33] - 觀念小叮嚀 語法解析器">
+<meta property="og:title" content="JavaScript Weird Part (32) - 觀念小叮嚀 語法解析器">
 <meta property="og:url" content="http://yoursite.com/2019/05/16/2019-05-16/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
 <meta property="og:description" content="我們要再一次熟悉語法解析器，因為這對後面認識底層知識十分重要。 已經知道我們寫的程式碼不會直接被電腦執行，而是有一個在程式碼和電腦中間中介的程式，轉換你的程式為電腦懂的東西。這就是瀏覽器裡的 JavaScript 引擎做的事情，其中之一就是語法解析器。 語法解析器會閱讀程式碼，判斷這是否有效。如果它一個一個字看程式碼，看到 ‘r’，它假設你可能要輸入的是 ‘return’，所以它會預期再看到一個">
@@ -23,9 +23,9 @@
 <meta property="og:image" content="https://i.imgur.com/i9kjnQD.png">
 <meta property="og:image" content="https://i.imgur.com/bRLeRF7.png">
 <meta property="og:image" content="https://i.imgur.com/7X4zuKe.png">
-<meta property="og:updated_time" content="2019-09-29T07:37:47.933Z">
+<meta property="og:updated_time" content="2019-10-11T05:31:27.034Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="克服 JavaScript 的奇怪部份 [Day33] - 觀念小叮嚀 語法解析器">
+<meta name="twitter:title" content="JavaScript Weird Part (32) - 觀念小叮嚀 語法解析器">
 <meta name="twitter:description" content="我們要再一次熟悉語法解析器，因為這對後面認識底層知識十分重要。 已經知道我們寫的程式碼不會直接被電腦執行，而是有一個在程式碼和電腦中間中介的程式，轉換你的程式為電腦懂的東西。這就是瀏覽器裡的 JavaScript 引擎做的事情，其中之一就是語法解析器。 語法解析器會閱讀程式碼，判斷這是否有效。如果它一個一個字看程式碼，看到 ‘r’，它假設你可能要輸入的是 ‘return’，所以它會預期再看到一個">
 <meta name="twitter:image" content="https://i.imgur.com/BaIWUr2.png">
   
@@ -177,7 +177,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      克服 JavaScript 的奇怪部份 [Day33] - 觀念小叮嚀 語法解析器
+      JavaScript Weird Part (32) - 觀念小叮嚀 語法解析器
     </h1>
   
 
@@ -243,7 +243,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/05/16/2019-05-16/" target="_blank" title="克服 JavaScript 的奇怪部份 [Day33] - 觀念小叮嚀 語法解析器">http://yoursite.com/2019/05/16/2019-05-16/</a>
+          <a href="/2019/05/16/2019-05-16/" target="_blank" title="JavaScript Weird Part (32) - 觀念小叮嚀 語法解析器">http://yoursite.com/2019/05/16/2019-05-16/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -283,7 +283,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/克服Javascript奇怪部份/">克服Javascript奇怪部份</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端學習/">前端學習</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript-Weird-Part/">JavaScript Weird Part</a></li></ul>
 
       
 
@@ -297,7 +297,7 @@ var a = new Donate({
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          JavaScript Weird Part (36)- 立即呼叫的函數表示式 (IIFEs)
+          JavaScript Weird Part (33)- 立即呼叫的函數表示式 (IIFEs)
         
       </div>
     </a>
@@ -305,7 +305,7 @@ var a = new Donate({
   
     <a href="/2019/05/15/2019-05-15/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">克服 JavaScript 的奇怪部份 [Day31]-argument 與 spread</div>
+      <div class="article-nav-title">JavaScript Weird Part (31) - argument 與 spread</div>
     </a>
   
 </nav>
