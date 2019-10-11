@@ -1,9 +1,552 @@
-<!DOCTYPE html><html lang="en.yml"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Vue 基礎概念 [7] - 用 Vue 做一個 Todolist · CYC'S BLOG</title><meta name="description" content="Vue 基礎概念 [7] - 用 Vue 做一個 Todolist - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="CYC'S BLOG"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/ChiangYuChi" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Vue 基礎概念 [7] - 用 Vue 做一個 Todolist</h1><div class="post-info">Jul 16, 2019</div><div class="post-content"></div></article></div></main><footer><div class="paginator"><a href="/2019/07/15/2019-07-15-1/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'chiangyuchi';
-var disqus_identifier = '2019/07/16/2019-07-16/';
-var disqus_title = 'Vue 基礎概念 [7] - 用 Vue 做一個 Todolist';
-var disqus_url = 'http://yoursite.com/2019/07/16/2019-07-16/';
-(function() {
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();</script><script id="dsq-count-scr" src="//chiangyuchi.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2019 <a href="http://yoursite.com">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>vue 基礎概念 [8] - vue router | CYC&#39;S BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="JavaScript前端學習Vue">
+  
+  
+  
+  
+  <meta name="description" content="使用 Vue Router 及配置路由文件//進入點main.js//Router 配置檔案 (前端路由，決定哪個網址讀取哪個元件。假如在新建 Vue cli 的時候選擇需要包含 router 配置，就會直接建立在這個目錄下面)router/index.js//分頁內容Vue components (**.vue) 安裝npm install vue-router --save概念描述Vue-ro">
+<meta name="keywords" content="JavaScript,前端學習,Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue 基礎概念 [8] - Vue Router">
+<meta property="og:url" content="http://yoursite.com/2019/07/16/2019-07-16/index.html">
+<meta property="og:site_name" content="CYC&#39;S BLOG">
+<meta property="og:description" content="使用 Vue Router 及配置路由文件//進入點main.js//Router 配置檔案 (前端路由，決定哪個網址讀取哪個元件。假如在新建 Vue cli 的時候選擇需要包含 router 配置，就會直接建立在這個目錄下面)router/index.js//分頁內容Vue components (**.vue) 安裝npm install vue-router --save概念描述Vue-ro">
+<meta property="og:locale" content="en.yml">
+<meta property="og:image" content="https://i.imgur.com/0rCN8ZF.png">
+<meta property="og:image" content="https://i.imgur.com/NQwZYnu.png">
+<meta property="og:image" content="https://i.imgur.com/d9LVmUR.png">
+<meta property="og:image" content="https://i.imgur.com/JLhM6E8.png">
+<meta property="og:image" content="https://i.imgur.com/Gk2enGQ.png">
+<meta property="og:image" content="https://i.imgur.com/o9dbp03.png">
+<meta property="og:image" content="https://i.imgur.com/8GgDLBp.png">
+<meta property="og:image" content="https://i.imgur.com/5ykWqt9.png">
+<meta property="og:image" content="https://i.imgur.com/6zFijCH.png">
+<meta property="og:image" content="https://i.imgur.com/PTgIvei.png">
+<meta property="og:image" content="https://i.imgur.com/jYJzi69.png">
+<meta property="og:image" content="https://i.imgur.com/X3G9coI.png">
+<meta property="og:image" content="https://i.imgur.com/P4fsv9t.png">
+<meta property="og:image" content="https://i.imgur.com/kjcbhyG.png">
+<meta property="og:image" content="https://i.imgur.com/kHU8vOQ.png">
+<meta property="og:image" content="https://i.imgur.com/EEhy7VI.png">
+<meta property="og:image" content="https://i.imgur.com/x7qoMb8.png">
+<meta property="og:image" content="https://i.imgur.com/X0XkQcS.png">
+<meta property="og:image" content="https://i.imgur.com/QyORw22.png">
+<meta property="og:image" content="https://i.imgur.com/ZKbf3s2.png">
+<meta property="og:image" content="https://i.imgur.com/qfC30f8.png">
+<meta property="og:updated_time" content="2019-10-11T05:42:20.019Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue 基礎概念 [8] - Vue Router">
+<meta name="twitter:description" content="使用 Vue Router 及配置路由文件//進入點main.js//Router 配置檔案 (前端路由，決定哪個網址讀取哪個元件。假如在新建 Vue cli 的時候選擇需要包含 router 配置，就會直接建立在這個目錄下面)router/index.js//分頁內容Vue components (**.vue) 安裝npm install vue-router --save概念描述Vue-ro">
+<meta name="twitter:image" content="https://i.imgur.com/0rCN8ZF.png">
+  
+    <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2019-07-16" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Vue 基礎概念 [8] - Vue Router
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/07/16/2019-07-16/" class="article-date">
+	  <time datetime="2019-07-15T16:00:00.000Z" itemprop="datePublished">2019-07-16</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="使用-Vue-Router-及配置路由文件"><a href="#使用-Vue-Router-及配置路由文件" class="headerlink" title="使用 Vue Router 及配置路由文件"></a>使用 Vue Router 及配置路由文件</h1><p>//進入點<br>main.js<br>//Router 配置檔案 (前端路由，決定哪個網址讀取哪個元件。假如在新建 Vue cli 的時候選擇需要包含 router 配置，就會直接建立在這個目錄下面)<br>router/index.js<br>//分頁內容<br>Vue components (**.vue)</p>
+<h1 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h1><pre><code>npm install vue-router --save</code></pre><h1 id="概念描述"><a href="#概念描述" class="headerlink" title="概念描述"></a>概念描述</h1><p>Vue-router 是 Vue.js 的官方路由插件，它適合運用在建立單面應用。Vue 的單面應用。Vue 的單面應用基礎是路由和元件，路由用在設定訪問路徑，並將路徑和組件對應起來。</p>
+<p>傳統的頁面應用是利用抄連結來實現頁面的切換和跳轉。在 Vue-router 的單面應用，則是路徑之間的切換，也就是組件的切換。</p>
+<h1 id="基本設置"><a href="#基本設置" class="headerlink" title="基本設置"></a>基本設置</h1><h2 id="Router-設定"><a href="#Router-設定" class="headerlink" title="Router 設定"></a>Router 設定</h2><p><code>src/router/index.js</code><br><img src="https://i.imgur.com/0rCN8ZF.png" alt></p>
+<h2 id="載入配置檔"><a href="#載入配置檔" class="headerlink" title="載入配置檔"></a>載入配置檔</h2><p>把配置檔載入 entry<br><img src="https://i.imgur.com/NQwZYnu.png" alt></p>
+<h2 id="定義路徑"><a href="#定義路徑" class="headerlink" title="定義路徑"></a>定義路徑</h2><p>假設目前的網站規劃有一個登入 login 頁面、登入後的 home 及購物車三個頁面，而登入後的 home 又包含三個子路由頁面 A,B,C 元件：這就像一個樹狀結構是有父子關係存在的，而父路由組件中會包含 <code>router-view</code> 作為子路由元件的渲染出口（如示意圖中藍色及黃色虛線區塊），而這些路由規則（例如：路由符合/login 時會載入 login.vue 組件到父層 App.vue) 的 router-view 中），都會明確定義在 <code>router</code>設定中<br><img src="https://i.imgur.com/d9LVmUR.png" alt><br>實際 Router 設定如下，會與上圖的動線設計有對應階層關係。<br><img src="https://i.imgur.com/JLhM6E8.png" alt></p>
+<h2 id="視圖-router-view"><a href="#視圖-router-view" class="headerlink" title="視圖 router-view"></a>視圖 router-view</h2><p><code>src/App.vue</code><br>視圖的作用就是在符合路由規則的情境下，以元件從指定路由取代父層元件中的視圖。整個應用元件的第一個視圖是在 App.vue 檔案裡面，這表示在 vue-router 設定的第一層路由元件在匹配的狀況下，會直接取代 App.vue 裡的 router-view 元素<br><img src="https://i.imgur.com/Gk2enGQ.png" alt><br><img src="https://i.imgur.com/o9dbp03.png" alt></p>
+<p><a href="http://www.網址/＃/home" target="_blank" rel="noopener">http://www.網址/＃/home</a></p>
+<h1 id="新增路由路徑及連結達成分頁切換"><a href="#新增路由路徑及連結達成分頁切換" class="headerlink" title="新增路由路徑及連結達成分頁切換"></a>新增路由路徑及連結達成分頁切換</h1><p>先載入 Bootstrap<br><img src="https://i.imgur.com/8GgDLBp.png" alt><br>新增一個資料夾管理分頁<br><img src="https://i.imgur.com/5ykWqt9.png" alt><br>新增一個分頁<br><img src="https://i.imgur.com/6zFijCH.png" alt><br>並使用 bootstrap 的 navbar，首先把平常使用的 <code>&lt;a&gt;</code> 標籤替換成 <code>&lt;router-link&gt;</code>，把<code>href</code>替換成 router-view 切換分頁的方法 <code>to</code>。，在這個範例裡面有 2 種切換分頁的方法</p>
+<ul>
+<li>path 搭配 to<br><code>to=&quot;/page&quot;</code></li>
+<li>動態切換<br><code>:to=&quot;{name:&#39;首頁&#39;}&quot;</code></li>
+</ul>
+<p><img src="https://i.imgur.com/PTgIvei.png" alt></p>
+<h1 id="製作巢狀路由頁面"><a href="#製作巢狀路由頁面" class="headerlink" title="製作巢狀路由頁面"></a>製作巢狀路由頁面</h1><p>現在要做一個巢狀路由頁面，讓 <code>child</code> 切換的時候，可以維持 card 的外觀，但是內容更換。首先先定義 children 路徑，他們都是在 page 底下的子路由頁面元件<br><img src="https://i.imgur.com/jYJzi69.png" alt><br>新增三個元件，點擊的時候切換 children 內容到視圖層<br><img src="https://i.imgur.com/X3G9coI.png" alt></p>
+<h1 id="使用動態路由切換頁面-Ajax-的使用情景"><a href="#使用動態路由切換頁面-Ajax-的使用情景" class="headerlink" title="使用動態路由切換頁面 Ajax 的使用情景"></a>使用動態路由切換頁面 Ajax 的使用情景</h1><p>我們經常需要把所有路由，都使用同一個組件來渲染。例如相同的版型，卻要動態載入不同內容。好比說在寫商品詳情頁面的時候，也面結構都一樣，只是商品 id 不同，這時候就可以用動態路由。以下用 children 這一層的路由做動態路由範例</p>
+<ul>
+<li>引入元件並填寫路由參數<br><img src="https://i.imgur.com/P4fsv9t.png" alt></li>
+<li>到元件中獲取路由參數<br><code>$route.params.id</code> 就是獲取當前路由的參數。<br><img src="https://i.imgur.com/kjcbhyG.png" alt><br>現在隨意輸入一個參數就可以看到結果如下：<br><img src="https://i.imgur.com/kHU8vOQ.png" alt></li>
+</ul>
+<p>動態路由的其它模式<br><a href="https://zhuanlan.zhihu.com/p/39275718" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/39275718</a></p>
+<h1 id="命名路由，同一個路徑載入-2-個頁面元件"><a href="#命名路由，同一個路徑載入-2-個頁面元件" class="headerlink" title="命名路由，同一個路徑載入 2 個頁面元件"></a>命名路由，同一個路徑載入 2 個頁面元件</h1><p>原本的路徑只能以 component 屬性載入單一的元件 Page，現在我們利用 components 就可以使用 default 屬性不僅載入原先的 Page，另外還可以再載入其它元件，只是這些元件都必須再新增 router-view 而且要加上各自的 name 屬性。</p>
+<p>在新增的 router-view 標籤上加上 name 屬性，主要是要與對應的組件匹配以顯示組件內容，</p>
+<p>在 components 屬性裡透過定義預設路由對應組件(Page)，所以 name: ‘分頁’，省略時不會影響 router-view 的顯示，</p>
+<p><img src="https://i.imgur.com/EEhy7VI.png" alt></p>
+<h1 id="Vue-Router-參數設定"><a href="#Vue-Router-參數設定" class="headerlink" title="Vue Router 參數設定"></a>Vue Router 參數設定</h1><p>Vue-router 的構造配置裡的 mode ，可以調整路徑配置方法<br>可选值: “hash” | “history” | “abstract”</p>
+<h2 id="配置路由模式"><a href="#配置路由模式" class="headerlink" title="配置路由模式"></a>配置路由模式</h2><p>可選值: “hash” | “history” | “abstract”</p>
+<ul>
+<li>hash: 使用 URL hash 值來作路由。支持所有瀏覽器，包括不支持 HTML5 History Api 的瀏覽器。</li>
+<li>history: 依賴 HTML5 History API 和服務器配置。查看 HTML5 History 模式。</li>
+<li>abstract: 支持所有 JavaScript 運行環境，如 Node.js 服務器端。如果發現沒有瀏覽器的 API，路由會自動強制進入這個模式。</li>
+</ul>
+<p>不使用 hash 模式而使用 history 模式的時候，</p>
+<p><img src="https://i.imgur.com/x7qoMb8.png" alt></p>
+<p>使用的是後端伺服器的路由，所以前後端要搭配對應的模式使用預設的模式即可</p>
+<h2 id="linkActiveClass"><a href="#linkActiveClass" class="headerlink" title="linkActiveClass"></a>linkActiveClass</h2><p>觸發特定路徑的時候，會在標籤上加上的 class 名稱，可自定義名稱<br><img src="https://i.imgur.com/X0XkQcS.png" alt></p>
+<h1 id="自定義切換路由方法"><a href="#自定義切換路由方法" class="headerlink" title="自定義切換路由方法"></a>自定義切換路由方法</h1><p>切換頁面不能全靠 router-link 切換，例如有些行為必須在 Ajax 結束後再切換畫面，此時就不一定適用 router-link。</p>
+<h2 id="動態切換"><a href="#動態切換" class="headerlink" title="動態切換"></a>動態切換</h2><p>$router.push<br><img src="https://i.imgur.com/QyORw22.png" alt><br>$ router.back<br><img src="https://i.imgur.com/ZKbf3s2.png" alt><br>$router.go(n)<br><img src="https://i.imgur.com/qfC30f8.png" alt></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong></a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/07/16/2019-07-16/" target="_blank" title="Vue 基礎概念 [8] - Vue Router">http://yoursite.com/2019/07/16/2019-07-16/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端學習/">前端學習</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/19/2019-07-19/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          認識 Webpack
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/15/2019-07-15-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Vue 基礎概念 [7] - 用 Vue 做一個 Todolist</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-Vue-Router-及配置路由文件"><span class="nav-number">1.</span> <span class="nav-text">使用 Vue Router 及配置路由文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安裝"><span class="nav-number">2.</span> <span class="nav-text">安裝</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念描述"><span class="nav-number">3.</span> <span class="nav-text">概念描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本設置"><span class="nav-number">4.</span> <span class="nav-text">基本設置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Router-設定"><span class="nav-number">4.1.</span> <span class="nav-text">Router 設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#載入配置檔"><span class="nav-number">4.2.</span> <span class="nav-text">載入配置檔</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定義路徑"><span class="nav-number">4.3.</span> <span class="nav-text">定義路徑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#視圖-router-view"><span class="nav-number">4.4.</span> <span class="nav-text">視圖 router-view</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新增路由路徑及連結達成分頁切換"><span class="nav-number">5.</span> <span class="nav-text">新增路由路徑及連結達成分頁切換</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#製作巢狀路由頁面"><span class="nav-number">6.</span> <span class="nav-text">製作巢狀路由頁面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用動態路由切換頁面-Ajax-的使用情景"><span class="nav-number">7.</span> <span class="nav-text">使用動態路由切換頁面 Ajax 的使用情景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#命名路由，同一個路徑載入-2-個頁面元件"><span class="nav-number">8.</span> <span class="nav-text">命名路由，同一個路徑載入 2 個頁面元件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue-Router-參數設定"><span class="nav-number">9.</span> <span class="nav-text">Vue Router 參數設定</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置路由模式"><span class="nav-number">9.1.</span> <span class="nav-text">配置路由模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linkActiveClass"><span class="nav-number">9.2.</span> <span class="nav-text">linkActiveClass</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定義切換路由方法"><span class="nav-number">10.</span> <span class="nav-text">自定義切換路由方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#動態切換"><span class="nav-number">10.1.</span> <span class="nav-text">動態切換</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 CYC&#39;S BLOG All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            CYC&#39;S BLOG
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 CYC&#39;S BLOG All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
