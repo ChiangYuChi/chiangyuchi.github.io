@@ -290,34 +290,6 @@
   </entry>
   
   <entry>
-    <title>克服 JavaScript 的奇怪部份 [Day32] - 框架小叮嚀：重載函數</title>
-    <link href="http://yoursite.com/2019/07/14/2019-07-14-1/"/>
-    <id>http://yoursite.com/2019/07/14/2019-07-14-1/</id>
-    <published>2019-07-13T16:00:00.000Z</published>
-    <updated>2019-07-14T06:15:59.350Z</updated>
-    
-    <content type="html"><![CDATA[<p>這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。</p><h3 id="重載函數-Function-overloading"><a href="#重載函數-Function-overloading" class="headerlink" title="重載函數 (Function overloading)"></a>重載函數 (Function overloading)</h3><p>像是 Java、C++ 等程式語言都有重載函數的概念，這表示我讓同一個函數可以擁有不同數量的參數。但是這在 JavaScript 行不通，因為函數就是物件。儘管 JavaScript 不具備這個功能，但是我們也可以用 JavaScript 的一級函式概念處理</p><p>好比說「我不想要每次一直傳入 <code>language</code> 參數」。我們已經看過可以使用預設參數或 <code>||</code> 運算子，然後使用這個函數裡的邏輯條件運算來決定。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function greet(firstname, lastname, language) &#123;</span><br><span class="line">      language = language || &apos;en&apos;;</span><br><span class="line">      if (language === &apos;en&apos;) &#123;</span><br><span class="line">        console.log(&apos;Hello &apos; + firstname + &apos; &apos; + lastname);   </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (language === &apos;es&apos;) &#123;</span><br><span class="line">        console.log(&apos;Hola &apos; + firstname + &apos; &apos; + lastname);   </span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(&apos;John&apos;, &apos;Doe&apos;,&apos;en&apos;);</span><br><span class="line">greet(&apos;John&apos;, &apos;Doe&apos;,&apos;es&apos;);</span><br></pre></td></tr></table></figure><p>第二種方式是再包覆一層函式的方式</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function greetEnglish(firstname, lastname) &#123;</span><br><span class="line">    greet(firstname, lastname, &apos;en&apos;);   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function greetSpanish(firstname, lastname) &#123;</span><br><span class="line">    greet(firstname, lastname, &apos;es&apos;);   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greetEnglish(&apos;John&apos;, &apos;Doe&apos;);</span><br><span class="line">greetSpanish(&apos;John&apos;, &apos;Doe&apos;);</span><br></pre></td></tr></table></figure><p>儘管 JavaScript 沒有重載函式的概念，但是仍然有處理這一類問題的方式。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。&lt;/p&gt;
-&lt;h3 id=&quot;重載函數-Function-overloading&quot;&gt;&lt;a href=&quot;#重載函數-Function-overloadin
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
-    
-      <category term="克服Javascript奇怪部份" scheme="http://yoursite.com/tags/%E5%85%8B%E6%9C%8DJavascript%E5%A5%87%E6%80%AA%E9%83%A8%E4%BB%BD/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Vue 基礎概念 [6] - 表格排序練習</title>
     <link href="http://yoursite.com/2019/07/14/2019-07-14-2/"/>
     <id>http://yoursite.com/2019/07/14/2019-07-14-2/</id>
@@ -348,6 +320,34 @@
       <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
     
       <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>克服 JavaScript 的奇怪部份 [Day32] - 框架小叮嚀：重載函數</title>
+    <link href="http://yoursite.com/2019/07/14/2019-07-14-1/"/>
+    <id>http://yoursite.com/2019/07/14/2019-07-14-1/</id>
+    <published>2019-07-13T16:00:00.000Z</published>
+    <updated>2019-07-14T06:15:59.350Z</updated>
+    
+    <content type="html"><![CDATA[<p>這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。</p><h3 id="重載函數-Function-overloading"><a href="#重載函數-Function-overloading" class="headerlink" title="重載函數 (Function overloading)"></a>重載函數 (Function overloading)</h3><p>像是 Java、C++ 等程式語言都有重載函數的概念，這表示我讓同一個函數可以擁有不同數量的參數。但是這在 JavaScript 行不通，因為函數就是物件。儘管 JavaScript 不具備這個功能，但是我們也可以用 JavaScript 的一級函式概念處理</p><p>好比說「我不想要每次一直傳入 <code>language</code> 參數」。我們已經看過可以使用預設參數或 <code>||</code> 運算子，然後使用這個函數裡的邏輯條件運算來決定。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function greet(firstname, lastname, language) &#123;</span><br><span class="line">      language = language || &apos;en&apos;;</span><br><span class="line">      if (language === &apos;en&apos;) &#123;</span><br><span class="line">        console.log(&apos;Hello &apos; + firstname + &apos; &apos; + lastname);   </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (language === &apos;es&apos;) &#123;</span><br><span class="line">        console.log(&apos;Hola &apos; + firstname + &apos; &apos; + lastname);   </span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(&apos;John&apos;, &apos;Doe&apos;,&apos;en&apos;);</span><br><span class="line">greet(&apos;John&apos;, &apos;Doe&apos;,&apos;es&apos;);</span><br></pre></td></tr></table></figure><p>第二種方式是再包覆一層函式的方式</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function greetEnglish(firstname, lastname) &#123;</span><br><span class="line">    greet(firstname, lastname, &apos;en&apos;);   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function greetSpanish(firstname, lastname) &#123;</span><br><span class="line">    greet(firstname, lastname, &apos;es&apos;);   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greetEnglish(&apos;John&apos;, &apos;Doe&apos;);</span><br><span class="line">greetSpanish(&apos;John&apos;, &apos;Doe&apos;);</span><br></pre></td></tr></table></figure><p>儘管 JavaScript 沒有重載函式的概念，但是仍然有處理這一類問題的方式。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。&lt;/p&gt;
+&lt;h3 id=&quot;重載函數-Function-overloading&quot;&gt;&lt;a href=&quot;#重載函數-Function-overloadin
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
+    
+      <category term="克服Javascript奇怪部份" scheme="http://yoursite.com/tags/%E5%85%8B%E6%9C%8DJavascript%E5%A5%87%E6%80%AA%E9%83%A8%E4%BB%BD/"/>
     
   </entry>
   
@@ -517,27 +517,29 @@
   </entry>
   
   <entry>
-    <title>如何條列化思考</title>
-    <link href="http://yoursite.com/2019/06/24/2019-06-24/"/>
-    <id>http://yoursite.com/2019/06/24/2019-06-24/</id>
-    <published>2019-06-23T16:00:00.000Z</published>
-    <updated>2019-06-28T06:30:49.789Z</updated>
+    <title>JS 30 Days - Flex Panels Image Gallery</title>
+    <link href="http://yoursite.com/2019/06/11/2019-06-11/"/>
+    <id>http://yoursite.com/2019/06/11/2019-06-11/</id>
+    <published>2019-06-10T16:00:00.000Z</published>
+    <updated>2019-10-09T05:40:18.466Z</updated>
     
-    <content type="html"><![CDATA[<p>這篇是 Hulo的線上免費課程初心者的計概與 coding 火球術，提供給我這種入門新手的程式思維思考心法。第二堂課的主題是「解決問題」，關注的方向式關於如何在日常思維與電腦化思維之間切換。在第一堂課之後，開始要練習一個可以深入學習的工程師思維，這需要不斷地問自己「為什麼？」另外，到底為什麼要寫程式呢？因為我們要用電腦話讓電腦照著我的意思做。要讓電腦聽話，那就要使用程式碼。最後，程式碼的目標，就是為了解決問題。</p><p>如何條列化思考？如何解決問題？<br>=</p><p>首先要學習的是解決問題的思維，而非令人頭痛的程式語法。</p><p>假設以下問題</p><blockquote><p> computerscience 裡有包含 c 嗎？有幾個 c ?</p></blockquote><h3 id="逐步拆解"><a href="#逐步拆解" class="headerlink" title="逐步拆解"></a>逐步拆解</h3><p>我們的人腦要拆解所有文字，自然最終的結果是看所有文字，但細分來說，其實是一個一個字地看（看第一個、看第二個）。</p><p>所以上面問題的解法，其實是</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 從第一個看到最後一個，看有沒有 c 這個字</span><br><span class="line">- 如果有，就把位置記下來，並且繼續往下找</span><br></pre></td></tr></table></figure><h3 id="條列式轉換"><a href="#條列式轉換" class="headerlink" title="條列式轉換"></a>條列式轉換</h3><p>寫程式就是對電腦下指令，而且電腦一次只能做一個指令，所以如果把解法寫成條列式，就是練習對電腦下指令。這一堂利用「給你一串文字，問你裡面有沒有 p」當作範例 一步步教你怎麼用「程式化思考」 把自己的解法轉變成更「標準化」的格式</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.找第一個字，看第一個字是不是 c，是的話就把位置記下來，不是的話就繼續往下找</span><br><span class="line">2.找第二個字，看第一個字是不是 c，是的話就把位置記下來，不是的話就繼續往下找</span><br><span class="line"></span><br><span class="line">....</span><br></pre></td></tr></table></figure><p>但是這樣太麻煩了，我們可以把無限的步驟簡化為有限的條列</p><blockquote><ul><li>假設 n 是 1， length 是字串長度，A 設成 -1 ，代表找到的位置，p 是要找到的字</li><li>看第 n 個字是不是 p，是的話讓 A =n</li><li>把 n+1，如果 n+1 大於 length 的話，就跳到第 5 步</li><li>跳回第 2 步</li><li>如果 A&lt;0，代表沒出現過；否則 A 就是答案</li></ul></blockquote><p>這邊的重點在加入第四步驟，讓第二、三步驟不斷巡迴。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">length: 15</span><br><span class="line">p:c</span><br><span class="line">n  A</span><br><span class="line">1  1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">10 10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15 15</span><br><span class="line">16</span><br></pre></td></tr></table></figure><h3 id="自主練習"><a href="#自主練習" class="headerlink" title="自主練習"></a>自主練習</h3><ul><li>試著把自己的一些生活流程用條列式列出來，每一條只能有一個動作</li></ul><ol><li>如果上班日，十點上床睡覺</li><li>如果假日，十二點上床睡覺</li><li>在廚房煮飯</li><li>搭捷運</li><li>如果晴天，去跑步</li><li>如果雨天，宅在家裡</li></ol><ul><li>給你一個亂數的數列，例如說：1, 8, 9, 2, 5 ,4，你能想出什麼步驟把這些數字由小到大排好嗎？</li></ul><ol><li>假設要讓亂數群根據數字大小排列，我們不知道這些數字裡面最大是多少所以n &lt;=n</li><li>用 1 比對所有數字，如果有符合的話，排在第一個位置</li><li>用 2 比對所有數字，如果有符合的話，排在第二個位置</li><li>用 9 比對所有數字，如果有符合的話，排在第二個位置</li><li>如果排列到10了，大於9的話，停止排列</li></ol><p>如何代號化？</p><blockquote><p>假設我們要比對的最大數字是 n(小於y的那個數字），y&gt;n=&gt;1<br>比對數字群看 n 有沒有出現，是的話讓A=n，代表找到的位置<br>把 n+1，如果 n+1=&gt;y，就跳到第 5 步<br>跳回第 2 步<br>排列完成</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h3 id="完成品"><a href="#完成品" class="headerlink" title="完成品"></a>完成品</h3><p><a href="https://codepen.io/Shengzhi/pen/zQyZZv" target="_blank" rel="noopener">https://codepen.io/Shengzhi/pen/zQyZZv</a></p><h3 id="使用-CSS-Flex"><a href="#使用-CSS-Flex" class="headerlink" title="使用 CSS Flex"></a>使用 CSS Flex</h3><p><img src="https://i.imgur.com/u4ZbS9k.png" alt></p><p>最外層的父元素 display 要設定為 flex 才會產生作為一個 container 容器的效果</p><p><img src="https://i.imgur.com/oyl8z9l.png" alt></p><p>設定子元素在畫面上都佔據一樣大小，並且將它設定為另一個 container。</p><p>Flex 是可以嵌套的，也就是 flex container 可以同時是其他 flex container 的 flex item。</p><p><img src="https://i.imgur.com/BQzvPM8.png" alt></p><h3 id="設定-translate"><a href="#設定-translate" class="headerlink" title="設定 translate"></a>設定 translate</h3><p>文字將會在 Y 軸的上下點擊動態隱藏或出現</p><p><img src="https://i.imgur.com/E9ESH5j.png" alt></p><p>中間的文字將會在點擊時動態放大<br><img src="https://i.imgur.com/8Jxh5oN.png" alt></p><h3 id="綁定多個要監聽事件的元素"><a href="#綁定多個要監聽事件的元素" class="headerlink" title="綁定多個要監聽事件的元素"></a>綁定多個要監聽事件的元素</h3><p>用 document.querySelectorAll(‘’) 來選擇多個符合 css 選擇器的元素：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const panels = document.querySelectorAll(&apos;.panel&apos;);</span><br></pre></td></tr></table></figure><p>一次對多個元素綁定監聽事件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">panels.forEach(panel =&gt; panel.addEventListener(&apos;click&apos;, toggleOpen));</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;這篇是 Hulo的線上免費課程初心者的計概與 coding 火球術，提供給我這種入門新手的程式思維思考心法。第二堂課的主題是「解決問題」，關注的方向式關於如何在日常思維與電腦化思維之間切換。在第一堂課之後，開始要練習一個可以深入學習的工程師思維，這需要不斷地問自己「為什麼？
+        &lt;h3 id=&quot;完成品&quot;&gt;&lt;a href=&quot;#完成品&quot; class=&quot;headerlink&quot; title=&quot;完成品&quot;&gt;&lt;/a&gt;完成品&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://codepen.io/Shengzhi/pen/zQyZZv&quot; target=&quot;_blank&quot; r
       
     
     </summary>
     
     
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
       <category term="前端學習" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%B8%E7%BF%92/"/>
     
-      <category term="計算機概論" scheme="http://yoursite.com/tags/%E8%A8%88%E7%AE%97%E6%A9%9F%E6%A6%82%E8%AB%96/"/>
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
     
   </entry>
   
