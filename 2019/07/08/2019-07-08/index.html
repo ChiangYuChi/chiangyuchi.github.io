@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>vue 基礎概念 [1] - 環境建立、指令與修飾符 | CYC&#39;S BLOG</title>
+  <title>vue (1) - 環境建立、指令與修飾符 | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="JavaScript前端學習Vue">
@@ -14,16 +14,16 @@
   <meta name="description" content="環境建立Vue 的載入有 2 個版本，可以使用官網提供的 CDN 快速引入： 開發版本- 包含開發者工具、完整的警告、錯誤提示，適合開發時使用生產版本- 刪除了警告，將上述開發工具都拔除，盡量縮小它的體積，適合正式發布時使用。 為了學習 Vue 的開發，因此我們選擇開發版本，並且在 script 標籤引入 vue.js 即可。 12345678&amp;lt;head&amp;gt;&amp;lt;script src=">
 <meta name="keywords" content="JavaScript,前端學習,Vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue 基礎概念 [1] - 環境建立、指令與修飾符">
+<meta property="og:title" content="Vue (1) - 環境建立、指令與修飾符">
 <meta property="og:url" content="http://yoursite.com/2019/07/08/2019-07-08/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
 <meta property="og:description" content="環境建立Vue 的載入有 2 個版本，可以使用官網提供的 CDN 快速引入： 開發版本- 包含開發者工具、完整的警告、錯誤提示，適合開發時使用生產版本- 刪除了警告，將上述開發工具都拔除，盡量縮小它的體積，適合正式發布時使用。 為了學習 Vue 的開發，因此我們選擇開發版本，並且在 script 標籤引入 vue.js 即可。 12345678&amp;lt;head&amp;gt;&amp;lt;script src=">
 <meta property="og:locale" content="en.yml">
 <meta property="og:image" content="https://i.imgur.com/MESxq2B.png">
 <meta property="og:image" content="https://i.imgur.com/5HFiqxL.png">
-<meta property="og:updated_time" content="2019-10-11T05:57:14.403Z">
+<meta property="og:updated_time" content="2019-10-11T10:06:53.149Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue 基礎概念 [1] - 環境建立、指令與修飾符">
+<meta name="twitter:title" content="Vue (1) - 環境建立、指令與修飾符">
 <meta name="twitter:description" content="環境建立Vue 的載入有 2 個版本，可以使用官網提供的 CDN 快速引入： 開發版本- 包含開發者工具、完整的警告、錯誤提示，適合開發時使用生產版本- 刪除了警告，將上述開發工具都拔除，盡量縮小它的體積，適合正式發布時使用。 為了學習 Vue 的開發，因此我們選擇開發版本，並且在 script 標籤引入 vue.js 即可。 12345678&amp;lt;head&amp;gt;&amp;lt;script src=">
 <meta name="twitter:image" content="https://i.imgur.com/MESxq2B.png">
   
@@ -175,7 +175,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      Vue 基礎概念 [1] - 環境建立、指令與修飾符
+      Vue (1) - 環境建立、指令與修飾符
     </h1>
   
 
@@ -427,7 +427,7 @@ console.log(this.arrayData);
    )</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">![](https://i.imgur.com/COHEbEU.png)</span><br><span class="line"></span><br><span class="line">#### 解決方式：如果要操作的資料不在原有資料結構裡，用 Vue.set() 解決，寫進資料裡面讓它可重新被監控。</span><br><span class="line"></span><br><span class="line">    Vue.set( target, propertyName/index, value )</span><br><span class="line">    参数：</span><br><span class="line">    &#123;Object | Array&#125; target</span><br><span class="line">    &#123;string | number&#125; propertyName/index</span><br><span class="line">    &#123;any&#125; value</span><br></pre></td></tr></table></figure>
 
 <p>methods: {</p>
-<p> Vue.set(this.arrayData, 0, {<br>name: ‘joy’,<br>age: 33<br>});<br>}</p>
+<p>Vue.set(this.arrayData, 0, {<br>name: ‘joy’,<br>age: 33<br>});<br>}</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 使用純數字迴圈</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -798,7 +798,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/07/08/2019-07-08/" target="_blank" title="Vue 基礎概念 [1] - 環境建立、指令與修飾符">http://yoursite.com/2019/07/08/2019-07-08/</a>
+          <a href="/2019/07/08/2019-07-08/" target="_blank" title="Vue (1) - 環境建立、指令與修飾符">http://yoursite.com/2019/07/08/2019-07-08/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -852,7 +852,7 @@ var a = new Donate({
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Vue 基礎概念 [2] - methods、computed、watch 的使用情境
+          Vue (2) - methods、computed、watch 的使用情境
         
       </div>
     </a>
