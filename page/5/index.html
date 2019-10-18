@@ -217,6 +217,60 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-2019-04-29"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/04/29/2019-04-29/">JavaScript Weird Part (16) - 運算子的優先性與相依性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/04/29/2019-04-29/" class="article-date">
+	  <time datetime="2019-04-28T16:00:00.000Z" itemprop="datePublished">2019-04-29</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          了解運算子後，繼續了解運算子的優先性與相依性。這兩個概念沒有想像中的複雜。
+運算子優先性運算子優先性表示當一行程式碼裡面有多個運算子的時候，哪個運算子被優先運算，函數會依序運算。具有高優先性的運算子，會先計算，然後依序到低優先性的
+運算子相依性運算子相依性是和運算子優先性相關的概念，優先性表示運算子被計算的順序，當兩個運算子有相同的優先性，優先性能協助判斷誰先誰後。可是如果所有的運算子優先順序都相同呢？
+這時就要看相依性，判斷是由左到右的「左相依性」，或者是由右到左的「右相依性」。
+12v...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/04/29/2019-04-29/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2019-04-28"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -669,61 +723,6 @@ Javascript 在執行時，它並非獨立存在，...
         </p>
         <p class="article-more-link">
           <a href="/2019/04/17/2019-04-17/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-04-15"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/04/15/2019-04-15/">JavaScript Weird Part (6) - 執行環境：程式執行</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/04/15/2019-04-15/" class="article-date">
-	  <time datetime="2019-04-14T16:00:00.000Z" itemprop="datePublished">2019-04-15</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          Javascript 產生執行環境時，第一階段是創造，設定變數和函數到記憶體中。第二階段是執行。
-1234567function b() &#123;  console.log("called b!");&#125;b();console.log(a);var a = "hello world!";console.log(a);
-
-上面的程式碼會得出什麼執行結果呢？
-
-為什麼呢？ 因為現在已經是執行階段，首先先設定函數，接著變數 a 被設定為 undefied。隨後開始執行程式碼，從第 5...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/04/15/2019-04-15/#more">Read More</a>
         </p>
       
     </div>

@@ -217,6 +217,61 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-2019-04-15"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/04/15/2019-04-15/">JavaScript Weird Part (6) - 執行環境：程式執行</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/04/15/2019-04-15/" class="article-date">
+	  <time datetime="2019-04-14T16:00:00.000Z" itemprop="datePublished">2019-04-15</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          Javascript 產生執行環境時，第一階段是創造，設定變數和函數到記憶體中。第二階段是執行。
+1234567function b() &#123;  console.log("called b!");&#125;b();console.log(a);var a = "hello world!";console.log(a);
+
+上面的程式碼會得出什麼執行結果呢？
+
+為什麼呢？ 因為現在已經是執行階段，首先先設定函數，接著變數 a 被設定為 undefied。隨後開始執行程式碼，從第 5...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/04/15/2019-04-15/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2019-04-13"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
