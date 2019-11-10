@@ -11,21 +11,21 @@
   
   
   
-  <meta name="description" content="DemojQuery 練習 - 取得新北市 Youbike 開放數據資料 - Demo 1. Introduction 介紹串接新北市政府提供的 Youbike 位置資訊，這個項目將達到以下目標   利用 Ajax 取得數據資料 解決跨來源資源共用（Cross-Origin Resource Sharing）問題 運用 jQuery 載入畫面時呈現全部資料 可過濾點擊地區  2.功能基礎的 HTM">
+  <meta name="description" content="DemojQuery 練習 - 取得新北市 Youbike 開放數據資料 - Demo Introduction 介紹串接新北市政府提供的 Youbike 位置資訊，這個項目將達到以下目標   利用 Ajax 取得數據資料 解決跨來源資源共用（Cross-Origin Resource Sharing）問題 運用 jQuery 載入畫面時呈現全部資料 可過濾點擊地區  #功能 基礎的 HTML 結">
 <meta name="keywords" content="JavaScript,jQuery">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jQuery 練習 - 串接新北市 Youbike 開放資料">
 <meta property="og:url" content="http://yoursite.com/2019/08/20/2019-08-20/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="DemojQuery 練習 - 取得新北市 Youbike 開放數據資料 - Demo 1. Introduction 介紹串接新北市政府提供的 Youbike 位置資訊，這個項目將達到以下目標   利用 Ajax 取得數據資料 解決跨來源資源共用（Cross-Origin Resource Sharing）問題 運用 jQuery 載入畫面時呈現全部資料 可過濾點擊地區  2.功能基礎的 HTM">
+<meta property="og:description" content="DemojQuery 練習 - 取得新北市 Youbike 開放數據資料 - Demo Introduction 介紹串接新北市政府提供的 Youbike 位置資訊，這個項目將達到以下目標   利用 Ajax 取得數據資料 解決跨來源資源共用（Cross-Origin Resource Sharing）問題 運用 jQuery 載入畫面時呈現全部資料 可過濾點擊地區  #功能 基礎的 HTML 結">
 <meta property="og:locale" content="en.yml">
 <meta property="og:image" content="https://i.imgur.com/iuIlX7J.jpg">
 <meta property="og:image" content="https://i.imgur.com/XUX9ROK.png">
 <meta property="og:image" content="https://i.imgur.com/AkWZeTS.png">
-<meta property="og:updated_time" content="2019-10-18T08:24:31.845Z">
+<meta property="og:updated_time" content="2019-11-10T12:51:59.320Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery 練習 - 串接新北市 Youbike 開放資料">
-<meta name="twitter:description" content="DemojQuery 練習 - 取得新北市 Youbike 開放數據資料 - Demo 1. Introduction 介紹串接新北市政府提供的 Youbike 位置資訊，這個項目將達到以下目標   利用 Ajax 取得數據資料 解決跨來源資源共用（Cross-Origin Resource Sharing）問題 運用 jQuery 載入畫面時呈現全部資料 可過濾點擊地區  2.功能基礎的 HTM">
+<meta name="twitter:description" content="DemojQuery 練習 - 取得新北市 Youbike 開放數據資料 - Demo Introduction 介紹串接新北市政府提供的 Youbike 位置資訊，這個項目將達到以下目標   利用 Ajax 取得數據資料 解決跨來源資源共用（Cross-Origin Resource Sharing）問題 運用 jQuery 載入畫面時呈現全部資料 可過濾點擊地區  #功能 基礎的 HTML 結">
 <meta name="twitter:image" content="https://i.imgur.com/iuIlX7J.jpg">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
@@ -202,7 +202,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><p>jQuery 練習 - 取得新北市 Youbike 開放數據資料 - <a href="https://chiangyuchi.github.io/youbike/" target="_blank" rel="noopener">Demo</a></p>
-<h1 id="1-Introduction-介紹"><a href="#1-Introduction-介紹" class="headerlink" title="1. Introduction 介紹"></a>1. Introduction 介紹</h1><p>串接新北市政府提供的 Youbike 位置資訊，這個項目將達到以下目標</p>
+<h1 id="Introduction-介紹"><a href="#Introduction-介紹" class="headerlink" title="Introduction 介紹"></a>Introduction 介紹</h1><p>串接新北市政府提供的 Youbike 位置資訊，這個項目將達到以下目標</p>
 <p><img src="https://i.imgur.com/iuIlX7J.jpg" alt></p>
 <ul>
 <li>利用 Ajax 取得數據資料</li>
@@ -211,7 +211,8 @@
 <li>載入畫面時呈現全部資料</li>
 <li>可過濾點擊地區</li>
 </ul>
-<h1 id="2-功能"><a href="#2-功能" class="headerlink" title="2.功能"></a>2.功能</h1><p>基礎的 HTML 結構先設定選單，由於選擇區域的顯示數量不一定，所以我們先單純設定選單及待會要放置的項目類別即可</p>
+<p>#功能</p>
+<p>基礎的 HTML 結構先設定選單，由於選擇區域的顯示數量不一定，所以我們先單純設定選單及待會要放置的項目類別即可</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span>新北市 YouBike 租借資訊<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"select-area"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"choosePos"</span> <span class="attr">id</span>=<span class="string">"select"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- ..... --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"五股區"</span>&gt;</span>五股<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"八里區"</span>&gt;</span>八里<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"淡水區"</span>&gt;</span>淡水<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"三芝區"</span>&gt;</span>三芝<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"石門區"</span>&gt;</span>石門<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">section</span> <span class="attr">id</span>=<span class="string">"site-content"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"site-items"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>先設定監聽事件，並且觸發事件的時候，到時會先呈現所有的資料</p>
@@ -237,11 +238,11 @@
 <script src="/js/vdonate.js"></script>
 <script>
 var a = new Donate({
-  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  title: '', // 可选参数，打赏标题
   btnText: 'Donate', // 可选参数，打赏按钮文字
   el: document.getElementById('donation_div'),
-  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
-  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+  wechatImage: '',
+  alipayImage: ''
 });
 </script>
       
@@ -329,7 +330,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo"><span class="nav-number">1.</span> <span class="nav-text">Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Introduction-介紹"><span class="nav-number">2.</span> <span class="nav-text">1. Introduction 介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-功能"><span class="nav-number">3.</span> <span class="nav-text">2.功能</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo"><span class="nav-number">1.</span> <span class="nav-text">Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-介紹"><span class="nav-number">2.</span> <span class="nav-text">Introduction 介紹</span></a></li></ol>
     
     </div>
   </aside>

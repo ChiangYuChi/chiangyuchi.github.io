@@ -11,19 +11,19 @@
   
   
   
-  <meta name="description" content="DemoJavaScript 練習 - 取得環保署開放數據資料 - Demo 1. Introduction 介紹串接環保署的空氣數據開放資料，這個項目將達到以下目標   運用 fecth 取得遠端資料 載入資料完成後，關閉 loading ring 將自定義色彩搭配遠端數據  2.功能首先設定 HTML 結構，並且設定相應變數： 12345678ar loading = document.que">
+  <meta name="description" content="DemoJavaScript 練習 - 取得環保署開放數據資料 - Demo Introduction 介紹串接環保署的空氣數據開放資料，這個項目將達到以下目標   運用 fecth 取得遠端資料 載入資料完成後，關閉 loading ring 將自定義色彩搭配遠端數據  功能首先設定 HTML 結構，並且設定相應變數： 12345678ar loading = document.querySel">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 練習 -  串接環保署空氣品質開放資料">
 <meta property="og:url" content="http://yoursite.com/2019/08/21/2019-08-21/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="DemoJavaScript 練習 - 取得環保署開放數據資料 - Demo 1. Introduction 介紹串接環保署的空氣數據開放資料，這個項目將達到以下目標   運用 fecth 取得遠端資料 載入資料完成後，關閉 loading ring 將自定義色彩搭配遠端數據  2.功能首先設定 HTML 結構，並且設定相應變數： 12345678ar loading = document.que">
+<meta property="og:description" content="DemoJavaScript 練習 - 取得環保署開放數據資料 - Demo Introduction 介紹串接環保署的空氣數據開放資料，這個項目將達到以下目標   運用 fecth 取得遠端資料 載入資料完成後，關閉 loading ring 將自定義色彩搭配遠端數據  功能首先設定 HTML 結構，並且設定相應變數： 12345678ar loading = document.querySel">
 <meta property="og:locale" content="en.yml">
 <meta property="og:image" content="https://i.imgur.com/PZ3PIVz.png">
-<meta property="og:updated_time" content="2019-10-11T09:58:36.029Z">
+<meta property="og:updated_time" content="2019-11-10T12:52:07.625Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 練習 -  串接環保署空氣品質開放資料">
-<meta name="twitter:description" content="DemoJavaScript 練習 - 取得環保署開放數據資料 - Demo 1. Introduction 介紹串接環保署的空氣數據開放資料，這個項目將達到以下目標   運用 fecth 取得遠端資料 載入資料完成後，關閉 loading ring 將自定義色彩搭配遠端數據  2.功能首先設定 HTML 結構，並且設定相應變數： 12345678ar loading = document.que">
+<meta name="twitter:description" content="DemoJavaScript 練習 - 取得環保署開放數據資料 - Demo Introduction 介紹串接環保署的空氣數據開放資料，這個項目將達到以下目標   運用 fecth 取得遠端資料 載入資料完成後，關閉 loading ring 將自定義色彩搭配遠端數據  功能首先設定 HTML 結構，並且設定相應變數： 12345678ar loading = document.querySel">
 <meta name="twitter:image" content="https://i.imgur.com/PZ3PIVz.png">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
@@ -200,14 +200,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><p>JavaScript 練習 - 取得環保署開放數據資料 - <a href="https://chiangyuchi.github.io/air-quality/" target="_blank" rel="noopener">Demo</a></p>
-<h1 id="1-Introduction-介紹"><a href="#1-Introduction-介紹" class="headerlink" title="1. Introduction 介紹"></a>1. Introduction 介紹</h1><p>串接環保署的空氣數據開放資料，這個項目將達到以下目標</p>
+<h1 id="Introduction-介紹"><a href="#Introduction-介紹" class="headerlink" title="Introduction 介紹"></a>Introduction 介紹</h1><p>串接環保署的空氣數據開放資料，這個項目將達到以下目標</p>
 <p><img src="https://i.imgur.com/PZ3PIVz.png" alt></p>
 <ul>
 <li>運用 fecth 取得遠端資料</li>
 <li>載入資料完成後，關閉 loading ring</li>
 <li>將自定義色彩搭配遠端數據</li>
 </ul>
-<h1 id="2-功能"><a href="#2-功能" class="headerlink" title="2.功能"></a>2.功能</h1><p>首先設定 HTML 結構，並且設定相應變數：</p>
+<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><p>首先設定 HTML 結構，並且設定相應變數：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ar loading = <span class="built_in">document</span>.querySelector(<span class="string">'.loading'</span>)</span><br><span class="line"><span class="keyword">var</span> select = <span class="built_in">document</span>.getElementById(<span class="string">'location'</span>); <span class="comment">//區域選單</span></span><br><span class="line"><span class="keyword">var</span> placeTitle = <span class="built_in">document</span>.querySelector(<span class="string">'.location'</span>); <span class="comment">//區域名稱顯示</span></span><br><span class="line"><span class="keyword">var</span> degree = <span class="built_in">document</span>.querySelector(<span class="string">'.degree'</span>);<span class="comment">//呈現空氣品質的色彩表</span></span><br><span class="line"><span class="keyword">var</span> time = <span class="built_in">document</span>.querySelector(<span class="string">'.time'</span>);<span class="comment">//更新時間</span></span><br><span class="line"><span class="keyword">var</span> infoList = <span class="built_in">document</span>.querySelector(<span class="string">'.infoList'</span>);<span class="comment">//該區域的詳細鄉鎮列表與數據</span></span><br><span class="line"><span class="keyword">var</span> detailTitle = <span class="built_in">document</span>.querySelector(<span class="string">'.detailTitle'</span>);<span class="comment">//點選鄉鎮後會被呈顯於左方的個別鄉鎮名稱</span></span><br><span class="line"><span class="keyword">var</span> detail = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.detail .number'</span>);<span class="comment">//個別鄉鎮的數據</span></span><br></pre></td></tr></table></figure>
 
 <p>這次練習使用 <code>fetch</code> 取得遠端資料。網路說明 <code>fetch</code> 和 <code>jQuery.ajax()</code> 有幾個主要的的差異:</p>
@@ -240,11 +240,11 @@
 <script src="/js/vdonate.js"></script>
 <script>
 var a = new Donate({
-  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  title: '', // 可选参数，打赏标题
   btnText: 'Donate', // 可选参数，打赏按钮文字
   el: document.getElementById('donation_div'),
-  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
-  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+  wechatImage: '',
+  alipayImage: ''
 });
 </script>
       
@@ -332,7 +332,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo"><span class="nav-number">1.</span> <span class="nav-text">Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Introduction-介紹"><span class="nav-number">2.</span> <span class="nav-text">1. Introduction 介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-功能"><span class="nav-number">3.</span> <span class="nav-text">2.功能</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo"><span class="nav-number">1.</span> <span class="nav-text">Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-介紹"><span class="nav-number">2.</span> <span class="nav-text">Introduction 介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#功能"><span class="nav-number">3.</span> <span class="nav-text">功能</span></a></li></ol>
     
     </div>
   </aside>
