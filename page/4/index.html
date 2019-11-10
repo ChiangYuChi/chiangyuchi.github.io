@@ -220,6 +220,58 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-2019-05-13"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/05/13/2019-05-13/">JavaScript Weird Part (29) - 物件、函數與 this</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/05/13/2019-05-13/" class="article-date">
+	  <time datetime="2019-05-12T16:00:00.000Z" itemprop="datePublished">2019-05-13</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          函數是一種物件，具有屬性及其他特徵。回到執行環境來看，在函數被呼叫的時候，底層究竟發生什麼變化呢？ 現在要繼續深究物件、函數以及有時讓人感到困惑的關鍵字 ”this” 之間的關係。
+當函式被呼叫的時候必須放在心中的是，當函數被呼叫的時候，會創造新的執行環境，放進執行堆，這決定了程式的執行方式。如果想一想執行環境，關注在函數物件的程式部分，當我執行程式屬性裡面的程式會怎麼樣？
+我們知道執行環境被創造的時候，每個執行環境有自己的變數環境，也就是創建在函數裡面的變數所在的地方，它可以參照到外...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/05/13/2019-05-13/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2019-05-12"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -687,60 +739,6 @@ JSON (avaScript 物件表示法；JavaScript Object Notation)如果我建立一�
         </p>
         <p class="article-more-link">
           <a href="/2019/05/03/2019-05-03/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-04-30"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/04/30/2019-04-30/">JavaScript Weird Part (17) - 強制型轉</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/04/30/2019-04-30/" class="article-date">
-	  <time datetime="2019-04-29T16:00:00.000Z" itemprop="datePublished">2019-04-30</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          Javascript 是一種動態型別語言（Dynamic Typing），所以強制型轉也是常見的情況。強制型轉(Coercion) 也就是轉換一個值的型別，例如數值型別轉換成字串。舉例來說，先前我們已經知道運算子是一種特殊的函數，需要傳入 2 個參數，並且回傳 1 個值。
-123var a = 1 + 2;console.log(a);// 3
-
-以上是單純數字的運作狀況，可是如果是特殊的數字如 NaN，在運算式裡面，只要有一個是 NaN ，結果都會是 NaN :
-111 + NaN; /...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/04/30/2019-04-30/#more">Read More</a>
         </p>
       
     </div>
