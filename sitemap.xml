@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2019/08/26/2019-08-26/</loc>
+    <loc>http://yoursite.com/2019/08/06/2019-08-06/</loc>
     
-    <lastmod>2019-11-10T14:36:13.953Z</lastmod>
+    <lastmod>2019-11-11T02:23:35.930Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/08/07/2019-08-07/</loc>
+    
+    <lastmod>2019-11-11T01:19:56.780Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2019/08/08/2019-08-08/</loc>
     
-    <lastmod>2019-11-10T14:36:07.305Z</lastmod>
+    <lastmod>2019-11-11T01:17:35.346Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/08/26/2019-08-26/</loc>
+    
+    <lastmod>2019-11-10T14:36:13.953Z</lastmod>
     
   </url>
   
@@ -61,13 +75,6 @@
     <loc>http://yoursite.com/2019/08/12/2019-08-12/</loc>
     
     <lastmod>2019-11-10T13:24:36.199Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/08/07/2019-08-07/</loc>
-    
-    <lastmod>2019-11-10T13:07:30.751Z</lastmod>
     
   </url>
   

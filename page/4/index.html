@@ -214,6 +214,63 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-2019-05-14"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/05/14/2019-05-14/">JavaScript Weird Part (30) - 陣列--任何東西的集合</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/05/14/2019-05-14/" class="article-date">
+	  <time datetime="2019-05-13T16:00:00.000Z" itemprop="datePublished">2019-05-14</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          陣列是包含許多東西的集合，陣列可以被宣告，例如：
+1var arr = new Array();
+
+或者使用陣列實體語法，和物件實體語法類似，除了它是用中括號而不是大括號。放進我要的值，並且在陣列裡面用逗號分隔。
+12var arr = [1,2,3];arr[2];
+
+陣列索引值從 0 開始，所以我可以用中括號決定我要抓出哪一個值。2 是第三個值，以此類推。這對以其他程式語言處理陣列的人來說，似乎沒什麼需要解釋的地方。但因為 JavaScript 是動態型別，所以它的陣列有一點不一樣。
+...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/05/14/2019-05-14/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2019-05-13"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -677,62 +734,6 @@ JSON (avaScript 物件表示法；JavaScript Object Notation)如果我建立一�
         </p>
         <p class="article-more-link">
           <a href="/2019/05/04/2019-05-04/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-05-03"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/03/2019-05-03/">JavaScript Weird Part（20） - 比較運算子、強制型轉的常見用途與問題</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/05/03/2019-05-03/" class="article-date">
-	  <time datetime="2019-05-02T16:00:00.000Z" itemprop="datePublished">2019-05-03</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          型轉時要注意的問題JavaScript 是「弱型別語言」，因此具有語法簡潔的優點，但要注意型態轉換時產生非預期的問題。
-12console.log(1 &lt; 2 &lt; 3);true;
-
-以上的小於運算子範例，我們會預設結果為 true
-12console.log(3 &lt; 2 &lt; 1);//true
-
-但是這個例子竟然也是 true ? 這可以用運算子優先性和相依性來解釋。這兩個運算子的優先性一樣，所以用相依性來決定執行順序，所以相依性是從左到右，左邊先執行。所以是 3...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/05/03/2019-05-03/#more">Read More</a>
         </p>
       
     </div>

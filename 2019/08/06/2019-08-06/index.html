@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>javascript 練習 - bmi 計算器 | CYC&#39;S BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="JavaScript">
+  
+  
+  
+  
+  <meta name="description" content="DemoJavaScript 練習 - BMI 計算器 - Demo Introduction 介紹這個 BMI 練習透過 HTML 中的 web storage 物件，使用 localstroage 儲存在瀏覽器的儲存空間裡面，如此一來，本來存入程式碼當中的資料，就不會因重新整理頁面或者關閉瀏覽器而消失。放在 localStorage 的資料會永久保存，直到被使用者清除。透過這個練習認識 web">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 練習 - BMI 計算器">
+<meta property="og:url" content="http://yoursite.com/2019/08/06/2019-08-06/index.html">
+<meta property="og:site_name" content="CYC&#39;S BLOG">
+<meta property="og:description" content="DemoJavaScript 練習 - BMI 計算器 - Demo Introduction 介紹這個 BMI 練習透過 HTML 中的 web storage 物件，使用 localstroage 儲存在瀏覽器的儲存空間裡面，如此一來，本來存入程式碼當中的資料，就不會因重新整理頁面或者關閉瀏覽器而消失。放在 localStorage 的資料會永久保存，直到被使用者清除。透過這個練習認識 web">
+<meta property="og:locale" content="en.yml">
+<meta property="og:image" content="https://i.imgur.com/0BSvyIZ.png">
+<meta property="og:image" content="https://i.imgur.com/M8pMJzJ.png">
+<meta property="og:updated_time" content="2019-11-11T02:23:35.930Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 練習 - BMI 計算器">
+<meta name="twitter:description" content="DemoJavaScript 練習 - BMI 計算器 - Demo Introduction 介紹這個 BMI 練習透過 HTML 中的 web storage 物件，使用 localstroage 儲存在瀏覽器的儲存空間裡面，如此一來，本來存入程式碼當中的資料，就不會因重新整理頁面或者關閉瀏覽器而消失。放在 localStorage 的資料會永久保存，直到被使用者清除。透過這個練習認識 web">
+<meta name="twitter:image" content="https://i.imgur.com/0BSvyIZ.png">
+  
+    <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2019-08-06" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      JavaScript 練習 - BMI 計算器
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/08/06/2019-08-06/" class="article-date">
+	  <time datetime="2019-08-05T16:00:00.000Z" itemprop="datePublished">2019-08-06</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><p>JavaScript 練習 - BMI 計算器 - <a href="https://chiangyuchi.github.io/bmi-calculator/" target="_blank" rel="noopener">Demo</a></p>
+<h1 id="Introduction-介紹"><a href="#Introduction-介紹" class="headerlink" title="Introduction 介紹"></a>Introduction 介紹</h1><p>這個 BMI 練習透過 HTML 中的 web storage 物件，使用 localstroage 儲存在瀏覽器的儲存空間裡面，如此一來，本來存入程式碼當中的資料，就不會因重新整理頁面或者關閉瀏覽器而消失。放在 localStorage 的資料會永久保存，直到被使用者清除。透過這個練習認識 web storage。</p>
+<p><img src="https://i.imgur.com/0BSvyIZ.png" alt></p>
+<ul>
+<li>讀取、更新 Storage</li>
+<li>可顯示健康狀態提示文字</li>
+<li>搭配 localstorage 的存取</li>
+</ul>
+<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><h2 id="web-storage-種類"><a href="#web-storage-種類" class="headerlink" title="web storage 種類"></a>web storage 種類</h2><ul>
+<li><code>window.sessionStorage</code>: sessionStorage 的資料會在頁面(頁籤)關閉時清空。</li>
+<li><code>window.localStorage</code> : 放在 localStorage 的資料會永久保存，直到被使用者清除。</li>
+</ul>
+<h2 id="基本使用方法"><a href="#基本使用方法" class="headerlink" title="基本使用方法"></a>基本使用方法</h2><h3 id="讀取-Storage"><a href="#讀取-Storage" class="headerlink" title="讀取 Storage"></a>讀取 Storage</h3><p>透過在 setItem() 方法中指定物件屬性的 key 以及 value ，我們可以在 storage 物件中加入屬性或修改原本的屬性內容。<br>Storage.setItem(‘key’, ‘value’)</p>
+<h3 id="更新-Storage"><a href="#更新-Storage" class="headerlink" title="更新 Storage"></a>更新 Storage</h3><p>透過在 setItem() 方法中指定物件屬性的 key 以及 value ，可以在 storage 物件中加入屬性或修改原本的屬性內容。<br>Storage.setItem(‘key’, ‘value’)</p>
+<h2 id="將資料轉為-JSON-格式"><a href="#將資料轉為-JSON-格式" class="headerlink" title="將資料轉為 JSON 格式"></a>將資料轉為 JSON 格式</h2><p>透過 Storage 方法方便將資料儲存在本地端，可是有時候我們使用 setItem() 時將值指定為一個物件，再使用 getItem() 來取得資料時，會回傳一個奇怪的 [object object]字串出來，項這樣：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> string = <span class="string">"testword"</span>;</span><br><span class="line"><span class="keyword">let</span> number = <span class="number">12345</span>;</span><br><span class="line"><span class="keyword">let</span> array = [<span class="string">"asd"</span>, <span class="number">123</span>, <span class="literal">true</span>];</span><br><span class="line"><span class="keyword">let</span> object = &#123;</span><br><span class="line">  test: <span class="number">321</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">localStorage.setItem(<span class="string">"item"</span>, string);</span><br><span class="line">localStorage.setItem(<span class="string">"item2"</span>, number);</span><br><span class="line">localStorage.setItem(<span class="string">"item3"</span>, array);</span><br><span class="line">localStorage.setItem(<span class="string">"item4"</span>, object);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(localStorage.getItem(<span class="string">"item"</span>));</span><br><span class="line"><span class="built_in">console</span>.log(localStorage.getItem(<span class="string">"item2"</span>));</span><br><span class="line"><span class="built_in">console</span>.log(localStorage.getItem(<span class="string">"item3"</span>));</span><br><span class="line"><span class="built_in">console</span>.log(localStorage.getItem(<span class="string">"item4"</span>));</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/M8pMJzJ.png" alt></p>
+<p>這是因為對 object 使用 toString()方法的時候，預設情況下 toString() 方法被每個 object 對象繼承。如果此方法在自定義對象中未被被覆蓋，toString() 將會回傳 [object type]，其中 type 是定義對象的類型。</p>
+<p>所以我們這裡使用到 JSON 這種資料格式避免這種問題。</p>
+<ol>
+<li>JSON.stringify()：將資料轉為 JSON 格式的字串。</li>
+<li>JSON.parse(myJSON)：將資料由 JSON 格式字串轉回原本的資料內容及型別。</li>
+</ol>
+<h2 id="計算、儲存資料"><a href="#計算、儲存資料" class="headerlink" title="計算、儲存資料"></a>計算、儲存資料</h2><p>先計算出 BMI 質量，並用得出的數字比對判斷式，再將結果依序存入陣列當中，最後將數據轉為 JSON 格式並儲存</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addData</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.preventDefault();</span><br><span class="line">  <span class="keyword">var</span> Height = <span class="built_in">document</span>.querySelector(<span class="string">".howHeight"</span>).value;</span><br><span class="line">  <span class="keyword">var</span> Weight = <span class="built_in">document</span>.querySelector(<span class="string">".howWeight"</span>).value;</span><br><span class="line">  <span class="keyword">var</span> BMI = Weight / ((Height / <span class="number">100</span>) * (Height / <span class="number">100</span>));</span><br><span class="line"></span><br><span class="line">  BMI = BMI.toFixed(<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">var</span> color = <span class="string">""</span>;</span><br><span class="line">  <span class="keyword">var</span> situation = <span class="string">""</span>;</span><br><span class="line">  <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">  <span class="keyword">var</span> nowDate = date.toDateString();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (BMI &lt; <span class="number">18.5</span>) &#123;</span><br><span class="line">    situation = <span class="string">"小瘦瘦"</span>;</span><br><span class="line">    color = <span class="string">"LightBlue"</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="number">18.5</span> &lt;= BMI &amp;&amp; BMI &lt; <span class="number">24</span>) &#123;</span><br><span class="line">    situation = <span class="string">"理想"</span>;</span><br><span class="line">    color = <span class="string">"green"</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="number">24</span> &lt;= BMI &amp;&amp; BMI &lt; <span class="number">27</span>) &#123;</span><br><span class="line">    situation = <span class="string">"微胖胖"</span>;</span><br><span class="line">    color = <span class="string">"orange"</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="number">27</span> &lt;= BMI &amp;&amp; BMI &lt; <span class="number">30</span>) &#123;</span><br><span class="line">    situation = <span class="string">"有些肥胖"</span>;</span><br><span class="line">    color = <span class="string">"yellow"</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="number">30</span> &lt;= BMI) &#123;</span><br><span class="line">    situation = <span class="string">"你是胖子"</span>;</span><br><span class="line">    color = <span class="string">"red"</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((<span class="literal">NaN</span> = BMI)) &#123;</span><br><span class="line">    situation = <span class="string">"請輸入數據"</span>;</span><br><span class="line">    color = <span class="string">"black"</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> health = &#123;</span><br><span class="line">    content: [color, situation, BMI, Weight, Height, nowDate]</span><br><span class="line">  &#125;;</span><br><span class="line">  data.push(health);</span><br><span class="line">  <span class="comment">// 更新網頁內容</span></span><br><span class="line">  updateList(data);</span><br><span class="line">  <span class="comment">// 更新localstorage,要存入要轉成string</span></span><br><span class="line">  localStorage.setItem(<span class="string">"listData"</span>, <span class="built_in">JSON</span>.stringify(data));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="取得資料"><a href="#取得資料" class="headerlink" title="取得資料"></a>取得資料</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse(localStorage.getItem(<span class="string">"listData"</span>)) || [];</span><br></pre></td></tr></table></figure>
+
+<h2 id="更新畫面"><a href="#更新畫面" class="headerlink" title="更新畫面"></a>更新畫面</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">updateList(data);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateList</span>(<span class="params">items</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> str = <span class="string">""</span>;</span><br><span class="line">  <span class="keyword">var</span> len = items.length;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    str +=</span><br><span class="line">      <span class="string">'&lt;li style="border-left: 5px solid '</span> +</span><br><span class="line">      items[i].content[<span class="number">0</span>] +</span><br><span class="line">      <span class="string">';"&gt;&lt;span style = "width:100px;margin-left:20px;font-size:20px;font-weight:bold;" &gt; '</span> +</span><br><span class="line">      items[i].content[<span class="number">1</span>] +</span><br><span class="line">      <span class="string">'&lt;/span&gt;&lt;span style="width:100px;margin-left:30px;"&gt;BMI'</span> +</span><br><span class="line">      items[i].content[<span class="number">2</span>] +</span><br><span class="line">      <span class="string">'&lt;/span&gt;&lt;span style = "width:100px;margin-left:20px;" &gt; 體重 '</span> +</span><br><span class="line">      items[i].content[<span class="number">3</span>] +</span><br><span class="line">      <span class="string">'kg&lt;/span&gt;&lt;span style = "width:100px;margin-left:30px;" &gt; 身高'</span> +</span><br><span class="line">      items[i].content[<span class="number">4</span>] +</span><br><span class="line">      <span class="string">'cm&lt;/span&gt; &lt;span style="width:200px;margin-left:80px;"&gt;'</span> +</span><br><span class="line">      items[i].content[<span class="number">5</span>] +</span><br><span class="line">      <span class="string">"&lt;/span&gt;    &lt;/li&gt;"</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  list.innerHTML = str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: '',
+  alipayImage: ''
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong></a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/08/06/2019-08-06/" target="_blank" title="JavaScript 練習 - BMI 計算器">http://yoursite.com/2019/08/06/2019-08-06/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/07/2019-08-07/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript 練習 - 時鐘
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/04/2019-08-04/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">AJAX (2)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo"><span class="nav-number">1.</span> <span class="nav-text">Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-介紹"><span class="nav-number">2.</span> <span class="nav-text">Introduction 介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#功能"><span class="nav-number">3.</span> <span class="nav-text">功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#web-storage-種類"><span class="nav-number">3.1.</span> <span class="nav-text">web storage 種類</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本使用方法"><span class="nav-number">3.2.</span> <span class="nav-text">基本使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#讀取-Storage"><span class="nav-number">3.2.1.</span> <span class="nav-text">讀取 Storage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新-Storage"><span class="nav-number">3.2.2.</span> <span class="nav-text">更新 Storage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#將資料轉為-JSON-格式"><span class="nav-number">3.3.</span> <span class="nav-text">將資料轉為 JSON 格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#計算、儲存資料"><span class="nav-number">3.4.</span> <span class="nav-text">計算、儲存資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取得資料"><span class="nav-number">3.5.</span> <span class="nav-text">取得資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新畫面"><span class="nav-number">3.6.</span> <span class="nav-text">更新畫面</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 CYC&#39;S BLOG All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            CYC&#39;S BLOG
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 CYC&#39;S BLOG All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
