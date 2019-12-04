@@ -214,6 +214,111 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-2019-05-06"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/05/06/2019-05-06/">JavaScript Weird Part (22) - 物件與「點」</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/05/06/2019-05-06/" class="article-date">
+	  <time datetime="2019-05-05T16:00:00.000Z" itemprop="datePublished">2019-05-06</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          在 JavaScript 中，物件與函式兩者是非常相關的，它們在很多情況下幾乎是一樣的，讓我們從本篇之後來談談物件與函式，但在這之前得先了解本篇標題「物件與點」
+物件與「點」一個物件是被賦值的名稱與值的組合（Name/Value），但是這個值是什麼？所以物件可以有一個原始的設定叫做屬性 (primitive property)，例如前面提到的純值、布林或字串；或者物件可以再連結另外的物件，值可以是另一個「名稱/值」的組合或物件。物件裡還可以有函數，這種情況稱為「方法」(method)。
+
+...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/05/06/2019-05-06/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2019-05-04"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/05/04/2019-05-04/">JavaScript Weird Part（21） - 框架裡運用 || 避免全域命名空間的衝突</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/05/04/2019-05-04/" class="article-date">
+	  <time datetime="2019-05-03T16:00:00.000Z" itemprop="datePublished">2019-05-04</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          有時候我們會同時在專案匯入好幾個框架，這樣的一行程式碼，檢查的是全域命名空間（globe namespace) 看是否有重複的東西，所以它不會造成衝突，或覆蓋它。
+舉例來說在 lib1.js 設定一個變數，接著在 lib2.js 設定一個同樣名稱的變數
+12345&lt;body&gt;  &lt;script src="lib1.js"&gt;&lt;/script&gt;  &lt;script src="lib2.js"&gt;&lt;/script&gt;  &lt;script ...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/05/04/2019-05-04/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2019-05-03"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -621,109 +726,6 @@ Javascript 在執行時，它並非獨立存在，...
         </p>
         <p class="article-more-link">
           <a href="/2019/04/24/2019-04-24/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-04-23"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/04/23/2019-04-23/">JavaScript Weird Part (10) - 範圍鏈 Scope</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/04/23/2019-04-23/" class="article-date">
-	  <time datetime="2019-04-22T16:00:00.000Z" itemprop="datePublished">2019-04-23</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          當我們需要使用變數時，JavsScript 不只會在目前的執行環境的變數環境尋找。因為每個執行環境都會創造一個特殊的變數叫做 this 以及外部環境的參照。每個執行環境都有一個參照到他的外部環境。
-在函式 b 的狀況，它的外部環境是全域執行環境，a 函式也是同樣狀況。即使 a 在執行堆中被壓在 b 下面，重點在於參照的究竟是哪種外部環境？
-1234567891011function b() &#123;  console.log(myVar);&#125;function a() &#12...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/04/23/2019-04-23/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-04-22"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/04/22/2019-04-22/">JavaScript Weird Part (9) - 函數、環境與變數環境</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/04/22/2019-04-22/" class="article-date">
-	  <time datetime="2019-04-21T16:00:00.000Z" itemprop="datePublished">2019-04-22</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          變數環境(variable environments) 是另一個理解 Javascript 底層運作原理的基礎概念。變數環境就是指你創造變數的位置，以及他在記憶體中和其他變數的關係。因此在思考變數環境的時候，只要思考變數在哪裡。
-變數環境有函式 a 及函式 b，函式 b 內宣告一變數 myVar，並且不設定值，函式 a 內設定變數 myVar=2，在函式外再次宣告 myVar＝1，接著呼叫函式 a，裡面逐行執行呼叫 b。 所以 myVar 的值是多少？此時我們必須回到執行環境，思考函數執行...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/04/22/2019-04-22/#more">Read More</a>
         </p>
       
     </div>

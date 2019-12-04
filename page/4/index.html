@@ -214,6 +214,109 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-2019-05-16"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/05/16/2019-05-16/">JavaScript Weird Part (32) - 觀念小叮嚀 語法解析器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/05/16/2019-05-16/" class="article-date">
+	  <time datetime="2019-05-15T16:00:00.000Z" itemprop="datePublished">2019-05-16</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          我們要再一次熟悉語法解析器，因為這對後面認識底層知識十分重要。
+已經知道我們寫的程式碼不會直接被電腦執行，而是有一個在程式碼和電腦中間中介的程式，轉換你的程式為電腦懂的東西。這就是瀏覽器裡的 JavaScript 引擎做的事情，其中之一就是語法解析器。
+語法解析器會閱讀程式碼，判斷這是否有效。如果它一個一個字看程式碼，看到 ‘r’，它假設你可能要輸入的是 ‘return’，所以它會預期再看到一個 ‘e’，它會一個一個字進行。如果它看到一些非預期的東西，它會認為是錯誤。但如果它看到的是預期的...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/05/16/2019-05-16/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2019-05-15"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/05/15/2019-05-15/">JavaScript Weird Part (31) - argument 與 spread</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/05/15/2019-05-15/" class="article-date">
+	  <time datetime="2019-05-14T16:00:00.000Z" itemprop="datePublished">2019-05-15</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          這一節是是關於另一個 JavaScript 的關鍵字「參數 (arguments)」，這是在執行一個函式的時候引擎會自動幫我們設定好的關鍵字。雖然在下一版本的 JavaScript 就不會這麼常提到這個關鍵字，而是用 spread 處理 arguments 的工作。但是如果現在去看任何程式碼，尤其是框架和資源庫，還是會在原始碼看到 arguments 變數。所以我們應該要認識及知道它的用處。
+已知執行函數的時候，一個執行環境被創造，然後 JavaScript 引擎會幫你設定一些東西，像是變...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/05/15/2019-05-15/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2019-05-14"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -629,111 +732,6 @@ JSON (avaScript 物件表示法；JavaScript Object Notation)如果我建立一�
         </p>
         <p class="article-more-link">
           <a href="/2019/05/07/2019-05-07/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-05-06"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/06/2019-05-06/">JavaScript Weird Part (22) - 物件與「點」</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/05/06/2019-05-06/" class="article-date">
-	  <time datetime="2019-05-05T16:00:00.000Z" itemprop="datePublished">2019-05-06</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          在 JavaScript 中，物件與函式兩者是非常相關的，它們在很多情況下幾乎是一樣的，讓我們從本篇之後來談談物件與函式，但在這之前得先了解本篇標題「物件與點」
-物件與「點」一個物件是被賦值的名稱與值的組合（Name/Value），但是這個值是什麼？所以物件可以有一個原始的設定叫做屬性 (primitive property)，例如前面提到的純值、布林或字串；或者物件可以再連結另外的物件，值可以是另一個「名稱/值」的組合或物件。物件裡還可以有函數，這種情況稱為「方法」(method)。
-
-...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/05/06/2019-05-06/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-05-04"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/04/2019-05-04/">JavaScript Weird Part（21） - 框架裡運用 || 避免全域命名空間的衝突</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/05/04/2019-05-04/" class="article-date">
-	  <time datetime="2019-05-03T16:00:00.000Z" itemprop="datePublished">2019-05-04</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          有時候我們會同時在專案匯入好幾個框架，這樣的一行程式碼，檢查的是全域命名空間（globe namespace) 看是否有重複的東西，所以它不會造成衝突，或覆蓋它。
-舉例來說在 lib1.js 設定一個變數，接著在 lib2.js 設定一個同樣名稱的變數
-12345&lt;body&gt;  &lt;script src="lib1.js"&gt;&lt;/script&gt;  &lt;script src="lib2.js"&gt;&lt;/script&gt;  &lt;script ...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/05/04/2019-05-04/#more">Read More</a>
         </p>
       
     </div>

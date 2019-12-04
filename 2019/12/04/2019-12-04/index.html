@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>javascript 練習 - 瀑布流相簿 | CYC&#39;S BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="JavaScript">
+  
+  
+  
+  
+  <meta name="description" content="DemoJavaScript 練習 - 瀑布流相簿 - Demo Introduction 介紹瀑布流是一種常見的版面配置，在滑鼠滾輪向下滾動時，頁面便會不斷的加載，讓新的內容產生出來並附加在網頁的最底端。這種特別的互動方式可以讓使用者在瀏覽內容時，不必再像以往一樣一直不斷的在網頁上點擊下一頁，可以讓使用者瀏覽起來更為輕鬆。像是 Pinterest，就是使用這種瀏覽方式。這個練習就是實現一個瀑布流">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 練習 - 瀑布流相簿">
+<meta property="og:url" content="http://yoursite.com/2019/12/04/2019-12-04/index.html">
+<meta property="og:site_name" content="CYC&#39;S BLOG">
+<meta property="og:description" content="DemoJavaScript 練習 - 瀑布流相簿 - Demo Introduction 介紹瀑布流是一種常見的版面配置，在滑鼠滾輪向下滾動時，頁面便會不斷的加載，讓新的內容產生出來並附加在網頁的最底端。這種特別的互動方式可以讓使用者在瀏覽內容時，不必再像以往一樣一直不斷的在網頁上點擊下一頁，可以讓使用者瀏覽起來更為輕鬆。像是 Pinterest，就是使用這種瀏覽方式。這個練習就是實現一個瀑布流">
+<meta property="og:locale" content="en.yml">
+<meta property="og:image" content="https://i.imgur.com/wi048Da.jpg">
+<meta property="og:updated_time" content="2019-12-04T10:38:20.220Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 練習 - 瀑布流相簿">
+<meta name="twitter:description" content="DemoJavaScript 練習 - 瀑布流相簿 - Demo Introduction 介紹瀑布流是一種常見的版面配置，在滑鼠滾輪向下滾動時，頁面便會不斷的加載，讓新的內容產生出來並附加在網頁的最底端。這種特別的互動方式可以讓使用者在瀏覽內容時，不必再像以往一樣一直不斷的在網頁上點擊下一頁，可以讓使用者瀏覽起來更為輕鬆。像是 Pinterest，就是使用這種瀏覽方式。這個練習就是實現一個瀑布流">
+<meta name="twitter:image" content="https://i.imgur.com/wi048Da.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2019-12-04" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      JavaScript 練習 - 瀑布流相簿
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/12/04/2019-12-04/" class="article-date">
+	  <time datetime="2019-12-03T16:00:00.000Z" itemprop="datePublished">2019-12-04</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><p>JavaScript 練習 - 瀑布流相簿 - <a href="https://chiangyuchi.github.io/waterfall-layout/" target="_blank" rel="noopener">Demo</a></p>
+<h1 id="Introduction-介紹"><a href="#Introduction-介紹" class="headerlink" title="Introduction 介紹"></a>Introduction 介紹</h1><p>瀑布流是一種常見的版面配置，在滑鼠滾輪向下滾動時，頁面便會不斷的加載，讓新的內容產生出來並附加在網頁的最底端。這種特別的互動方式可以讓使用者在瀏覽內容時，不必再像以往一樣一直不斷的在網頁上點擊下一頁，可以讓使用者瀏覽起來更為輕鬆。像是 Pinterest，就是使用這種瀏覽方式。這個練習就是實現一個瀑布流相簿。</p>
+<p><img src="https://i.imgur.com/wi048Da.jpg" alt></p>
+<ul>
+<li>瀑布流的圖片定位</li>
+<li>瀑布流的圖片排序</li>
+<li>瀑布流的圖片加載功能</li>
+</ul>
+<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><h1 id="HTML、CSS-結構"><a href="#HTML、CSS-結構" class="headerlink" title="HTML、CSS 結構"></a>HTML、CSS 結構</h1><p>HTML 結構比較單純，一個區塊內包含一張圖片元素。此外，由於待會我們要按照圖片寬高來調整圖片位置，所以整個頁面使用相對定位。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pic"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./img/1.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#main</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line"></span><br><span class="line">  .box &#123;</span><br><span class="line">    <span class="selector-tag">padding</span>: 15<span class="selector-tag">px</span> 0 0 15<span class="selector-tag">px</span>;</span><br><span class="line">    <span class="selector-tag">float</span>: <span class="selector-tag">left</span>;</span><br><span class="line"></span><br><span class="line">    <span class="selector-class">.pic</span> &#123;</span><br><span class="line">      <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">      <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">      <span class="attribute">border-radius</span>: <span class="number">5px</span>;</span><br><span class="line">      <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="number">#ccc</span>;</span><br><span class="line"></span><br><span class="line">      img &#123;</span><br><span class="line">        <span class="selector-tag">height</span>: <span class="selector-tag">auto</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="瀑布流的圖片定位"><a href="#瀑布流的圖片定位" class="headerlink" title="瀑布流的圖片定位"></a>瀑布流的圖片定位</h1><p>頁面加載的時候就要呼叫一個取得整個頁面裡圖片區塊的函數，這個函數傳入兩個參數，父元素及要傳入的圖片區塊，取得所有父元素底下 class 為 box 的元素。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  waterfall(<span class="string">"main"</span>, <span class="string">"box"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">waterfall</span>(<span class="params">parent,box</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> allParent = <span class="built_in">document</span>.getElementById(parent);</span><br><span class="line">    <span class="keyword">var</span> allBox = getByClass(allParent,box);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">parent,clsName</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> boxArr = [];</span><br><span class="line">    allElements = parent.getElementsByTagName(<span class="string">'*'</span>)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>;i&lt;allElements.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(allElements[i].className===clsName)&#123;</span><br><span class="line">            boxArr.push(allElements[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> boxArr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>計算頁面顯示的列數，是利用頁面寬度除以圖片區塊的寬度。先使用 <code>offsetWidth</code>取得其中單一圖片區塊的寬度即可，再取得瀏覽器頁面寬度並相除，就會取得呈現載每一列的圖片數量。這裡也要使用每一張圖片的寬度乘以每一列呈現數量，獲得最外層父元素的寬度。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">waterfall</span>(<span class="params">parent, box</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> allBoxW = allBox[<span class="number">0</span>].offsetWidth;</span><br><span class="line">  <span class="keyword">var</span> col = <span class="built_in">Math</span>.floor(<span class="built_in">document</span>.documentElement.clientWidth / allBoxW);</span><br><span class="line">  allParent.style.cssText = <span class="string">"width:"</span> + allBoxW * col + <span class="string">"px;margin:0 auto"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="瀑布流的圖片排序"><a href="#瀑布流的圖片排序" class="headerlink" title="瀑布流的圖片排序"></a>瀑布流的圖片排序</h1><p>接下來要依序使圖片出現在另一張圖片的底部，先取得第一行裡行高最小的圖片，使用 apply()，改變 this 的指向，找出 heightArr 中最矮的圖片，讓第二列從這張圖片開始排列。同時也要取得這張最矮圖片的索引位置。最後因為加入圖片之後，最小高度的圖片不是原來那張了，是原來圖片與新增圖片的高度，這樣才不會一直新增在同一張底下。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">waterfall</span>(<span class="params">parent, box</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> heightArr[];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i =<span class="number">0</span>;i&lt;allBox.length;i++)&#123;</span><br><span class="line">      <span class="keyword">if</span>(i&lt;col)&#123;</span><br><span class="line">          heightArr.push(allBox[i].offsetHeight);</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          <span class="keyword">var</span> minHeight=<span class="built_in">Math</span>.min.apply(<span class="literal">null</span>,heightArr);</span><br><span class="line">          <span class="keyword">var</span> index = getMinHeightIndex(heightArr,minHeight);</span><br><span class="line">          allBox[i].style.position = <span class="string">"absolute"</span>;</span><br><span class="line">          allBox[i].style.top=minHeight+<span class="string">"px"</span>;</span><br><span class="line">          allBox[i].style.left=allBox[index].offsetLeft+<span class="string">"px"</span>;</span><br><span class="line">          heightArr[index]+=allBox[i].offsetHeight;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMinHeightIndex</span>(<span class="params">arr,val</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> arr)&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[i]===val)&#123;</span><br><span class="line">            <span class="keyword">return</span> i;        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="瀑布流的圖片加載"><a href="#瀑布流的圖片加載" class="headerlink" title="瀑布流的圖片加載"></a>瀑布流的圖片加載</h1><p>最後一個是實現無限圖片加載，當滾動側邊的時候加載圖片。這裡要檢測是否具備滾動加載數據的條件。首先要取得最後一個圖片區塊頂部與頁面頂部的距離加上該圖片一半的高度(a)。也取得已經滾動出頁面外的距離加銀幕高度(b)。如果 a&gt;b，則具備加載數據的條件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkScrollSilde</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> allParent = <span class="built_in">document</span>.getElementById(<span class="string">"main"</span>);</span><br><span class="line">  <span class="keyword">var</span> allBox = getByClass(allParent, <span class="string">"Box"</span>);</span><br><span class="line">  <span class="keyword">var</span> lastBoxHeight =</span><br><span class="line">    allBox[allBox.length - <span class="number">1</span>].offsetTop +</span><br><span class="line">    <span class="built_in">Math</span>.floor(allBox[allBox.length - <span class="number">1</span>].offsetHeight / <span class="number">2</span>);</span><br><span class="line">  <span class="keyword">var</span> scrollTop =</span><br><span class="line">    <span class="built_in">document</span>.body.scrollTop || <span class="built_in">document</span>.documentElement.clientHeight;</span><br><span class="line">  <span class="keyword">return</span> lastBoxHeight &lt; scrollTop + height ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最後將數據渲染到頁面尾端</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  waterfall(<span class="string">"main"</span>, <span class="string">"box"</span>);</span><br><span class="line">  <span class="keyword">var</span> dataInt = &#123;</span><br><span class="line">    data: [</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"1.jpg"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"2.jpg"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"3.jpg"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"4.jpg"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"5.jpg"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"6.jpg"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"7.jpg"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"8.jpg"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"9.jpg"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"10.jpg"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"11.jpg"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"12.jpg"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"13.jpg"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"14.jpg"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"15.jpg"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"16.jpg"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"17.jpg"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"18.jpg"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"19.jpg"</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">src</span>: <span class="string">"20.jpg"</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="built_in">window</span>.onscroll = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (checkScrollSlide) &#123;</span><br><span class="line">      <span class="comment">//把數據渲染到頁面尾端</span></span><br><span class="line">      <span class="keyword">var</span> allParent = <span class="built_in">document</span>.getElementById(<span class="string">"main"</span>);</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; dataInt.data.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> allBox = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">        allBox.className = <span class="string">"box"</span>;</span><br><span class="line">        allParent.appendChild(allBox);</span><br><span class="line">        <span class="keyword">var</span> allPic = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">        allPic.className = <span class="string">"pic"</span>;</span><br><span class="line">        allBox.appendChild(allPic);</span><br><span class="line">        <span class="keyword">var</span> allImg = <span class="built_in">document</span>.createElement(<span class="string">"img"</span>);</span><br><span class="line">        allImg.src = <span class="string">"img/"</span> + dataInt.data[i].src;</span><br><span class="line">        allPic.appendChild(allImg);</span><br><span class="line">      &#125;</span><br><span class="line">      waterfall(<span class="string">"main"</span>, <span class="string">"box"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    checkScrollSlide();</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: '',
+  alipayImage: ''
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong></a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/12/04/2019-12-04/" target="_blank" title="JavaScript 練習 - 瀑布流相簿">http://yoursite.com/2019/12/04/2019-12-04/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/12/02/2019-12-01/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript 練習 - 縮圖預覽 Silder</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo"><span class="nav-number">1.</span> <span class="nav-text">Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-介紹"><span class="nav-number">2.</span> <span class="nav-text">Introduction 介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#功能"><span class="nav-number">3.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML、CSS-結構"><span class="nav-number">4.</span> <span class="nav-text">HTML、CSS 結構</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#瀑布流的圖片定位"><span class="nav-number">5.</span> <span class="nav-text">瀑布流的圖片定位</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#瀑布流的圖片排序"><span class="nav-number">6.</span> <span class="nav-text">瀑布流的圖片排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#瀑布流的圖片加載"><span class="nav-number">7.</span> <span class="nav-text">瀑布流的圖片加載</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 CYC&#39;S BLOG All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            CYC&#39;S BLOG
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 CYC&#39;S BLOG All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
