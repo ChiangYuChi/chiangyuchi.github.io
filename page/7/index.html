@@ -12,7 +12,7 @@
   <meta name="description" content="透過「學習」，才能理解無華且怪貌的石塊中，隱藏著抵抗侵蝕的結晶，而那些真正了解礦物的人，才能看透，而珍貴的結晶也只對他們顯露。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CYC&#39;S BLOG">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/page/7/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
 <meta property="og:description" content="透過「學習」，才能理解無華且怪貌的石塊中，隱藏著抵抗侵蝕的結晶，而那些真正了解礦物的人，才能看透，而珍貴的結晶也只對他們顯露。">
 <meta property="og:locale" content="en.yml">
@@ -214,7 +214,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-2019-12-07"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-2019-04-11"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -222,7 +222,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/12/07/2019-12-07/">Canvas (3) 圍棋落子</a>
+      <a class="article-title" href="/2019/04/10/2019-04-11/">JavaScript Weird Part (3) - 全域環境與全域物件</a>
     </h1>
   
 
@@ -230,8 +230,8 @@
     
     <div class="article-meta">
       
-	<a href="/2019/12/07/2019-12-07/" class="article-date">
-	  <time datetime="2019-12-06T16:00:00.000Z" itemprop="datePublished">2019-12-07</time>
+	<a href="/2019/04/10/2019-04-11/" class="article-date">
+	  <time datetime="2019-04-09T16:00:00.000Z" itemprop="datePublished">2019-04-10</time>
 	</a>
 
       
@@ -242,11 +242,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          綁定一個 onclick 事件，並且取得棋子在棋盤的索引位置。因為所有的棋子都是落在交叉點，所以點擊事件裡面的參數要傳入的變數要取得的是相對於左上角開始的 x 軸及 y 軸的座標 。
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051var canvas = document.getElementById("canvas");canvas.width = ...
+          Javascript 程式永遠都是在執行環境中運作，也就是透過解譯器 - 一個已經寫好的程式  - 驗證和執行你的程式碼。執行環境將正在執行的程式碼包裹在其中管理。
+所以 JavaScript 的程式碼開始被運作的最初基礎，是執行環境的建立和執行。和其他被執行的程式碼不同，基礎執行環境是全域執行環境。全域是指可以在任何地方取用他。
+即便一個 Javascript 檔案裡還沒有寫入任何程式碼、空的，但只要一旦載入，語法解析器開始運作，雖然發現並無任何東西可以解析，但是因為已經開始執行 Jav...
         </p>
         <p class="article-more-link">
-          <a href="/2019/12/07/2019-12-07/#more">Read More</a>
+          <a href="/2019/04/10/2019-04-11/#more">Read More</a>
         </p>
       
     </div>
@@ -265,7 +266,7 @@
 
 
   
-    <article id="post-2019-12-06"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-2019-04-10"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -273,7 +274,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/12/06/2019-12-06/">Canvas (2) 繪製一個棋盤</a>
+      <a class="article-title" href="/2019/04/10/2019-04-10/">JavaScript Weird Part (2) - 名稱/值配對與物件</a>
     </h1>
   
 
@@ -281,8 +282,8 @@
     
     <div class="article-meta">
       
-	<a href="/2019/12/06/2019-12-06/" class="article-date">
-	  <time datetime="2019-12-05T16:00:00.000Z" itemprop="datePublished">2019-12-06</time>
+	<a href="/2019/04/10/2019-04-10/" class="article-date">
+	  <time datetime="2019-04-09T16:00:00.000Z" itemprop="datePublished">2019-04-10</time>
 	</a>
 
       
@@ -293,11 +294,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          接下來嘗試繪製一個棋盤，共有 15 個交叉點，14 個間隔，兩邊留白 15px。以橫線的邏輯來解釋，留白 15px，每個間隔 30px,位置從 15px 到 435px。
-12345678910111213141516window.onload = function() &#123;  var canvas = document.getElementById("canvas");  canvas.width = 1024;  canvas.height = 768;  var cxt = ...
+          要理解 Javascript 當中非常重要的「物件」(Object)，首先要釐清名稱/值的配對。
+一個執行環境底下，任何一段正在執行的程式碼，只會有一個單獨的名稱，不會有另一個相同的名稱，一個名稱只能定義一個值。但是這個值，還可以是另一個名稱/值的配對。
+Javascript 最簡單的物件定義：物件就是名稱/值配對的組合。總歸而言，一個名稱只會配對一個值。
+例如：
+12345678Address:&#123;    Street:'Main',    Number: 100,    Apa...
         </p>
         <p class="article-more-link">
-          <a href="/2019/12/06/2019-12-06/#more">Read More</a>
+          <a href="/2019/04/10/2019-04-10/#more">Read More</a>
         </p>
       
     </div>
@@ -316,7 +320,7 @@
 
 
   
-    <article id="post-2019-12-05"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-2019-04-01"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -324,7 +328,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/12/05/2019-12-05/">Canvas (1) 繪製圓形、三角形、直線</a>
+      <a class="article-title" href="/2019/04/01/2019-04-01/">JavaScript Weird Part (1) - 語法解析器、執行環境、詞彙環境</a>
     </h1>
   
 
@@ -332,8 +336,8 @@
     
     <div class="article-meta">
       
-	<a href="/2019/12/05/2019-12-05/" class="article-date">
-	  <time datetime="2019-12-04T16:00:00.000Z" itemprop="datePublished">2019-12-05</time>
+	<a href="/2019/04/01/2019-04-01/" class="article-date">
+	  <time datetime="2019-03-31T16:00:00.000Z" itemprop="datePublished">2019-04-01</time>
 	</a>
 
       
@@ -344,428 +348,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          Canvas 元素一個基本的 canvas 元素看起來類似 img ，但是沒有 src 跟 alt 屬性，而且 元素必須要有結束標籤。只有 width 和 height兩個屬性，如果沒有指定，預設值是寬 300px 高 150px，但也可以透過 CSS 設定。沒有套用樣式規定時，會被初始成全透明。
-1&lt;canvas id="canvas" width="150" height="150"&gt;&lt;/canvas&gt;
+          JavaScript 的運作原理，包含三項最基本的觀念：
 
-要在 canvas 上進行繪製渲染的初始化，只要 2 個...
+語法解析器 (Syntax Parsers)
+執行環境 (Execution Contexts)
+詞彙環境 (Lexical Environments)
+
+語法解析器語法解析器是什麼？如果 JavaScript 的程式碼使用有效的語法，就可被讀取且執行。但這不是程式碼直接告訴電腦怎麼執行，而是透過另一個程式「語法解析器」，把我們寫的 JavaScript 程式碼，逐字解讀成電腦可以理解的東西，並且判定這些語法的有效性及正確性，並且...
         </p>
         <p class="article-more-link">
-          <a href="/2019/12/05/2019-12-05/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-12-04"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/12/04/2019-12-04/">JavaScript 練習 - 瀑布流相簿</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/12/04/2019-12-04/" class="article-date">
-	  <time datetime="2019-12-03T16:00:00.000Z" itemprop="datePublished">2019-12-04</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          DemoJavaScript 練習 - 瀑布流相簿 - Demo
-Introduction 介紹瀑布流是一種常見的版面配置，在滑鼠滾輪向下滾動時，頁面便會不斷的加載，讓新的內容產生出來並附加在網頁的最底端。這種特別的互動方式可以讓使用者在瀏覽內容時，不必再像以往一樣一直不斷的在網頁上點擊下一頁，可以讓使用者瀏覽起來更為輕鬆。像是 Pinterest，就是使用這種瀏覽方式。這個練習就是實現一個瀑布流相簿。
-
-
-瀑布流的圖片定位
-瀑布流的圖片排序
-瀑布流的圖片加載功能
-
-功能HTML、CSS ...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/12/04/2019-12-04/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-12-01"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/12/02/2019-12-01/">JavaScript 練習 - 縮圖預覽 Silder</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/12/02/2019-12-01/" class="article-date">
-	  <time datetime="2019-12-01T16:00:00.000Z" itemprop="datePublished">2019-12-02</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          DemoJavaScript 練習 - 縮圖預覽 Silder - Demo
-Introduction 介紹這是一個線上課程案例，有些想添加的功能還沒進行，先把目前完成的部份整理出來
-
-
-動態載入圖片、文字
-按鍵可預覽縮圖
-按鍵可呈現縮圖倒影
-
-功能設定 HTML 結構這個 Silder 分為圖片區塊與按鍵區塊。圖片區塊內有文字標題及圖片，每個圖片對應一個按鍵。這個 Silder 的作法是動態載入圖片，所以只要在 HTML 結構放入要更換的模版。模版結構裡花括號都是要在切換圖片時要動態替換...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/12/02/2019-12-01/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-08-26"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/08/26/2019-08-26/">Vue 練習 - Todo list 待辦事項清單</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/08/26/2019-08-26/" class="article-date">
-	  <time datetime="2019-08-25T16:00:00.000Z" itemprop="datePublished">2019-08-26</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          DemoVue 練習 - Todo List 待辦事項清單 - Demo
-Introduction 介紹以 Vue 實作代辦事項清單的新增、刪除、修改。
-
-
-可動態切換 ClassName 與 style
-運用指令與修飾符
-表單資料綁定
-動態新增、刪除、修改
-
-建立待辦事項的列表有一個 input 欄位，現在要在輸入後把文字加入代辦事項列表，首先設定一個代辦事項列表的基礎結構，包括：
-鍵入新增項目的輸入框、
-點擊後把輸入項目加入 vue 原始碼的按鈕 （或鍵盤動作）
-以陣列儲存資料內容的區...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/08/26/2019-08-26/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-08-22"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/08/22/2019-08-22/">JavaScript 練習 - 番茄鐘</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/08/22/2019-08-22/" class="article-date">
-	  <time datetime="2019-08-21T16:00:00.000Z" itemprop="datePublished">2019-08-22</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          DemoJavaScript 練習 - 番茄鐘 - Demo
-Introduction 介紹注意力愈來愈稀缺，而這時候最適合的方法就是「番茄鐘工作法」。番茄鐘工作法是一種能有效大幅提升工作效率的時間管理方法，透過時間的分段和階段性的任務，讓你清楚知道自己的時間花費在哪裡。
-
-
-一個番茄鐘包含工作 25 分鐘、休息 5 分鐘
-可開始或暫停倒數，但同時只顯示其中一個按鈕
-每次重置就是從工作時段開始，因為重新開始休息時間不合番茄工作法的邏輯
-可客製化時間長度
-完成或終止都會顯示該時段任務所達時間...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/08/22/2019-08-22/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-08-21"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/08/21/2019-08-21/">JavaScript 練習 -  串接環保署空氣品質開放資料</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/08/21/2019-08-21/" class="article-date">
-	  <time datetime="2019-08-20T16:00:00.000Z" itemprop="datePublished">2019-08-21</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          DemoJavaScript 練習 - 取得環保署開放數據資料 - Demo
-Introduction 介紹串接環保署的空氣數據開放資料，這個項目將達到以下目標
-
-
-運用 fecth 取得遠端資料
-載入資料完成後，關閉 loading ring
-將自定義色彩搭配遠端數據
-
-功能首先設定 HTML 結構，並且設定相應變數：
-12345678ar loading = document.querySelector('.loading')var select = document.getEleme...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/08/21/2019-08-21/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-08-20"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/08/20/2019-08-20/">jQuery 練習 - 串接新北市 Youbike 開放資料</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/08/20/2019-08-20/" class="article-date">
-	  <time datetime="2019-08-19T16:00:00.000Z" itemprop="datePublished">2019-08-20</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          DemojQuery 練習 - 取得新北市 Youbike 開放數據資料 - Demo
-Introduction 介紹串接新北市政府提供的 Youbike 位置資訊，這個項目將達到以下目標
-
-
-利用 Ajax 取得數據資料
-解決跨來源資源共用（Cross-Origin Resource Sharing）問題
-運用 jQuery
-載入畫面時呈現全部資料
-可過濾點擊地區
-
-#功能
-基礎的 HTML 結構先設定選單，由於選擇區域的顯示數量不一定，所以我們先單純設定選單及待會要放置的項目類別即可
-...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/08/20/2019-08-20/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-08-19"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/08/19/2019-08-19/">jQuery 練習 - 自動縮放 Silder</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/08/19/2019-08-19/" class="article-date">
-	  <time datetime="2019-08-18T16:00:00.000Z" itemprop="datePublished">2019-08-19</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          DemojQuery 練習 - jQuery 自動縮放 Silder - Demo
-Introduction 介紹對 jQuery 有初步認識後，從網上找了 Silder 專案來練習。
-
-可以前後切換圖片
-
-切換拾畫面會變形，並且在固定時間內縮放
-
-功能基礎的 HTML 架構有圖片區塊與前後切換按鍵
-12345678910&lt;div id="main"&gt;       &lt;div id="silder"&gt;           &lt;img src="./img/bg1....
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/08/19/2019-08-19/#more">Read More</a>
+          <a href="/2019/04/01/2019-04-01/#more">Read More</a>
         </p>
       
     </div>
@@ -788,7 +380,7 @@ Introduction 介紹對 jQuery 有初步認識後，從網上找了 Silder 專案
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span>
   </nav>
 
 </section>

@@ -214,6 +214,166 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-2019-06-03"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/06/03/2019-06-03/">JavaScript Weird Part (37)- IIFEs 與安全程式碼</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/06/03/2019-06-03/" class="article-date">
+	  <time datetime="2019-06-02T16:00:00.000Z" itemprop="datePublished">2019-06-03</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          IIFEs 大量使用在資源庫及框架中，用處非常廣泛，以下是一個 IIFE 的例子：
+12345(function(name) &#123;  var greeting = "Hello";  console.log(greeting + "" + name);&#125;)("John");// Hello John
+
+回到執行堆思考底層的運作方式，程式第一次載入，會建立全域執行環境，但是裡面沒有東西，因為上面的例子沒有變數也沒有函數陳述句被提昇。但是當解析器執行到整個 IIFE當它到了函...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/06/03/2019-06-03/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2019-06-02"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/06/02/2019-06-02/">JavaScript Weird Part (33)- 立即呼叫的函數表示式 (IIFEs)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/06/02/2019-06-02/" class="article-date">
+	  <time datetime="2019-06-01T16:00:00.000Z" itemprop="datePublished">2019-06-02</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          立即呼叫的函數表示式（immediately invoked function expression, IIFEs) 是一個常用的簡潔觀念。
+先前我們已經知道函數陳述句和函數表示式的差異
+函數陳述句JavaScript 即便把函數放到記憶體中還是不會執行任何東西，呼叫它才會執行。
+12345function greet(name) &#123;  console.log("Hello" + name);&#125;greet();
+
+函數表示式123var greetFunc = func...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/06/02/2019-06-02/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2019-05-17"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/05/17/2019-05-17/">JavaScript Weird Part (32) - 框架小叮嚀：重載函數</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/05/17/2019-05-17/" class="article-date">
+	  <time datetime="2019-05-16T16:00:00.000Z" itemprop="datePublished">2019-05-17</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          這一節是關於框架或資源庫的應用。首先要了解的是為什麼 JavaScript 去掉一些其他程式語言的特性，這些特性又為何不重要。
+重載函數 (Function overloading)像是 Java、C++ 等程式語言都有重載函數的概念，這表示我讓同一個函數可以擁有不同數量的參數。但是這在 JavaScript 行不通，因為函數就是物件。儘管 JavaScript 不具備這個功能，但是我們也可以用 JavaScript 的一級函式概念處理
+好比說「我不想要每次一直傳入 language 參數...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/05/17/2019-05-17/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2019-05-16"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -592,169 +752,11 @@
 
 
   
-    <article id="post-2019-05-09"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/09/2019-05-09/">JavaScript Weird Part (25) - JSON 與物件實體</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/05/09/2019-05-09/" class="article-date">
-	  <time datetime="2019-05-08T16:00:00.000Z" itemprop="datePublished">2019-05-09</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          這一節要繼續學習物件實體，還有一些使用 JSON 的時候經常遇到的誤解。JSON (avaScript 物件表示法；JavaScript Object Notation) ，受到 JavaScript 物件實體語法啟發，看起來和物件實體語法非常類似，所有常常被誤認為是同一個東西，所以遇到同樣的錯誤。
-JSON (avaScript 物件表示法；JavaScript Object Notation)如果我建立一個物件實體，假設它有很多屬性，這在 JavaScript 是完全有效的
-1234v...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/05/09/2019-05-09/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-05-08"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/08/2019-05-08/">JavaScript Weird Part (24) - 框架小叮嚀：偽裝命名空間</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/05/08/2019-05-08/" class="article-date">
-	  <time datetime="2019-05-07T16:00:00.000Z" itemprop="datePublished">2019-05-08</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          這一節是關於打開知名的框架原始碼經常會看到的東西。前面討論的那些主題，像是運算子、物件實體語法後，現在要學習偽裝命名空間 （faking namespaces)。
-變數之間的衝突在現代的程式語言，命名空間是變數和函數的容器，只是一個包裝物、一個容器。通常這是用來分開那些有著相同名稱的函數和變數。
-在 JavaScript 裡，因為物件的本質，不需要命名空間這個功能，所以並沒有命名空間，但可以假裝。
-1234var greet =&apos;Hello&apos;;var greet =&a...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/05/08/2019-05-08/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-05-07"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/05/07/2019-05-07/">JavaScript Weird Part (23) - 物件與實體</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/05/07/2019-05-07/" class="article-date">
-	  <time datetime="2019-05-06T16:00:00.000Z" itemprop="datePublished">2019-05-07</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          建立物件的捷徑在 JavaScript 裡面，完成一件事情還有許多方式，還記得宣告 new object 並非建立物件的最好方式，有一種建立物件的捷徑是利用大括號 {} 的物件實體語法（object literal syntax)，得到的結果會和 new object 一樣。
-12var person = &#123;&#125;;console.log(person);
-
-如果我列印出 person，會看到一個空物件，就像 new object 一樣，這是比較快的作法。但注意這不是運算子...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/05/07/2019-05-07/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
   </nav>
 
 </section>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>canvas (1) 繪製圓形、三角形、直線 | CYC&#39;S BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="JavaScriptHTML">
+  
+  
+  
+  
+  <meta name="description" content="Canvas 元素一個基本的 canvas 元素看起來類似 img ，但是沒有 src 跟 alt 屬性，而且 元素必須要有結束標籤。只有 width 和 height兩個屬性，如果沒有指定，預設值是寬 300px 高 150px，但也可以透過 CSS 設定。沒有套用樣式規定時，會被初始成全透明。 1&amp;lt;canvas id=&quot;canvas&quot; width=&quot;150&quot; height=&quot;150&quot;&amp;g">
+<meta name="keywords" content="JavaScript,HTML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Canvas (1) 繪製圓形、三角形、直線">
+<meta property="og:url" content="http://yoursite.com/2019/12/05/2019-12-05/index.html">
+<meta property="og:site_name" content="CYC&#39;S BLOG">
+<meta property="og:description" content="Canvas 元素一個基本的 canvas 元素看起來類似 img ，但是沒有 src 跟 alt 屬性，而且 元素必須要有結束標籤。只有 width 和 height兩個屬性，如果沒有指定，預設值是寬 300px 高 150px，但也可以透過 CSS 設定。沒有套用樣式規定時，會被初始成全透明。 1&amp;lt;canvas id=&quot;canvas&quot; width=&quot;150&quot; height=&quot;150&quot;&amp;g">
+<meta property="og:locale" content="en.yml">
+<meta property="og:image" content="https://i.imgur.com/4cAEokJ.png">
+<meta property="og:image" content="https://i.imgur.com/pD4Wzg2.png">
+<meta property="og:image" content="https://i.imgur.com/7HkHBF6.png">
+<meta property="og:image" content="https://i.imgur.com/Hz8uIc0.png">
+<meta property="og:image" content="https://i.imgur.com/jub2mMG.png">
+<meta property="og:image" content="https://i.imgur.com/HhZAOAF.png">
+<meta property="og:updated_time" content="2019-12-06T12:53:11.896Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Canvas (1) 繪製圓形、三角形、直線">
+<meta name="twitter:description" content="Canvas 元素一個基本的 canvas 元素看起來類似 img ，但是沒有 src 跟 alt 屬性，而且 元素必須要有結束標籤。只有 width 和 height兩個屬性，如果沒有指定，預設值是寬 300px 高 150px，但也可以透過 CSS 設定。沒有套用樣式規定時，會被初始成全透明。 1&amp;lt;canvas id=&quot;canvas&quot; width=&quot;150&quot; height=&quot;150&quot;&amp;g">
+<meta name="twitter:image" content="https://i.imgur.com/4cAEokJ.png">
+  
+    <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2019-12-05" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Canvas (1) 繪製圓形、三角形、直線
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/12/05/2019-12-05/" class="article-date">
+	  <time datetime="2019-12-04T16:00:00.000Z" itemprop="datePublished">2019-12-05</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Canvas-元素"><a href="#Canvas-元素" class="headerlink" title="Canvas 元素"></a>Canvas 元素</h1><p>一個基本的 <code>canvas</code> 元素看起來類似 <code>img</code> ，但是沒有 <code>src</code> 跟 <code>alt</code> 屬性，而且 <canvas>元素必須要有</canvas>結束標籤。只有 <code>width</code> 和 <code>height</code>兩個屬性，如果沒有指定，預設值是寬 300px 高 150px，但也可以透過 <code>CSS</code> 設定。沒有套用樣式規定時，<canvas>會被初始成全透明。</canvas></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span> <span class="attr">width</span>=<span class="string">"150"</span> <span class="attr">height</span>=<span class="string">"150"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>要在 <code>canvas</code> 上進行繪製渲染的初始化，只要 2 個步驟，首先要取得 <code>canvas</code> 元素，再使用 <code>getContext()</code> 取得渲染環境，<code>getContext()</code>輸入參數只有渲染環境類型一項。除了在 <code>HTML</code> 標籤或 <code>CSS</code> 裡設定寬高，也可以在程式腳本裡設定。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line">canvas.width = <span class="number">1024</span>;</span><br><span class="line">canvas.height = <span class="number">1024</span>;</span><br><span class="line"><span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="簡單的兼容性檢查"><a href="#簡單的兼容性檢查" class="headerlink" title="簡單的兼容性檢查"></a>簡單的兼容性檢查</h1><p>藉由檢查 <code>getContext()</code>方法是否存在，來測試瀏覽器兼容。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (canvas.getContext) &#123;</span><br><span class="line">  <span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  alert(<span class="string">"瀏覽器不支援 Canvas，請更換瀏覽器再試"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">canvas.width = <span class="number">1024</span>;</span><br><span class="line">canvas.height = <span class="number">1024</span>;</span><br></pre></td></tr></table></figure>
+
+<h1 id="畫出直線、多邊型、七巧板"><a href="#畫出直線、多邊型、七巧板" class="headerlink" title="畫出直線、多邊型、七巧板"></a>畫出直線、多邊型、七巧板</h1><p>上面的上下文環境裡面已經得到一個 1024 x 1024 像素的畫布。要在上面繪製圖形，必須使用座標空間。在座標空間上繪圖，一個網格等於 1px，網格的座標原點（0,0) 從左上角開始。像是下圖，藍色方塊的位置為從左往右推 x pixels、從上往下推 y pixels (亦即座標 (x, y) )，所有元素定位都相對於此左上角圓點。</p>
+<p><img src="https://i.imgur.com/4cAEokJ.png" alt></p>
+<p>接下來要練習繪製直線，底下是畫出一條直線的方式，以白話來說就是把筆尖狀態先設定落在座標 (100, 100) 的啟始點，並且移動到座標 (300, 300) 的位置，並調用 <code>stroke()</code> 方法繪製。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//狀態設置</span></span><br><span class="line">context.moveTo(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">context.lineTo(<span class="number">300</span>, <span class="number">300</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//線條寬度</span></span><br><span class="line">ctx.lineWidth = <span class="number">5</span>;</span><br><span class="line"><span class="comment">//線條樣式，顏色代碼必須設置為字串</span></span><br><span class="line">ctx.strokeStyle = <span class="string">"red"</span>;</span><br><span class="line"><span class="comment">//繪圖指令</span></span><br><span class="line">context.stroke();</span><br></pre></td></tr></table></figure>
+
+<p>描繪出一個直角三角形</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ctx.moveTo(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">ctx.lineTo(<span class="number">400</span>, <span class="number">400</span>);</span><br><span class="line">ctx.lineTo(<span class="number">100</span>, <span class="number">400</span>);</span><br><span class="line">ctx.lineTo(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">context.stroke();</span><br></pre></td></tr></table></figure>
+
+<p>要畫出一個填滿顏色的圖案，要改用 <code>fill()</code> 填滿路徑內容產生圖案</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ctx.moveTo(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">ctx.lineTo(<span class="number">400</span>, <span class="number">400</span>);</span><br><span class="line">ctx.lineTo(<span class="number">100</span>, <span class="number">400</span>);</span><br><span class="line">ctx.lineTo(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">context.fill();</span><br></pre></td></tr></table></figure>
+
+<p>如果要用多個路徑繪製 2 組不同的圖形，因為調用 <code>stroke()</code> 的特性，一開始要先產生路徑，然後用繪圖指令畫出路徑，然後再結束路徑。<br>先看看沒有使用產生與結束路徑方法的結果。 底下本來要畫出 2 組圖形，結果沒有個別指定產生與結束路徑，所以第二個 <code>stroke()</code> 的運作改變了第一個 <code>stroke()</code> 的繪製結果。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//畫出三角形</span></span><br><span class="line">ctx.moveTo(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">ctx.lineTo(<span class="number">400</span>, <span class="number">400</span>);</span><br><span class="line">ctx.lineTo(<span class="number">100</span>, <span class="number">400</span>);</span><br><span class="line">ctx.lineTo(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">ctx.lineWidth = <span class="number">5</span>;</span><br><span class="line">ctx.strokeStyle = <span class="string">"red"</span>;</span><br><span class="line">ctx.stroke();</span><br><span class="line"></span><br><span class="line"><span class="comment">//畫出直線</span></span><br><span class="line">ctx.moveTo(<span class="number">150</span>, <span class="number">150</span>);</span><br><span class="line">ctx.lineTo(<span class="number">400</span>, <span class="number">300</span>);</span><br><span class="line">ctx.strokeStyle = <span class="string">"black"</span>;</span><br><span class="line">ctx.stroke();</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/pD4Wzg2.png" alt></p>
+<p>正確的繪製方法像這樣，要產生路徑並關閉路徑。因為 canvas 繪製圖形使用的指定涉及狀態的改變。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//畫出三角形</span></span><br><span class="line">ctx.beginPath(); <span class="comment">//產生一個新路徑，產生後再使用繪圖指令來設定路徑。</span></span><br><span class="line">ctx.moveTo(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">ctx.lineTo(<span class="number">400</span>, <span class="number">400</span>);</span><br><span class="line">ctx.lineTo(<span class="number">100</span>, <span class="number">400</span>);</span><br><span class="line">ctx.lineTo(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">ctx.closePath(); <span class="comment">//閉合路徑好讓新的繪圖指令來設定路徑。</span></span><br><span class="line"></span><br><span class="line">ctx.lineWidth = <span class="number">5</span>;</span><br><span class="line">ctx.strokeStyle = <span class="string">"red"</span>;</span><br><span class="line">ctx.stroke();</span><br></pre></td></tr></table></figure>
+
+<p>接下來嘗試繪製出一個七巧板，先設定一個陣列，裡面有七個物件，物件內各包含區塊的幾個頂點座標與顏色屬性。<br>再用迴圈遍歷這個陣列，每遍歷一次就調用一個 <code>draw()</code> 函數， 函數傳入七巧板中的 1 塊，與繪圖環境上下文這兩個參數。接下來依序開啟路徑、把起始座標移動到七巧板的頂點的第一個座標位置，再使用迴圈順次使用 <code>lineTo()</code> 方法繪製後續的座標。</p>
+<p><img src="https://i.imgur.com/7HkHBF6.png" alt></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tangram = [</span><br><span class="line">  &#123;</span><br><span class="line">    p: [</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">0</span>,</span><br><span class="line">        y: <span class="number">0</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">800</span>,</span><br><span class="line">        y: <span class="number">0</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">400</span>,</span><br><span class="line">        y: <span class="number">400</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    color: <span class="string">"#caff67"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    p: [</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">0</span>,</span><br><span class="line">        y: <span class="number">0</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">400</span>,</span><br><span class="line">        y: <span class="number">400</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">400</span>,</span><br><span class="line">        y: <span class="number">800</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    color: <span class="string">"#67becf"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    p: [</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">800</span>,</span><br><span class="line">        y: <span class="number">0</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">800</span>,</span><br><span class="line">        y: <span class="number">400</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">600</span>,</span><br><span class="line">        y: <span class="number">600</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">600</span>,</span><br><span class="line">        y: <span class="number">200</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    color: <span class="string">"#ef3d61"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    p: [</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">600</span>,</span><br><span class="line">        y: <span class="number">200</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">600</span>,</span><br><span class="line">        y: <span class="number">600</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">400</span>,</span><br><span class="line">        y: <span class="number">400</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    color: <span class="string">"#f9f51a"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    p: [</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">400</span>,</span><br><span class="line">        y: <span class="number">400</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">600</span>,</span><br><span class="line">        y: <span class="number">600</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">400</span>,</span><br><span class="line">        y: <span class="number">800</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">200</span>,</span><br><span class="line">        y: <span class="number">600</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    color: <span class="string">"#a594c0"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    p: [</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">200</span>,</span><br><span class="line">        y: <span class="number">600</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">400</span>,</span><br><span class="line">        y: <span class="number">800</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">000</span>,</span><br><span class="line">        y: <span class="number">800</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    color: <span class="string">"#fa8ecc"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    p: [</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">800</span>,</span><br><span class="line">        y: <span class="number">400</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">800</span>,</span><br><span class="line">        y: <span class="number">800</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        x: <span class="number">400</span>,</span><br><span class="line">        y: <span class="number">800</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    color: <span class="string">"#f6ca29"</span></span><br><span class="line">  &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line">  canvas.width = <span class="number">800</span>;</span><br><span class="line">  canvas.height = <span class="number">800</span>;</span><br><span class="line">  <span class="keyword">var</span> cxt = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.tangram.length; i++) &#123;</span><br><span class="line">    draw(tangram[i], cxt);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params">piece, cxt</span>) </span>&#123;</span><br><span class="line">  cxt.beginPath();</span><br><span class="line">  cxt.moveTo(piece.p[<span class="number">0</span>].x, piece.p[<span class="number">0</span>].y);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; piece.p.length; i++) &#123;</span><br><span class="line">    cxt.lineTo(piece.p[i].x, piece.p[i].y);</span><br><span class="line">  &#125;</span><br><span class="line">  cxt.closePath();</span><br><span class="line">  cxt.fillStyle = piece.color;</span><br><span class="line">  cxt.fill();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="畫出圓形和弧形"><a href="#畫出圓形和弧形" class="headerlink" title="畫出圓形和弧形"></a>畫出圓形和弧形</h1><p><code>arc()</code>方法可以畫出一個弧形，接受五個參數: x, y 代表圓心座標點，radius 代表半徑，startAngle, endAngle 分別代表沿著弧形曲線上的起始點與結束點的弧度，弧度測量是相對於 x 軸，anticlockwise 為 true 代表逆時針作圖、false 代表順時針作圖。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arc(x, y, radius, startAngle, endAngle, anticlockwise);</span><br></pre></td></tr></table></figure>
+
+<p>繪製一個圓形的初始化座標是下圖 x 軸的右側為啟始點。<br><img src="https://i.imgur.com/Hz8uIc0.png" alt></p>
+<p>底下是從座標 (300,300) 開始，半徑 200，由圓弧啟始點畫 1.5 個 PI 的圓形</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line">  canvas.width = <span class="number">1024</span>;</span><br><span class="line">  canvas.height = <span class="number">768</span>;</span><br><span class="line">  <span class="keyword">var</span> cxt = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line">  cxt.lineWidth = <span class="number">5</span>;</span><br><span class="line">  cxt.strokeStyle = <span class="string">"black"</span>;</span><br><span class="line">  cxt.arc(<span class="number">300</span>, <span class="number">300</span>, <span class="number">200</span>, <span class="number">0</span>, <span class="number">1.5</span> * <span class="built_in">Math</span>.PI);</span><br><span class="line">  cxt.stroke();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/jub2mMG.png" alt></p>
+<p>以下依序畫出 2 組弧形，2 組的差別在有指定跟沒指定封閉路徑</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">  cxt.beginPath();</span><br><span class="line">  cxt.arc(<span class="number">50</span> + i * <span class="number">100</span>, <span class="number">60</span>, <span class="number">40</span>, <span class="number">0</span>, (<span class="number">2</span> * <span class="built_in">Math</span>.PI * (i + <span class="number">1</span>)) / <span class="number">10</span>);</span><br><span class="line">  cxt.closePath();</span><br><span class="line">  cxt.stroke();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">  cxt.beginPath();</span><br><span class="line">  cxt.arc(<span class="number">50</span> + i * <span class="number">100</span>, <span class="number">180</span>, <span class="number">40</span>, <span class="number">0</span>, (<span class="number">2</span> * <span class="built_in">Math</span>.PI * (i + <span class="number">1</span>)) / <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">  cxt.stroke();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/HhZAOAF.png" alt></p>
+<h1 id="填充顏色"><a href="#填充顏色" class="headerlink" title="填充顏色"></a>填充顏色</h1><p>要設定圖形的顏色，我們有兩個屬性能用: fillStyle 與 storkeStyle.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cxt.beginPath();</span><br><span class="line">cxt.arc(<span class="number">200</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="number">0</span>, <span class="number">2</span> * <span class="keyword">this</span>.Math.PI);</span><br><span class="line">cxt.closePath();</span><br><span class="line">cxt.fillStyle = <span class="string">"#636766"</span>; <span class="comment">//設定填滿圖形時用的顏色.</span></span><br><span class="line">cxt.fill();</span><br></pre></td></tr></table></figure>
+
+<h1 id="漸層色"><a href="#漸層色" class="headerlink" title="漸層色"></a>漸層色</h1><p>使用 <code>createRadialGradient(x1, y1, r1, x2, y2, r2)</code> 產生一個放射狀漸層物件，第一個圓圓心落在(x1, y1)、半徑為 r1，第二個圓之圓心落在(x2, y2)、半徑為 r2。</p>
+<p>用<code>gradient.addColorStop(position, color)</code>方法可以添加顏色上去。color 是顏色的字串表示，而 position 介於 0.0 到 1.0 之間，定義了該顏色在漸層中的相對位置。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gradient = cxt.createRadialGradient(<span class="number">200</span>, <span class="number">200</span>, <span class="number">50</span>, <span class="number">200</span>, <span class="number">200</span>, <span class="number">20</span>);</span><br><span class="line">gradient.addColorStop(<span class="number">0</span>, <span class="string">"#0a0a0a"</span>);</span><br><span class="line">gradient.addColorStop(<span class="number">1</span>, <span class="string">"#636766"</span>);</span><br><span class="line">cxt.fillStyle = gradient;</span><br><span class="line">cxt.fill();</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: '',
+  alipayImage: ''
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong></a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/12/05/2019-12-05/" target="_blank" title="Canvas (1) 繪製圓形、三角形、直線">http://yoursite.com/2019/12/05/2019-12-05/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/12/06/2019-12-06/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Canvas (2) 繪製一個棋盤
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/12/04/2019-12-04/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript 練習 - 瀑布流相簿</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Canvas-元素"><span class="nav-number">1.</span> <span class="nav-text">Canvas 元素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#簡單的兼容性檢查"><span class="nav-number">2.</span> <span class="nav-text">簡單的兼容性檢查</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#畫出直線、多邊型、七巧板"><span class="nav-number">3.</span> <span class="nav-text">畫出直線、多邊型、七巧板</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#畫出圓形和弧形"><span class="nav-number">4.</span> <span class="nav-text">畫出圓形和弧形</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#填充顏色"><span class="nav-number">5.</span> <span class="nav-text">填充顏色</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#漸層色"><span class="nav-number">6.</span> <span class="nav-text">漸層色</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 CYC&#39;S BLOG All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            CYC&#39;S BLOG
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 CYC&#39;S BLOG All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
