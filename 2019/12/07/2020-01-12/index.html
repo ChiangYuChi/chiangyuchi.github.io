@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>javascript 練習 - 自動輪播 | CYC&#39;S BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="JavaScriptHTML">
+  
+  
+  
+  
+  <meta name="description" content="DemoJavaScript 練習 - 自動輪播 - Demo Introduction 介紹實作一個圖片自動輪播功能   DOM 操作圖片切換 運用 setInterval() 方法達成自動播放 可暫停播放  建立初始化函式建立一個初始化函式，包含以下項目  取得所有圖片的容器 顯示第一張圖片 建立底部連結各張圖片索引的選擇鈕  取得圖片容器並顯示第一張圖片slideIndex 表示目前顯示在畫">
+<meta name="keywords" content="JavaScript,HTML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 練習 - 自動輪播">
+<meta property="og:url" content="http://yoursite.com/2019/12/07/2020-01-12/index.html">
+<meta property="og:site_name" content="CYC&#39;S BLOG">
+<meta property="og:description" content="DemoJavaScript 練習 - 自動輪播 - Demo Introduction 介紹實作一個圖片自動輪播功能   DOM 操作圖片切換 運用 setInterval() 方法達成自動播放 可暫停播放  建立初始化函式建立一個初始化函式，包含以下項目  取得所有圖片的容器 顯示第一張圖片 建立底部連結各張圖片索引的選擇鈕  取得圖片容器並顯示第一張圖片slideIndex 表示目前顯示在畫">
+<meta property="og:locale" content="en.yml">
+<meta property="og:image" content="https://i.imgur.com/gN46nKj.jpg">
+<meta property="og:updated_time" content="2020-01-12T09:41:26.162Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 練習 - 自動輪播">
+<meta name="twitter:description" content="DemoJavaScript 練習 - 自動輪播 - Demo Introduction 介紹實作一個圖片自動輪播功能   DOM 操作圖片切換 運用 setInterval() 方法達成自動播放 可暫停播放  建立初始化函式建立一個初始化函式，包含以下項目  取得所有圖片的容器 顯示第一張圖片 建立底部連結各張圖片索引的選擇鈕  取得圖片容器並顯示第一張圖片slideIndex 表示目前顯示在畫">
+<meta name="twitter:image" content="https://i.imgur.com/gN46nKj.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2020-01-12" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      JavaScript 練習 - 自動輪播
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/12/07/2020-01-12/" class="article-date">
+	  <time datetime="2019-12-06T16:00:00.000Z" itemprop="datePublished">2019-12-07</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><p>JavaScript 練習 - 自動輪播 - <a href="https://chiangyuchi.github.io/slider/" target="_blank" rel="noopener">Demo</a></p>
+<h1 id="Introduction-介紹"><a href="#Introduction-介紹" class="headerlink" title="Introduction 介紹"></a>Introduction 介紹</h1><p>實作一個圖片自動輪播功能</p>
+<p><img src="https://i.imgur.com/gN46nKj.jpg" alt></p>
+<ul>
+<li>DOM 操作圖片切換</li>
+<li>運用 setInterval() 方法達成自動播放</li>
+<li>可暫停播放</li>
+</ul>
+<h1 id="建立初始化函式"><a href="#建立初始化函式" class="headerlink" title="建立初始化函式"></a>建立初始化函式</h1><p>建立一個初始化函式，包含以下項目</p>
+<ul>
+<li>取得所有圖片的容器</li>
+<li>顯示第一張圖片</li>
+<li>建立底部連結各張圖片索引的選擇鈕</li>
+</ul>
+<h2 id="取得圖片容器並顯示第一張圖片"><a href="#取得圖片容器並顯示第一張圖片" class="headerlink" title="取得圖片容器並顯示第一張圖片"></a>取得圖片容器並顯示第一張圖片</h2><p><code>slideIndex</code> 表示目前顯示在畫面上的圖片的索引， <code>slides</code> 是所有圖片的容器，<code>dots</code> 是一個陣列，用來儲存待會要建立的選擇鈕。 我們設定 <code>slideIndex</code> 的值為 0，並讓它當做是 slides 的索引值，所以初始狀態顯示的圖片會是在 HTML 結構裡由上到下的第 1 張。</p>
+<p>建立一個迴圈，依照 <code>slides</code> 的數量建立 <code>HTML</code> 元素後，將新增的元素都添加到空陣列裡。最後把索引 0 的按鈕加上 <code>active</code> 狀態。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> slideIndex; <span class="comment">// 儲存當下顯示圖片</span></span><br><span class="line"><span class="keyword">var</span> slides; <span class="comment">//儲存所有圖片</span></span><br><span class="line"><span class="keyword">var</span> dots;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initGallery</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  slideIndex = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  slides = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"imgHolder"</span>);</span><br><span class="line">  slides[slideIndex].style.opacity = <span class="number">1</span>;</span><br><span class="line">  dots = [];</span><br><span class="line">  dotsContainer = <span class="built_in">document</span>.getElementById(<span class="string">"dotsContainer"</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; slides.length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> dot = <span class="built_in">document</span>.createElement(<span class="string">"span"</span>);</span><br><span class="line">    dot.classList.add(<span class="string">"dots"</span>);</span><br><span class="line">    dot.setAttribute(<span class="string">"onclick"</span>, <span class="string">"moveSlide("</span> + i + <span class="string">")"</span>);</span><br><span class="line">    dotsContainer.appendChild(dot);</span><br><span class="line">    dots.push(dot);</span><br><span class="line">  &#125;</span><br><span class="line">  dots[slideIndex].classList.add(<span class="string">"active"</span>);</span><br><span class="line">&#125;</span><br><span class="line">initGallery();</span><br></pre></td></tr></table></figure>
+
+<h1 id="建立切換圖片的函式"><a href="#建立切換圖片的函式" class="headerlink" title="建立切換圖片的函式"></a>建立切換圖片的函式</h1><p>建立一個切換圖片的函式</p>
+<h2 id="獲取下一張圖片的索引值"><a href="#獲取下一張圖片的索引值" class="headerlink" title="獲取下一張圖片的索引值"></a>獲取下一張圖片的索引值</h2><p>運用判斷式取得下一張圖片的索引值，並使用物件存取接下來要在 DOM 結構裡動態新增的 CSS 屬性。</p>
+<ul>
+<li>如果下一張要顯示的圖片索引值大於目前顯示的圖片，而且下一張圖片索引值大於所有圖片的總長度值。也就是說，如果總長度是 5 張圖片，第 5 張圖的下一張圖，索引值將等於 0。並利用變更物件屬性的方式，將目前圖片向左移出，將下一張圖片向左移入。</li>
+<li>如果下一張要顯示的圖片索引值小於目前要顯示的圖片，而且它的索引值小於 0 ，也就是說要切換到第一張圖片的前一張圖，這張圖的索引值就等於總長度 5 - 1。並利用變更物件屬性的方式，將目前圖片向右移出，將下一張圖片向右移入。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">moveSlide</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> moveSlideAnimClass = &#123;</span><br><span class="line">    forCurrent: <span class="string">""</span>,</span><br><span class="line">    forNext: <span class="string">""</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (n &gt; slideIndex) &#123;</span><br><span class="line">    <span class="comment">//往前</span></span><br><span class="line">    <span class="keyword">if</span> (n &gt;= slides.length) &#123;</span><br><span class="line">      <span class="comment">//6.7...=0</span></span><br><span class="line">      n = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    moveSlideAnimClass.forCurrent = <span class="string">"moveLeftCurrentSlide"</span>;</span><br><span class="line">    moveSlideAnimClass.forNext = <span class="string">"moveLeftNextSlide"</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (n &lt; slideIndex) &#123;</span><br><span class="line">    <span class="comment">// 上一張</span></span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="comment">//如果小於第一張</span></span><br><span class="line">      n = slides.length - <span class="number">1</span>; <span class="comment">//n = 5-1 [0,1,2,3,4]</span></span><br><span class="line">    &#125;</span><br><span class="line">    moveSlideAnimClass.forCurrent = <span class="string">"moveRightCurrentSlide"</span>;</span><br><span class="line">    moveSlideAnimClass.forNext = <span class="string">"moveRightNextSlide"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="操作-DOM-完成切換圖片"><a href="#操作-DOM-完成切換圖片" class="headerlink" title="操作 DOM 完成切換圖片"></a>操作 DOM 完成切換圖片</h2><p>接下來要再運用另一個判斷式，完成這個切換圖片的函式。這個判斷式的意思是：如果 n 不等於現在這張圖片的索引值，下一張圖片的索引值就是 n。 並且用迴圈取得所有容器，在切換圖片的時候，先將 <code>opacity</code> 值設為 0 隱藏圖片，並移除按鈕的<code>active</code> 狀態。最後再將上一個步驟除存在物件裡的 CSS 屬性新增到目前這一張以及下一張要切換的圖片。</p>
+<p>當我們點擊底部切換鈕的時候，將會指定按鈕的方法屬性為 <code>moveSilder</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initGallery</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; slides.length; i++) &#123;</span><br><span class="line">    dot.setAttribute(<span class="string">"onclick"</span>, <span class="string">"moveSlide("</span> + i + <span class="string">")"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">moveSlide</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> i, current, next;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (n != slideIndex) &#123;</span><br><span class="line">    next = slides[n];</span><br><span class="line">    current = slides[slideIndex];</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; slides.length; i++) &#123;</span><br><span class="line">      slides[i].className = <span class="string">"imgHolder"</span>;</span><br><span class="line">      slides[i].style.opacity = <span class="number">0</span>;</span><br><span class="line">      dots[i].classList.remove(<span class="string">"active"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    current.classList.add(moveSlideAnimClass.forCurrent);</span><br><span class="line">    next.classList.add(moveSlideAnimClass.forNext);</span><br><span class="line">    dots[n].classList.add(<span class="string">"active"</span>);</span><br><span class="line">    slideIndex = n;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="綁定監聽事件"><a href="#綁定監聽事件" class="headerlink" title="綁定監聽事件"></a>綁定監聽事件</h1><p>監聽事件會依照點擊左鍵頭或右箭頭，呼叫 <code>moveSlide</code> 函式，並傳入當下圖片的索引 +/- 1 當做參數</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">rightArrow.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> <span class="title">plusSlides</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  moveSlide(slideIndex + <span class="number">1</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">leftArrow.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> <span class="title">plusSlides</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  moveSlide(slideIndex - <span class="number">1</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="自動播放"><a href="#自動播放" class="headerlink" title="自動播放"></a>自動播放</h1><p>自動播放使用 <code>setInterval()</code> 方法，並且再運用一次我們註冊在向右點擊的監聽事件裡面的第二個參數即可</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> timer = <span class="literal">undefined</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setTimer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">plusSlides</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">      moveSlide(slideIndex + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    plusSlides();</span><br><span class="line">  &#125;, <span class="number">5000</span>);</span><br><span class="line">&#125;</span><br><span class="line">setTimer();</span><br></pre></td></tr></table></figure>
+
+<h1 id="中斷播放"><a href="#中斷播放" class="headerlink" title="中斷播放"></a>中斷播放</h1><p>中斷自動播放功能，是最後一個判斷式，如果現在計時器是停止的，那就呼叫定時器的函式，反之中斷定時。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">playPauseBtn.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> <span class="title">playPauseSlides</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> playPauseBtn = <span class="built_in">document</span>.getElementById(<span class="string">"playPauseBtn"</span>);</span><br><span class="line">  <span class="keyword">if</span> (timer == <span class="literal">null</span>) &#123;</span><br><span class="line">    setTimer();</span><br><span class="line">    playPauseBtn.style.backgroundPositionY = <span class="string">"0px"</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    clearInterval(timer);</span><br><span class="line">    timer = <span class="literal">null</span>;</span><br><span class="line">    playPauseBtn.style.backgroundPositionY = <span class="string">"-33px"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: '',
+  alipayImage: ''
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong></a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/12/07/2020-01-12/" target="_blank" title="JavaScript 練習 - 自動輪播">http://yoursite.com/2019/12/07/2020-01-12/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/12/07/2019-12-07/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Canvas (3) 圍棋落子
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/12/06/2019-12-06/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Canvas (2) 繪製一個棋盤</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo"><span class="nav-number">1.</span> <span class="nav-text">Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-介紹"><span class="nav-number">2.</span> <span class="nav-text">Introduction 介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#建立初始化函式"><span class="nav-number">3.</span> <span class="nav-text">建立初始化函式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#取得圖片容器並顯示第一張圖片"><span class="nav-number">3.1.</span> <span class="nav-text">取得圖片容器並顯示第一張圖片</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#建立切換圖片的函式"><span class="nav-number">4.</span> <span class="nav-text">建立切換圖片的函式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#獲取下一張圖片的索引值"><span class="nav-number">4.1.</span> <span class="nav-text">獲取下一張圖片的索引值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作-DOM-完成切換圖片"><span class="nav-number">4.2.</span> <span class="nav-text">操作 DOM 完成切換圖片</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#綁定監聽事件"><span class="nav-number">5.</span> <span class="nav-text">綁定監聽事件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自動播放"><span class="nav-number">6.</span> <span class="nav-text">自動播放</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#中斷播放"><span class="nav-number">7.</span> <span class="nav-text">中斷播放</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 CYC&#39;S BLOG All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            CYC&#39;S BLOG
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 CYC&#39;S BLOG All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
