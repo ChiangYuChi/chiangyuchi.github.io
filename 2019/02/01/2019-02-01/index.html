@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>javascript 基礎（一）- 變數與資料型別 | CYC&#39;S BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="JavaScript">
+  
+  
+  
+  
+  <meta name="description" content="變數變數儲存一些工作執行時所需要的資料，變數就像一個裝東西的容器，變數的名稱是貼在容器上面的標籤，瓶子裡面裝的就是變數的值。變數本身不具型態類別，但它裡面的值有不同的型別 。程式運行的時候，儲存在變數裡面的資料是可以變更的。 var (variable) 用在宣告一個變數的定義，令名稱指向某個值 。 12var stamp = &quot;貼紙&quot;;容器(容器名字)(裡面的東西);  資料型別型別 (Dat">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 基礎（一）- 變數與資料型別">
+<meta property="og:url" content="http://yoursite.com/2019/02/01/2019-02-01/index.html">
+<meta property="og:site_name" content="CYC&#39;S BLOG">
+<meta property="og:description" content="變數變數儲存一些工作執行時所需要的資料，變數就像一個裝東西的容器，變數的名稱是貼在容器上面的標籤，瓶子裡面裝的就是變數的值。變數本身不具型態類別，但它裡面的值有不同的型別 。程式運行的時候，儲存在變數裡面的資料是可以變更的。 var (variable) 用在宣告一個變數的定義，令名稱指向某個值 。 12var stamp = &quot;貼紙&quot;;容器(容器名字)(裡面的東西);  資料型別型別 (Dat">
+<meta property="og:locale" content="en.yml">
+<meta property="og:updated_time" content="2020-03-07T03:33:20.133Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 基礎（一）- 變數與資料型別">
+<meta name="twitter:description" content="變數變數儲存一些工作執行時所需要的資料，變數就像一個裝東西的容器，變數的名稱是貼在容器上面的標籤，瓶子裡面裝的就是變數的值。變數本身不具型態類別，但它裡面的值有不同的型別 。程式運行的時候，儲存在變數裡面的資料是可以變更的。 var (variable) 用在宣告一個變數的定義，令名稱指向某個值 。 12var stamp = &quot;貼紙&quot;;容器(容器名字)(裡面的東西);  資料型別型別 (Dat">
+  
+    <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2019-02-01" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      JavaScript 基礎（一）- 變數與資料型別
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/02/01/2019-02-01/" class="article-date">
+	  <time datetime="2019-01-31T16:00:00.000Z" itemprop="datePublished">2019-02-01</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="變數"><a href="#變數" class="headerlink" title="變數"></a>變數</h1><p>變數儲存一些工作執行時所需要的資料，變數就像一個裝東西的容器，變數的名稱是貼在容器上面的標籤，瓶子裡面裝的就是變數的值。變數本身不具型態類別，但它裡面的值有不同的型別 。程式運行的時候，儲存在變數裡面的資料是可以變更的。</p>
+<p>var (variable) 用在宣告一個變數的定義，令名稱指向某個值 。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stamp = <span class="string">"貼紙"</span>;</span><br><span class="line">容器(容器名字)(裡面的東西);</span><br></pre></td></tr></table></figure>
+
+<h1 id="資料型別"><a href="#資料型別" class="headerlink" title="資料型別"></a>資料型別</h1><p>型別 (Data Type) 就像容器裡面裝的不同東西</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stamp = <span class="number">3</span>; <span class="comment">//數字，不需引號</span></span><br><span class="line"><span class="keyword">var</span> stamp = <span class="string">"3"</span>; <span class="comment">//字串，用單引號或雙引號把文字包起來</span></span><br><span class="line"><span class="keyword">var</span> stamp = <span class="literal">true</span>; <span class="comment">//真假值，true/false</span></span><br><span class="line"><span class="keyword">var</span> stamp = <span class="literal">undefined</span>; <span class="comment">// 宣告一個變數，直接定義它的值是undefined</span></span><br><span class="line"><span class="keyword">var</span> stamp; <span class="comment">// 宣告一個變數，但沒有給值，這時候它的值是 undefined</span></span><br><span class="line"><span class="keyword">var</span> stamp = <span class="literal">null</span>; <span class="comment">//這個值不存在</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="自動型轉"><a href="#自動型轉" class="headerlink" title="自動型轉"></a>自動型轉</h1><h2 id="強等於與弱等於"><a href="#強等於與弱等於" class="headerlink" title="強等於與弱等於"></a>強等於與弱等於</h2><p>兩個等號 == 的比較運算式下，若是雙方的資料類型不同，會進行「自動型轉」。三個等號與兩個等號雖然都是比較的意思，三個等號 === 不會替數值自動型轉，而 == 會自動型轉。不等於也有 != 與！== 兩種。！= 會型轉，！== 不會。</p>
+<h2 id="字串與數字的型轉"><a href="#字串與數字的型轉" class="headerlink" title="字串與數字的型轉"></a>字串與數字的型轉</h2><p>如果遇到字串與數字比較，會用 Number () 把字串轉為數字再進行比較</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"tmp"</span> == <span class="number">123</span>); <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="布林的型轉"><a href="#布林的型轉" class="headerlink" title="布林的型轉"></a>布林的型轉</h2><p>如果有一個值是「Boolean」，會將 true 轉為數字的 1，false 轉成 0；如果字串和布林相加，會把字串轉為數值或維持字串。如果字串和布林值相減則結果是</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">123</span> - <span class="literal">true</span>); <span class="comment">//122</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"123"</span> + <span class="literal">true</span>); <span class="comment">//123true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"123"</span> - <span class="literal">true</span>); <span class="comment">//122</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">123</span> + <span class="literal">false</span>); <span class="comment">//123</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"123"</span> - <span class="literal">false</span>); <span class="comment">//123</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="null-與-undefined"><a href="#null-與-undefined" class="headerlink" title="null 與 undefined"></a>null 與 undefined</h2><p>number、boolean、object 型轉的時候會呼叫 toString()去取得對應的字串。<br>。但是 null 與 undefined 則透過 String() 分別轉為 null 與 undefined。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> + <span class="string">"abc"</span>; <span class="comment">// "10abc"</span></span><br><span class="line"><span class="number">100</span> + &#123;&#125;; <span class="comment">//"100[objject object]"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 數字與undefined 相加時，undefined 會被轉為數字 NaN</span></span><br><span class="line"></span><br><span class="line"><span class="number">123</span> + <span class="literal">undefined</span>; <span class="comment">//NaN</span></span><br><span class="line"><span class="string">"abc"</span> + <span class="literal">undefined</span>; <span class="comment">//"abcundefined"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//數字與null相加時，null會被轉為數字 0</span></span><br><span class="line"><span class="number">123</span> + <span class="literal">null</span>; <span class="comment">//123</span></span><br><span class="line"><span class="string">"123"</span> + <span class="literal">null</span>; <span class="comment">//"123null"</span></span><br></pre></td></tr></table></figure>
+
+<p>NaN 字面上意思是 Not a Number，但如果用 typeof 運算子判斷型態，會是 number</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span>; <span class="comment">//"number"</span></span><br></pre></td></tr></table></figure>
+
+<p>NaN 與任何數字運算結果都會是 NaN。NaN 不等於任何數字，甚至是自己。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">NaN</span> === <span class="literal">NaN</span>; <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<p>如何判斷變數是不是 NaN，可透過 isNaN(value)判斷</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">isNaN</span>(<span class="literal">NaN</span>); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="number">123</span>); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="string">"123"</span>); <span class="comment">//fasle，因為字串 "123"會透過Number()轉成數字</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="string">"NaN"</span>); <span class="comment">//true，因為字串"NaN" 無法轉型成數字</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: '',
+  alipayImage: ''
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong></a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/02/01/2019-02-01/" target="_blank" title="JavaScript 基礎（一）- 變數與資料型別">http://yoursite.com/2019/02/01/2019-02-01/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/02/02/2019-02-03/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript 基礎（二）- 函式
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#變數"><span class="nav-number">1.</span> <span class="nav-text">變數</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#資料型別"><span class="nav-number">2.</span> <span class="nav-text">資料型別</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自動型轉"><span class="nav-number">3.</span> <span class="nav-text">自動型轉</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#強等於與弱等於"><span class="nav-number">3.1.</span> <span class="nav-text">強等於與弱等於</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字串與數字的型轉"><span class="nav-number">3.2.</span> <span class="nav-text">字串與數字的型轉</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布林的型轉"><span class="nav-number">3.3.</span> <span class="nav-text">布林的型轉</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null-與-undefined"><span class="nav-number">3.4.</span> <span class="nav-text">null 與 undefined</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 CYC&#39;S BLOG All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            CYC&#39;S BLOG
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 CYC&#39;S BLOG All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
