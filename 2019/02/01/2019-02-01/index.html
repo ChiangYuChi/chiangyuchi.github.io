@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>javascript 基礎（一）- 變數與資料型別 | CYC&#39;S BLOG</title>
+  <title>javascript 基礎（一） | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="JavaScript">
@@ -11,18 +11,18 @@
   
   
   
-  <meta name="description" content="變數變數儲存一些工作執行時所需要的資料，變數就像一個裝東西的容器，變數的名稱是貼在容器上面的標籤，瓶子裡面裝的就是變數的值。變數本身不具型態類別，但它裡面的值有不同的型別 。程式運行的時候，儲存在變數裡面的資料是可以變更的。 var (variable) 用在宣告一個變數的定義，令名稱指向某個值 。 12var stamp = &quot;貼紙&quot;;容器(容器名字)(裡面的東西);  資料型別型別 (Dat">
+  <meta name="description" content="基礎概念動態型別資料型別基本功能運算子陣列Function作用域">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript 基礎（一）- 變數與資料型別">
+<meta property="og:title" content="JavaScript 基礎（一）">
 <meta property="og:url" content="http://yoursite.com/2019/02/01/2019-02-01/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="變數變數儲存一些工作執行時所需要的資料，變數就像一個裝東西的容器，變數的名稱是貼在容器上面的標籤，瓶子裡面裝的就是變數的值。變數本身不具型態類別，但它裡面的值有不同的型別 。程式運行的時候，儲存在變數裡面的資料是可以變更的。 var (variable) 用在宣告一個變數的定義，令名稱指向某個值 。 12var stamp = &quot;貼紙&quot;;容器(容器名字)(裡面的東西);  資料型別型別 (Dat">
+<meta property="og:description" content="基礎概念動態型別資料型別基本功能運算子陣列Function作用域">
 <meta property="og:locale" content="en.yml">
-<meta property="og:updated_time" content="2020-03-07T03:33:20.133Z">
+<meta property="og:updated_time" content="2020-07-01T09:21:24.983Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript 基礎（一）- 變數與資料型別">
-<meta name="twitter:description" content="變數變數儲存一些工作執行時所需要的資料，變數就像一個裝東西的容器，變數的名稱是貼在容器上面的標籤，瓶子裡面裝的就是變數的值。變數本身不具型態類別，但它裡面的值有不同的型別 。程式運行的時候，儲存在變數裡面的資料是可以變更的。 var (variable) 用在宣告一個變數的定義，令名稱指向某個值 。 12var stamp = &quot;貼紙&quot;;容器(容器名字)(裡面的東西);  資料型別型別 (Dat">
+<meta name="twitter:title" content="JavaScript 基礎（一）">
+<meta name="twitter:description" content="基礎概念動態型別資料型別基本功能運算子陣列Function作用域">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -166,7 +166,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      JavaScript 基礎（一）- 變數與資料型別
+      JavaScript 基礎（一）
     </h1>
   
 
@@ -191,33 +191,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="變數"><a href="#變數" class="headerlink" title="變數"></a>變數</h1><p>變數儲存一些工作執行時所需要的資料，變數就像一個裝東西的容器，變數的名稱是貼在容器上面的標籤，瓶子裡面裝的就是變數的值。變數本身不具型態類別，但它裡面的值有不同的型別 。程式運行的時候，儲存在變數裡面的資料是可以變更的。</p>
-<p>var (variable) 用在宣告一個變數的定義，令名稱指向某個值 。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stamp = <span class="string">"貼紙"</span>;</span><br><span class="line">容器(容器名字)(裡面的東西);</span><br></pre></td></tr></table></figure>
-
-<h1 id="資料型別"><a href="#資料型別" class="headerlink" title="資料型別"></a>資料型別</h1><p>型別 (Data Type) 就像容器裡面裝的不同東西</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stamp = <span class="number">3</span>; <span class="comment">//數字，不需引號</span></span><br><span class="line"><span class="keyword">var</span> stamp = <span class="string">"3"</span>; <span class="comment">//字串，用單引號或雙引號把文字包起來</span></span><br><span class="line"><span class="keyword">var</span> stamp = <span class="literal">true</span>; <span class="comment">//真假值，true/false</span></span><br><span class="line"><span class="keyword">var</span> stamp = <span class="literal">undefined</span>; <span class="comment">// 宣告一個變數，直接定義它的值是undefined</span></span><br><span class="line"><span class="keyword">var</span> stamp; <span class="comment">// 宣告一個變數，但沒有給值，這時候它的值是 undefined</span></span><br><span class="line"><span class="keyword">var</span> stamp = <span class="literal">null</span>; <span class="comment">//這個值不存在</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="自動型轉"><a href="#自動型轉" class="headerlink" title="自動型轉"></a>自動型轉</h1><h2 id="強等於與弱等於"><a href="#強等於與弱等於" class="headerlink" title="強等於與弱等於"></a>強等於與弱等於</h2><p>兩個等號 == 的比較運算式下，若是雙方的資料類型不同，會進行「自動型轉」。三個等號與兩個等號雖然都是比較的意思，三個等號 === 不會替數值自動型轉，而 == 會自動型轉。不等於也有 != 與！== 兩種。！= 會型轉，！== 不會。</p>
-<h2 id="字串與數字的型轉"><a href="#字串與數字的型轉" class="headerlink" title="字串與數字的型轉"></a>字串與數字的型轉</h2><p>如果遇到字串與數字比較，會用 Number () 把字串轉為數字再進行比較</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"tmp"</span> == <span class="number">123</span>); <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="布林的型轉"><a href="#布林的型轉" class="headerlink" title="布林的型轉"></a>布林的型轉</h2><p>如果有一個值是「Boolean」，會將 true 轉為數字的 1，false 轉成 0；如果字串和布林相加，會把字串轉為數值或維持字串。如果字串和布林值相減則結果是</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">123</span> - <span class="literal">true</span>); <span class="comment">//122</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"123"</span> + <span class="literal">true</span>); <span class="comment">//123true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"123"</span> - <span class="literal">true</span>); <span class="comment">//122</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">123</span> + <span class="literal">false</span>); <span class="comment">//123</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"123"</span> - <span class="literal">false</span>); <span class="comment">//123</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="null-與-undefined"><a href="#null-與-undefined" class="headerlink" title="null 與 undefined"></a>null 與 undefined</h2><p>number、boolean、object 型轉的時候會呼叫 toString()去取得對應的字串。<br>。但是 null 與 undefined 則透過 String() 分別轉為 null 與 undefined。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> + <span class="string">"abc"</span>; <span class="comment">// "10abc"</span></span><br><span class="line"><span class="number">100</span> + &#123;&#125;; <span class="comment">//"100[objject object]"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 數字與undefined 相加時，undefined 會被轉為數字 NaN</span></span><br><span class="line"></span><br><span class="line"><span class="number">123</span> + <span class="literal">undefined</span>; <span class="comment">//NaN</span></span><br><span class="line"><span class="string">"abc"</span> + <span class="literal">undefined</span>; <span class="comment">//"abcundefined"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//數字與null相加時，null會被轉為數字 0</span></span><br><span class="line"><span class="number">123</span> + <span class="literal">null</span>; <span class="comment">//123</span></span><br><span class="line"><span class="string">"123"</span> + <span class="literal">null</span>; <span class="comment">//"123null"</span></span><br></pre></td></tr></table></figure>
-
-<p>NaN 字面上意思是 Not a Number，但如果用 typeof 運算子判斷型態，會是 number</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span>; <span class="comment">//"number"</span></span><br></pre></td></tr></table></figure>
-
-<p>NaN 與任何數字運算結果都會是 NaN。NaN 不等於任何數字，甚至是自己。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">NaN</span> === <span class="literal">NaN</span>; <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-
-<p>如何判斷變數是不是 NaN，可透過 isNaN(value)判斷</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">isNaN</span>(<span class="literal">NaN</span>); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="number">123</span>); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="string">"123"</span>); <span class="comment">//fasle，因為字串 "123"會透過Number()轉成數字</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="string">"NaN"</span>); <span class="comment">//true，因為字串"NaN" 無法轉型成數字</span></span><br></pre></td></tr></table></figure>
-
-
+        <h1 id="基礎概念"><a href="#基礎概念" class="headerlink" title="基礎概念"></a>基礎概念</h1><h2 id="動態型別"><a href="#動態型別" class="headerlink" title="動態型別"></a>動態型別</h2><h2 id="資料型別"><a href="#資料型別" class="headerlink" title="資料型別"></a>資料型別</h2><h1 id="基本功能"><a href="#基本功能" class="headerlink" title="基本功能"></a>基本功能</h1><h2 id="運算子"><a href="#運算子" class="headerlink" title="運算子"></a>運算子</h2><h2 id="陣列"><a href="#陣列" class="headerlink" title="陣列"></a>陣列</h2><h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1>
       
     </div>
     <footer class="article-footer">
@@ -243,7 +217,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/02/01/2019-02-01/" target="_blank" title="JavaScript 基礎（一）- 變數與資料型別">http://yoursite.com/2019/02/01/2019-02-01/</a>
+          <a href="/2019/02/01/2019-02-01/" target="_blank" title="JavaScript 基礎（一）">http://yoursite.com/2019/02/01/2019-02-01/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -293,11 +267,11 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2019/02/02/2019-02-03/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/06/10/2019-06-10/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          JavaScript 基礎（二）- 函式
+          常見的陣列運用方式
         
       </div>
     </a>
@@ -314,7 +288,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#變數"><span class="nav-number">1.</span> <span class="nav-text">變數</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#資料型別"><span class="nav-number">2.</span> <span class="nav-text">資料型別</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自動型轉"><span class="nav-number">3.</span> <span class="nav-text">自動型轉</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#強等於與弱等於"><span class="nav-number">3.1.</span> <span class="nav-text">強等於與弱等於</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字串與數字的型轉"><span class="nav-number">3.2.</span> <span class="nav-text">字串與數字的型轉</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布林的型轉"><span class="nav-number">3.3.</span> <span class="nav-text">布林的型轉</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null-與-undefined"><span class="nav-number">3.4.</span> <span class="nav-text">null 與 undefined</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基礎概念"><span class="nav-number">1.</span> <span class="nav-text">基礎概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#動態型別"><span class="nav-number">1.1.</span> <span class="nav-text">動態型別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#資料型別"><span class="nav-number">1.2.</span> <span class="nav-text">資料型別</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本功能"><span class="nav-number">2.</span> <span class="nav-text">基本功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#運算子"><span class="nav-number">2.1.</span> <span class="nav-text">運算子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#陣列"><span class="nav-number">2.2.</span> <span class="nav-text">陣列</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Function"><span class="nav-number">3.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作用域"><span class="nav-number">4.</span> <span class="nav-text">作用域</span></a></li></ol>
     
     </div>
   </aside>
