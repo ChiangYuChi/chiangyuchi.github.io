@@ -11,18 +11,18 @@
   
   
   
-  <meta name="description" content="基礎概念JavaScript是一門基於原型、函式先行的程式語言，支援物件導向。簡言之，是一種可在網站裡加入動態效果的程式語言，例如更改樣式、展示動畫等 一般來說，完整的JavaScript包括以下幾個部分： 12345678910111213141516- ECMAScript，描述了該語言的語法和基本物件- 文件物件模型（DOM），描述處理網頁內容的方法和介面- 瀏覽器物件模型（BOM），描述與">
+  <meta name="description" content="基礎概念JavaScript 是一門基於原型、函式先行的程式語言，支援物件導向。簡言之，是一種可在網站裡加入動態效果的程式語言，例如更改樣式、展示動畫等 一般來說，完整的 JavaScript 包括以下幾個部分：  ECMAScript，描述了該語言的語法和基本物件 文件物件模型（DOM），描述處理網頁內容的方法和介面 瀏覽器物件模型（BOM），描述與瀏覽器進行互動的方法和介面  JavaScri">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 基礎（一）">
 <meta property="og:url" content="http://yoursite.com/2019/02/01/2019-02-01/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="基礎概念JavaScript是一門基於原型、函式先行的程式語言，支援物件導向。簡言之，是一種可在網站裡加入動態效果的程式語言，例如更改樣式、展示動畫等 一般來說，完整的JavaScript包括以下幾個部分： 12345678910111213141516- ECMAScript，描述了該語言的語法和基本物件- 文件物件模型（DOM），描述處理網頁內容的方法和介面- 瀏覽器物件模型（BOM），描述與">
+<meta property="og:description" content="基礎概念JavaScript 是一門基於原型、函式先行的程式語言，支援物件導向。簡言之，是一種可在網站裡加入動態效果的程式語言，例如更改樣式、展示動畫等 一般來說，完整的 JavaScript 包括以下幾個部分：  ECMAScript，描述了該語言的語法和基本物件 文件物件模型（DOM），描述處理網頁內容的方法和介面 瀏覽器物件模型（BOM），描述與瀏覽器進行互動的方法和介面  JavaScri">
 <meta property="og:locale" content="en.yml">
-<meta property="og:updated_time" content="2020-07-05T06:00:10.660Z">
+<meta property="og:updated_time" content="2020-07-05T06:05:02.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 基礎（一）">
-<meta name="twitter:description" content="基礎概念JavaScript是一門基於原型、函式先行的程式語言，支援物件導向。簡言之，是一種可在網站裡加入動態效果的程式語言，例如更改樣式、展示動畫等 一般來說，完整的JavaScript包括以下幾個部分： 12345678910111213141516- ECMAScript，描述了該語言的語法和基本物件- 文件物件模型（DOM），描述處理網頁內容的方法和介面- 瀏覽器物件模型（BOM），描述與">
+<meta name="twitter:description" content="基礎概念JavaScript 是一門基於原型、函式先行的程式語言，支援物件導向。簡言之，是一種可在網站裡加入動態效果的程式語言，例如更改樣式、展示動畫等 一般來說，完整的 JavaScript 包括以下幾個部分：  ECMAScript，描述了該語言的語法和基本物件 文件物件模型（DOM），描述處理網頁內容的方法和介面 瀏覽器物件模型（BOM），描述與瀏覽器進行互動的方法和介面  JavaScri">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -191,19 +191,38 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="基礎概念"><a href="#基礎概念" class="headerlink" title="基礎概念"></a>基礎概念</h1><p>JavaScript是一門基於原型、函式先行的程式語言，支援物件導向。簡言之，是一種可在網站裡加入動態效果的程式語言，例如更改樣式、展示動畫等</p>
-<p>一般來說，完整的JavaScript包括以下幾個部分：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">- ECMAScript，描述了該語言的語法和基本物件</span><br><span class="line">- 文件物件模型（DOM），描述處理網頁內容的方法和介面</span><br><span class="line">- 瀏覽器物件模型（BOM），描述與瀏覽器進行互動的方法和介面</span><br><span class="line"></span><br><span class="line">JavaScript的基本特點如下：</span><br><span class="line">- 是一種解釋性程式語言（代碼不進行預編譯）。</span><br><span class="line">- 主要用來向HTML頁面添加互動行為。</span><br><span class="line">- 可以直接嵌入HTML頁面，但寫成單獨的js檔案有利於結構和行為的分離。</span><br><span class="line"></span><br><span class="line">JavaScript常用來完成以下任務：</span><br><span class="line">- 嵌入動態文字於HTML頁面</span><br><span class="line">- 對瀏覽器事件作出回應</span><br><span class="line">- 讀寫HTML元素</span><br><span class="line">- 在資料被提交到伺服器之前驗證資料</span><br><span class="line">- 檢測訪客的瀏覽器資訊</span><br><span class="line">- 控制cookies，包括建立和修改等</span><br></pre></td></tr></table></figure>
-
+        <h1 id="基礎概念"><a href="#基礎概念" class="headerlink" title="基礎概念"></a>基礎概念</h1><p>JavaScript 是一門基於原型、函式先行的程式語言，支援物件導向。簡言之，是一種可在網站裡加入動態效果的程式語言，例如更改樣式、展示動畫等</p>
+<p>一般來說，完整的 JavaScript 包括以下幾個部分：</p>
+<ul>
+<li>ECMAScript，描述了該語言的語法和基本物件</li>
+<li>文件物件模型（DOM），描述處理網頁內容的方法和介面</li>
+<li>瀏覽器物件模型（BOM），描述與瀏覽器進行互動的方法和介面</li>
+</ul>
+<p>JavaScript 的基本特點如下：</p>
+<ul>
+<li>是一種解釋性程式語言（代碼不進行預編譯）。</li>
+<li>主要用來向 HTML 頁面添加互動行為。</li>
+<li>可以直接嵌入 HTML 頁面，但寫成單獨的 js 檔案有利於結構和行為的分離。</li>
+</ul>
+<p>JavaScript 常用來完成以下任務：</p>
+<ul>
+<li>嵌入動態文字於 HTML 頁面</li>
+<li>對瀏覽器事件作出回應</li>
+<li>讀寫 HTML 元素</li>
+<li>在資料被提交到伺服器之前驗證資料</li>
+<li>檢測訪客的瀏覽器資訊</li>
+<li>控制 cookies，包括建立和修改等</li>
+</ul>
 <h2 id="動態型別"><a href="#動態型別" class="headerlink" title="動態型別"></a>動態型別</h2><p>JavaScript 是一種「弱型別」的程式語言，在變數的資料型別與其他的程式語言相當不同，它是以「動態型別」（Dynamic Typing) 處理資料型別。</p>
 <p>程式語言會依照語言的型別系統分成「強型別語言」和「弱型別語言」。強型別是指「程式定義的變數型別等於變數在執行的時候的型別」，這類語言的變數在宣告的時候，必須指定一種資料型別給它。弱型別正好相反，因此具有語法簡潔的優點。JavaScript 的變數在宣告時無需指定型別。</p>
 <p>JavaScript 程式在運作時，型別會自動轉換。這也代表你可以以不同的型別使用同一個變數。因為型別的資訊只在「值」或「物件」本身，變數只是用來取得值或物件的參考。</p>
-<h2 id="資料型別"><a href="#資料型別" class="headerlink" title="資料型別"></a>資料型別</h2><blockquote>
-<h4 id="The-quarterly-results-look-great"><a href="#The-quarterly-results-look-great" class="headerlink" title="The quarterly results look great!"></a>The quarterly results look great!</h4><ul>
-<li>Revenue was off the chart.</li>
-<li>Profits were higher than ever.</li>
+<h2 id="資料型別"><a href="#資料型別" class="headerlink" title="資料型別"></a>資料型別</h2><h4 id="原始型別"><a href="#原始型別" class="headerlink" title="原始型別"></a>原始型別</h4><ul>
+<li>string 字串</li>
+<li>number 數字</li>
+<li>boolean 布林值</li>
+<li>null 空值</li>
+<li>undefined 未定義</li>
 </ul>
-</blockquote>
 <h1 id="基本功能"><a href="#基本功能" class="headerlink" title="基本功能"></a>基本功能</h1><h2 id="運算子"><a href="#運算子" class="headerlink" title="運算子"></a>運算子</h2><h2 id="陣列"><a href="#陣列" class="headerlink" title="陣列"></a>陣列</h2><h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1>
       
     </div>
@@ -301,7 +320,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基礎概念"><span class="nav-number">1.</span> <span class="nav-text">基礎概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#動態型別"><span class="nav-number">1.1.</span> <span class="nav-text">動態型別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#資料型別"><span class="nav-number">1.2.</span> <span class="nav-text">資料型別</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-quarterly-results-look-great"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">The quarterly results look great!</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本功能"><span class="nav-number">2.</span> <span class="nav-text">基本功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#運算子"><span class="nav-number">2.1.</span> <span class="nav-text">運算子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#陣列"><span class="nav-number">2.2.</span> <span class="nav-text">陣列</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Function"><span class="nav-number">3.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作用域"><span class="nav-number">4.</span> <span class="nav-text">作用域</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基礎概念"><span class="nav-number">1.</span> <span class="nav-text">基礎概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#動態型別"><span class="nav-number">1.1.</span> <span class="nav-text">動態型別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#資料型別"><span class="nav-number">1.2.</span> <span class="nav-text">資料型別</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原始型別"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">原始型別</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本功能"><span class="nav-number">2.</span> <span class="nav-text">基本功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#運算子"><span class="nav-number">2.1.</span> <span class="nav-text">運算子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#陣列"><span class="nav-number">2.2.</span> <span class="nav-text">陣列</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Function"><span class="nav-number">3.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作用域"><span class="nav-number">4.</span> <span class="nav-text">作用域</span></a></li></ol>
     
     </div>
   </aside>
