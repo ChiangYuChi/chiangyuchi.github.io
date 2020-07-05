@@ -11,18 +11,18 @@
   
   
   
-  <meta name="description" content="基礎概念JavaScript 是一門基於原型、函式先行的程式語言，支援物件導向。簡言之，是一種可在網站裡加入動態效果的程式語言，例如更改樣式、展示動畫等 一般來說，完整的 JavaScript 包括以下幾個部分：  ECMAScript，描述了該語言的語法和基本物件 文件物件模型（DOM），描述處理網頁內容的方法和介面 瀏覽器物件模型（BOM），描述與瀏覽器進行互動的方法和介面  JavaScri">
+  <meta name="description" content="基礎概念JavaScript 是一門基於原型、函式先行的程式語言，支援物件導向。簡言之，是一種可在網站裡加入動態效果的程式語言，例如更改樣式、展示動畫等 概論一般來說，完整的 JavaScript 包括以下幾個部分：  ECMAScript，描述了該語言的語法和基本物件 文件物件模型（DOM），描述處理網頁內容的方法和介面 瀏覽器物件模型（BOM），描述與瀏覽器進行互動的方法和介面  JavaSc">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 基礎（一）">
 <meta property="og:url" content="http://yoursite.com/2019/02/01/2019-02-01/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="基礎概念JavaScript 是一門基於原型、函式先行的程式語言，支援物件導向。簡言之，是一種可在網站裡加入動態效果的程式語言，例如更改樣式、展示動畫等 一般來說，完整的 JavaScript 包括以下幾個部分：  ECMAScript，描述了該語言的語法和基本物件 文件物件模型（DOM），描述處理網頁內容的方法和介面 瀏覽器物件模型（BOM），描述與瀏覽器進行互動的方法和介面  JavaScri">
+<meta property="og:description" content="基礎概念JavaScript 是一門基於原型、函式先行的程式語言，支援物件導向。簡言之，是一種可在網站裡加入動態效果的程式語言，例如更改樣式、展示動畫等 概論一般來說，完整的 JavaScript 包括以下幾個部分：  ECMAScript，描述了該語言的語法和基本物件 文件物件模型（DOM），描述處理網頁內容的方法和介面 瀏覽器物件模型（BOM），描述與瀏覽器進行互動的方法和介面  JavaSc">
 <meta property="og:locale" content="en.yml">
-<meta property="og:updated_time" content="2020-07-05T06:05:02.138Z">
+<meta property="og:updated_time" content="2020-07-05T07:18:03.551Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 基礎（一）">
-<meta name="twitter:description" content="基礎概念JavaScript 是一門基於原型、函式先行的程式語言，支援物件導向。簡言之，是一種可在網站裡加入動態效果的程式語言，例如更改樣式、展示動畫等 一般來說，完整的 JavaScript 包括以下幾個部分：  ECMAScript，描述了該語言的語法和基本物件 文件物件模型（DOM），描述處理網頁內容的方法和介面 瀏覽器物件模型（BOM），描述與瀏覽器進行互動的方法和介面  JavaScri">
+<meta name="twitter:description" content="基礎概念JavaScript 是一門基於原型、函式先行的程式語言，支援物件導向。簡言之，是一種可在網站裡加入動態效果的程式語言，例如更改樣式、展示動畫等 概論一般來說，完整的 JavaScript 包括以下幾個部分：  ECMAScript，描述了該語言的語法和基本物件 文件物件模型（DOM），描述處理網頁內容的方法和介面 瀏覽器物件模型（BOM），描述與瀏覽器進行互動的方法和介面  JavaSc">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -192,7 +192,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="基礎概念"><a href="#基礎概念" class="headerlink" title="基礎概念"></a>基礎概念</h1><p>JavaScript 是一門基於原型、函式先行的程式語言，支援物件導向。簡言之，是一種可在網站裡加入動態效果的程式語言，例如更改樣式、展示動畫等</p>
-<p>一般來說，完整的 JavaScript 包括以下幾個部分：</p>
+<h2 id="概論"><a href="#概論" class="headerlink" title="概論"></a>概論</h2><p>一般來說，完整的 JavaScript 包括以下幾個部分：</p>
 <ul>
 <li>ECMAScript，描述了該語言的語法和基本物件</li>
 <li>文件物件模型（DOM），描述處理網頁內容的方法和介面</li>
@@ -216,13 +216,24 @@
 <h2 id="動態型別"><a href="#動態型別" class="headerlink" title="動態型別"></a>動態型別</h2><p>JavaScript 是一種「弱型別」的程式語言，在變數的資料型別與其他的程式語言相當不同，它是以「動態型別」（Dynamic Typing) 處理資料型別。</p>
 <p>程式語言會依照語言的型別系統分成「強型別語言」和「弱型別語言」。強型別是指「程式定義的變數型別等於變數在執行的時候的型別」，這類語言的變數在宣告的時候，必須指定一種資料型別給它。弱型別正好相反，因此具有語法簡潔的優點。JavaScript 的變數在宣告時無需指定型別。</p>
 <p>JavaScript 程式在運作時，型別會自動轉換。這也代表你可以以不同的型別使用同一個變數。因為型別的資訊只在「值」或「物件」本身，變數只是用來取得值或物件的參考。</p>
-<h2 id="資料型別"><a href="#資料型別" class="headerlink" title="資料型別"></a>資料型別</h2><h4 id="原始型別"><a href="#原始型別" class="headerlink" title="原始型別"></a>原始型別</h4><ul>
+<h2 id="資料型別"><a href="#資料型別" class="headerlink" title="資料型別"></a>資料型別</h2><h4 id="基本型別-Primitive"><a href="#基本型別-Primitive" class="headerlink" title="基本型別 (Primitive)"></a>基本型別 (Primitive)</h4><ul>
 <li>string 字串</li>
 <li>number 數字</li>
-<li>boolean 布林值</li>
-<li>null 空值</li>
-<li>undefined 未定義</li>
+<li>boolean 布林值 (true/false)</li>
+<li>null 只有一個 null 值</li>
+<li>undefined 只有一個 undefined 值</li>
 </ul>
+<h4 id="物件型別-Object"><a href="#物件型別-Object" class="headerlink" title="物件型別 (Object)"></a>物件型別 (Object)</h4><ul>
+<li>object:所有基本型別以外的值都是物件。在真實世界中，以一台汽車為例，我們可以用時速、顏色、油耗描述一台車子的屬性，這些屬性各自具備不同的值。同樣的，在 JavaScript 當中，每個物件也是可以用都是一特性 (properties)、事件 (event)、方法（method) 來描述的實體 (instance)的特性。一個物件的特性是鍵 (key) 與值 (value) 的配對。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">object=            &#123;key:value&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以下是一個物件的例子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> car = &#123;</span><br><span class="line">  brand: ford,</span><br><span class="line">  color: red,</span><br><span class="line">  secondHand: <span class="literal">true</span>,</span><br><span class="line">  bwh: &#123;</span><br><span class="line">    strength: <span class="number">34</span>,</span><br><span class="line">    fuel: desel,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>brand，color 是 key; ford，red 是 value。物件的屬性是可以新增與刪除的。但是原始型別沒有屬性。是一個值，沒有屬性，且是不可變異(immutable)。必要時，JavaScript 引擎會將原始別強制轉型為對應的物件型別（除了 null &amp; undefined）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="number">42</span>; <span class="comment">// foo 目前是數字</span></span><br><span class="line"><span class="keyword">var</span> foo = <span class="string">"bar"</span>; <span class="comment">// foo 目前是字串</span></span><br><span class="line"><span class="keyword">var</span> foo = <span class="literal">true</span>; <span class="comment">// foo 目前是布林值</span></span><br></pre></td></tr></table></figure>
+
 <h1 id="基本功能"><a href="#基本功能" class="headerlink" title="基本功能"></a>基本功能</h1><h2 id="運算子"><a href="#運算子" class="headerlink" title="運算子"></a>運算子</h2><h2 id="陣列"><a href="#陣列" class="headerlink" title="陣列"></a>陣列</h2><h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1>
       
     </div>
@@ -320,7 +331,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基礎概念"><span class="nav-number">1.</span> <span class="nav-text">基礎概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#動態型別"><span class="nav-number">1.1.</span> <span class="nav-text">動態型別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#資料型別"><span class="nav-number">1.2.</span> <span class="nav-text">資料型別</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原始型別"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">原始型別</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本功能"><span class="nav-number">2.</span> <span class="nav-text">基本功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#運算子"><span class="nav-number">2.1.</span> <span class="nav-text">運算子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#陣列"><span class="nav-number">2.2.</span> <span class="nav-text">陣列</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Function"><span class="nav-number">3.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作用域"><span class="nav-number">4.</span> <span class="nav-text">作用域</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基礎概念"><span class="nav-number">1.</span> <span class="nav-text">基礎概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概論"><span class="nav-number">1.1.</span> <span class="nav-text">概論</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#動態型別"><span class="nav-number">1.2.</span> <span class="nav-text">動態型別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#資料型別"><span class="nav-number">1.3.</span> <span class="nav-text">資料型別</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本型別-Primitive"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">基本型別 (Primitive)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#物件型別-Object"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">物件型別 (Object)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本功能"><span class="nav-number">2.</span> <span class="nav-text">基本功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#運算子"><span class="nav-number">2.1.</span> <span class="nav-text">運算子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#陣列"><span class="nav-number">2.2.</span> <span class="nav-text">陣列</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Function"><span class="nav-number">3.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作用域"><span class="nav-number">4.</span> <span class="nav-text">作用域</span></a></li></ol>
     
     </div>
   </aside>
