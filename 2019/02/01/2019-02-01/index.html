@@ -20,7 +20,7 @@
 <meta property="og:description" content="基礎概念JavaScript 是一門基於原型、函式先行的程式語言，支援物件導向。簡言之，是一種可在網站裡加入動態效果的程式語言，例如更改樣式、展示動畫等 概論一般來說，完整的 JavaScript 包括以下幾個部分：  ECMAScript，描述了該語言的語法和基本物件 文件物件模型（DOM），描述處理網頁內容的方法和介面 瀏覽器物件模型（BOM），描述與瀏覽器進行互動的方法和介面  JavaSc">
 <meta property="og:locale" content="en.yml">
 <meta property="og:image" content="https://i.imgur.com/SWHGIaX.png">
-<meta property="og:updated_time" content="2020-07-24T07:24:42.142Z">
+<meta property="og:updated_time" content="2020-07-29T06:59:50.404Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 基礎">
 <meta name="twitter:description" content="基礎概念JavaScript 是一門基於原型、函式先行的程式語言，支援物件導向。簡言之，是一種可在網站裡加入動態效果的程式語言，例如更改樣式、展示動畫等 概論一般來說，完整的 JavaScript 包括以下幾個部分：  ECMAScript，描述了該語言的語法和基本物件 文件物件模型（DOM），描述處理網頁內容的方法和介面 瀏覽器物件模型（BOM），描述與瀏覽器進行互動的方法和介面  JavaSc">
@@ -265,6 +265,12 @@
 
 <p>unshift()：從 array 最前面加入 item</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var fruite = colors.unshift(&apos;apple&apos;);//var colors = [&apos;apple&apos;,&apos;red&apos;,&apos;green&apos;];</span><br></pre></td></tr></table></figure>
+
+<p>indexOf():會回傳給定元素於陣列中第一個被找到之索引，若不存在於陣列中則回傳 -1。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const beasts = [&apos;ant&apos;, &apos;bison&apos;, &apos;camel&apos;, &apos;duck&apos;, &apos;bison&apos;];</span><br><span class="line"></span><br><span class="line">console.log(beasts.indexOf(&apos;bison&apos;));</span><br><span class="line">// expected output: 1</span><br><span class="line"></span><br><span class="line">// start from index 2</span><br><span class="line">console.log(beasts.indexOf(&apos;bison&apos;, 2));</span><br><span class="line">// expected output: 4</span><br><span class="line"></span><br><span class="line">console.log(beasts.indexOf(&apos;giraffe&apos;));</span><br><span class="line">// expected output: -1</span><br></pre></td></tr></table></figure>
+
+<p>slice():回傳一個新陣列物件，為原陣列選擇之 begin 至 end（不含 end）部分的淺拷貝（shallow copy）。而原本的陣列將不會被修改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var fruits = [&apos;banana&apos;,&apos;orange&apos;,&apos;lemon&apos;,&apos;grape&apos;];</span><br><span class="line">var citrus = fruits.slice(1,3);</span><br><span class="line">// [&apos;orange&apos;,&apos;lemon&apos;]</span><br><span class="line"></span><br><span class="line">var nums = [1,2,3];</span><br><span class="line">var otherNum = num.slice();</span><br><span class="line">// [1,2,3]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var nums = [1,2,3,&apos;a&apos;,&apos;b&apos;,4,5,6];</span><br><span class="line">var letters = nums.slice(3,5);</span><br><span class="line">//[&apos;a&apos;,&apos;b&apos;]</span><br></pre></td></tr></table></figure>
 
 <p>splice(pos, index)：移除從 pos 起的幾個項目(注意是用 index 計算)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var removeItem = arr.splice(0, 2); // colors = [&apos;green&apos;];</span><br></pre></td></tr></table></figure>

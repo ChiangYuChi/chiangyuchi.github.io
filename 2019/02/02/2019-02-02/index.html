@@ -11,18 +11,18 @@
   
   
   
-  <meta name="description" content="透過「學習」，才能理解無華且怪貌的石塊中，隱藏著抵抗侵蝕的結晶，而那些真正了解礦物的人，才能看透，而珍貴的結晶也只對他們顯露。">
+  <meta name="description" content="流程控制程式碼裡有時需要條件判斷，決定流程的下一步要執行哪些步驟。這時需要使用「條件判斷」的語法，決定使用哪一條流程。當指定的條件為 true ，就會執行該條件指定的流程，如果為 false 則使用另一個流程。JavaScript 的條件判斷語法有 2 種：if…else 和 switch 兩種 if…elseif 條件判斷句在條件為 true 的狀況下只會執行一組敘述句；if…else 條件判斷">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 控制判斷">
 <meta property="og:url" content="http://yoursite.com/2019/02/02/2019-02-02/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="透過「學習」，才能理解無華且怪貌的石塊中，隱藏著抵抗侵蝕的結晶，而那些真正了解礦物的人，才能看透，而珍貴的結晶也只對他們顯露。">
+<meta property="og:description" content="流程控制程式碼裡有時需要條件判斷，決定流程的下一步要執行哪些步驟。這時需要使用「條件判斷」的語法，決定使用哪一條流程。當指定的條件為 true ，就會執行該條件指定的流程，如果為 false 則使用另一個流程。JavaScript 的條件判斷語法有 2 種：if…else 和 switch 兩種 if…elseif 條件判斷句在條件為 true 的狀況下只會執行一組敘述句；if…else 條件判斷">
 <meta property="og:locale" content="en.yml">
-<meta property="og:updated_time" content="2020-07-21T09:27:06.264Z">
+<meta property="og:updated_time" content="2020-07-30T07:08:49.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 控制判斷">
-<meta name="twitter:description" content="透過「學習」，才能理解無華且怪貌的石塊中，隱藏著抵抗侵蝕的結晶，而那些真正了解礦物的人，才能看透，而珍貴的結晶也只對他們顯露。">
+<meta name="twitter:description" content="流程控制程式碼裡有時需要條件判斷，決定流程的下一步要執行哪些步驟。這時需要使用「條件判斷」的語法，決定使用哪一條流程。當指定的條件為 true ，就會執行該條件指定的流程，如果為 false 則使用另一個流程。JavaScript 的條件判斷語法有 2 種：if…else 和 switch 兩種 if…elseif 條件判斷句在條件為 true 的狀況下只會執行一組敘述句；if…else 條件判斷">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -191,7 +191,73 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><p>程式碼裡有時需要條件判斷，決定流程的下一步要執行哪些步驟。這時需要使用「條件判斷」的語法，決定使用哪一條流程。當指定的條件為 true ，就會執行該條件指定的流程，如果為 false 則使用另一個流程。JavaScript 的條件判斷語法有 2 種：if…else 和 switch 兩種</p>
+<h2 id="if…else"><a href="#if…else" class="headerlink" title="if…else"></a>if…else</h2><p>if 條件判斷句在條件為 true 的狀況下只會執行一組敘述句；if…else 條件判斷句在條件為 true 的情況下會運行一組敘述，在 條件為 false 的狀況下，運行另外一組敘述。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (指定條件) &#123;</span><br><span class="line">  陳述式 <span class="number">1</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  陳述式 <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果有更多個條件，可再搭配使用 else if</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (指定條件<span class="number">1</span>) &#123;</span><br><span class="line">  陳述式 <span class="number">1</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (指定條件 <span class="number">2</span>) &#123;</span><br><span class="line">  陳述式 <span class="number">2</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (指定條件 n) &#123;</span><br><span class="line">  陳述式 n;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  最後陳述式;</span><br></pre></td></tr></table></figure>
+
+<h2 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h2><p>JavaScript 遇到 switch 語句會先執行指定的 expression 語句，然後用執行 expression 得到的值，去跟所有 case 的值做比較，如果相等就執行這個 case 區塊的程式碼，都不相等則執行 default 區塊的程式碼。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(expression)&#123;</span><br><span class="line"> <span class="keyword">case</span> value_1:</span><br><span class="line">    statements_1</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> value_2:</span><br><span class="line">    statements_2</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    statements_def</span><br><span class="line">    [<span class="keyword">break</span>;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>舉例來說如果 fruitType 變數的值是 Apples，則會執行 case ‘Apples’ 區塊的程式碼；如果 fruitType 變數的值是 Mangoes，則會執行 case ‘Mangoes’ 區塊的程式碼；如果 fruitType 的值都不在指定的 case 裡面，則執行 default 區塊的程式碼。也可以省略 default 區塊，表示如果找不到相符的 case，則跳過整個 switch 區塊什麼不執行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (fruitType) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"Oranges"</span>:</span><br><span class="line">    alert(<span class="string">"Oranges"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"Apples"</span>:</span><br><span class="line">    alert(<span class="string">"Apples"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"Bananas"</span>:</span><br><span class="line">    alert(<span class="string">"Bananas"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"Cherries"</span>:</span><br><span class="line">    alert(<span class="string">"Cherries"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"Mangoes"</span>:</span><br><span class="line">    alert(<span class="string">"Mangoes"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"Papayas"</span>:</span><br><span class="line">    alert(<span class="string">"Papayas"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    alert(<span class="string">"沒有符合的條件"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>break 關鍵字<br>當 JavaScript 執行到 break 這個關鍵字的時後，就會直接跳出整個 switch 區塊，繼續往下執行。</li>
+<li>if…else 與 switch 的效能比較<br>switch 的效能比 if…else 好，因為 if…else 即使已經找到符合的條件，還是會繼續檢視全部的條件。switch 如果有符合的條件，就會執行對應的程式碼</li>
+</ul>
+<h2 id="迴圈"><a href="#迴圈" class="headerlink" title="迴圈"></a>迴圈</h2><p>迴圈 (loop) 提供一個快速又簡潔的方法來重複地做某件事。三種常用的迴圈有：</p>
+<ul>
+<li>for</li>
+<li>while</li>
+<li>do…while</li>
+</ul>
+<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><p>建立一個變數並設定初始值 <code>var i=0</code> ，設定條件 <code>i&lt;10</code> 意思是迴圈執行到第 9 次就會結束。<code>i++</code> 就是迴圈每執行一次，就會在計數器上增加一次計數意思就是 i = i + 1</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><p>while 陳述式會不斷執行它的陳述式只要指定的條件式判斷為 true。以下的 while 迴圈在只要 n 比 3 少的情況下便會不斷重複</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (n &lt; <span class="number">3</span>) &#123;</span><br><span class="line">  n++;</span><br><span class="line">  x += n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>迴圈把 n 遞增並將其值加到 x 上。因此，x 跟 n 的值會是下列情況：</p>
+<p>經過第一次迴圈後 n = 1 而 x = 1<br>經過第二次迴圈後 n = 2 而 x = 3<br>經過第三次迴圈後 n = 3 而 x = 6<br>在完成第三次迴圈後，判斷是 n&lt;3 不再是 true ，所以迴圈終止</p>
+<ul>
+<li>兩者相較</li>
+</ul>
+<p>while 是控制條件的變數在迴圈開始前即存在，迴圈開始後只會定義條件，不會去初始化參數，大多數用在迴圈執行次數『不確定』的時候。<br>for 則在迴圈一開始就定義變數，大多數用在迴圈次數『明確』的狀態。</p>
+<h3 id="do…while"><a href="#do…while" class="headerlink" title="do…while"></a>do…while</h3><p>while 和 do…while 的主要差別在於後者的程式區塊會寫在條件之前，這表示無論條件是否符合，程式區塊中的敘述都至少會執行一次</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">  n++;</span><br><span class="line">  x += n;</span><br><span class="line">&#125; <span class="keyword">while</span> (n &lt; <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="迴圈操作"><a href="#迴圈操作" class="headerlink" title="迴圈操作"></a>迴圈操作</h3><p>break 和 continue 是迴圈中兩個特別的指令</p>
+<ul>
+<li>break 會中止跳離迴圈</li>
+</ul>
+<p>例子：如果找到所要的東西，就停止迴圈</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> result = foo();</span><br><span class="line">  <span class="keyword">if</span> (result == <span class="string">"find it"</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"找到了，結束迴圈"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>continue 會讓迴圈跳過這一次的行為繼續執行下一次的迴圈。</li>
+</ul>
+<p>例子：假設想要印出 1 ~ 10 的數字 ，但是不包括 3 的倍數。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++) &#123;</span><br><span class="line">  <span class="comment">// i 能被 3 整除表示 i 是 3 的倍數，遇到 continue 就會跳過這次</span></span><br><span class="line">  <span class="keyword">if</span>( i % <span class="number">3</span> === <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="keyword">continue</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(i);</span><br></pre></td></tr></table></figure>
+
+<h3 id="迴圈應用-99-乘法表"><a href="#迴圈應用-99-乘法表" class="headerlink" title="迴圈應用 - 99 乘法表"></a>迴圈應用 - 99 乘法表</h3><ul>
+<li>for 迴圈</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">1</span>; j &lt; <span class="number">10</span>; j++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i + <span class="string">"x"</span> + j + <span class="string">" = "</span> + i * j);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>while</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (i &lt; <span class="number">10</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> j = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (j &lt; <span class="number">10</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i + <span class="string">" x "</span> + j + <span class="string">" = "</span> + i * j);</span><br><span class="line">    j++;</span><br><span class="line">  &#125;</span><br><span class="line">  i++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>do…while<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> j = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i + <span class="string">" x "</span> + j + <span class="string">" = "</span> + i * j);</span><br><span class="line">        j++;</span><br><span class="line">    &#125;<span class="keyword">while</span> (j &lt; <span class="number">10</span>);</span><br><span class="line">    i++;</span><br><span class="line">&#125;<span class="keyword">while</span> (i &lt; <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
@@ -293,7 +359,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav">None</ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#流程控制"><span class="nav-number">1.</span> <span class="nav-text">流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#if…else"><span class="nav-number">1.1.</span> <span class="nav-text">if…else</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch"><span class="nav-number">1.2.</span> <span class="nav-text">switch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迴圈"><span class="nav-number">1.3.</span> <span class="nav-text">迴圈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#for"><span class="nav-number">1.3.1.</span> <span class="nav-text">for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while"><span class="nav-number">1.3.2.</span> <span class="nav-text">while</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#do…while"><span class="nav-number">1.3.3.</span> <span class="nav-text">do…while</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迴圈操作"><span class="nav-number">1.3.4.</span> <span class="nav-text">迴圈操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迴圈應用-99-乘法表"><span class="nav-number">1.3.5.</span> <span class="nav-text">迴圈應用 - 99 乘法表</span></a></li></ol></li></ol></li></ol>
     
     </div>
   </aside>
