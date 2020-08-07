@@ -3,26 +3,30 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>javascript 遞迴 | CYC&#39;S BLOG</title>
+  <title>ajax (2) | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="JavaScript">
+  <meta name="keywords" content="JavaScriptAJAX">
   
   
   
   
-  <meta name="description" content="透過「學習」，才能理解無華且怪貌的石塊中，隱藏著抵抗侵蝕的結晶，而那些真正了解礦物的人，才能看透，而珍貴的結晶也只對他們顯露。">
-<meta name="keywords" content="JavaScript">
+  <meta name="description" content="DemoAJAX 練習 - 取得數據資料 - Demo 1. Introduction 介紹這是一個網路上 JavaScript 30 天的課程練習，這個項目將達到以下目標   利用 Fetch API 取得數據資料 建立正規式 認識 promise 利用正規式找到內容 利用正規式取代內容 使用 change 事件和 keyup 事件  功能利用 Fetch API 取得數據資料利用 fetch">
+<meta name="keywords" content="JavaScript,AJAX">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript 遞迴">
-<meta property="og:url" content="http://yoursite.com/2019/02/07/2019-02-07/index.html">
+<meta property="og:title" content="AJAX (2)">
+<meta property="og:url" content="http://yoursite.com/2019/02/12/2019-02-12/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="透過「學習」，才能理解無華且怪貌的石塊中，隱藏著抵抗侵蝕的結晶，而那些真正了解礦物的人，才能看透，而珍貴的結晶也只對他們顯露。">
+<meta property="og:description" content="DemoAJAX 練習 - 取得數據資料 - Demo 1. Introduction 介紹這是一個網路上 JavaScript 30 天的課程練習，這個項目將達到以下目標   利用 Fetch API 取得數據資料 建立正規式 認識 promise 利用正規式找到內容 利用正規式取代內容 使用 change 事件和 keyup 事件  功能利用 Fetch API 取得數據資料利用 fetch">
 <meta property="og:locale" content="en.yml">
-<meta property="og:updated_time" content="2020-07-21T09:28:12.012Z">
+<meta property="og:image" content="https://i.imgur.com/LswgPfk.png">
+<meta property="og:image" content="https://i.imgur.com/qhO5Wtw.png">
+<meta property="og:image" content="https://i.imgur.com/gUlw0Js.png">
+<meta property="og:updated_time" content="2020-08-07T06:04:08.242Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript 遞迴">
-<meta name="twitter:description" content="透過「學習」，才能理解無華且怪貌的石塊中，隱藏著抵抗侵蝕的結晶，而那些真正了解礦物的人，才能看透，而珍貴的結晶也只對他們顯露。">
+<meta name="twitter:title" content="AJAX (2)">
+<meta name="twitter:description" content="DemoAJAX 練習 - 取得數據資料 - Demo 1. Introduction 介紹這是一個網路上 JavaScript 30 天的課程練習，這個項目將達到以下目標   利用 Fetch API 取得數據資料 建立正規式 認識 promise 利用正規式找到內容 利用正規式取代內容 使用 change 事件和 keyup 事件  功能利用 Fetch API 取得數據資料利用 fetch">
+<meta name="twitter:image" content="https://i.imgur.com/LswgPfk.png">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -158,7 +162,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-2019-02-07" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-2019-02-12" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -166,7 +170,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      JavaScript 遞迴
+      AJAX (2)
     </h1>
   
 
@@ -174,8 +178,8 @@
     
     <div class="article-meta">
       
-	<a href="/2019/02/07/2019-02-07/" class="article-date">
-	  <time datetime="2019-02-06T16:00:00.000Z" itemprop="datePublished">2019-02-07</time>
+	<a href="/2019/02/12/2019-02-12/" class="article-date">
+	  <time datetime="2019-02-11T16:00:00.000Z" itemprop="datePublished">2019-02-12</time>
 	</a>
 
       
@@ -191,7 +195,51 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><p>AJAX 練習 - 取得數據資料 - <a href="https://codepen.io/Shengzhi/pen/oRVqYa" target="_blank" rel="noopener">Demo</a></p>
+<h1 id="1-Introduction-介紹"><a href="#1-Introduction-介紹" class="headerlink" title="1. Introduction 介紹"></a>1. Introduction 介紹</h1><p>這是一個網路上 JavaScript 30 天的課程練習，這個項目將達到以下目標</p>
+<p><img src="https://i.imgur.com/LswgPfk.png" alt></p>
+<ul>
+<li>利用 Fetch API 取得數據資料</li>
+<li>建立正規式</li>
+<li>認識 promise</li>
+<li>利用正規式找到內容</li>
+<li>利用正規式取代內容</li>
+<li>使用 change 事件和 keyup 事件</li>
+</ul>
+<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><h2 id="利用-Fetch-API-取得數據資料"><a href="#利用-Fetch-API-取得數據資料" class="headerlink" title="利用 Fetch API 取得數據資料"></a>利用 Fetch API 取得數據資料</h2><p>利用 fetch 取得數據資料的時候會先回傳 promise 給我們。Promise 是一個根據附加給他的 Callback 回傳的物件，以取代傳遞 Callback 到這個函數。它回傳的還不是我們要的資料。</p>
+<p>查詢一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const prom = fetch(endpoint);</span><br><span class="line">console.log(prom);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/qhO5Wtw.png" alt></p>
+<h2 id="關於-promise"><a href="#關於-promise" class="headerlink" title="關於 promise"></a>關於 promise</h2><p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Using_promises" target="_blank" rel="noopener">https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Using_promises </a></p>
+<p>第一個回傳的是一個 <code>readableStream</code><br><img src="https://i.imgur.com/gUlw0Js.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const endpoint =&apos;https://gist.githubusercontent.com</span><br><span class="line">/Miserlou/c5cd8364bf9b2420bb29/raw/</span><br><span class="line">2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/</span><br><span class="line">cities.json&apos;;</span><br><span class="line"></span><br><span class="line">const cities = [];</span><br><span class="line">fetch(endpoint).then(blob =&gt; blob.json()).then(data =&gt; console.log(data));</span><br></pre></td></tr></table></figure>
+
+<p>在上面可以看到我們已經抓取到資料，但是要怎麼把它一個一個參數個別放進陣列裡呢？ 這裡運用的是 ES6 的展開運算符<code>...</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fetch(endpoint).then(blob =&gt; blob.json()).then(data =&gt; cities.push(...data));</span><br></pre></td></tr></table></figure>
+
+<h2 id="建立正規式"><a href="#建立正規式" class="headerlink" title="建立正規式"></a>建立正規式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let regex = new RegExp(wordToMatch, &apos;gi&apos;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第一個參數是正規式的內容</li>
+<li>第二個參數是一個 flag 旗標<ul>
+<li>global search，會去搜尋整份文件</li>
+<li>i 表示 case insensitive，也就是不去區分大小寫</li>
+</ul>
+</li>
+</ul>
+<h2 id="利用正規式找到內容"><a href="#利用正規式找到內容" class="headerlink" title="利用正規式找到內容"></a>利用正規式找到內容</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function findMatch(wordToMatch, cities) &#123;</span><br><span class="line">      return cities.filter(place =&gt; &#123;</span><br><span class="line"></span><br><span class="line">        const regex = new RegExp(wordToMatch, &apos;gi&apos;);</span><br><span class="line">        return place.city.match(regex) || place.state.match(regex)</span><br><span class="line"></span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="利用正規式取代內容"><a href="#利用正規式取代內容" class="headerlink" title="利用正規式取代內容"></a>利用正規式取代內容</h2><p>replace() 方法會傳回一個新字串，此新字串是透過將原字串與 pattern 比對，但不會改變原本的字串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const regex = new RegExp(this.value, &apos;gi&apos;);</span><br><span class="line"></span><br><span class="line">const cityName = place.city.replace(regex,</span><br><span class="line">`&lt;span class=&apos;hl&apos;&gt;$&#123;this.value&#125;&lt;/span&gt;`);</span><br><span class="line"></span><br><span class="line">const stateName = place.state.replace(regex,</span><br><span class="line">`&lt;span class=&apos;hl&apos;&gt;$&#123;this.value&#125;&lt;/span&gt;`);</span><br></pre></td></tr></table></figure>
+
+<h2 id="change-事件和-keyup-事件"><a href="#change-事件和-keyup-事件" class="headerlink" title="change 事件和 keyup 事件"></a>change 事件和 keyup 事件</h2><ul>
+<li>keyup 事件 會在任何元素值改變的時候被出發（例如每打一個字都會觸發一次）</li>
+<li>change event 則是會在有元素值改變，且該元素脫離 focus 狀態時才觸發</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">searchInput.addEventListener(&apos;change&apos;, displayMatches);</span><br><span class="line">searchInput.addEventListener(&apos;keyup&apos;, displayMatches);</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
     <footer class="article-footer">
@@ -217,7 +265,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/02/07/2019-02-07/" target="_blank" title="JavaScript 遞迴">http://yoursite.com/2019/02/07/2019-02-07/</a>
+          <a href="/2019/02/12/2019-02-12/" target="_blank" title="AJAX (2)">http://yoursite.com/2019/02/12/2019-02-12/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -257,7 +305,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AJAX/">AJAX</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
       
 
@@ -267,19 +315,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2019/02/11/2019-02-11/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/06/10/2019-06-10/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          AJAX (1)
+          常見的陣列運用方式
         
       </div>
     </a>
   
   
-    <a href="/2019/02/06/2019-02-06/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/02/11/2019-02-11/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">JavaScript LocalStorage</div>
+      <div class="article-nav-title">AJAX (1)</div>
     </a>
   
 </nav>
@@ -293,7 +341,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav">None</ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo"><span class="nav-number">1.</span> <span class="nav-text">Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Introduction-介紹"><span class="nav-number">2.</span> <span class="nav-text">1. Introduction 介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#功能"><span class="nav-number">3.</span> <span class="nav-text">功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用-Fetch-API-取得數據資料"><span class="nav-number">3.1.</span> <span class="nav-text">利用 Fetch API 取得數據資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#關於-promise"><span class="nav-number">3.2.</span> <span class="nav-text">關於 promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立正規式"><span class="nav-number">3.3.</span> <span class="nav-text">建立正規式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用正規式找到內容"><span class="nav-number">3.4.</span> <span class="nav-text">利用正規式找到內容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用正規式取代內容"><span class="nav-number">3.5.</span> <span class="nav-text">利用正規式取代內容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#change-事件和-keyup-事件"><span class="nav-number">3.6.</span> <span class="nav-text">change 事件和 keyup 事件</span></a></li></ol></li></ol>
     
     </div>
   </aside>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>javascript 練習 - 計算機 | CYC&#39;S BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="JavaScript">
+  
+  
+  
+  
+  <meta name="description" content="DemoIntroduction 介紹這是一個很經典的基礎 JavaScript 練習題，一開始把題目想得太複雜，但參考網上的作法後，了解到如何運用基礎的 JavaScript 語法做出一個基本功能的計算機。這個練習會用到：  變數 if-else 條件判斷 includes() 方法 matches() 方法 dataset 自定義資料屬性 Event deligation 事件委派  基本 H">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 練習 - 計算機">
+<meta property="og:url" content="http://yoursite.com/2019/08/01/2019-08-01/index.html">
+<meta property="og:site_name" content="CYC&#39;S BLOG">
+<meta property="og:description" content="DemoIntroduction 介紹這是一個很經典的基礎 JavaScript 練習題，一開始把題目想得太複雜，但參考網上的作法後，了解到如何運用基礎的 JavaScript 語法做出一個基本功能的計算機。這個練習會用到：  變數 if-else 條件判斷 includes() 方法 matches() 方法 dataset 自定義資料屬性 Event deligation 事件委派  基本 H">
+<meta property="og:locale" content="en.yml">
+<meta property="og:updated_time" content="2020-08-07T06:02:41.017Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 練習 - 計算機">
+<meta name="twitter:description" content="DemoIntroduction 介紹這是一個很經典的基礎 JavaScript 練習題，一開始把題目想得太複雜，但參考網上的作法後，了解到如何運用基礎的 JavaScript 語法做出一個基本功能的計算機。這個練習會用到：  變數 if-else 條件判斷 includes() 方法 matches() 方法 dataset 自定義資料屬性 Event deligation 事件委派  基本 H">
+  
+    <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2019-08-01" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      JavaScript 練習 - 計算機
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/08/01/2019-08-01/" class="article-date">
+	  <time datetime="2019-07-31T16:00:00.000Z" itemprop="datePublished">2019-08-01</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><h2 id="Introduction-介紹"><a href="#Introduction-介紹" class="headerlink" title="Introduction 介紹"></a>Introduction 介紹</h2><p>這是一個很經典的基礎 JavaScript 練習題，一開始把題目想得太複雜，但參考網上的作法後，了解到如何運用基礎的 JavaScript 語法做出一個基本功能的計算機。這個練習會用到：</p>
+<ul>
+<li>變數</li>
+<li>if-else 條件判斷</li>
+<li>includes() 方法</li>
+<li>matches() 方法</li>
+<li>dataset 自定義資料屬性</li>
+<li>Event deligation 事件委派</li>
+</ul>
+<h2 id="基本-HTML-結構"><a href="#基本-HTML-結構" class="headerlink" title="基本 HTML 結構"></a>基本 HTML 結構</h2><p>基本的 HTML 結構如下，可以看到輸入欄位、運算符號及數字鍵，其中運算符號上面具備 <code>data-action</code> 屬性以便點擊時取得相應功能。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"calculator"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"calculator__display"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"calculator__keys"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"key--operator"</span> <span class="attr">data-action</span>=<span class="string">"add"</span>&gt;</span>+<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"key--operator"</span> <span class="attr">data-action</span>=<span class="string">"subtract"</span>&gt;</span>-<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"key--operator"</span> <span class="attr">data-action</span>=<span class="string">"multiply"</span>&gt;</span>&amp;times;<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"key--operator"</span> <span class="attr">data-action</span>=<span class="string">"divide"</span>&gt;</span>÷<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span>&gt;</span>7<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span>&gt;</span>8<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span>&gt;</span>9<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span>&gt;</span>4<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span>&gt;</span>5<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span>&gt;</span>6<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span>&gt;</span>1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span>&gt;</span>2<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span>&gt;</span>3<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span>&gt;</span>0<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"decimal"</span>&gt;</span>.<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"clear"</span>&gt;</span>AC<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"key--equal"</span> <span class="attr">data-action</span>=<span class="string">"calculate"</span>&gt;</span>=<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="基礎功能"><a href="#基礎功能" class="headerlink" title="基礎功能"></a>基礎功能</h2><h3 id="使用事件委派監聽"><a href="#使用事件委派監聽" class="headerlink" title="使用事件委派監聽"></a>使用事件委派監聽</h3><p>監聽所有點擊事件，在此使用事件委派監聽，因為所有按鍵都是 <code>keys</code> 的子層，並且使用 <code>matches()</code> 確定按下的鍵的類型。如果按下的鍵屬性是 button，那就指向觸發事件的 DOM 物件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> calculator = <span class="built_in">document</span>.querySelector(<span class="string">".calculator"</span>);</span><br><span class="line"><span class="keyword">const</span> keys = <span class="built_in">document</span>.querySelector(<span class="string">".calculator__keys"</span>);</span><br><span class="line"><span class="keyword">const</span> action = key.dataset.action;</span><br><span class="line">keys.addEventListener(<span class="string">"click"</span>, (e) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span>(e.target.matches(<span class="string">'button'</span>))&#123;</span><br><span class="line">      <span class="keyword">const</span> key = e.target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>並且利用 <code>data-action</code> 與判斷式，判斷點擊目標的自定義資料屬性。一個簡單的計算機可能發生以下幾種狀況：</p>
+<ul>
+<li>數字鍵 （0-9)</li>
+<li>運算符 an operator key (+, -, ×, ÷)</li>
+<li>小數點</li>
+<li>等於</li>
+<li>清除</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> key = e.target;</span><br><span class="line"><span class="keyword">const</span> action = key.dataset.action;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!action) &#123;</span><br><span class="line">  <span class="comment">//如果點擊目標不是任何運算動作，就是數字</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (</span><br><span class="line">  action === <span class="string">"add"</span> ||</span><br><span class="line">  action === <span class="string">"subtract"</span> ||</span><br><span class="line">  action === <span class="string">"multiply"</span> ||</span><br><span class="line">  action === <span class="string">"divide"</span></span><br><span class="line">) &#123;</span><br><span class="line">  <span class="comment">//如果點擊鍵是+-*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (action === <span class="string">"decimal"</span>) &#123;</span><br><span class="line">  <span class="comment">//如果點擊鍵是小數點</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (action === <span class="string">"clear"</span>) &#123;</span><br><span class="line">  <span class="comment">//如果點擊鍵是清除</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (action === <span class="string">"calculate"</span>) &#123;</span><br><span class="line">  <span class="comment">//如果點擊鍵是等於</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="取得輸入值並顯示在計算機"><a href="#取得輸入值並顯示在計算機" class="headerlink" title="取得輸入值並顯示在計算機"></a>取得輸入值並顯示在計算機</h3><p>計算機都會有一個開機預設的 0，如果按下任何一個數字鍵，就會取代目前銀幕上的 0。如果銀幕上現在是非 0 的其他數字，按下第二個數字鍵，就會附加在目前顯示的數字尾巴。所以這裡需要獲得 2 項資訊：</p>
+<ul>
+<li>目前點擊數字</li>
+<li>目前銀幕顯示數字</li>
+</ul>
+<p>透過 <code>textContent</code> 屬性取得上面兩項資訊的值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> display = <span class="built_in">document</span>.querySelector(<span class="string">".calculator__display"</span>); <span class="comment">// 取得計算機銀幕欄位</span></span><br><span class="line">keys.addEventListener(<span class="string">"click"</span>, (e) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (e.target.matches(<span class="string">"button"</span>)) &#123;</span><br><span class="line">    <span class="keyword">const</span> key = e.target;</span><br><span class="line">    <span class="keyword">const</span> action = key.dataset.action;</span><br><span class="line">    <span class="keyword">const</span> keyContent = key.textContent; <span class="comment">//取得點擊鍵的值</span></span><br><span class="line">    <span class="keyword">const</span> displayedNum = display.textContent; <span class="comment">//取得銀幕顯示值</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>假如銀幕現在顯示 0，取代現在顯示的 0；不是 0，例如 1，附加點擊的第二個按鍵在 1 後面例如 13</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!action) &#123;</span><br><span class="line">  <span class="keyword">if</span> (displayedNum === <span class="string">"0"</span>) &#123;</span><br><span class="line">    display.textConten = keyContent;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    display.textConten = displayedNum + keyContent;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="小數點"><a href="#小數點" class="headerlink" title="小數點"></a>小數點</h4><ul>
+<li>使用 includes() 檢查字串有沒有小數點，如果沒有小數點，而且前一個點擊事件不是運算符，例如 11，那就加上小數點</li>
+<li>如果前一個點擊事件是等號或者運算符事件，點擊小數點就會顯示 0.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (action === <span class="string">"decimal"</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!displayedNum.includes(<span class="string">"."</span>) &amp;&amp; previousKeyType !== <span class="string">"operator"</span>) &#123;</span><br><span class="line">    display.textContent = displayedNum + <span class="string">"."</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (</span><br><span class="line">    previousKeyType === <span class="string">"operator"</span> ||</span><br><span class="line">    previousKeyType === <span class="string">"calculate"</span></span><br><span class="line">  ) &#123;</span><br><span class="line">    display.textContent = <span class="string">"0."</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  calculator.dataset.previousKeyType = <span class="string">"decimal"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="運算符號事件：新增第二個運算數字"><a href="#運算符號事件：新增第二個運算數字" class="headerlink" title="運算符號事件：新增第二個運算數字"></a>運算符號事件：新增第二個運算數字</h4><p>一個兩個數字的運算，例如 1 + 3 會有三個資料需儲存</p>
+<ul>
+<li>第一個數字</li>
+<li>運算符號</li>
+<li>第二個數字</li>
+</ul>
+<p>在點擊運算符號的時候，第一個數字會被儲存，第二個數字會取代第一個數字而顯示在銀幕上。所以在點擊運算符號的時候，使用 <code>dataset</code> 儲存第一個數字、目前的點擊事件類型、運算符號號</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (</span><br><span class="line">  action === <span class="string">"add"</span> ||</span><br><span class="line">  action === <span class="string">"subtract"</span> ||</span><br><span class="line">  action === <span class="string">"multiply"</span> ||</span><br><span class="line">  action === <span class="string">"divide"</span></span><br><span class="line">) &#123;</span><br><span class="line">  calculator.dataset.firstValue = displayedNum; <span class="comment">//儲存第一個值</span></span><br><span class="line">  calculator.dataset.previousKeyType = <span class="string">"operator"</span>; <span class="comment">//儲存點擊事件類型</span></span><br><span class="line">  calculator.dataset.operator = action; <span class="comment">//儲存運算符號</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="等號事件"><a href="#等號事件" class="headerlink" title="等號事件"></a>等號事件</h4><p>按下等號的時候，會運用到已經用 dataset 儲存的第一個值、儲存的運算符號、銀幕目前顯示的值。而且按下運算符號後，需把運算結果更新成下一個算式的的第一個值。<br>例如 5-1 = 4 , 下一個算式的第一個數字就是 1</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (action === <span class="string">"calculate"</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> operator = calculator.dataset.operator;</span><br><span class="line">  <span class="keyword">let</span> firstValue = calculator.dataset.firstValue;</span><br><span class="line">  <span class="keyword">let</span> secondValue = displayedNum;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (firstValue) &#123;</span><br><span class="line">    <span class="keyword">if</span> (previousKeyType === <span class="string">"calculate"</span>) &#123;</span><br><span class="line">      firstValue = displayedNum;</span><br><span class="line">      secondValue = calculate.dataset.modeValue;</span><br><span class="line">    &#125;</span><br><span class="line">    display.textContent = calculate(firstValue, operator, secondValue);</span><br><span class="line">  &#125;</span><br><span class="line">  calculator.dataset.modeValue = secondValue;</span><br><span class="line"></span><br><span class="line">  calculator.dataset.previousKeyType = <span class="string">"calculate"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="運算符號事件優化"><a href="#運算符號事件優化" class="headerlink" title="運算符號事件優化"></a>運算符號事件優化</h4><p>在運算符號事件發生的時候，如果 按下 8+3+ 就會出現等同於按下等號的狀況。第一個數字已經被儲存，第二個數字現在是銀幕上顯示的數字，所以邏輯跟按下等號一樣</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> operator = calculator.dataset.operator;</span><br><span class="line"><span class="keyword">let</span> firstValue = calculator.dataset.firstValue;</span><br><span class="line"><span class="keyword">let</span> secondValue = displayedNum;</span><br><span class="line"><span class="keyword">if</span> (</span><br><span class="line">  firstValue &amp;&amp;</span><br><span class="line">  operator &amp;&amp;</span><br><span class="line">  previousKeyType !== <span class="string">"operator"</span> &amp;&amp;</span><br><span class="line">  previousKeyType !== <span class="string">"calculate"</span></span><br><span class="line">) &#123;</span><br><span class="line">  <span class="keyword">let</span> calcValue = calculate(firstValue, operator, secondValue);</span><br><span class="line">  calculator.dataset.firstValue = calcValue;</span><br><span class="line">  display.textContent = calcValue;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  calculator.dataset.firstValue = displayedNum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: '',
+  alipayImage: ''
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong></a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/08/01/2019-08-01/" target="_blank" title="JavaScript 練習 - 計算機">http://yoursite.com/2019/08/01/2019-08-01/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/05/2019-08-05/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript 練習 - 顧客心得
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/06/10/2019-06-10/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">常見的陣列運用方式</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo"><span class="nav-number">1.</span> <span class="nav-text">Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-介紹"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction 介紹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本-HTML-結構"><span class="nav-number">1.2.</span> <span class="nav-text">基本 HTML 結構</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基礎功能"><span class="nav-number">1.3.</span> <span class="nav-text">基礎功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用事件委派監聽"><span class="nav-number">1.3.1.</span> <span class="nav-text">使用事件委派監聽</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取得輸入值並顯示在計算機"><span class="nav-number">1.3.2.</span> <span class="nav-text">取得輸入值並顯示在計算機</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#小數點"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">小數點</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#運算符號事件：新增第二個運算數字"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">運算符號事件：新增第二個運算數字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#等號事件"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">等號事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#運算符號事件優化"><span class="nav-number">1.3.2.4.</span> <span class="nav-text">運算符號事件優化</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 CYC&#39;S BLOG All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            CYC&#39;S BLOG
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 CYC&#39;S BLOG All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

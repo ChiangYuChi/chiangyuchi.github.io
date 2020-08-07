@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>git 基本指令 | CYC&#39;S BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="environmentGit">
+  
+  
+  
+  
+  <meta name="description" content="檢視目前設定$ git config –list 設定帳密$ git config –global user.name ‘cxxxxxxx’$ git config –global user.email ‘cxxxxxxx@gmail.com’ 查詢設定$ git config –list Git 初始化讓 Git 知道這個資料夾要進行版控  建立目錄$ mkdir git-practice$ c">
+<meta name="keywords" content="environment,Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git 基本指令">
+<meta property="og:url" content="http://yoursite.com/2019/01/31/2019-01-31/index.html">
+<meta property="og:site_name" content="CYC&#39;S BLOG">
+<meta property="og:description" content="檢視目前設定$ git config –list 設定帳密$ git config –global user.name ‘cxxxxxxx’$ git config –global user.email ‘cxxxxxxx@gmail.com’ 查詢設定$ git config –list Git 初始化讓 Git 知道這個資料夾要進行版控  建立目錄$ mkdir git-practice$ c">
+<meta property="og:locale" content="en.yml">
+<meta property="og:image" content="https://i.imgur.com/hJEeFVT.png">
+<meta property="og:image" content="https://i.imgur.com/Vly0sFs.png">
+<meta property="og:image" content="https://i.imgur.com/keIwyUn.png">
+<meta property="og:image" content="https://i.imgur.com/9VLiKmo.png">
+<meta property="og:image" content="https://i.imgur.com/xyO3GU3.png">
+<meta property="og:image" content="https://i.imgur.com/cM5Ho0b.png">
+<meta property="og:image" content="https://i.imgur.com/nR08OV6.png">
+<meta property="og:image" content="https://i.imgur.com/ymEIFIf.png">
+<meta property="og:image" content="https://i.imgur.com/ZHgFviZ.png">
+<meta property="og:image" content="https://i.imgur.com/JHdTMi7.png">
+<meta property="og:image" content="https://i.imgur.com/8g5Njgz.png">
+<meta property="og:image" content="https://i.imgur.com/L8ghm4Q.png">
+<meta property="og:image" content="https://i.imgur.com/lMofhTE.png">
+<meta property="og:image" content="https://i.imgur.com/DruAI8w.png">
+<meta property="og:image" content="https://i.imgur.com/fSAJhWD.png">
+<meta property="og:image" content="https://i.imgur.com/Xb5B1tm.png">
+<meta property="og:image" content="https://i.imgur.com/SMAevkt.png">
+<meta property="og:image" content="https://i.imgur.com/p2jJTPr.jpg">
+<meta property="og:image" content="https://i.imgur.com/PCL7fcc.png">
+<meta property="og:image" content="https://i.imgur.com/VJk83ZQ.png">
+<meta property="og:image" content="https://i.imgur.com/Fn0AcVn.png">
+<meta property="og:image" content="https://i.imgur.com/XADDULQ.png">
+<meta property="og:image" content="https://i.imgur.com/qdr9Cvj.png">
+<meta property="og:updated_time" content="2020-08-07T06:11:48.774Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git 基本指令">
+<meta name="twitter:description" content="檢視目前設定$ git config –list 設定帳密$ git config –global user.name ‘cxxxxxxx’$ git config –global user.email ‘cxxxxxxx@gmail.com’ 查詢設定$ git config –list Git 初始化讓 Git 知道這個資料夾要進行版控  建立目錄$ mkdir git-practice$ c">
+<meta name="twitter:image" content="https://i.imgur.com/hJEeFVT.png">
+  
+    <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2019-01-31" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Git 基本指令
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/01/31/2019-01-31/" class="article-date">
+	  <time datetime="2019-01-30T16:00:00.000Z" itemprop="datePublished">2019-01-31</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="檢視目前設定"><a href="#檢視目前設定" class="headerlink" title="檢視目前設定"></a>檢視目前設定</h1><p>$ git config –list</p>
+<h1 id="設定帳密"><a href="#設定帳密" class="headerlink" title="設定帳密"></a>設定帳密</h1><p>$ git config –global user.name ‘cxxxxxxx’<br>$ git config –global user.email ‘cxxxxxxx@gmail.com’</p>
+<h1 id="查詢設定"><a href="#查詢設定" class="headerlink" title="查詢設定"></a>查詢設定</h1><p>$ git config –list</p>
+<h1 id="Git-初始化"><a href="#Git-初始化" class="headerlink" title="Git 初始化"></a>Git 初始化</h1><p>讓 Git 知道這個資料夾要進行版控</p>
+<ul>
+<li>建立目錄<br>$ mkdir git-practice<br>$ cd git-practice</li>
+<li>git 初始化<br>$ git init (自動建立一個.git 目錄)</li>
+</ul>
+<h1 id="Git-重要區塊"><a href="#Git-重要區塊" class="headerlink" title="Git 重要區塊"></a>Git 重要區塊</h1><ul>
+<li>工作目錄 (working)</li>
+<li>暫存區域 (staging)</li>
+<li>儲存庫 (repository)</li>
+</ul>
+<blockquote>
+<p>它們並不是被放到某個「目錄」，比較像是狀態的「改變」</p>
+</blockquote>
+<h4 id="新增檔案"><a href="#新增檔案" class="headerlink" title="新增檔案"></a>新增檔案</h4><ul>
+<li>現在 git 狀態<br>$ git status<br>$ git add index.html (新增一個檔案的時候，status 還是 untracked file，之後從工作目錄改到暫存區域變成 new file )<br>$ git commit -m “add index” (推到儲存庫，status 顯示 working tree clean)</li>
+</ul>
+<p><img src="https://i.imgur.com/hJEeFVT.png" alt></p>
+<blockquote>
+<p>add+commit 這樣的循環是一次存檔<br>commit 的訊息很重要，重點是這次存了什麼</p>
+</blockquote>
+<ul>
+<li>檢視記錄<br>$ git log<br>$ git log –oneline</li>
+</ul>
+<h3 id="Git-使用情境-1"><a href="#Git-使用情境-1" class="headerlink" title="Git 使用情境 1"></a>Git 使用情境 1</h3><ul>
+<li><p>檔案不小心刪掉怎麼辦？<br>$ rm index.html<br>$ git checkout –index.html<br>$ git checkout . (把這個目錄恢復成最近一次 commit 狀態)</p>
+</li>
+<li><p>查詢檔案作者<br>$ git blame index.html</p>
+</li>
+<li><p>git 裡新增目錄並進行版控<br>由於 git 不會把空資料夾運算進版控，所以可以放一個隱藏檔<br>$ touch hello-world/.keep</p>
+</li>
+</ul>
+<h3 id="使用分支"><a href="#使用分支" class="headerlink" title="使用分支"></a>使用分支</h3><p>為什麼要使用分支？</p>
+<blockquote>
+<p>一般來說，我們分支只是貼在某個 commit 上的貼紙，例如下圖的 master :</p>
+</blockquote>
+<p><img src="https://i.imgur.com/Vly0sFs.png" alt></p>
+<ul>
+<li>查詢分支<br>$ git branch</li>
+<li>開新分支<br>$ git branch xxxx (git branch 後面加上要開的分支名稱)</li>
+</ul>
+<p><img src="https://i.imgur.com/keIwyUn.png" alt></p>
+<blockquote>
+<p>如果 HEAD 現在指向 master，意思就是「現在正在 master 分之上」</p>
+</blockquote>
+<ul>
+<li>切換分支<br>$ git checkout cat (switched to master ‘cat’ )</li>
+<li>合併分支<br>$ git merge cat</li>
+</ul>
+<p>合併前：<br><img src="https://i.imgur.com/9VLiKmo.png" alt><br>合併後：<br><img src="https://i.imgur.com/xyO3GU3.png" alt></p>
+<blockquote>
+<p>合併分支可看成只是在移動貼紙，但是這邊的合併還算單純，所以算是一種「<strong>快轉合併</strong>」</p>
+</blockquote>
+<ul>
+<li>刪除分支<br>$ git branch -d cat<blockquote>
+<p>只是把 cat 貼紙撕掉<br>commit 或是檔案不會因此受到影響<br>Git 的本體是 commit</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="複雜一點的分支"><a href="#複雜一點的分支" class="headerlink" title="複雜一點的分支"></a>複雜一點的分支</h3><p>如果是各自新增的 branch 就沒辦法快轉合併了，要怎麼處理？例如現在分別有一個 dog 跟 cat branch，假設現在 HEAD 指向 dog branch：<br><img src="https://i.imgur.com/cM5Ho0b.png" alt></p>
+<ul>
+<li>合併 dog 跟 cat branch<br>$ git merge cat</li>
+</ul>
+<p><img src="https://i.imgur.com/nR08OV6.png" alt></p>
+<h3 id="另一種合併分支的方式-（rebase"><a href="#另一種合併分支的方式-（rebase" class="headerlink" title="另一種合併分支的方式 （rebase)"></a>另一種合併分支的方式 （rebase)</h3><p><img src="https://i.imgur.com/ymEIFIf.png" alt><br><img src="https://i.imgur.com/ZHgFviZ.png" alt></p>
+<pre><code>以 rebase 合併的好處：合併的歷史比較簡潔乾淨，但相對 merge，就比較難看清楚整個檔案的分支記錄過程。</code></pre><h3 id="如何回到上一步-返回之前狀態"><a href="#如何回到上一步-返回之前狀態" class="headerlink" title="如何回到上一步 (返回之前狀態)"></a>如何回到上一步 (返回之前狀態)</h3><blockquote>
+<p>對 Git 常見的誤解是以為 reset 是刪除 commit 的意思。但是 Git 的世界事實上沒有刪除 Commit 的指令。一般我們把 reset 理解成「重新設定」，其實可以理解成 become，一種「我想要變成 XXX」的狀態。</p>
+<blockquote>
+</blockquote>
+</blockquote>
+<p>原始檔案狀態：<br><img src="https://i.imgur.com/JHdTMi7.png" alt><br>reset 狀態：<br><img src="https://i.imgur.com/8g5Njgz.png" alt></p>
+<p>參數狀態決定檔案去留，常見參數有</p>
+<ul>
+<li>mixed</li>
+<li>soft</li>
+<li>hard</li>
+</ul>
+<p><img src="https://i.imgur.com/L8ghm4Q.png" alt></p>
+<p>在使用 –hard 的時候，如果要再次恢復專案到上一步，要怎樣做？</p>
+<h1 id="reflog-reference-log"><a href="#reflog-reference-log" class="headerlink" title="reflog (reference log )"></a>reflog (reference log )</h1><p>Git 會把移動軌跡都記錄在 reference log，如果使用 –hard 之後想要復原，可先查詢 reflog</p>
+<h1 id="絕對定位法"><a href="#絕對定位法" class="headerlink" title="絕對定位法"></a>絕對定位法</h1><p>$ git reflog (查詢 commit 編號)<br>$ git reset xxxxx(commit 編號) –hard</p>
+<h1 id="相對定位"><a href="#相對定位" class="headerlink" title="相對定位"></a>相對定位</h1><ul>
+<li><code>^</code> Caret</li>
+<li><code>~</code> Tilde</li>
+</ul>
+<p><img src="https://i.imgur.com/lMofhTE.png" alt></p>
+<p>但是如果每次都要輸入 commit 編號有點麻煩，可以把編號改成代號，例如回到現在狀態的前 2 步</p>
+<p><img src="https://i.imgur.com/DruAI8w.png" alt></p>
+<p>例如回到上一個步驟</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset HEAD^ --mixed</span><br></pre></td></tr></table></figure>
+
+<h1 id="reset-跟-checkout-差別是什麼？"><a href="#reset-跟-checkout-差別是什麼？" class="headerlink" title="reset 跟 checkout 差別是什麼？"></a>reset 跟 checkout 差別是什麼？</h1><p><img src="https://i.imgur.com/fSAJhWD.png" alt></p>
+<h1 id="Git-使用情境"><a href="#Git-使用情境" class="headerlink" title="Git 使用情境"></a>Git 使用情境</h1><ul>
+<li><p>回到上一個步驟的兩種作法<br>$ git reset xxxxx(commit 編號) –mixed<br>$ git reset HEAD^ –mixed</p>
+</li>
+<li><p>合併發生衝突怎麼辦？</p>
+</li>
+</ul>
+<p>如果合併時遇到像是同一行 HTML 檔案的衝突，該怎麼辦呢？這時在 HTML 檔案中會出現像這樣：<br><img src="https://i.imgur.com/Xb5B1tm.png" alt></p>
+<p>我們先把那些標記都清除<br><img src="https://i.imgur.com/SMAevkt.png" alt></p>
+<p>並且回到終端機，這時 git status 如下，表示我們要再做一次存檔動作<br><img src="https://i.imgur.com/p2jJTPr.jpg" alt><br>$ git add index.html<br>$ git commit -m “merge payment and member”</p>
+<ul>
+<li><p>不小心把還沒合併的分支砍掉了，救得回來嗎？<br>$git branch -D new_dog (不小心砍掉一個分支)<br>$git branch newnew_dog 053fb21 (在 reflog 重新貼上 newnew_dog)</p>
+</li>
+<li><p>某個分支的某個 commit 做得不錯想收進來，但又不想合併整個分支<br>使用 cherry pick 指令</p>
+</li>
+</ul>
+<h1 id="使用標籤"><a href="#使用標籤" class="headerlink" title="使用標籤"></a>使用標籤</h1><p>什麼時候會使用標籤？在 Git，「標籤（tag）」是一個指向某一個 Commit 的指標。通常在開發軟體有完成特定的里程碑，例如軟體版號 1.0.0 或是 beta-release 之類的，這時候就很適合使用標籤做標記。<br>假設目前的 Commit 紀錄如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ git log --oneline</span><br><span class="line">db3bbec (HEAD -&gt; master) add fish</span><br><span class="line">930feb3 add pig</span><br><span class="line">51d54ff add lion and tiger</span><br><span class="line">27f6ed6 add dog 2</span><br><span class="line">2bab3e7 add dog 1</span><br><span class="line">ca40fc9 add 2 cats</span><br><span class="line">1de2076 add cat 2</span><br><span class="line">cd82f29 add cat 1</span><br><span class="line">382a2a5 add database settings</span><br><span class="line">bb0c9c2 init commit</span><br></pre></td></tr></table></figure>
+
+<p>想在 add lion and tiger 這個 Commit（51d54ff）打上一個 big_cats 的標籤：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag big_cats 51d54ff</span><br></pre></td></tr></table></figure>
+
+<h1 id="修改歷史紀錄"><a href="#修改歷史紀錄" class="headerlink" title="修改歷史紀錄"></a>修改歷史紀錄</h1><h2 id="修改-Commit-訊息-（圖型介面）"><a href="#修改-Commit-訊息-（圖型介面）" class="headerlink" title="修改 Commit 訊息 （圖型介面）"></a>修改 Commit 訊息 （圖型介面）</h2><p>這裡使用的指令一樣是 rebase 但多了互動式操作，在圖型介面的位置如下。操作後可以修改<br><img src="https://i.imgur.com/PCL7fcc.png" alt><br>點擊之後可選擇要修改的地方<img src="https://i.imgur.com/VJk83ZQ.png" alt><br>修改訊息之後，被修正的地方，還有在它後面的訊息的 Changeset 都會被改變<br><img src="https://i.imgur.com/Fn0AcVn.png" alt><br>修改結果<br><img src="https://i.imgur.com/XADDULQ.png" alt></p>
+<h2 id="修改-Commit-訊息-（終端機）"><a href="#修改-Commit-訊息-（終端機）" class="headerlink" title="修改 Commit 訊息 （終端機）"></a>修改 Commit 訊息 （終端機）</h2><p>$ git rebase -i f66ba66 (意思是要修改後退到這個 commit 編號為止的歷史)</p>
+<blockquote>
+<p>每一次的 rebase ，就算只改一個字，也會改變隨後全部的歷史紀錄</p>
+</blockquote>
+<h1 id="刪除或調整-commit-順序"><a href="#刪除或調整-commit-順序" class="headerlink" title="刪除或調整 commit 順序"></a>刪除或調整 commit 順序</h1><p><img src="https://i.imgur.com/qdr9Cvj.png" alt></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: '',
+  alipayImage: ''
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong></a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/01/31/2019-01-31/" target="_blank" title="Git 基本指令">http://yoursite.com/2019/01/31/2019-01-31/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/environment/">environment</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/02/01/2019-02-01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript 基礎
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/01/30/2019-01-30/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Github / Github靜態網頁 / Git 基礎指令（一）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#檢視目前設定"><span class="nav-number">1.</span> <span class="nav-text">檢視目前設定</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#設定帳密"><span class="nav-number">2.</span> <span class="nav-text">設定帳密</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查詢設定"><span class="nav-number">3.</span> <span class="nav-text">查詢設定</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-初始化"><span class="nav-number">4.</span> <span class="nav-text">Git 初始化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-重要區塊"><span class="nav-number">5.</span> <span class="nav-text">Git 重要區塊</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新增檔案"><span class="nav-number">5.0.0.1.</span> <span class="nav-text">新增檔案</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-使用情境-1"><span class="nav-number">5.0.1.</span> <span class="nav-text">Git 使用情境 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用分支"><span class="nav-number">5.0.2.</span> <span class="nav-text">使用分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#複雜一點的分支"><span class="nav-number">5.0.3.</span> <span class="nav-text">複雜一點的分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#另一種合併分支的方式-（rebase"><span class="nav-number">5.0.4.</span> <span class="nav-text">另一種合併分支的方式 （rebase)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何回到上一步-返回之前狀態"><span class="nav-number">5.0.5.</span> <span class="nav-text">如何回到上一步 (返回之前狀態)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reflog-reference-log"><span class="nav-number">6.</span> <span class="nav-text">reflog (reference log )</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#絕對定位法"><span class="nav-number">7.</span> <span class="nav-text">絕對定位法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相對定位"><span class="nav-number">8.</span> <span class="nav-text">相對定位</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reset-跟-checkout-差別是什麼？"><span class="nav-number">9.</span> <span class="nav-text">reset 跟 checkout 差別是什麼？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-使用情境"><span class="nav-number">10.</span> <span class="nav-text">Git 使用情境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用標籤"><span class="nav-number">11.</span> <span class="nav-text">使用標籤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改歷史紀錄"><span class="nav-number">12.</span> <span class="nav-text">修改歷史紀錄</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改-Commit-訊息-（圖型介面）"><span class="nav-number">12.1.</span> <span class="nav-text">修改 Commit 訊息 （圖型介面）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改-Commit-訊息-（終端機）"><span class="nav-number">12.2.</span> <span class="nav-text">修改 Commit 訊息 （終端機）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#刪除或調整-commit-順序"><span class="nav-number">13.</span> <span class="nav-text">刪除或調整 commit 順序</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 CYC&#39;S BLOG All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            CYC&#39;S BLOG
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 CYC&#39;S BLOG All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
