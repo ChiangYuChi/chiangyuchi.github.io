@@ -3,28 +3,29 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>javascript 練習 - 九九乘法表 | CYC&#39;S BLOG</title>
+  <title>canvas (2) 繪製一個棋盤 | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="JavaScript">
+  <meta name="keywords" content="JavaScriptHTML">
   
   
   
   
-  <meta name="description" content="DemoJavaScript 練習 - 九九乘法表 - Demo Introduction 介紹這是 六角學院的一個小挑戰，使用 JavaScript for 迴圈獲取九九乘法表所有內容。   使用 for 迴圈獲取九九成法表全部內容 不能將數字直接寫在 HTML 上，必須用 JavaScript 渲染  功能這個練習，用到的是最基本的 for Loop、createElement、setAttr">
-<meta name="keywords" content="JavaScript">
+  <meta name="description" content="接下來嘗試繪製一個棋盤，共有 15 個交叉點，14 個間隔，兩邊留白 15px。以橫線的邏輯來解釋，留白 15px，每個間隔 30px,位置從 15px 到 435px。 12345678910111213141516window.onload = function() &amp;#123;  var canvas = document.getElementById(&quot;canvas&quot;);  canvas.">
+<meta name="keywords" content="JavaScript,HTML">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript 練習 - 九九乘法表">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/2019-08-08/index.html">
+<meta property="og:title" content="Canvas (2) 繪製一個棋盤">
+<meta property="og:url" content="http://yoursite.com/2019/12/11/2019-12-11/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="DemoJavaScript 練習 - 九九乘法表 - Demo Introduction 介紹這是 六角學院的一個小挑戰，使用 JavaScript for 迴圈獲取九九乘法表所有內容。   使用 for 迴圈獲取九九成法表全部內容 不能將數字直接寫在 HTML 上，必須用 JavaScript 渲染  功能這個練習，用到的是最基本的 for Loop、createElement、setAttr">
+<meta property="og:description" content="接下來嘗試繪製一個棋盤，共有 15 個交叉點，14 個間隔，兩邊留白 15px。以橫線的邏輯來解釋，留白 15px，每個間隔 30px,位置從 15px 到 435px。 12345678910111213141516window.onload = function() &amp;#123;  var canvas = document.getElementById(&quot;canvas&quot;);  canvas.">
 <meta property="og:locale" content="en.yml">
-<meta property="og:image" content="https://i.imgur.com/l5wfo8D.png">
-<meta property="og:updated_time" content="2019-11-11T01:17:35.346Z">
+<meta property="og:image" content="https://i.imgur.com/QjQyiOv.png">
+<meta property="og:image" content="https://i.imgur.com/EOhsYL0.png">
+<meta property="og:updated_time" content="2020-08-08T08:10:35.019Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript 練習 - 九九乘法表">
-<meta name="twitter:description" content="DemoJavaScript 練習 - 九九乘法表 - Demo Introduction 介紹這是 六角學院的一個小挑戰，使用 JavaScript for 迴圈獲取九九乘法表所有內容。   使用 for 迴圈獲取九九成法表全部內容 不能將數字直接寫在 HTML 上，必須用 JavaScript 渲染  功能這個練習，用到的是最基本的 for Loop、createElement、setAttr">
-<meta name="twitter:image" content="https://i.imgur.com/l5wfo8D.png">
+<meta name="twitter:title" content="Canvas (2) 繪製一個棋盤">
+<meta name="twitter:description" content="接下來嘗試繪製一個棋盤，共有 15 個交叉點，14 個間隔，兩邊留白 15px。以橫線的邏輯來解釋，留白 15px，每個間隔 30px,位置從 15px 到 435px。 12345678910111213141516window.onload = function() &amp;#123;  var canvas = document.getElementById(&quot;canvas&quot;);  canvas.">
+<meta name="twitter:image" content="https://i.imgur.com/QjQyiOv.png">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -160,7 +161,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-2019-08-08" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-2019-12-11" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -168,7 +169,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      JavaScript 練習 - 九九乘法表
+      Canvas (2) 繪製一個棋盤
     </h1>
   
 
@@ -176,8 +177,8 @@
     
     <div class="article-meta">
       
-	<a href="/2019/08/08/2019-08-08/" class="article-date">
-	  <time datetime="2019-08-07T16:00:00.000Z" itemprop="datePublished">2019-08-08</time>
+	<a href="/2019/12/11/2019-12-11/" class="article-date">
+	  <time datetime="2019-12-10T16:00:00.000Z" itemprop="datePublished">2019-12-11</time>
 	</a>
 
       
@@ -193,23 +194,15 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><p>JavaScript 練習 - 九九乘法表 - <a href="https://chiangyuchi.github.io/multiplication-chart/" target="_blank" rel="noopener">Demo</a></p>
-<h1 id="Introduction-介紹"><a href="#Introduction-介紹" class="headerlink" title="Introduction 介紹"></a>Introduction 介紹</h1><p>這是 六角學院的一個小挑戰，使用 JavaScript for 迴圈獲取九九乘法表所有內容。</p>
-<p><img src="https://i.imgur.com/l5wfo8D.png" alt></p>
-<ul>
-<li>使用 for 迴圈獲取九九成法表全部內容</li>
-<li>不能將數字直接寫在 HTML 上，必須用 JavaScript 渲染</li>
-</ul>
-<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><p>這個練習，用到的是最基本的 <code>for Loop</code>、<code>createElement</code>、<code>setAttribute</code> 觀念。創造一個原本不在 HTML 結構裡的畫面。</p>
-<h2 id="HTML-結構"><a href="#HTML-結構" class="headerlink" title="HTML 結構"></a>HTML 結構</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"mainTitle"</span>&gt;</span>九九乘法表<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"secondTitle"</span>&gt;</span>MULTIPLICATION CHART<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <p>接下來嘗試繪製一個棋盤，共有 15 個交叉點，14 個間隔，兩邊留白 15px。以橫線的邏輯來解釋，留白 15px，每個間隔 30px,位置從 15px 到 435px。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line">  canvas.width = <span class="number">1024</span>;</span><br><span class="line">  canvas.height = <span class="number">768</span>;</span><br><span class="line">  <span class="keyword">var</span> cxt = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line">  cxt.strokeStyle = <span class="string">"#BFBFBF"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">15</span>; i++) &#123;</span><br><span class="line">    cxt.moveTo(<span class="number">15</span> + i * <span class="number">30</span>, <span class="number">15</span>);</span><br><span class="line">    cxt.lineTo(<span class="number">15</span> + i * <span class="number">30</span>, <span class="number">435</span>);</span><br><span class="line">    cxt.stroke();</span><br><span class="line">    cxt.moveTo(<span class="number">15</span>, <span class="number">15</span> + i * <span class="number">30</span>);</span><br><span class="line">    cxt.lineTo(<span class="number">435</span>, <span class="number">15</span> + i * <span class="number">30</span>);</span><br><span class="line">    cxt.stroke();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h2 id="使用雙迴圈獲得相乘數字"><a href="#使用雙迴圈獲得相乘數字" class="headerlink" title="使用雙迴圈獲得相乘數字"></a>使用雙迴圈獲得相乘數字</h2><ul>
-<li>使用雙迴圈獲得九九乘法表前後相乘的 2 個數字</li>
-<li>以 <code>Document.createElement()</code> 方法可以依指定的標籤名稱（tagName）建立 HTML 元素，</li>
-<li>以 <code>Element.setAttribute()</code>，設定元素的屬性值</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wrap = <span class="built_in">document</span>.querySelector(<span class="string">".wrap"</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createChart</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> box = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">    box.setAttribute(<span class="string">"class"</span>, <span class="string">"box"</span>);</span><br><span class="line">    wrap.appendChild(box);</span><br><span class="line">    <span class="keyword">const</span> chart = <span class="built_in">document</span>.createElement(<span class="string">"ul"</span>);</span><br><span class="line">    chart.setAttribute(<span class="string">"class"</span>, <span class="string">"chart"</span>);</span><br><span class="line">    box.appendChild(chart);</span><br><span class="line">    <span class="keyword">const</span> title = <span class="built_in">document</span>.createElement(<span class="string">"li"</span>);</span><br><span class="line">    title.textContent = i;</span><br><span class="line">    title.setAttribute(<span class="string">"class"</span>, <span class="string">"chart_title"</span>);</span><br><span class="line">    chart.appendChild(title);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt; <span class="number">10</span>; j++) &#123;</span><br><span class="line">      <span class="keyword">const</span> answer = i * j;</span><br><span class="line">      <span class="keyword">const</span> list = <span class="built_in">document</span>.createElement(<span class="string">"li"</span>);</span><br><span class="line">      list.textContent = <span class="string">`<span class="subst">$&#123;i&#125;</span>x<span class="subst">$&#123;j&#125;</span>=<span class="subst">$&#123;answer&#125;</span>`</span>;</span><br><span class="line">      chart.appendChild(list);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">createChart();</span><br></pre></td></tr></table></figure>
+<p>試試看結果如何</p>
+<p><img src="https://i.imgur.com/QjQyiOv.png" alt></p>
+<p>接下來繪製黑白兩色漸層色的棋子，並且讓棋子落在交叉點。其實就是把棋子畫在棋盤交叉點的意思，因此要取用上面的座標。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">oneStep = <span class="function"><span class="keyword">function</span>(<span class="params">i, j, me</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//i,j ＝棋盤上索引, me 黑棋或白棋</span></span><br><span class="line">  cxt.beginPath();</span><br><span class="line">  cxt.arc(<span class="number">15</span> + i * <span class="number">30</span>, <span class="number">15</span> + j * <span class="number">30</span>, <span class="number">13</span>, <span class="number">0</span>, <span class="number">2</span> * <span class="keyword">this</span>.Math.PI);</span><br><span class="line">  cxt.closePath();</span><br><span class="line">  <span class="keyword">var</span> gradient = cxt.createRadialGradient(</span><br><span class="line">    <span class="number">15</span> + i * <span class="number">30</span> + <span class="number">2</span>,</span><br><span class="line">    <span class="number">15</span> + j * <span class="number">30</span> - <span class="number">2</span>,</span><br><span class="line">    <span class="number">13</span>,</span><br><span class="line">    <span class="number">15</span> + i * <span class="number">30</span> + <span class="number">2</span>,</span><br><span class="line">    <span class="number">15</span> + j * <span class="number">30</span> - <span class="number">2</span>,</span><br><span class="line">    <span class="number">0</span></span><br><span class="line">  );</span><br><span class="line">  <span class="keyword">if</span> (me) &#123;</span><br><span class="line">    gradient.addColorStop(<span class="number">0</span>, <span class="string">"#0a0a0a"</span>);</span><br><span class="line">    gradient.addColorStop(<span class="number">1</span>, <span class="string">"#636766"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    gradient.addColorStop(<span class="number">0</span>, <span class="string">"#D1D1D1"</span>);</span><br><span class="line">    gradient.addColorStop(<span class="number">1</span>, <span class="string">"#F9F9F9"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  cxt.fillStyle = gradient;</span><br><span class="line">  cxt.fill();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">oneStep(<span class="number">0</span>, <span class="number">0</span>, <span class="literal">true</span>);</span><br><span class="line">oneStep(<span class="number">1</span>, <span class="number">1</span>, <span class="literal">false</span>);&#125;</span><br></pre></td></tr></table></figure>
 
+<p><img src="https://i.imgur.com/EOhsYL0.png" alt></p>
 
       
     </div>
@@ -236,7 +229,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/08/08/2019-08-08/" target="_blank" title="JavaScript 練習 - 九九乘法表">http://yoursite.com/2019/08/08/2019-08-08/</a>
+          <a href="/2019/12/11/2019-12-11/" target="_blank" title="Canvas (2) 繪製一個棋盤">http://yoursite.com/2019/12/11/2019-12-11/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -276,7 +269,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
       
 
@@ -286,19 +279,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2019/08/12/2019-08-12/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/12/12/2019-12-12/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          JavaScript 練習 - 彈跳視窗
+          Vue 練習 - Todo list 待辦事項清單
         
       </div>
     </a>
   
   
-    <a href="/2019/08/07/2019-08-07/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/12/10/2019-12-10/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">JavaScript 練習 - 時鐘</div>
+      <div class="article-nav-title">Canvas (1) 繪製圓形、三角形、直線</div>
     </a>
   
 </nav>
@@ -312,7 +305,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo"><span class="nav-number">1.</span> <span class="nav-text">Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-介紹"><span class="nav-number">2.</span> <span class="nav-text">Introduction 介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#功能"><span class="nav-number">3.</span> <span class="nav-text">功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-結構"><span class="nav-number">3.1.</span> <span class="nav-text">HTML 結構</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用雙迴圈獲得相乘數字"><span class="nav-number">3.2.</span> <span class="nav-text">使用雙迴圈獲得相乘數字</span></a></li></ol></li></ol>
+        <ol class="nav">None</ol>
     
     </div>
   </aside>
