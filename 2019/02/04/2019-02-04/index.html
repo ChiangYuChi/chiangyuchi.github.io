@@ -11,18 +11,21 @@
   
   
   
-  <meta name="description" content="透過「學習」，才能理解無華且怪貌的石塊中，隱藏著抵抗侵蝕的結晶，而那些真正了解礦物的人，才能看透，而珍貴的結晶也只對他們顯露。">
+  <meta name="description" content="事件 EventEvent 事件就是在瀏覽頁面的時候，根據使用者不同的行為，而觸發瀏覽器不同的動作。（例如使用者點擊、按下鍵盤等） w3school - event sample 事件監聽 （addEventListener)JavaScript 是一種由「事件驅動」(Event-driven)的程式語言，在瀏覽器載入頁面的時候，要等到事件被觸發（例如使用者點擊、按下鍵盤等），才會進行相關程式的執">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 事件監聽">
 <meta property="og:url" content="http://yoursite.com/2019/02/04/2019-02-04/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="透過「學習」，才能理解無華且怪貌的石塊中，隱藏著抵抗侵蝕的結晶，而那些真正了解礦物的人，才能看透，而珍貴的結晶也只對他們顯露。">
+<meta property="og:description" content="事件 EventEvent 事件就是在瀏覽頁面的時候，根據使用者不同的行為，而觸發瀏覽器不同的動作。（例如使用者點擊、按下鍵盤等） w3school - event sample 事件監聽 （addEventListener)JavaScript 是一種由「事件驅動」(Event-driven)的程式語言，在瀏覽器載入頁面的時候，要等到事件被觸發（例如使用者點擊、按下鍵盤等），才會進行相關程式的執">
 <meta property="og:locale" content="en.yml">
-<meta property="og:updated_time" content="2020-08-06T08:25:01.554Z">
+<meta property="og:image" content="https://i.imgur.com/yNA0LDg.png">
+<meta property="og:image" content="https://i.imgur.com/H7EM9PF.png">
+<meta property="og:updated_time" content="2020-08-08T12:55:10.604Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 事件監聽">
-<meta name="twitter:description" content="透過「學習」，才能理解無華且怪貌的石塊中，隱藏著抵抗侵蝕的結晶，而那些真正了解礦物的人，才能看透，而珍貴的結晶也只對他們顯露。">
+<meta name="twitter:description" content="事件 EventEvent 事件就是在瀏覽頁面的時候，根據使用者不同的行為，而觸發瀏覽器不同的動作。（例如使用者點擊、按下鍵盤等） w3school - event sample 事件監聽 （addEventListener)JavaScript 是一種由「事件驅動」(Event-driven)的程式語言，在瀏覽器載入頁面的時候，要等到事件被觸發（例如使用者點擊、按下鍵盤等），才會進行相關程式的執">
+<meta name="twitter:image" content="https://i.imgur.com/yNA0LDg.png">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -191,7 +194,58 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="事件-Event"><a href="#事件-Event" class="headerlink" title="事件 Event"></a>事件 Event</h1><p>Event 事件就是在瀏覽頁面的時候，根據使用者不同的行為，而觸發瀏覽器不同的動作。（例如使用者點擊、按下鍵盤等）</p>
+<p><a href="https://www.w3schools.com/js/js_events_examples.asp" target="_blank" rel="noopener">w3school - event sample</a></p>
+<h1 id="事件監聽-（addEventListener"><a href="#事件監聽-（addEventListener" class="headerlink" title="事件監聽 （addEventListener)"></a>事件監聽 （addEventListener)</h1><p>JavaScript 是一種由「事件驅動」(Event-driven)的程式語言，在瀏覽器載入頁面的時候，要等到事件被觸發（例如使用者點擊、按下鍵盤等），才會進行相關程式的執行。</p>
+<p>事件監聽的功能就是監聽事件有沒有被觸發。</p>
+<p>以下是利用事件監聽器把一個事件綁定到元件上，並且指定事件啟動時需執行的函式，監聽元素 class=’btn’有沒有被點擊到的監聽案例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> el = <span class="built_in">document</span>.querySelector(<span class="string">".btn"</span>);</span><br><span class="line">el.addEventListener(</span><br><span class="line">  <span class="string">"click"</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 要綁定到節點的事件，呼叫的函式,指定的事件流程（冒泡或捕捉），一般設定為冒泡</span></span><br><span class="line">    alert(<span class="string">"hi"</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h2 id="事件綁定的差異"><a href="#事件綁定的差異" class="headerlink" title="事件綁定的差異"></a>事件綁定的差異</h2><p>以點擊的案例來舉例，</p>
+<ul>
+<li>傳統的 DOM 事件處理器</li>
+</ul>
+<p>點擊可以透過 onclick = function(){…}達成，但是一個事件處理器只能一次綁定一個事件，在綁定多個事件的時候，只會執行最後一個事件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btnOn"</span> <span class="attr">value</span>=<span class="string">"on點擊"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btnAdd"</span> <span class="attr">value</span>=<span class="string">"add點擊"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elOn = <span class="built_in">document</span>.querySelector(<span class="string">".btnOn"</span>);</span><br><span class="line">elOn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">"onclick-1"</span>);</span><br><span class="line">&#125;;</span><br><span class="line">elOn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">"onclick-2"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>事件監聽器</li>
+</ul>
+<p>可一次呼叫多個函式，但是舊版本的瀏覽器不支援</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btnAdd"</span> <span class="attr">value</span>=<span class="string">"add點擊"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elAdd = <span class="built_in">document</span>.querySelector(<span class="string">".btnAdd"</span>);</span><br><span class="line">elAdd.addEventListener(</span><br><span class="line">  <span class="string">"click"</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"add-1"</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">);</span><br><span class="line">elAdd.addEventListener(</span><br><span class="line">  <span class="string">"click"</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"add-2"</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h1 id="Event-物件"><a href="#Event-物件" class="headerlink" title="Event 物件"></a>Event 物件</h1><p>當事件發生時，event 物件可提供事件的相關資訊，和觸發事件的目標元件，包含一些和事件相關的有用資訊。<br>例如：</p>
+<ul>
+<li>在 keypress 事件按下的按鍵是哪一個</li>
+<li>事件的目標元件</li>
+</ul>
+<p>event 物件會被傳遞到事件處理器中，當 event 物件被傳遞給函式的時候，通常使用的參數名稱是 e。在一個計算機的案例中，在 html 頁面建立一個有數字與運算符號的計算機，並且綁定多個元素，用 click 事件來執行 function，在小括號中帶入一個參數，之後觸發事件後就印出當下元素各種資訊。這個帶入參數的方式，在很多事件行為操作都需要利用到這個參數。</p>
+<p>我們要判斷按下的是數字還是運算符號，利用 if 判斷是否具備運算符屬性</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"calculator__keys"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"key--operator"</span> <span class="attr">data-action</span>=<span class="string">"add"</span>&gt;</span></span><br><span class="line">    +</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"key--operator"</span> <span class="attr">data-action</span>=<span class="string">"subtract"</span>&gt;</span></span><br><span class="line">    -</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"key--operator"</span> <span class="attr">data-action</span>=<span class="string">"multiply"</span>&gt;</span></span><br><span class="line">    &amp;times;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"key--operator"</span> <span class="attr">data-action</span>=<span class="string">"divide"</span>&gt;</span></span><br><span class="line">    ÷</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span>&gt;</span>7<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span>&gt;</span>8<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> keys = <span class="built_in">document</span>.querySelector(<span class="string">'.calculator__keys'</span>);</span><br><span class="line">keys.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">e</span>)</span>&#123;</span><br><span class="line"><span class="keyword">if</span>(e.target.matches(<span class="string">'button'</span>))&#123;</span><br><span class="line">   <span class="keyword">const</span> key = e.target;</span><br><span class="line"><span class="keyword">if</span>(!action)&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(key)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>結果如下圖：<br><img src="https://i.imgur.com/yNA0LDg.png" alt></p>
+<h1 id="變更預設行為-preventDefault"><a href="#變更預設行為-preventDefault" class="headerlink" title="變更預設行為 preventDefault()"></a>變更預設行為 preventDefault()</h1><p>preventDefault() 方法阻止元素的預設行為，例如點擊連結會前往另一個頁面。或者 form 表單裡面 submit 的按鈕，不想要點擊後馬上送出資料到後端，想要先進行基礎驗證的時候就可以使用這個方式。<br>以 <code>&lt;a href=&quot;http://w3school.com.cn/&quot;&gt;W3School&lt;/a&gt;</code> 為例</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://w3school.com.cn/"</span>&gt;</span>W3School<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> el = <span class="built_in">document</span>.querySelector(<span class="string">"a"</span>);</span><br><span class="line">el.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.preventDefault();</span><br><span class="line">  <span class="comment">// 取消默認的行爲</span></span><br><span class="line">  <span class="comment">// 取消點擊a連結後跳轉到指定頁面</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="target-指向最初觸發事件的-DOM-物件"><a href="#target-指向最初觸發事件的-DOM-物件" class="headerlink" title="target - 指向最初觸發事件的 DOM 物件"></a>target - 指向最初觸發事件的 DOM 物件</h1><p>event.target 屬性則是永遠指向觸發事件的 DOM 物件</p>
+<p>語法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theTarget = event.target</span><br></pre></td></tr></table></figure>
+
+<p>想要知道滑鼠現在是點擊到哪一個位置的時候，就會用.target 的方式</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">style</span>=<span class="string">"padding-top: 100px; border: 1px solid #333;"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>1111<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> el = <span class="built_in">document</span>.querySelector(<span class="string">".header"</span>);</span><br><span class="line">el.addEventListener(</span><br><span class="line">  <span class="string">"click"</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.target);</span><br><span class="line">    <span class="comment">// target中還有各種語法,如nodeName是大寫的節點名稱</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>在網頁上點擊過後，console.log 就會印出是 ul，li 或是 a。<br><img src="https://i.imgur.com/H7EM9PF.png" alt></p>
+
       
     </div>
     <footer class="article-footer">
@@ -293,7 +347,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav">None</ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#事件-Event"><span class="nav-number">1.</span> <span class="nav-text">事件 Event</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事件監聽-（addEventListener"><span class="nav-number">2.</span> <span class="nav-text">事件監聽 （addEventListener)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#事件綁定的差異"><span class="nav-number">2.1.</span> <span class="nav-text">事件綁定的差異</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Event-物件"><span class="nav-number">3.</span> <span class="nav-text">Event 物件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#變更預設行為-preventDefault"><span class="nav-number">4.</span> <span class="nav-text">變更預設行為 preventDefault()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#target-指向最初觸發事件的-DOM-物件"><span class="nav-number">5.</span> <span class="nav-text">target - 指向最初觸發事件的 DOM 物件</span></a></li></ol>
     
     </div>
   </aside>
