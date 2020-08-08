@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>jquery 練習 - 自動縮放 silder | CYC&#39;S BLOG</title>
+  <title>jquery 練習 - 串接新北市 youbike 開放資料 | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="JavaScriptjQuery">
@@ -11,24 +11,22 @@
   
   
   
-  <meta name="description" content="DemojQuery 練習 - jQuery 自動縮放 Silder - Demo 1. Introduction 介紹對 jQuery 有初步認識後，從網上找了 Silder 專案來練習。  可以前後切換圖片  切換拾畫面會變形，並且在固定時間內縮放  2. 功能基礎的 HTML 架構有圖片區塊與前後切換按鍵 12345678910&amp;lt;div id=&quot;main&quot;&amp;gt;       &amp;lt;">
+  <meta name="description" content="DemojQuery 練習 - 取得新北市 Youbike 開放數據資料 - Demo Introduction 介紹串接新北市政府提供的 Youbike 位置資訊，這個項目將達到以下目標   利用 Ajax 取得數據資料 解決跨來源資源共用（Cross-Origin Resource Sharing）問題 運用 jQuery 載入畫面時呈現全部資料 可過濾點擊地區  #功能 基礎的 HTML 結">
 <meta name="keywords" content="JavaScript,jQuery">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jQuery 練習 - 自動縮放 Silder">
+<meta property="og:title" content="jQuery 練習 - 串接新北市 Youbike 開放資料">
 <meta property="og:url" content="http://yoursite.com/2019/09/01/2019-09-01/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="DemojQuery 練習 - jQuery 自動縮放 Silder - Demo 1. Introduction 介紹對 jQuery 有初步認識後，從網上找了 Silder 專案來練習。  可以前後切換圖片  切換拾畫面會變形，並且在固定時間內縮放  2. 功能基礎的 HTML 架構有圖片區塊與前後切換按鍵 12345678910&amp;lt;div id=&quot;main&quot;&amp;gt;       &amp;lt;">
+<meta property="og:description" content="DemojQuery 練習 - 取得新北市 Youbike 開放數據資料 - Demo Introduction 介紹串接新北市政府提供的 Youbike 位置資訊，這個項目將達到以下目標   利用 Ajax 取得數據資料 解決跨來源資源共用（Cross-Origin Resource Sharing）問題 運用 jQuery 載入畫面時呈現全部資料 可過濾點擊地區  #功能 基礎的 HTML 結">
 <meta property="og:locale" content="en.yml">
-<meta property="og:image" content="https://i.imgur.com/wQGXTeF.jpg">
-<meta property="og:image" content="https://i.imgur.com/pKNCd2N.jpg">
-<meta property="og:image" content="https://i.imgur.com/EC2FTT6.jpg">
-<meta property="og:image" content="https://i.imgur.com/bdAJDFE.jpg">
-<meta property="og:image" content="https://i.imgur.com/JK4nVOy.jpg">
-<meta property="og:updated_time" content="2019-10-18T05:31:48.523Z">
+<meta property="og:image" content="https://i.imgur.com/iuIlX7J.jpg">
+<meta property="og:image" content="https://i.imgur.com/XUX9ROK.png">
+<meta property="og:image" content="https://i.imgur.com/AkWZeTS.png">
+<meta property="og:updated_time" content="2020-08-08T08:05:54.171Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jQuery 練習 - 自動縮放 Silder">
-<meta name="twitter:description" content="DemojQuery 練習 - jQuery 自動縮放 Silder - Demo 1. Introduction 介紹對 jQuery 有初步認識後，從網上找了 Silder 專案來練習。  可以前後切換圖片  切換拾畫面會變形，並且在固定時間內縮放  2. 功能基礎的 HTML 架構有圖片區塊與前後切換按鍵 12345678910&amp;lt;div id=&quot;main&quot;&amp;gt;       &amp;lt;">
-<meta name="twitter:image" content="https://i.imgur.com/wQGXTeF.jpg">
+<meta name="twitter:title" content="jQuery 練習 - 串接新北市 Youbike 開放資料">
+<meta name="twitter:description" content="DemojQuery 練習 - 取得新北市 Youbike 開放數據資料 - Demo Introduction 介紹串接新北市政府提供的 Youbike 位置資訊，這個項目將達到以下目標   利用 Ajax 取得數據資料 解決跨來源資源共用（Cross-Origin Resource Sharing）問題 運用 jQuery 載入畫面時呈現全部資料 可過濾點擊地區  #功能 基礎的 HTML 結">
+<meta name="twitter:image" content="https://i.imgur.com/iuIlX7J.jpg">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -113,12 +111,6 @@
                 
                   <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/about">About</a> </li>
-                
                   <li><div id="search-form-wrap">
 
     <form class="search-form">
@@ -178,7 +170,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      jQuery 練習 - 自動縮放 Silder
+      jQuery 練習 - 串接新北市 Youbike 開放資料
     </h1>
   
 
@@ -203,34 +195,32 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><p>jQuery 練習 - jQuery 自動縮放 Silder - <a href="https://chiangyuchi.github.io/jquery-silder/" target="_blank" rel="noopener">Demo</a></p>
-<h1 id="1-Introduction-介紹"><a href="#1-Introduction-介紹" class="headerlink" title="1. Introduction 介紹"></a>1. Introduction 介紹</h1><p>對 jQuery 有初步認識後，從網上找了 Silder 專案來練習。</p>
-<p><img src="https://i.imgur.com/wQGXTeF.jpg" alt></p>
-<p>可以前後切換圖片</p>
-<p><img src="https://i.imgur.com/pKNCd2N.jpg" alt></p>
-<p>切換拾畫面會變形，並且在固定時間內縮放</p>
-<p><img src="https://i.imgur.com/EC2FTT6.jpg" alt></p>
-<h1 id="2-功能"><a href="#2-功能" class="headerlink" title="2. 功能"></a>2. 功能</h1><p>基礎的 HTML 架構有圖片區塊與前後切換按鍵</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"silder"</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./img/bg1.jpg"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">width</span>=<span class="string">"100%"</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./img/bg2.jpg"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">width</span>=<span class="string">"100%"</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./img/bg3.jpg"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">width</span>=<span class="string">"100%"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"prvbtn"</span>&gt;</span>&amp;#8592<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"nxtbtn"</span>&gt;</span>&amp;#8594<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><p>jQuery 練習 - 取得新北市 Youbike 開放數據資料 - <a href="https://chiangyuchi.github.io/youbike/" target="_blank" rel="noopener">Demo</a></p>
+<h1 id="Introduction-介紹"><a href="#Introduction-介紹" class="headerlink" title="Introduction 介紹"></a>Introduction 介紹</h1><p>串接新北市政府提供的 Youbike 位置資訊，這個項目將達到以下目標</p>
+<p><img src="https://i.imgur.com/iuIlX7J.jpg" alt></p>
+<ul>
+<li>利用 Ajax 取得數據資料</li>
+<li>解決跨來源資源共用（Cross-Origin Resource Sharing）問題</li>
+<li>運用 jQuery</li>
+<li>載入畫面時呈現全部資料</li>
+<li>可過濾點擊地區</li>
+</ul>
+<p>#功能</p>
+<p>基礎的 HTML 結構先設定選單，由於選擇區域的顯示數量不一定，所以我們先單純設定選單及待會要放置的項目類別即可</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span>新北市 YouBike 租借資訊<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"select-area"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"choosePos"</span> <span class="attr">id</span>=<span class="string">"select"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- ..... --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"五股區"</span>&gt;</span>五股<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"八里區"</span>&gt;</span>八里<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"淡水區"</span>&gt;</span>淡水<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"三芝區"</span>&gt;</span>三芝<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"石門區"</span>&gt;</span>石門<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">section</span> <span class="attr">id</span>=<span class="string">"site-content"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"site-items"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>並且要在 CSS 設定一個繪製畫面變形最重要的關鍵 <code>clip-path</code>，是利用遮罩剪裁的方式，使 <code>div</code> 可以多邊型變化，可以產生不同的形狀，顯示底圖或底色。 因為要產生五角形的畫面變化，因此需要有五個座標參數，每個點的都包括橫向 X 軸與垂直 Y 軸的參數，初始值我們要使畫面呈現預設的長方形</p>
-<p>每個點的參數與對應關係可參考這個網站</p>
-<p><img src="https://i.imgur.com/bdAJDFE.jpg" alt></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#main</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">-webkit-clip-path</span>: <span class="built_in">polygon</span>(0% 0%, 0% 100%, 100% 100%, 100% 0%, 0% 0%);</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">-webkit-transition</span>: all <span class="number">0.5s</span>;</span><br><span class="line">  <span class="attribute">-o-transition</span>: all <span class="number">0.5s</span>;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">0.5s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>先設定監聽事件，並且觸發事件的時候，到時會先呈現所有的資料</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="string">"#select"</span>).change(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  $(<span class="string">"#select"</span>)</span><br><span class="line">    .val(<span class="string">"all"</span>)</span><br><span class="line">    .trigger(<span class="string">"change"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>首先設定點擊前後切換的按鍵的 function，會使用 animate() 方法產生動畫效果，使三張圖片圖片負向向左方移動。因為我們設定每個影像都佔據畫面 33.33%，因此如果是第一張圖片要切換到第二張，則現在畫面中的圖片往左負向移動 100%，如果是第二張要切換到第三張，則第一張跟第二張圖片，總共要向左負向移動 200%。如果要從第三張切換回第二張，則往左負向移動的百分比切換為 -100%。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">$count = <span class="number">1</span>;</span><br><span class="line">$(<span class="string">"#nxtbtn"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> ($count == <span class="number">1</span>) &#123;</span><br><span class="line">    $(<span class="string">"#silder"</span>).animate(&#123;</span><br><span class="line">      left: <span class="string">"-100%"</span></span><br><span class="line">    &#125;);</span><br><span class="line">    $count = <span class="number">2</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> ($count == <span class="number">2</span>) &#123;</span><br><span class="line">    $(<span class="string">"#silder"</span>).animate(&#123;</span><br><span class="line">      left: <span class="string">"-200%"</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    $count = <span class="number">3</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">$(<span class="string">"#prvbtn"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> ($count == <span class="number">3</span>) &#123;</span><br><span class="line">    $(<span class="string">"#silder"</span>).animate(&#123;</span><br><span class="line">      left: <span class="string">"-100%"</span></span><br><span class="line">    &#125;);</span><br><span class="line">    $count = <span class="number">2</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> ($count == <span class="number">2</span>) &#123;</span><br><span class="line">    $(<span class="string">"#silder"</span>).animate(&#123;</span><br><span class="line">      left: <span class="string">"0%"</span></span><br><span class="line">    &#125;);</span><br><span class="line">    $count = <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>接著使用 <code>jQuery.ajax()</code> 取得 XMLHttpRequest 物件，並且使用跨域代理伺服器(CORS PROXY)，解決讀取第三方網站資料問題。否則在系統控制台會出現以下訊息：<br><img src="https://i.imgur.com/XUX9ROK.png" alt></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> URI =</span><br><span class="line">    <span class="string">"https://cors-anywhere.herokuapp.com/https://data.ntpc.gov.tw/api/v1/rest/datastore/382000000A-000352-001"</span>;</span><br><span class="line">  $(<span class="string">"#select"</span>).change(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">      url: URI,</span><br><span class="line">      success: <span class="function"><span class="keyword">function</span>(<span class="params">responseObject</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> location = responseObject.result.records;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">  $(<span class="string">"#select"</span>)</span><br><span class="line">    .val(<span class="string">"all"</span>)</span><br><span class="line">    .trigger(<span class="string">"change"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>接下來是變形的效果，由於</p>
-<p>搭配 <code>setTimeout</code> 設定延遲以單位毫秒執行指定的程式碼。clip-path 會使我們設定的背景顏色顯示出來。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="string">"#main"</span>).css(&#123;</span><br><span class="line">    <span class="string">"-webkit-clip-path"</span>: <span class="string">"polygon(10% 20%,0% 100%,100% 100%,90% 20%,10% 20%)"</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;, <span class="number">150</span>);</span><br></pre></td></tr></table></figure>
+<p>成功取得資料<br><img src="https://i.imgur.com/AkWZeTS.png" alt></p>
+<p>接著設定一個變數是我們待會要將篩選資料放置到畫面上的位置，並且以 <code>each(function(index,element)</code>遍歷我們取得的資料，<code>index</code>是個別資訊在全部資料中的索引位置，要取得它們的值接著依序將它們各自存入變數中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="string">"#select"</span>).change(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> chooseArea = e.target.value;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">      url: URI,</span><br><span class="line">      success: <span class="function"><span class="keyword">function</span>(<span class="params">responseObject</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> location = responseObject.result.records;</span><br><span class="line">        <span class="keyword">let</span> str = <span class="string">""</span>;</span><br><span class="line">        $.each(location, <span class="function"><span class="keyword">function</span>(<span class="params">index, value</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">let</span> stationName = value.sna;</span><br><span class="line">          <span class="keyword">let</span> updateTime = value.mday;</span><br><span class="line">          <span class="keyword">let</span> bikeAvailble = value.sbi;</span><br><span class="line">          <span class="keyword">let</span> parkingSpace = value.bemp;</span><br><span class="line">          <span class="keyword">let</span> addCN = value.ar;</span><br><span class="line">          <span class="keyword">let</span> addEn = value.sareaen;</span><br><span class="line">          <span class="keyword">let</span> stationEn = value.snaen;</span><br><span class="line">          <span class="keyword">let</span> stationInfo =</span><br><span class="line">            <span class="string">'&lt;div class="site-item"&gt;'</span> +</span><br><span class="line">            <span class="string">'&lt;div class="site-name"&gt;'</span> +</span><br><span class="line">            <span class="string">'&lt;div class="station"&gt;'</span> +</span><br><span class="line">            stationName +</span><br><span class="line">            <span class="string">"&lt;/div&gt;"</span> +</span><br><span class="line">            <span class="string">'&lt;div class="update-time"&gt;'</span> +</span><br><span class="line">            <span class="string">"更新："</span> +</span><br><span class="line">            updateTime +</span><br><span class="line">            <span class="string">"&lt;/div&gt;"</span> +</span><br><span class="line">            <span class="string">"&lt;/div&gt;"</span> +</span><br><span class="line">            <span class="string">' &lt;div class="site-info"&gt;'</span> +</span><br><span class="line">            <span class="string">'&lt;div class="site-bike"&gt;'</span> +</span><br><span class="line">            <span class="string">"可租借數量："</span> +</span><br><span class="line">            bikeAvailble +</span><br><span class="line">            <span class="string">"&lt;/div&gt;"</span> +</span><br><span class="line">            <span class="string">'&lt;div class="site-empty"&gt;'</span> +</span><br><span class="line">            <span class="string">"可還空位數:"</span> +</span><br><span class="line">            parkingSpace +</span><br><span class="line">            <span class="string">"&lt;/div&gt;"</span> +</span><br><span class="line">            <span class="string">'&lt;div class="site-add"&gt;'</span> +</span><br><span class="line">            <span class="string">"地址："</span> +</span><br><span class="line">            addCN +</span><br><span class="line">            <span class="string">"&lt;/div&gt;"</span> +</span><br><span class="line">            <span class="string">'&lt;div class="sareaen"&gt;'</span> +</span><br><span class="line">            <span class="string">"Area:"</span> +</span><br><span class="line">            addEn +</span><br><span class="line">            <span class="string">"&lt;/div&gt;"</span> +</span><br><span class="line">            <span class="string">'&lt;div class="snaen"&gt;'</span> +</span><br><span class="line">            <span class="string">"Site-Name:"</span> +</span><br><span class="line">            stationEn +</span><br><span class="line">            <span class="string">"&lt;/div&gt;"</span> +</span><br><span class="line">            <span class="string">"&lt;/div&gt;"</span> +</span><br><span class="line">            <span class="string">"&lt;/div&gt;"</span>;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://i.imgur.com/JK4nVOy.jpg" alt></p>
-<p>最後是縮放的效果一樣使用 <code>setTimeout</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="string">"#main"</span>).css(&#123;</span><br><span class="line">    <span class="string">"-webkit-clip-path"</span>: <span class="string">"polygon(10% 20%,0% 100%,100% 100%,90% 20%,10% 20%)"</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;, <span class="number">150</span>);</span><br></pre></td></tr></table></figure>
-
-<p>回到切換按鈕的 function 設定延遲效果</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $pic = <span class="number">1</span>;</span><br><span class="line">    $(<span class="string">"#nxtbtn"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ($pic == <span class="number">1</span>) &#123;</span><br><span class="line">            shrink();</span><br><span class="line">            $(<span class="string">'#silder'</span>).delay(<span class="number">1000</span>).animate(&#123;</span><br></pre></td></tr></table></figure>
+<p>設定條件，如果點擊選單的地區值等於所取得的遠端資料的地區值，則將相關資料放置到畫面上；如果選擇的區域是顯示全部，則放入所有取回的資料。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> URI =</span><br><span class="line">    <span class="string">"https://cors-anywhere.herokuapp.com/https://data.ntpc.gov.tw/api/v1/rest/datastore/382000000A-000352-001"</span>;</span><br><span class="line">  $(<span class="string">"#select"</span>).change(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> chooseArea = e.target.value;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">      url: URI,</span><br><span class="line">      success: <span class="function"><span class="keyword">function</span>(<span class="params">responseObject</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> location = responseObject.result.records;</span><br><span class="line">        <span class="keyword">let</span> str = <span class="string">""</span>;</span><br><span class="line">        $.each(location, <span class="function"><span class="keyword">function</span>(<span class="params">index, value</span>) </span>&#123;</span><br><span class="line">          <span class="comment">//...</span></span><br><span class="line">          <span class="keyword">if</span> (chooseArea == value.sarea) &#123;</span><br><span class="line">            str += stationInfo;</span><br><span class="line">          &#125; <span class="keyword">else</span> <span class="keyword">if</span> (chooseArea == <span class="string">"all"</span>) &#123;</span><br><span class="line">            str += stationInfo;</span><br><span class="line">          &#125;</span><br><span class="line">          $(<span class="string">".site-items"</span>)</span><br><span class="line">            .hide()</span><br><span class="line">            .html(str)</span><br><span class="line">            .fadeIn(<span class="number">400</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 
       
@@ -242,11 +232,11 @@
 <script src="/js/vdonate.js"></script>
 <script>
 var a = new Donate({
-  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  title: '', // 可选参数，打赏标题
   btnText: 'Donate', // 可选参数，打赏按钮文字
   el: document.getElementById('donation_div'),
-  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
-  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+  wechatImage: '',
+  alipayImage: ''
 });
 </script>
       
@@ -258,7 +248,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/09/01/2019-09-01/" target="_blank" title="jQuery 練習 - 自動縮放 Silder">http://yoursite.com/2019/09/01/2019-09-01/</a>
+          <a href="/2019/09/01/2019-09-01/" target="_blank" title="jQuery 練習 - 串接新北市 Youbike 開放資料">http://yoursite.com/2019/09/01/2019-09-01/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -308,10 +298,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
+    <a href="/2019/09/02/2019-09-02/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          jQuery 練習 - 自動縮放 Silder
+        
+      </div>
+    </a>
   
-    <a href="/2019/08/26/2019-08-26/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2019/08/22/2019-08-22/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Vue 練習 - Todo list 待辦事項清單</div>
+      <div class="article-nav-title">JavaScript 練習 - 番茄鐘</div>
     </a>
   
 </nav>
@@ -325,7 +324,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo"><span class="nav-number">1.</span> <span class="nav-text">Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Introduction-介紹"><span class="nav-number">2.</span> <span class="nav-text">1. Introduction 介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-功能"><span class="nav-number">3.</span> <span class="nav-text">2. 功能</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo"><span class="nav-number">1.</span> <span class="nav-text">Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-介紹"><span class="nav-number">2.</span> <span class="nav-text">Introduction 介紹</span></a></li></ol>
     
     </div>
   </aside>
@@ -340,7 +339,7 @@ var a = new Donate({
   <div class="container">
       	<div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 CYC&#39;S BLOG All Rights Reserved.</p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 CYC&#39;S BLOG All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
@@ -375,12 +374,6 @@ var a = new Donate({
     <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/categories" class="mobile-nav-link">Categories</a>
-  
-    <a href="/tags" class="mobile-nav-link">Tags</a>
-  
-    <a href="/about" class="mobile-nav-link">About</a>
   
 </nav> -->
     
@@ -494,7 +487,7 @@ var a = new Donate({
             CYC&#39;S BLOG
           </div>
           <div class="panel-body">
-            Copyright © 2019 CYC&#39;S BLOG All Rights Reserved.
+            Copyright © 2020 CYC&#39;S BLOG All Rights Reserved.
           </div>
         </div>
       </div>
