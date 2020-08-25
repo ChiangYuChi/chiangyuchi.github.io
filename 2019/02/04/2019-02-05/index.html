@@ -20,7 +20,7 @@
 <meta property="og:description" content="參考來源一參考來源二 事件機制JavaScript 是「事件驅動」的程式語言，雖然瀏覽器在載入網頁後就會讀取 JavaScript 相關程式碼，但只有等到「事件」發生 （像是使用者滑鼠點擊、按下鍵盤）才會執行相關程式。 以網頁對話框為例：按下開啟 （觸發事件）-&amp;gt; 彈出對話框 （執行相關事件） 這整個對話框從觸發到開啟的過程牽涉到 DOM 的事件流程，就是「網頁元素接收事件的順序」 事件流程">
 <meta property="og:locale" content="en.yml">
 <meta property="og:image" content="https://i.imgur.com/bJz5SVd.png">
-<meta property="og:updated_time" content="2020-08-24T07:51:26.959Z">
+<meta property="og:updated_time" content="2020-08-24T07:52:49.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 事件傳遞機制(冒泡與捕獲)">
 <meta name="twitter:description" content="參考來源一參考來源二 事件機制JavaScript 是「事件驅動」的程式語言，雖然瀏覽器在載入網頁後就會讀取 JavaScript 相關程式碼，但只有等到「事件」發生 （像是使用者滑鼠點擊、按下鍵盤）才會執行相關程式。 以網頁對話框為例：按下開啟 （觸發事件）-&amp;gt; 彈出對話框 （執行相關事件） 這整個對話框從觸發到開啟的過程牽涉到 DOM 的事件流程，就是「網頁元素接收事件的順序」 事件流程">
@@ -212,8 +212,8 @@
 <p>在事件冒泡的觸發順序會是：</p>
 <ol>
 <li><div>click</div></li>
-<li><body></body></li>
-<li><html></html></li>
+<li>body</li>
+<li>html</li>
 <li>document</li>
 </ol>
 <ul>
@@ -221,8 +221,8 @@
 </ul>
 <ol>
 <li>document</li>
-<li><html></html></li>
-<li><body></body></li>
+<li>html</li>
+<li>body</li>
 <li><div>click</div>
 </li>
 </ol>
