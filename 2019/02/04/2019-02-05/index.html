@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>javascript 事件傳遞機制(冒泡與捕獲) | CYC&#39;S BLOG</title>
+  <title>javascript event bubbling and capturing (事件冒泡與捕獲) | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="JavaScript">
@@ -14,15 +14,15 @@
   <meta name="description" content="參考來源一參考來源二 事件機制JavaScript 是「事件驅動」的程式語言，雖然瀏覽器在載入網頁後就會讀取 JavaScript 相關程式碼，但只有等到「事件」發生 （像是使用者滑鼠點擊、按下鍵盤）才會執行相關程式。 以網頁對話框為例：按下開啟 （觸發事件）-&amp;gt; 彈出對話框 （執行相關事件） 這整個對話框從觸發到開啟的過程牽涉到 DOM 的事件流程，就是「網頁元素接收事件的順序」 事件流程">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript 事件傳遞機制(冒泡與捕獲)">
+<meta property="og:title" content="JavaScript Event bubbling and capturing (事件冒泡與捕獲)">
 <meta property="og:url" content="http://yoursite.com/2019/02/04/2019-02-05/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
 <meta property="og:description" content="參考來源一參考來源二 事件機制JavaScript 是「事件驅動」的程式語言，雖然瀏覽器在載入網頁後就會讀取 JavaScript 相關程式碼，但只有等到「事件」發生 （像是使用者滑鼠點擊、按下鍵盤）才會執行相關程式。 以網頁對話框為例：按下開啟 （觸發事件）-&amp;gt; 彈出對話框 （執行相關事件） 這整個對話框從觸發到開啟的過程牽涉到 DOM 的事件流程，就是「網頁元素接收事件的順序」 事件流程">
 <meta property="og:locale" content="en.yml">
 <meta property="og:image" content="https://i.imgur.com/bJz5SVd.png">
-<meta property="og:updated_time" content="2020-08-24T07:52:49.114Z">
+<meta property="og:updated_time" content="2020-08-25T04:25:10.382Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript 事件傳遞機制(冒泡與捕獲)">
+<meta name="twitter:title" content="JavaScript Event bubbling and capturing (事件冒泡與捕獲)">
 <meta name="twitter:description" content="參考來源一參考來源二 事件機制JavaScript 是「事件驅動」的程式語言，雖然瀏覽器在載入網頁後就會讀取 JavaScript 相關程式碼，但只有等到「事件」發生 （像是使用者滑鼠點擊、按下鍵盤）才會執行相關程式。 以網頁對話框為例：按下開啟 （觸發事件）-&amp;gt; 彈出對話框 （執行相關事件） 這整個對話框從觸發到開啟的過程牽涉到 DOM 的事件流程，就是「網頁元素接收事件的順序」 事件流程">
 <meta name="twitter:image" content="https://i.imgur.com/bJz5SVd.png">
   
@@ -168,7 +168,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      JavaScript 事件傳遞機制(冒泡與捕獲)
+      JavaScript Event bubbling and capturing (事件冒泡與捕獲)
     </h1>
   
 
@@ -197,8 +197,8 @@
 <h1 id="事件機制"><a href="#事件機制" class="headerlink" title="事件機制"></a>事件機制</h1><p>JavaScript 是「事件驅動」的程式語言，雖然瀏覽器在載入網頁後就會讀取 JavaScript 相關程式碼，但只有等到「事件」發生 （像是使用者滑鼠點擊、按下鍵盤）才會執行相關程式。</p>
 <p>以網頁對話框為例：按下開啟 （觸發事件）-&gt; 彈出對話框 （執行相關事件）</p>
 <p>這整個對話框從觸發到開啟的過程牽涉到 DOM 的事件流程，就是「網頁元素接收事件的順序」</p>
-<h1 id="事件流程-event-flow"><a href="#事件流程-event-flow" class="headerlink" title="事件流程 (event flow)"></a>事件流程 (event flow)</h1><p>由於 inner 也是 outer 的一部分，所以點擊 inner 的時候，也點到 outer(實際上也點擊整個網頁)。假如我在兩個元素上面都加了 eventListener，知道哪個先執行就很重。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"outer"</span>&gt;</span><br><span class="line">  &lt;div id=<span class="string">"inner"</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="事件流程-event-flow"><a href="#事件流程-event-flow" class="headerlink" title="事件流程 (event flow)"></a>事件流程 (event flow)</h1><p>由於 inner 也是 outer 的一部分，所以點擊 inner 的時候，也點到 outer(實際上也點擊整個網頁)。假如我在兩個元素上面都加了 eventListener，知道哪個先執行就很重要。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"outer"</span>&gt;</span><br><span class="line">  &lt;div id=<span class="string">"inner"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="事件的三個階段"><a href="#事件的三個階段" class="headerlink" title="事件的三個階段"></a>事件的三個階段</h1><p>事件流程可以分成三個階段</p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event/eventPhase" target="_blank" rel="noopener">event phase 定義</a></p>
@@ -283,7 +283,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/02/04/2019-02-05/" target="_blank" title="JavaScript 事件傳遞機制(冒泡與捕獲)">http://yoursite.com/2019/02/04/2019-02-05/</a>
+          <a href="/2019/02/04/2019-02-05/" target="_blank" title="JavaScript Event bubbling and capturing (事件冒泡與捕獲)">http://yoursite.com/2019/02/04/2019-02-05/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -337,7 +337,7 @@ var a = new Donate({
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          JavaScript 事件監聽
+          JavaScript Event-addEventListener (事件監聽)
         
       </div>
     </a>
