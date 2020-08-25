@@ -11,18 +11,22 @@
   
   
   
-  <meta name="description" content="透過「學習」，才能理解無華且怪貌的石塊中，隱藏著抵抗侵蝕的結晶，而那些真正了解礦物的人，才能看透，而珍貴的結晶也只對他們顯露。">
+  <meta name="description" content="LocalStorage 是一種在瀏覽器資料庫中儲存資料的方式，允許將資料儲存在瀏覽器中。有兩種型態的網頁儲存：本機端儲存 (LocalStorage)、連線期間儲存 (SessionStorage) cookie在 HTML5 之前，cookie 是瀏覽器儲存資訊最主要的方式，是伺服器傳送給使用者瀏覽器的一個小片段資料。常見的應用是判例如： 廣告追蹤、身份驗證、購物車，或任何其他伺服器應該記住的">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript LocalStorage(本機端儲存)">
 <meta property="og:url" content="http://yoursite.com/2019/02/06/2019-02-06/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="透過「學習」，才能理解無華且怪貌的石塊中，隱藏著抵抗侵蝕的結晶，而那些真正了解礦物的人，才能看透，而珍貴的結晶也只對他們顯露。">
+<meta property="og:description" content="LocalStorage 是一種在瀏覽器資料庫中儲存資料的方式，允許將資料儲存在瀏覽器中。有兩種型態的網頁儲存：本機端儲存 (LocalStorage)、連線期間儲存 (SessionStorage) cookie在 HTML5 之前，cookie 是瀏覽器儲存資訊最主要的方式，是伺服器傳送給使用者瀏覽器的一個小片段資料。常見的應用是判例如： 廣告追蹤、身份驗證、購物車，或任何其他伺服器應該記住的">
 <meta property="og:locale" content="en.yml">
-<meta property="og:updated_time" content="2020-08-25T04:24:30.464Z">
+<meta property="og:image" content="https://i.imgur.com/4OLy7eB.png">
+<meta property="og:image" content="https://i.imgur.com/mxJ91wP.png">
+<meta property="og:image" content="https://i.imgur.com/fYUoC8x.png">
+<meta property="og:updated_time" content="2020-08-25T12:44:34.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript LocalStorage(本機端儲存)">
-<meta name="twitter:description" content="透過「學習」，才能理解無華且怪貌的石塊中，隱藏著抵抗侵蝕的結晶，而那些真正了解礦物的人，才能看透，而珍貴的結晶也只對他們顯露。">
+<meta name="twitter:description" content="LocalStorage 是一種在瀏覽器資料庫中儲存資料的方式，允許將資料儲存在瀏覽器中。有兩種型態的網頁儲存：本機端儲存 (LocalStorage)、連線期間儲存 (SessionStorage) cookie在 HTML5 之前，cookie 是瀏覽器儲存資訊最主要的方式，是伺服器傳送給使用者瀏覽器的一個小片段資料。常見的應用是判例如： 廣告追蹤、身份驗證、購物車，或任何其他伺服器應該記住的">
+<meta name="twitter:image" content="https://i.imgur.com/4OLy7eB.png">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -191,7 +195,65 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>LocalStorage 是一種在瀏覽器資料庫中儲存資料的方式，允許將資料儲存在瀏覽器中。有兩種型態的網頁儲存：本機端儲存 (LocalStorage)、連線期間儲存 (SessionStorage)</p>
+<h1 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h1><p>在 HTML5 之前，cookie 是瀏覽器儲存資訊最主要的方式，是伺服器傳送給使用者瀏覽器的一個小片段資料。常見的應用是判例如： 廣告追蹤、身份驗證、購物車，或任何其他伺服器應該記住的資訊</p>
+<p>但限制如下：</p>
+<ul>
+<li>不能儲存太多資料，有容量的限制 4kb</li>
+<li>每次請求網頁時都需傳送到伺服器端。</li>
+<li>不安全</li>
+<li>可設定失效時間，預設是瀏覽器關閉後失效</li>
+</ul>
+<h1 id="什麼是-LocalStorage"><a href="#什麼是-LocalStorage" class="headerlink" title="什麼是 LocalStorage"></a>什麼是 LocalStorage</h1><p>就本機的儲存功能而言，HTML 新增兩種僅在瀏覽器保存，不參與 serve 溝通的儲存方式。儲存物件 (storage object) 包含兩種不同的資料儲存方式，本機端儲存物件（localStorage) 和連線期間儲存物件 (sessionStorage)。這兩種方式都使用相同的方法和特性。</p>
+<p>差異：</p>
+<ul>
+<li>cookie 關閉視窗會將資料保存</li>
+<li>sessionStorage session 關閉視窗即失效</li>
+<li>localStorage 關閉視窗會將資料保存，直到主動去清空，ChromeDevTools 可做修改</li>
+</ul>
+<p>缺點:</p>
+<ul>
+<li>各瀏覽器容量大小不一，IE8+才支援</li>
+<li>localStorage 儲存值為 string，JSON 需轉換處理</li>
+<li>無法被爬蟲抓取</li>
+<li>內容過多會消號記憶體空間，導致卡頓</li>
+</ul>
+<p>在 chrome 瀏覽器可以透過 devtool 中去查詢 localstorage，下面會介紹幾個操控 localstorage 的方式。</p>
+<p><img src="https://i.imgur.com/4OLy7eB.png" alt></p>
+<h1 id="storage-API-的操作"><a href="#storage-API-的操作" class="headerlink" title="storage API 的操作"></a>storage API 的操作</h1><p>要將一個項目儲存到儲存物件中，使用 <code>setItem()</code>，需要兩個參數 key/值配對</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localStorage.setItem(<span class="string">"name"</span>, <span class="string">"caibin"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>要取得儲存物件中的項目，使用 <code>getItem()</code>，需要儲存物件的 key</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localStorage.getItem(<span class="string">"name"</span>); <span class="comment">//caibin,讀取儲存在localStorage物件里名為name的變數的值</span></span><br></pre></td></tr></table></figure>
+
+<p>刪除某筆資料</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localStorage.removeItem(<span class="string">"name"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>清除所有儲存物件中的資訊</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localStorage.clear();</span><br></pre></td></tr></table></figure>
+
+<p>實際透過 devtool 觀察</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>請輸入你的姓名<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"textClass"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btnClass"</span> <span class="attr">value</span>=<span class="string">"點擊"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btnCall"</span> <span class="attr">value</span>=<span class="string">"點擊呼叫名字"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">".btnClass"</span>);</span><br><span class="line"></span><br><span class="line">btn.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> <span class="title">saveName</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> str = <span class="built_in">document</span>.querySelector(<span class="string">".textClass"</span>).value;</span><br><span class="line">  localStorage.setItem(<span class="string">"myName"</span>, str);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> call = <span class="built_in">document</span>.querySelector(<span class="string">".btnCall"</span>);</span><br><span class="line"></span><br><span class="line">call.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> str = localStorage.getItem(<span class="string">"myName"</span>);</span><br><span class="line">  alert(str);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/mxJ91wP.png" alt></p>
+<h1 id="資料轉換"><a href="#資料轉換" class="headerlink" title="資料轉換"></a>資料轉換</h1><p>localStorage 儲存格式為字串形式，所以這裡要學習資料型別轉換。</p>
+<ul>
+<li>JSON.stringify(): 轉為 JSON 格式的字串</li>
+<li>JSON.parse(): 轉為 JSON 格式的字串</li>
+</ul>
+<p>會用在要儲存一個陣列裡面有多筆資料的時候，(JSON 格式)。<br>下面例子為將陣列中的學生資料名稱轉為字串後，儲存進去 localstorgae，再把字串轉回原本型態後取出</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> students = &#123;</span><br><span class="line">  xiaomin: &#123;</span><br><span class="line">    name: <span class="string">"xiaoming"</span>,</span><br><span class="line">    grade: <span class="number">1</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  teemo: &#123;</span><br><span class="line">    name: <span class="string">"teemo"</span>,</span><br><span class="line">    grade: <span class="number">3</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">students = <span class="built_in">JSON</span>.stringify(students); <span class="comment">//將JSON轉為字串存到變數裡</span></span><br><span class="line"><span class="built_in">console</span>.log(students);</span><br><span class="line">localStorage.setItem(<span class="string">"students"</span>, students); <span class="comment">//將變數存到localStorage裡</span></span><br><span class="line"><span class="keyword">var</span> newStudents = localStorage.getItem(<span class="string">"students"</span>);</span><br><span class="line">newStudents = <span class="built_in">JSON</span>.parse(students); <span class="comment">//轉為JSON</span></span><br><span class="line"><span class="built_in">console</span>.log(newStudents); <span class="comment">// 列印出原先物件</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/fYUoC8x.png" alt></p>
+<h1 id="dataset-amp-array-運用"><a href="#dataset-amp-array-運用" class="headerlink" title="dataset &amp; array 運用"></a>dataset &amp; array 運用</h1><p>原本的 html 沒有自訂屬性，但想要透過 js 動態加入。下面的例子是，點擊哪個農夫後，會 alert 是選擇到哪一個農夫。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list"</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>要注意到用 innerHTML 新增 html 元素或是 splice 去刪除後，都需要去執行資料更新。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> county = [</span><br><span class="line">  &#123;</span><br><span class="line">    farmer: <span class="string">"卡斯伯"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    farmer: <span class="string">"查理"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    farmer: <span class="string">"哈維"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">];</span><br><span class="line"><span class="keyword">var</span> list = <span class="built_in">document</span>.querySelector(<span class="string">".list"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//更新農場資料</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateList</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> str = <span class="string">""</span>;</span><br><span class="line">  <span class="keyword">var</span> len = county.length;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; len &gt; i; i++) &#123;</span><br><span class="line">    str += <span class="string">"&lt;li data-num="</span> + i + <span class="string">"&gt;"</span> + county[i].farmer + <span class="string">"&lt;/li&gt;"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  list.innerHTML = str;</span><br><span class="line">&#125;</span><br><span class="line">updateList();</span><br><span class="line"></span><br><span class="line"><span class="comment">//確認點擊的農夫是誰</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkList</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> num = e.target.dataset.num;</span><br><span class="line">  <span class="keyword">if</span> (e.target.nodeName !== <span class="string">"LI"</span>) &#123;</span><br><span class="line">    <span class="comment">// nodeName是大寫的節點名稱，這邊點擊到的是li</span></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  county.splice(num, <span class="number">1</span>);</span><br><span class="line">  updateList();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">list.addEventListener(<span class="string">"click"</span>, checkList, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
     <footer class="article-footer">
@@ -293,7 +355,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav">None</ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cookie"><span class="nav-number">1.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什麼是-LocalStorage"><span class="nav-number">2.</span> <span class="nav-text">什麼是 LocalStorage</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#storage-API-的操作"><span class="nav-number">3.</span> <span class="nav-text">storage API 的操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#資料轉換"><span class="nav-number">4.</span> <span class="nav-text">資料轉換</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dataset-amp-array-運用"><span class="nav-number">5.</span> <span class="nav-text">dataset &amp; array 運用</span></a></li></ol>
     
     </div>
   </aside>
