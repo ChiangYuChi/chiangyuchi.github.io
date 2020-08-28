@@ -11,20 +11,20 @@
   
   
   
-  <meta name="description" content="閉包參考來源一參考來源二參考來源三參考來源四 閉包是 JavaScript 最強大的特性之一。JavaScript 允許巢狀函式（nesting of functions）並給予內部函式完全訪問（full access）所有變數、與外部函式定義的函式（還有所有外部函式內的變數與函式）不過，外部函式並不能訪問內部函式的變數與函式。這保障了內部函式的變數安全。另外，由於內部函式能訪問外部函式定義的變數">
+  <meta name="description" content="參考來源一參考來源二參考來源三參考來源四 閉包是 JavaScript 最強大的特性之一。JavaScript 允許巢狀函式（nesting of functions）並給予內部函式完全訪問（full access）所有變數、與外部函式定義的函式（還有所有外部函式內的變數與函式）不過，外部函式並不能訪問內部函式的變數與函式。這保障了內部函式的變數安全。另外，由於內部函式能訪問外部函式定義的變數與函">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript Closure(閉包)">
 <meta property="og:url" content="http://yoursite.com/2019/02/08/2019-02-08/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="閉包參考來源一參考來源二參考來源三參考來源四 閉包是 JavaScript 最強大的特性之一。JavaScript 允許巢狀函式（nesting of functions）並給予內部函式完全訪問（full access）所有變數、與外部函式定義的函式（還有所有外部函式內的變數與函式）不過，外部函式並不能訪問內部函式的變數與函式。這保障了內部函式的變數安全。另外，由於內部函式能訪問外部函式定義的變數">
+<meta property="og:description" content="參考來源一參考來源二參考來源三參考來源四 閉包是 JavaScript 最強大的特性之一。JavaScript 允許巢狀函式（nesting of functions）並給予內部函式完全訪問（full access）所有變數、與外部函式定義的函式（還有所有外部函式內的變數與函式）不過，外部函式並不能訪問內部函式的變數與函式。這保障了內部函式的變數安全。另外，由於內部函式能訪問外部函式定義的變數與函">
 <meta property="og:locale" content="en.yml">
 <meta property="og:image" content="https://i.imgur.com/fMtd0ML.png">
 <meta property="og:image" content="https://i.imgur.com/IX0Szpt.png">
-<meta property="og:updated_time" content="2020-08-28T09:28:25.097Z">
+<meta property="og:updated_time" content="2020-08-28T09:30:05.339Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript Closure(閉包)">
-<meta name="twitter:description" content="閉包參考來源一參考來源二參考來源三參考來源四 閉包是 JavaScript 最強大的特性之一。JavaScript 允許巢狀函式（nesting of functions）並給予內部函式完全訪問（full access）所有變數、與外部函式定義的函式（還有所有外部函式內的變數與函式）不過，外部函式並不能訪問內部函式的變數與函式。這保障了內部函式的變數安全。另外，由於內部函式能訪問外部函式定義的變數">
+<meta name="twitter:description" content="參考來源一參考來源二參考來源三參考來源四 閉包是 JavaScript 最強大的特性之一。JavaScript 允許巢狀函式（nesting of functions）並給予內部函式完全訪問（full access）所有變數、與外部函式定義的函式（還有所有外部函式內的變數與函式）不過，外部函式並不能訪問內部函式的變數與函式。這保障了內部函式的變數安全。另外，由於內部函式能訪問外部函式定義的變數與函">
 <meta name="twitter:image" content="https://i.imgur.com/fMtd0ML.png">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
@@ -194,13 +194,13 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="閉包"><a href="#閉包" class="headerlink" title="閉包"></a>閉包</h1><p><a href="https://blog.techbridge.cc/2018/12/08/javascript-closure/" target="_blank" rel="noopener">參考來源一</a><br><a href="https://orow.github.io/2019/03/06/closure/" target="_blank" rel="noopener">參考來源二</a><br><a href="https://ithelp.ithome.com.tw/articles/10193009" target="_blank" rel="noopener">參考來源三</a><br><a href="https://pjchender.blogspot.com/2017/05/javascript-closure.html" target="_blank" rel="noopener">參考來源四</a></p>
+        <p><a href="https://blog.techbridge.cc/2018/12/08/javascript-closure/" target="_blank" rel="noopener">參考來源一</a><br><a href="https://orow.github.io/2019/03/06/closure/" target="_blank" rel="noopener">參考來源二</a><br><a href="https://ithelp.ithome.com.tw/articles/10193009" target="_blank" rel="noopener">參考來源三</a><br><a href="https://pjchender.blogspot.com/2017/05/javascript-closure.html" target="_blank" rel="noopener">參考來源四</a></p>
 <p>閉包是 JavaScript 最強大的特性之一。JavaScript 允許巢狀函式（nesting of functions）並給予內部函式完全訪問（full access）所有變數、與外部函式定義的函式（還有所有外部函式內的變數與函式）不過，外部函式並不能訪問內部函式的變數與函式。這保障了內部函式的變數安全。另外，由於內部函式能訪問外部函式定義的變數與函式，將存活得比外部函式還久。</p>
 <p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Functions" target="_blank" rel="noopener">MDN</a></p>
-<h2 id="範圍鏈"><a href="#範圍鏈" class="headerlink" title="範圍鏈"></a>範圍鏈</h2><p>閉包概念與範圍鏈關係密切。範圍鏈的一個要點是「變數有效範圍的最小單位是 function」。例如以下例子，內層的 function inner 可以讀取外層宣告的變數，但外層 function outer 存取不到內層宣告的變數。若是在自己層級找不到，就會一層一層往外找，直到全域為止。</p>
+<h1 id="範圍鏈複習"><a href="#範圍鏈複習" class="headerlink" title="範圍鏈複習"></a>範圍鏈複習</h1><p>閉包概念與範圍鏈關係密切。範圍鏈的一個要點是「變數有效範圍的最小單位是 function」。例如以下例子，內層的 function inner 可以讀取外層宣告的變數，但外層 function outer 存取不到內層宣告的變數。若是在自己層級找不到，就會一層一層往外找，直到全域為止。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> b = a * <span class="number">2</span>; <span class="comment">// 此處無法取得變數 c , 但可以向外找到變數 a</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">inner</span>(<span class="params">c</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a, b, c); <span class="comment">//因為範圍鏈的關係，即使只有對c定義，但可以向上取得a,b,c</span></span><br><span class="line">  &#125;</span><br><span class="line">  inner(b * <span class="number">3</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>; <span class="comment">//globe這層只有a</span></span><br><span class="line">outer(a);</span><br></pre></td></tr></table></figure>
 
-<h1 id="閉包-1"><a href="#閉包-1" class="headerlink" title="閉包"></a>閉包</h1><p>底下例子透過 呼叫 outer() 後 return 的結果，把原本外層存取不到的 inner 取得。因為範圍鏈的變數有效範圍是在函式定義的當下決定，不是呼叫的時候決定。所以即使在全域透唾 innerFunc() 呼叫內部的 inner()，實際取得的 msg 仍然是內層的 “local” 字串。</p>
+<h1 id="閉包"><a href="#閉包" class="headerlink" title="閉包"></a>閉包</h1><p>底下例子透過 呼叫 outer() 後 return 的結果，把原本外層存取不到的 inner 取得。因為範圍鏈的變數有效範圍是在函式定義的當下決定，不是呼叫的時候決定。所以即使在全域透唾 innerFunc() 呼叫內部的 inner()，實際取得的 msg 仍然是內層的 “local” 字串。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> msg = <span class="string">"global"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> msg = <span class="string">"local"</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">inner</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> msg;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> inner;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> innerFunc = outer();</span><br><span class="line"><span class="keyword">var</span> result = innerFunc();</span><br><span class="line"><span class="built_in">console</span>.log(innerFunc());</span><br></pre></td></tr></table></figure>
 
 <p>當 inner 被回傳後，除了自己本身的程式碼，也取得內部函式「當時環境」的變數值，記住執行當時的環境，這就是「閉包」。在呼叫函式以前，範圍鏈就被建立，所以藉由在函式 outer 裡面「回傳」另一個內部函式給外層的範圍，使得外層也可以透過「範圍鏈」取得內部的變數 msg。</p>
@@ -340,7 +340,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#閉包"><span class="nav-number">1.</span> <span class="nav-text">閉包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#範圍鏈"><span class="nav-number">1.1.</span> <span class="nav-text">範圍鏈</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#閉包-1"><span class="nav-number">2.</span> <span class="nav-text">閉包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#進一步簡化程式"><span class="nav-number">3.</span> <span class="nav-text">進一步簡化程式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常見誤區"><span class="nav-number">4.</span> <span class="nav-text">常見誤區</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#範圍鏈複習"><span class="nav-number">1.</span> <span class="nav-text">範圍鏈複習</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#閉包"><span class="nav-number">2.</span> <span class="nav-text">閉包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#進一步簡化程式"><span class="nav-number">3.</span> <span class="nav-text">進一步簡化程式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常見誤區"><span class="nav-number">4.</span> <span class="nav-text">常見誤區</span></a></li></ol>
     
     </div>
   </aside>
