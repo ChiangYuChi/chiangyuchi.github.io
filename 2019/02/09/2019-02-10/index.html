@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>javascript hoisting(提昇) | CYC&#39;S BLOG</title>
+  <title>javascript 單執行緒、同步與非同步 | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="JavaScript">
@@ -11,18 +11,18 @@
   
   
   
-  <meta name="description" content="重點有三：  變數宣告跟函式宣告都會提升 只有宣告會提升，賦值不會提升 別忘了函式裡面還有傳進來的參數  Javascript 執行時會經過創造執行環境的階段。JavaScript 跟其他程式語言不同，它可以在還沒宣告函式前就先呼叫並且執行。在下列的範例中，假如我們把呼叫移到程式碼最上方，函式宣告之前，會發生什麼事？JavaScript 不僅執行函式，而且沒有錯誤。Called b! 正常印出來，">
+  <meta name="description" content="JavaScript 的執行方式是單執行緒 (single threaded) 可以理解成它一次只做一件事情。 單執行緒單執行緒的意思是任務的執行需要排隊。瀏覽器只分配給 JavaScript 一個主執行緒(stack)，但一次只能執行一個任務，這些任務形成一個事件佇列 (Queue) 排隊等候執行，但是瀏覽器不只運作 JavaScript 這個程式而已。因為瀏覽器的內核是多線程的，它們藉由瀏覽器">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript Hoisting(提昇)">
-<meta property="og:url" content="http://yoursite.com/2019/02/09/2019-02-09/index.html">
+<meta property="og:title" content="JavaScript 單執行緒、同步與非同步">
+<meta property="og:url" content="http://yoursite.com/2019/02/09/2019-02-10/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="重點有三：  變數宣告跟函式宣告都會提升 只有宣告會提升，賦值不會提升 別忘了函式裡面還有傳進來的參數  Javascript 執行時會經過創造執行環境的階段。JavaScript 跟其他程式語言不同，它可以在還沒宣告函式前就先呼叫並且執行。在下列的範例中，假如我們把呼叫移到程式碼最上方，函式宣告之前，會發生什麼事？JavaScript 不僅執行函式，而且沒有錯誤。Called b! 正常印出來，">
+<meta property="og:description" content="JavaScript 的執行方式是單執行緒 (single threaded) 可以理解成它一次只做一件事情。 單執行緒單執行緒的意思是任務的執行需要排隊。瀏覽器只分配給 JavaScript 一個主執行緒(stack)，但一次只能執行一個任務，這些任務形成一個事件佇列 (Queue) 排隊等候執行，但是瀏覽器不只運作 JavaScript 這個程式而已。因為瀏覽器的內核是多線程的，它們藉由瀏覽器">
 <meta property="og:locale" content="en.yml">
-<meta property="og:updated_time" content="2020-08-30T09:14:12.297Z">
+<meta property="og:updated_time" content="2020-08-30T15:45:42.237Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript Hoisting(提昇)">
-<meta name="twitter:description" content="重點有三：  變數宣告跟函式宣告都會提升 只有宣告會提升，賦值不會提升 別忘了函式裡面還有傳進來的參數  Javascript 執行時會經過創造執行環境的階段。JavaScript 跟其他程式語言不同，它可以在還沒宣告函式前就先呼叫並且執行。在下列的範例中，假如我們把呼叫移到程式碼最上方，函式宣告之前，會發生什麼事？JavaScript 不僅執行函式，而且沒有錯誤。Called b! 正常印出來，">
+<meta name="twitter:title" content="JavaScript 單執行緒、同步與非同步">
+<meta name="twitter:description" content="JavaScript 的執行方式是單執行緒 (single threaded) 可以理解成它一次只做一件事情。 單執行緒單執行緒的意思是任務的執行需要排隊。瀏覽器只分配給 JavaScript 一個主執行緒(stack)，但一次只能執行一個任務，這些任務形成一個事件佇列 (Queue) 排隊等候執行，但是瀏覽器不只運作 JavaScript 這個程式而已。因為瀏覽器的內核是多線程的，它們藉由瀏覽器">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -158,7 +158,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-2019-02-09" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-2019-02-10" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -166,7 +166,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      JavaScript Hoisting(提昇)
+      JavaScript 單執行緒、同步與非同步
     </h1>
   
 
@@ -174,7 +174,7 @@
     
     <div class="article-meta">
       
-	<a href="/2019/02/09/2019-02-09/" class="article-date">
+	<a href="/2019/02/09/2019-02-10/" class="article-date">
 	  <time datetime="2019-02-08T16:00:00.000Z" itemprop="datePublished">2019-02-09</time>
 	</a>
 
@@ -191,33 +191,58 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>重點有三：</p>
+        <p>JavaScript 的執行方式是單執行緒 (single threaded) 可以理解成它一次只做一件事情。</p>
+<h1 id="單執行緒"><a href="#單執行緒" class="headerlink" title="單執行緒"></a>單執行緒</h1><p>單執行緒的意思是任務的執行需要排隊。瀏覽器只分配給 JavaScript 一個主執行緒(stack)，但一次只能執行一個任務，這些任務形成一個事件佇列 (Queue) 排隊等候執行，但是瀏覽器不只運作 JavaScript 這個程式而已。因為瀏覽器的內核是多線程的，它們藉由瀏覽器內核的控制保持同步，舉例來說有三個常駐線程：</p>
+<ul>
+<li>JavaScript 引擎</li>
+<li>GUI 渲染</li>
+<li>瀏覽器事件觸發</li>
+</ul>
+<p>針對瀏覽器事件觸發，當一個事件被觸發時，該線程會把事件添加到待處理隊列的隊尾，等待 JavaScript 引擎的處理。這些事件可來自 JavaScript 引擎當前執行的程式碼，如 <code>setTimeout</code>、也可來自瀏覽器內核如滑鼠點擊、<code>Ajax</code> 非同步請求等，都要排隊處理。</p>
+<h1 id="同步執行"><a href="#同步執行" class="headerlink" title="同步執行"></a>同步執行</h1><p>同步執行和單執行緒有點類似，同步的意思是，對 JavaScript 來說，一次一個而不是一次兩個或三個。是程式碼中的一行，一次執行一行，而且是照順序的，程式碼會依照出現的順序，一次執行一行。</p>
+<h1 id="單執行緒如何執行非同步？"><a href="#單執行緒如何執行非同步？" class="headerlink" title="單執行緒如何執行非同步？"></a>單執行緒如何執行非同步？</h1><p>以上可以統整出兩個重點：</p>
 <ol>
-<li>變數宣告跟函式宣告都會提升</li>
-<li>只有宣告會提升，賦值不會提升</li>
-<li>別忘了函式裡面還有傳進來的參數</li>
+<li>瀏覽器內核除了 JavaScript 的執行緒，還有其他同步執行的執行緒。</li>
+<li><code>setTimeout</code>、<code>event</code>、<code>Ajax</code>…等無法預期執行時間的操作，都會先被丟到事件佇列排隊，等候執行，等到同步執行的程式碼執行完之後，才會去處理那些佇列中的任務。</li>
 </ol>
-<p>Javascript 執行時會經過創造執行環境的階段。JavaScript 跟其他程式語言不同，它可以在還沒宣告函式前就先呼叫並且執行。在下列的範例中，假如我們把呼叫移到程式碼最上方，函式宣告之前，會發生什麼事？JavaScript 不僅執行函式，而且沒有錯誤。<code>Called b!</code> 正常印出來，代表函式 b 正常執行，但是 <code>undefined</code> 是怎麼回事？</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">b();</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">"hello world"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"called b !"</span>); <span class="comment">// "called b !"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>單一執行緒表示任務跟任務之間需要排隊，前一個任務完成才會執行下一個任務。可是如果 JavaScript 裡不存在非同步，只能一行一行、由上而下執行，那在同步執行下，如果上一行解析時間很長，那 <code>setTimeout</code>、<code>event callback</code>、<code>Http request</code> 這些無法預期觸發執行時間的操作，不就會塞車？對於使用者而言，這樣的使用者體驗很差。</p>
+<p>JavaScript 的執行緒會逐一執行 Stack 內的任務，碰上非同步事件，會先執行後面的任務。當這些非同步事件的 callback function 被呼叫時，就會將這些非同步的任務丟到事件列裡面，等 Stack 的任務都完成後，在繼續執行排隊的任務。</p>
+<p>單執行緒可以透過事件迴圈 (Event loop) 來實現這些事件，將這些耗時、無法預期執行時間的操作以非同步處理，等執行完同步的程式碼再來處理它們。執行 function 時，會依執行順序把 function 丟到 主執行緒中，等到主執行緒中的任務都執行完畢，才會將事件佇列中待執行的任務拉到主執行緒中執行，執行完畢、清空後，再到 事件佇列中查看是否還有待執行任務，這個查看的過程就稱為 <code>Event Loop</code>。</p>
+<h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><ul>
+<li>例一</li>
+</ul>
+<p>即使 setTimeout()的等待時間為0，但因為會先被JavaScript丟到一邊擱置，等 Stack 的任務完成後，再回來執行 setTimeout()內的 callback function。所以setTimeout()會最晚印出</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"start"</span>);</span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"call function"</span>);</span><br><span class="line">  <span class="built_in">window</span>.setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"setTimeOut"</span>);</span><br><span class="line">  &#125;, <span class="number">0</span>);</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"end"</span>);</span><br></pre></td></tr></table></figure>
 
-<p>Javascript 程式碼在執行時，會經過一個創造階段 (creation)，並且在記憶體裡為變數與函數建立儲存空間，在記憶體裡設定變數與函數的這個步驟稱為「提昇」（hoisting) 。</p>
-<p>不是真的把程式碼移到最上面。所以函式跟它的內容(定義)會先存至記憶體，所以可以正確的呼叫，呼叫後建立這個函式的執行環境，印出 <code>Called b!</code>。雖然變數也在記憶體中建立空間，可是它的內容並沒有在創造階段時被放入。創造變數與賦值給變數可當成兩件事，所以呼叫變數 <code>a</code> 才會印出 <code>undefined</code>。</p>
-<p>上面的程式碼，在電腦執行時可以想像成這樣的順序，結果會是一樣的：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"called b !"</span>);</span><br><span class="line">&#125;</span><br><span class="line">b();</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line">a = <span class="string">"hello world"</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>例二</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"5sec"</span>);</span><br><span class="line">&#125;, <span class="number">5000</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"1sec"</span>);</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"3sec"</span>);</span><br><span class="line">&#125;, <span class="number">3000</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> now = <span class="built_in">Date</span>.now();</span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> ((<span class="built_in">Date</span>, now() &gt; now + <span class="number">2000</span>)) &#123;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"Nihao"</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"2sec"</span>);</span><br><span class="line">&#125;, <span class="number">2000</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"0sec"</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
 
-<p>下面的例子可以正確執行，因為函數會先在記憶體裡創造空間，並建立它的區域變數，再執行呼叫。 </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">b();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"called b !"</span>); <span class="comment">//called b !</span></span><br><span class="line">  <span class="keyword">var</span> a = <span class="string">"hello world"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a); <span class="comment">// "hello world"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>下列的狀況雖然貌似。但是因為 <code>var b</code> 在創造階段被提昇，但還沒有被賦值。接著</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">b();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"called b !"</span>);</span><br><span class="line">  <span class="keyword">var</span> a = <span class="string">"hello world"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以想像創造階段是像這樣</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b;</span><br><span class="line"></span><br><span class="line">b();</span><br><span class="line"></span><br><span class="line">b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="string">"Hello World!"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>變數 <code>b</code> 先被提升 (創造變數 <code>b</code> 並設定進記憶體)，接著呼叫執行 b 函式，為變數 b 賦值(指向)函式。呼叫執行 b 函式時報錯，是因為變數 b 這個時候根本沒有被賦值。所以自然報錯 b is not a function。</p>
-<p>這種貌似變數與函式被拉到執行環境最前面的現象稱為 <code>Hoisting</code></p>
-<p>另一個例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> foobar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(foo);</span><br><span class="line">  <span class="keyword">var</span> foo = <span class="number">2</span>;</span><br><span class="line">&#125;;</span><br><span class="line">foobar();</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以想像創造階段是像這樣</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> foobar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> foo;</span><br><span class="line">  <span class="built_in">console</span>.log(foo); <span class="comment">//undefined</span></span><br><span class="line">  foo = <span class="number">2</span>;</span><br><span class="line">&#125;;</span><br><span class="line">foobar();</span><br></pre></td></tr></table></figure>
-
-<p>區域變數 foo 的宣告會被提昇，先於呼叫 console.log 方法，也就是區域變數的值將會作為參數傳入成為 console.log 得出的值，而不是在函數外部聲明的全域變數。但是，變數宣告不會提升該值，因此輸出將是 undefined，而不是 2。在創造階段，函數跟其函數內容(定義)會先存至記憶體，雖然變數也在記憶體中建立空間，可是它的內容並沒有在創造階段時被放入。所以呼叫變數 foo 才會印出 undefined。</p>
-<p>延伸閱讀：<br><a href="https://" target="_blank" rel="noopener">https://blog.techbridge.cc/2018/11/10/javascript-hoisting/</a><br><a href="https://" target="_blank" rel="noopener">https://github.com/aszx87410/blog/issues/34#issuecomment-500890667</a></p>
+<p>這個範例流程可以分為兩條線解析 —</p>
+<p>setTimeout:</p>
+<ol>
+<li><code>setTimeout</code> 被先拉到旁邊開始倒數</li>
+<li>倒數完畢，由 <code>callback function</code> 放到事件佇列</li>
+</ol>
+<p>while 等待兩秒：</p>
+<ol>
+<li>執行同步執行的程式碼</li>
+<li>印出 Nihao</li>
+</ol>
+<h2 id="範例小結"><a href="#範例小結" class="headerlink" title="範例小結"></a>範例小結</h2><p><code>setTimeout</code>、<code>setInterval</code> 等設定的等待時，例如 3 秒，並不能確保它真會在設定的時間到就馬上執行，只能夠確保它在大於等於 3sec 候才會執行。</p>
+<p>因此以上的範例印出的順序及運作流程為：</p>
+<ol>
+<li>5、1、3 秒拉出倒數（倒數完成後由 <code>callback function</code> 丟進<code>事件佇列</code>)</li>
+<li>while 等待 2 秒</li>
+<li>印出 Nihao</li>
+<li>2、0 秒拉出倒數（倒數完成後由 <code>callback function</code> 丟進<code>事件佇列</code>)</li>
+<li>主執行緒空了，查看事件佇列</li>
+<li>印出 1、3sec (5sec 還在倒數)</li>
+<li>印出 while 下方的 0sec</li>
+<li>印出 5sec</li>
+<li>印出 2sec</li>
+</ol>
 
       
     </div>
@@ -244,7 +269,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/02/09/2019-02-09/" target="_blank" title="JavaScript Hoisting(提昇)">http://yoursite.com/2019/02/09/2019-02-09/</a>
+          <a href="/2019/02/09/2019-02-10/" target="_blank" title="JavaScript 單執行緒、同步與非同步">http://yoursite.com/2019/02/09/2019-02-10/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -294,19 +319,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2019/02/11/2019-02-11/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/02/09/2019-02-09/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          AJAX (1)
+          JavaScript Hoisting(提昇)
         
       </div>
     </a>
   
   
-    <a href="/2019/02/09/2019-02-10/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/02/08/2019-02-08/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">JavaScript 單執行緒、同步與非同步</div>
+      <div class="article-nav-title">JavaScript Closure(閉包)</div>
     </a>
   
 </nav>
@@ -320,7 +345,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav">None</ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#單執行緒"><span class="nav-number">1.</span> <span class="nav-text">單執行緒</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同步執行"><span class="nav-number">2.</span> <span class="nav-text">同步執行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#單執行緒如何執行非同步？"><span class="nav-number">3.</span> <span class="nav-text">單執行緒如何執行非同步？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#範例"><span class="nav-number">3.1.</span> <span class="nav-text">範例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#範例小結"><span class="nav-number">3.2.</span> <span class="nav-text">範例小結</span></a></li></ol></li></ol>
     
     </div>
   </aside>

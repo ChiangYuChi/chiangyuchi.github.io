@@ -433,6 +433,61 @@ Javascript 執行時會經過創造執行環境的階段。JavaScript 跟其他�
 
 
   
+    <article id="post-2019-02-10"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/02/09/2019-02-10/">JavaScript 單執行緒、同步與非同步</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/02/09/2019-02-10/" class="article-date">
+	  <time datetime="2019-02-08T16:00:00.000Z" itemprop="datePublished">2019-02-09</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          JavaScript 的執行方式是單執行緒 (single threaded) 可以理解成它一次只做一件事情。
+單執行緒單執行緒的意思是任務的執行需要排隊。瀏覽器只分配給 JavaScript 一個主執行緒(stack)，但一次只能執行一個任務，這些任務形成一個事件佇列 (Queue) 排隊等候執行，但是瀏覽器不只運作 JavaScript 這個程式而已。因為瀏覽器的內核是多線程的，它們藉由瀏覽器內核的控制保持同步，舉例來說有三個常駐線程：
+
+JavaScript 引擎
+GUI 渲染
+瀏覽...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/02/09/2019-02-10/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2019-02-08"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -591,60 +646,6 @@ cookie在 HTML5 之前，cookie 是瀏覽器儲存資訊最主要的方式，是
 
 
   
-    <article id="post-2019-02-04"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/02/04/2019-02-04/">JavaScript Event-addEventListener (事件監聽)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/02/04/2019-02-04/" class="article-date">
-	  <time datetime="2019-02-03T16:00:00.000Z" itemprop="datePublished">2019-02-04</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          事件 EventEvent 事件就是在瀏覽頁面的時候，根據使用者不同的行為，而觸發瀏覽器不同的動作。（例如使用者點擊、按下鍵盤等）
-w3school - event sample
-事件監聽 （addEventListener)JavaScript 是一種由「事件驅動」(Event-driven)的程式語言，在瀏覽器載入頁面的時候，要等到事件被觸發（例如使用者點擊、按下鍵盤等），才會進行相關程式的執行。
-事件監聽的功能就是監聽事件有沒有被觸發。
-以下是利用事件監聽器把一個事件綁定到元件上，並...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/02/04/2019-02-04/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-2019-02-05"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -699,7 +700,7 @@ w3school - event sample
 
 
   
-    <article id="post-2019-02-03"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-2019-02-04"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -707,7 +708,7 @@ w3school - event sample
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/02/03/2019-02-03/">JavaScript DOM</a>
+      <a class="article-title" href="/2019/02/04/2019-02-04/">JavaScript Event-addEventListener (事件監聽)</a>
     </h1>
   
 
@@ -715,8 +716,8 @@ w3school - event sample
     
     <div class="article-meta">
       
-	<a href="/2019/02/03/2019-02-03/" class="article-date">
-	  <time datetime="2019-02-02T16:00:00.000Z" itemprop="datePublished">2019-02-03</time>
+	<a href="/2019/02/04/2019-02-04/" class="article-date">
+	  <time datetime="2019-02-03T16:00:00.000Z" itemprop="datePublished">2019-02-04</time>
 	</a>
 
       
@@ -727,13 +728,14 @@ w3school - event sample
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          DOMDOM (document object modal) 是一種應用程式介面 (API)，能以樹狀結構描述頁面元素在瀏覽器的組成結構。DOM 定義特性和方法，供程式存取和變更模型中的每個物件。DOM 讓文檔可以採取為由節點和物件 (包含屬性和方法的物件)的組成結構。簡言之，DOM 連接了網頁、腳本及程式語言。
-參考來源一
-下面範例，HTML 裡面每個元素、屬性都代表著其中一個節點
-123456&lt;html&gt;  &lt;head&gt;my title&lt;/head&gt...
+          事件 EventEvent 事件就是在瀏覽頁面的時候，根據使用者不同的行為，而觸發瀏覽器不同的動作。（例如使用者點擊、按下鍵盤等）
+w3school - event sample
+事件監聽 （addEventListener)JavaScript 是一種由「事件驅動」(Event-driven)的程式語言，在瀏覽器載入頁面的時候，要等到事件被觸發（例如使用者點擊、按下鍵盤等），才會進行相關程式的執行。
+事件監聽的功能就是監聽事件有沒有被觸發。
+以下是利用事件監聽器把一個事件綁定到元件上，並...
         </p>
         <p class="article-more-link">
-          <a href="/2019/02/03/2019-02-03/#more">Read More</a>
+          <a href="/2019/02/04/2019-02-04/#more">Read More</a>
         </p>
       
     </div>
