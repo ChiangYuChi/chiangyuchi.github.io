@@ -404,12 +404,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          Javascript 執行時，必經的創造執行環境的階段，究竟底層發生什麼變化？在下列的範例中，假如我們把呼叫移到程式碼最上方，移到函式之前：
-123456b();console.log(a);var a = "hello world";function b() &#123;  console.log("called b !");&#125;
+          重點有三：
 
-在多數程式語言裡面，這，因為還沒宣告函式就先呼叫，所以呼叫是無效的。但 JavaScript 不僅執行函式，而且沒有錯誤。
+變數宣告跟函式宣告都會提升
+只有宣告會提升，賦值不會提升
+別忘了函式裡面還有傳進來的參數
 
-Called b! 正...
+Javascript 執行時會經過創造執行環境的階段。JavaScript 跟其他程式語言不同，它可以在還沒宣告函式前就先呼叫並且執行。在下列的範例中，假如我們把呼叫移到程式碼最上方，函式宣告之前，會發生什麼事？JavaScript 不僅執行函式，而且沒有錯誤。Called b! 正常印出來，代表函式 b 正常執行，但是 undefined 
+123456b();console.log...
         </p>
         <p class="article-more-link">
           <a href="/2019/02/09/2019-02-09/#more">Read More</a>
@@ -589,60 +591,6 @@ cookie在 HTML5 之前，cookie 是瀏覽器儲存資訊最主要的方式，是
 
 
   
-    <article id="post-2019-02-05"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/02/04/2019-02-05/">JavaScript Event bubbling and capturing (事件冒泡與捕獲)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/02/04/2019-02-05/" class="article-date">
-	  <time datetime="2019-02-03T16:00:00.000Z" itemprop="datePublished">2019-02-04</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          參考來源一參考來源二
-事件機制JavaScript 是「事件驅動」的程式語言，雖然瀏覽器在載入網頁後就會讀取 JavaScript 相關程式碼，但只有等到「事件」發生 （像是使用者滑鼠點擊、按下鍵盤）才會執行相關程式。
-以網頁對話框為例：按下開啟 （觸發事件）-&gt; 彈出對話框 （執行相關事件）
-這整個對話框從觸發到開啟的過程牽涉到 DOM 的事件流程，就是「網頁元素接收事件的順序」
-事件流程 (event flow)由於 inner 也是 outer 的一部分，所以點擊 inner ...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/02/04/2019-02-05/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-2019-02-04"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -679,6 +627,60 @@ w3school - event sample
         </p>
         <p class="article-more-link">
           <a href="/2019/02/04/2019-02-04/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2019-02-05"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/02/04/2019-02-05/">JavaScript Event bubbling and capturing (事件冒泡與捕獲)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/02/04/2019-02-05/" class="article-date">
+	  <time datetime="2019-02-03T16:00:00.000Z" itemprop="datePublished">2019-02-04</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          參考來源一參考來源二
+事件機制JavaScript 是「事件驅動」的程式語言，雖然瀏覽器在載入網頁後就會讀取 JavaScript 相關程式碼，但只有等到「事件」發生 （像是使用者滑鼠點擊、按下鍵盤）才會執行相關程式。
+以網頁對話框為例：按下開啟 （觸發事件）-&gt; 彈出對話框 （執行相關事件）
+這整個對話框從觸發到開啟的過程牽涉到 DOM 的事件流程，就是「網頁元素接收事件的順序」
+事件流程 (event flow)由於 inner 也是 outer 的一部分，所以點擊 inner ...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/02/04/2019-02-05/#more">Read More</a>
         </p>
       
     </div>
