@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="CYC&#39;S BLOG">
 <meta property="og:description" content="重點有三：  變數宣告跟函式宣告都會提升 只有宣告會提升，賦值不會提升 別忘了函式裡面還有傳進來的參數  Javascript 執行時會經過創造執行環境的階段。JavaScript 跟其他程式語言不同，它可以在還沒宣告函式前就先呼叫並且執行。在下列的範例中，假如我們把呼叫移到程式碼最上方，函式宣告之前，會發生什麼事？JavaScript 不僅執行函式，而且沒有錯誤。Called b! 正常印出來，">
 <meta property="og:locale" content="en.yml">
-<meta property="og:updated_time" content="2020-08-30T09:13:03.542Z">
+<meta property="og:updated_time" content="2020-08-30T09:14:12.297Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript Hoisting(提昇)">
 <meta name="twitter:description" content="重點有三：  變數宣告跟函式宣告都會提升 只有宣告會提升，賦值不會提升 別忘了函式裡面還有傳進來的參數  Javascript 執行時會經過創造執行環境的階段。JavaScript 跟其他程式語言不同，它可以在還沒宣告函式前就先呼叫並且執行。在下列的範例中，假如我們把呼叫移到程式碼最上方，函式宣告之前，會發生什麼事？JavaScript 不僅執行函式，而且沒有錯誤。Called b! 正常印出來，">
@@ -197,7 +197,7 @@
 <li>只有宣告會提升，賦值不會提升</li>
 <li>別忘了函式裡面還有傳進來的參數</li>
 </ol>
-<p>Javascript 執行時會經過創造執行環境的階段。JavaScript 跟其他程式語言不同，它可以在還沒宣告函式前就先呼叫並且執行。在下列的範例中，假如我們把呼叫移到程式碼最上方，函式宣告之前，會發生什麼事？JavaScript 不僅執行函式，而且沒有錯誤。<code>Called b!</code> 正常印出來，代表函式 b 正常執行，但是 <code>undefined</code> </p>
+<p>Javascript 執行時會經過創造執行環境的階段。JavaScript 跟其他程式語言不同，它可以在還沒宣告函式前就先呼叫並且執行。在下列的範例中，假如我們把呼叫移到程式碼最上方，函式宣告之前，會發生什麼事？JavaScript 不僅執行函式，而且沒有錯誤。<code>Called b!</code> 正常印出來，代表函式 b 正常執行，但是 <code>undefined</code> 是怎麼回事？</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">b();</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">"hello world"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"called b !"</span>); <span class="comment">// "called b !"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Javascript 程式碼在執行時，會經過一個創造階段 (creation)，並且在記憶體裡為變數與函數建立儲存空間，在記憶體裡設定變數與函數的這個步驟稱為「提昇」（hoisting) 。</p>
