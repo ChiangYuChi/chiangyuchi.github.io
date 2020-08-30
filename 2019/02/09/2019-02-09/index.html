@@ -3,28 +3,30 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>ajax (1) | CYC&#39;S BLOG</title>
+  <title>javascript hoisting(提昇) | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="JavaScriptAJAX">
+  <meta name="keywords" content="JavaScript">
   
   
   
   
-  <meta name="description" content="AJAXAJAX 即「Asynchronous JavaScript and XML」（非同步的 JavaScript 與 XML 技術）是一種為了改善傳統用戶端與伺服器端的資料傳輸而有的一套綜合了多項技術的瀏覽器端網頁開發架構。主要以 JavaScript 與 XML 為主，但還包括其它成員，也就是 CSS、DOM（Document Object Model）與 HTML 等，特別是 XMLHt">
-<meta name="keywords" content="JavaScript,AJAX">
+  <meta name="description" content="Javascript 執行時，必經的創造執行環境的階段，究竟底層發生什麼變化？在下列的範例中，假如我們把呼叫移到程式碼最上方，移到函式之前： 123456b();console.log(a);var a = &quot;hello world&quot;;function b() &amp;#123;  console.log(&quot;called b !&quot;);&amp;#125;  在多數程式語言裡面，這，因為還沒宣告函式就先呼叫，所以">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AJAX (1)">
-<meta property="og:url" content="http://yoursite.com/2019/02/11/2019-02-11/index.html">
+<meta property="og:title" content="JavaScript Hoisting(提昇)">
+<meta property="og:url" content="http://yoursite.com/2019/02/09/2019-02-09/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="AJAXAJAX 即「Asynchronous JavaScript and XML」（非同步的 JavaScript 與 XML 技術）是一種為了改善傳統用戶端與伺服器端的資料傳輸而有的一套綜合了多項技術的瀏覽器端網頁開發架構。主要以 JavaScript 與 XML 為主，但還包括其它成員，也就是 CSS、DOM（Document Object Model）與 HTML 等，特別是 XMLHt">
+<meta property="og:description" content="Javascript 執行時，必經的創造執行環境的階段，究竟底層發生什麼變化？在下列的範例中，假如我們把呼叫移到程式碼最上方，移到函式之前： 123456b();console.log(a);var a = &quot;hello world&quot;;function b() &amp;#123;  console.log(&quot;called b !&quot;);&amp;#125;  在多數程式語言裡面，這，因為還沒宣告函式就先呼叫，所以">
 <meta property="og:locale" content="en.yml">
-<meta property="og:image" content="https://i.imgur.com/0cHCAgB.png">
-<meta property="og:updated_time" content="2020-08-07T06:03:56.697Z">
+<meta property="og:image" content="https://i.imgur.com/SpQoqbn.png">
+<meta property="og:image" content="https://i.imgur.com/RwsEjGo.png">
+<meta property="og:image" content="https://i.imgur.com/XqdNVEO.png">
+<meta property="og:updated_time" content="2020-08-30T07:51:22.990Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AJAX (1)">
-<meta name="twitter:description" content="AJAXAJAX 即「Asynchronous JavaScript and XML」（非同步的 JavaScript 與 XML 技術）是一種為了改善傳統用戶端與伺服器端的資料傳輸而有的一套綜合了多項技術的瀏覽器端網頁開發架構。主要以 JavaScript 與 XML 為主，但還包括其它成員，也就是 CSS、DOM（Document Object Model）與 HTML 等，特別是 XMLHt">
-<meta name="twitter:image" content="https://i.imgur.com/0cHCAgB.png">
+<meta name="twitter:title" content="JavaScript Hoisting(提昇)">
+<meta name="twitter:description" content="Javascript 執行時，必經的創造執行環境的階段，究竟底層發生什麼變化？在下列的範例中，假如我們把呼叫移到程式碼最上方，移到函式之前： 123456b();console.log(a);var a = &quot;hello world&quot;;function b() &amp;#123;  console.log(&quot;called b !&quot;);&amp;#125;  在多數程式語言裡面，這，因為還沒宣告函式就先呼叫，所以">
+<meta name="twitter:image" content="https://i.imgur.com/SpQoqbn.png">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -160,7 +162,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-2019-02-11" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-2019-02-09" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -168,7 +170,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      AJAX (1)
+      JavaScript Hoisting(提昇)
     </h1>
   
 
@@ -176,8 +178,8 @@
     
     <div class="article-meta">
       
-	<a href="/2019/02/11/2019-02-11/" class="article-date">
-	  <time datetime="2019-02-10T16:00:00.000Z" itemprop="datePublished">2019-02-11</time>
+	<a href="/2019/02/09/2019-02-09/" class="article-date">
+	  <time datetime="2019-02-08T16:00:00.000Z" itemprop="datePublished">2019-02-09</time>
 	</a>
 
       
@@ -193,44 +195,49 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h1><p>AJAX 即「Asynchronous JavaScript and XML」（非同步的 JavaScript 與 XML 技術）是一種為了改善傳統用戶端與伺服器端的資料傳輸而有的一套綜合了多項技術的瀏覽器端網頁開發架構。主要以 JavaScript 與 XML 為主，但還包括其它成員，也就是 CSS、DOM（Document Object Model）與 HTML 等，特別是 XMLHttpRequest 元件，使 AJAX 能達到非同步資料交換的目的。<br>AJAX 改善傳統用戶端與伺服器端資料傳輸間重複的問題，可以僅向伺服器傳送並取回必須的資料，並在用戶端採用 JavaScript 處理來自伺服器的回應。因為在伺服器和瀏覽器之間交換的資料大量減少，伺服器回應更快了。</p>
-<p>AJAX 網頁有兩種主要特性：向伺服器發出請求，以及回傳結果時，瀏覽器不需要重新載入所有頁面；藉由 XML 解析傳遞與交換的資料。例如註冊帳戶時提示帳號已被使用，或者是在搜尋欄跳出相關字詞、購物欄顯示庫存量，這些都是透過 ajax 的方式，不需要重新載入頁面就能完成。</p>
-<h1 id="從瀏覽器端取得-JSON-資料"><a href="#從瀏覽器端取得-JSON-資料" class="headerlink" title="從瀏覽器端取得 JSON 資料"></a>從瀏覽器端取得 JSON 資料</h1><p>常見的應用例如從伺服器端取得 JSON 資料。JSON 是用純文字儲存和傳送的簡單結構資料。可以透過特定格式儲存任何資料（例如字串、數字、陣列、物件），或者透過物件或陣列傳送比較複雜的資料。例如：</p>
+        <p>Javascript 執行時，必經的創造執行環境的階段，究竟底層發生什麼變化？在下列的範例中，假如我們把呼叫移到程式碼最上方，移到函式之前：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">b();</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="keyword">var</span> a = <span class="string">"hello world"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"called b !"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在多數程式語言裡面，這，因為還沒宣告函式就先呼叫，所以呼叫是無效的。但 JavaScript 不僅執行函式，而且沒有錯誤。</p>
+<p><img src="https://i.imgur.com/SpQoqbn.png" alt></p>
+<p><code>Called b!</code> 正常印出來，代表函式 b 正常執行，但是 <code>undefined</code> 呢?</p>
+<p>Javascript 程式碼在執時，不是直接被執行，而是被解析器轉換成電腦看得懂的東西。當解析器執行你的程式碼時，它會知道你在什麼位置創造變數與函數。</p>
+<pre><code>這個階段稱為創造 (creation)，而創造階段裡面，直譯器在記憶體裡設定變數與函數的這個步驟稱為「提昇」（hoisting) 。</code></pre><p>它不是真的把程式碼移到最上面。在逐行執行程式碼之前，JavaScript 已經替變數與函數，在記憶體裡面中建立儲存空間。所以當程式碼逐行執行時，可以找到它們。</p>
+<p>所以函式跟它的內容(定義)會先存至記憶體，所以可以正確的呼叫，呼叫後建立這個函式的執行環境，印出 <code>Called b!</code></p>
+<p>雖然變數也在記憶體中建立空間，可是它的內容並沒有在創造階段時被放入。這邊可以把創造變數與賦值給變數當成兩件事，所以呼叫變數 <code>a</code> 才會印出 <code>undefined</code>。</p>
+<p>上面的程式碼，在電腦執行時可以想像成這樣的順序，結果會是一樣的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"called b !"</span>);</span><br><span class="line">&#125;</span><br><span class="line">b();</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line">a = <span class="string">"hello world"</span>;</span><br></pre></td></tr></table></figure>
+
+<p>那如果是下列狀況呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">b();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"called b !"</span>);</span><br><span class="line">  <span class="keyword">var</span> a = <span class="string">"hello world"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>結果可以正常顯示</p>
+<p><img src="https://i.imgur.com/RwsEjGo.png" alt></p>
+<p>這是因為函數會先在記憶體裡創造空間，並建立它的區域變數，再執行呼叫。</p>
+<p>可是下列的狀況雖然貌似</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">b();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"called b !"</span>);</span><br><span class="line">  <span class="keyword">var</span> a = <span class="string">"hello world"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>結果卻是</p>
+<p><img src="https://i.imgur.com/XqdNVEO.png" alt></p>
+<p>執行怎麼理解呢？可以這樣想：</p>
+<p>變數 <code>b</code> 先被提升 (創造變數 <code>b</code> 並設定進記憶體)，接著呼叫執行 b 函式，為變數 b 賦值(指向)函式。呼叫執行 b 函式時報錯，是因為變數 b 這個時候根本沒有被賦值，何況是指向函式呼叫呢？所以自然報錯 b is not a function。</p>
+<p>可以想像成是這樣：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b;</span><br><span class="line"></span><br><span class="line">b();</span><br><span class="line"></span><br><span class="line">b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="string">"Hello World!"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>當然這不代表我們的 JS 程式被改寫成這樣，而只是這種貌似變數與函式被拉到執行環境最前面的現象稱為 <code>Hoisting</code></p>
+<p>重點有三：</p>
 <ol>
-<li>使用者點選線上產品縮圖</li>
-<li>JavaScript 透過 AJAX 方式將產品 ID 傳送給伺服器</li>
-<li>伺服器端收到 ID，將產品資料（EX: 價格、描述）編碼成 JSON 資料，再回傳給瀏覽器</li>
-<li>JavaScript 收到 JSON 資料，將其解碼再將資料顯示在網頁上</li>
+<li>變數宣告跟函式宣告都會提升</li>
+<li>只有宣告會提升，賦值不會提升</li>
+<li>別忘了函式裡面還有傳進來的參數</li>
 </ol>
-<h2 id="JSON-範例"><a href="#JSON-範例" class="headerlink" title="JSON 範例"></a>JSON 範例</h2><p>JSON 字串可以用以下規則建立</p>
-<ul>
-<li>可以包含陣列或物件資料</li>
-<li>陣列可用 [] 寫入資料</li>
-<li>物件可用 {} 寫入資料</li>
-<li>name / value 是成對的，中間透過 (:) 來區隔</li>
-</ul>
-<p>以下是一個簡單的 JSON 範例，我們可以發現陣列裡面又包含物件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    sno: <span class="string">"1001"</span>,</span><br><span class="line">    sna: <span class="string">"大鵬華城"</span>,</span><br><span class="line">    tot: <span class="string">"38"</span>,</span><br><span class="line">    sbi: <span class="string">"17"</span>,</span><br><span class="line">    sarea: <span class="string">"新店區"</span>,</span><br><span class="line">    mday: <span class="string">"20191109131338"</span>,</span><br><span class="line">    lat: <span class="string">"24.99116"</span>,</span><br><span class="line">    lng: <span class="string">"121.53398"</span>,</span><br><span class="line">    ar: <span class="string">"新北市新店區中正路700巷3號"</span>,</span><br><span class="line">    sareaen: <span class="string">"Xindian Dist."</span>,</span><br><span class="line">    snaen: <span class="string">"Dapeng Community"</span>,</span><br><span class="line">    aren: <span class="string">"No. 3, Lane 700 Chung Cheng Road, Xindian District"</span>,</span><br><span class="line">    bemp: <span class="string">"20"</span>,</span><br><span class="line">    act: <span class="string">"1"</span></span><br><span class="line">  &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<p>另一個小例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> foobar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(foo);</span><br><span class="line">  <span class="keyword">var</span> foo = <span class="number">2</span>;</span><br><span class="line">&#125;;</span><br><span class="line">foobar();</span><br></pre></td></tr></table></figure>
 
-<h1 id="從伺服器取得資料"><a href="#從伺服器取得資料" class="headerlink" title="從伺服器取得資料"></a>從伺服器取得資料</h1><p>要送出要送出一個 HTTP 請求從伺服器取的資料，過去最典型的應用方式是 XMLHttpRequest（XHR)。</p>
-<h2 id="設定請求"><a href="#設定請求" class="headerlink" title="設定請求"></a>設定請求</h2><p>首先要產生一個 XMLHttpRequest() 物件實例，才能物件跨瀏覽器取得資料，。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var xhr = new  XMLHttpRequest();</span><br></pre></td></tr></table></figure>
-
-<p>使用 <code>open()</code> 方法，設定請求，請求方法除了 GET 與 POST，還能使用 PUT、DELETE、HEAD、OPTIONS !
-並且預設使用了 非同步 (async) 的方式接收回應:</p>
-<p>執行 request 之後，就會出現相對的資料。<br><img src="https://i.imgur.com/0cHCAgB.png" alt></p>
-<p>readystate 代表目前狀態</p>
-<pre><code>0-你已經產生一個XMLHttpRequest，但是還沒有連結你要撈的資料
-1-用了open()，但還沒有把資料傳送過去。
-2-偵側到用了send。
-3 - (processing request)資訊處理中。
-4 - (request finished and response is ready)撈到資料，數據完全接收到了。</code></pre><p>以 xhr.open(,,true)來初始設定，需要代入 3 個參數。第一個參數是發出 request 的方式，格式有 get (讀取)、post (發送資料到伺服器)；第二個參數是要讀取的網址；第三個參數是同步與非同步</p>
-<pre><code>var xhr = new XMLHttpRequest();
-// 格式,要讀取的網址,同步與非同步
-// 格式: get(讀取), post(傳送資料到伺服器)
-xhr.open(&quot;get&quot;, &quot;這裡放網址&quot;, true);
-// 空值，單純get，沒有要傳資料，括號中用null
-xhr.send(null);</code></pre><p>如果資料傳輸完畢且成功，在 XMLHttpRequest 中的 readyState 會等於 4，responseText 則是內容。</p>
+<p>由於提昇的作用，儘管區域變數 foo 的宣告會先於呼叫 console.log 方法，也就是 區域變數的值將會作為參數傳入成為 console.log 得出的值，而不是在函數外部聲明的全域變數。</p>
+<p>但是，由於變數宣告不會提升該值，因此輸出將是 undefined，而不是 2。</p>
+<p>在創造階段，函數跟其函數內容(定義)會先存至記憶體，雖然變數也在記憶體中建立空間，可是它的內容並沒有在創造階段時被放入。所以呼叫變數 foo 才會印出 undefined。</p>
+<p>延伸閱讀：<br><a href="https://" target="_blank" rel="noopener">https://blog.techbridge.cc/2018/11/10/javascript-hoisting/</a><br><a href="https://" target="_blank" rel="noopener">https://github.com/aszx87410/blog/issues/34#issuecomment-500890667</a></p>
 
       
     </div>
@@ -257,7 +264,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/02/11/2019-02-11/" target="_blank" title="AJAX (1)">http://yoursite.com/2019/02/11/2019-02-11/</a>
+          <a href="/2019/02/09/2019-02-09/" target="_blank" title="JavaScript Hoisting(提昇)">http://yoursite.com/2019/02/09/2019-02-09/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -297,7 +304,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AJAX/">AJAX</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
       
 
@@ -307,19 +314,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2019/02/12/2019-02-12/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/02/11/2019-02-11/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          AJAX (2)
+          AJAX (1)
         
       </div>
     </a>
   
   
-    <a href="/2019/02/09/2019-02-09/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/02/08/2019-02-08/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">JavaScript Hoisting(提昇)</div>
+      <div class="article-nav-title">JavaScript Closure(閉包)</div>
     </a>
   
 </nav>
@@ -333,7 +340,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AJAX"><span class="nav-number">1.</span> <span class="nav-text">AJAX</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#從瀏覽器端取得-JSON-資料"><span class="nav-number">2.</span> <span class="nav-text">從瀏覽器端取得 JSON 資料</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-範例"><span class="nav-number">2.1.</span> <span class="nav-text">JSON 範例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#從伺服器取得資料"><span class="nav-number">3.</span> <span class="nav-text">從伺服器取得資料</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#設定請求"><span class="nav-number">3.1.</span> <span class="nav-text">設定請求</span></a></li></ol></li></ol>
+        <ol class="nav">None</ol>
     
     </div>
   </aside>
