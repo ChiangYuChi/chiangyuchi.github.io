@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>ajax (1) | CYC&#39;S BLOG</title>
+  <title>javascript - ajax | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="JavaScriptAJAX">
@@ -11,20 +11,22 @@
   
   
   
-  <meta name="description" content="AJAXAJAX 即「Asynchronous JavaScript and XML」（非同步的 JavaScript 與 XML 技術）是一種為了改善傳統用戶端與伺服器端的資料傳輸而有的一套綜合了多項技術的瀏覽器端網頁開發架構。主要以 JavaScript 與 XML 為主，但還包括其它成員，也就是 CSS、DOM（Document Object Model）與 HTML 等，特別是 XMLHt">
+  <meta name="description" content="AJAX非同步 JavaScript 及 XML （Asynchronous JavaScript and XML，AJAX）不是一種「技術」，而是一種開發架構，主要以 JavaScript 與 XML 為主，也包括 CSS、DOM（Document Object Model）與 HTML 等，最重要的是 XMLHttpRequest 物件。使 AJAX 能達到非同步資料交換的目的。使瀏覽器不需要">
 <meta name="keywords" content="JavaScript,AJAX">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AJAX (1)">
+<meta property="og:title" content="JavaScript - AJAX">
 <meta property="og:url" content="http://yoursite.com/2019/02/11/2019-02-11/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="AJAXAJAX 即「Asynchronous JavaScript and XML」（非同步的 JavaScript 與 XML 技術）是一種為了改善傳統用戶端與伺服器端的資料傳輸而有的一套綜合了多項技術的瀏覽器端網頁開發架構。主要以 JavaScript 與 XML 為主，但還包括其它成員，也就是 CSS、DOM（Document Object Model）與 HTML 等，特別是 XMLHt">
+<meta property="og:description" content="AJAX非同步 JavaScript 及 XML （Asynchronous JavaScript and XML，AJAX）不是一種「技術」，而是一種開發架構，主要以 JavaScript 與 XML 為主，也包括 CSS、DOM（Document Object Model）與 HTML 等，最重要的是 XMLHttpRequest 物件。使 AJAX 能達到非同步資料交換的目的。使瀏覽器不需要">
 <meta property="og:locale" content="en.yml">
-<meta property="og:image" content="https://i.imgur.com/0cHCAgB.png">
-<meta property="og:updated_time" content="2020-08-07T06:03:56.697Z">
+<meta property="og:image" content="https://i.imgur.com/aEKdUte.png">
+<meta property="og:image" content="https://i.imgur.com/R0waZIU.png">
+<meta property="og:image" content="https://i.imgur.com/mEkIInK.png">
+<meta property="og:updated_time" content="2020-09-01T11:15:43.787Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AJAX (1)">
-<meta name="twitter:description" content="AJAXAJAX 即「Asynchronous JavaScript and XML」（非同步的 JavaScript 與 XML 技術）是一種為了改善傳統用戶端與伺服器端的資料傳輸而有的一套綜合了多項技術的瀏覽器端網頁開發架構。主要以 JavaScript 與 XML 為主，但還包括其它成員，也就是 CSS、DOM（Document Object Model）與 HTML 等，特別是 XMLHt">
-<meta name="twitter:image" content="https://i.imgur.com/0cHCAgB.png">
+<meta name="twitter:title" content="JavaScript - AJAX">
+<meta name="twitter:description" content="AJAX非同步 JavaScript 及 XML （Asynchronous JavaScript and XML，AJAX）不是一種「技術」，而是一種開發架構，主要以 JavaScript 與 XML 為主，也包括 CSS、DOM（Document Object Model）與 HTML 等，最重要的是 XMLHttpRequest 物件。使 AJAX 能達到非同步資料交換的目的。使瀏覽器不需要">
+<meta name="twitter:image" content="https://i.imgur.com/aEKdUte.png">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -168,7 +170,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      AJAX (1)
+      JavaScript - AJAX
     </h1>
   
 
@@ -193,45 +195,37 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h1><p>AJAX 即「Asynchronous JavaScript and XML」（非同步的 JavaScript 與 XML 技術）是一種為了改善傳統用戶端與伺服器端的資料傳輸而有的一套綜合了多項技術的瀏覽器端網頁開發架構。主要以 JavaScript 與 XML 為主，但還包括其它成員，也就是 CSS、DOM（Document Object Model）與 HTML 等，特別是 XMLHttpRequest 元件，使 AJAX 能達到非同步資料交換的目的。<br>AJAX 改善傳統用戶端與伺服器端資料傳輸間重複的問題，可以僅向伺服器傳送並取回必須的資料，並在用戶端採用 JavaScript 處理來自伺服器的回應。因為在伺服器和瀏覽器之間交換的資料大量減少，伺服器回應更快了。</p>
-<p>AJAX 網頁有兩種主要特性：向伺服器發出請求，以及回傳結果時，瀏覽器不需要重新載入所有頁面；藉由 XML 解析傳遞與交換的資料。例如註冊帳戶時提示帳號已被使用，或者是在搜尋欄跳出相關字詞、購物欄顯示庫存量，這些都是透過 ajax 的方式，不需要重新載入頁面就能完成。</p>
-<h1 id="從瀏覽器端取得-JSON-資料"><a href="#從瀏覽器端取得-JSON-資料" class="headerlink" title="從瀏覽器端取得 JSON 資料"></a>從瀏覽器端取得 JSON 資料</h1><p>常見的應用例如從伺服器端取得 JSON 資料。JSON 是用純文字儲存和傳送的簡單結構資料。可以透過特定格式儲存任何資料（例如字串、數字、陣列、物件），或者透過物件或陣列傳送比較複雜的資料。例如：</p>
-<ol>
-<li>使用者點選線上產品縮圖</li>
-<li>JavaScript 透過 AJAX 方式將產品 ID 傳送給伺服器</li>
-<li>伺服器端收到 ID，將產品資料（EX: 價格、描述）編碼成 JSON 資料，再回傳給瀏覽器</li>
-<li>JavaScript 收到 JSON 資料，將其解碼再將資料顯示在網頁上</li>
-</ol>
-<h2 id="JSON-範例"><a href="#JSON-範例" class="headerlink" title="JSON 範例"></a>JSON 範例</h2><p>JSON 字串可以用以下規則建立</p>
-<ul>
-<li>可以包含陣列或物件資料</li>
-<li>陣列可用 [] 寫入資料</li>
-<li>物件可用 {} 寫入資料</li>
-<li>name / value 是成對的，中間透過 (:) 來區隔</li>
-</ul>
-<p>以下是一個簡單的 JSON 範例，我們可以發現陣列裡面又包含物件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    sno: <span class="string">"1001"</span>,</span><br><span class="line">    sna: <span class="string">"大鵬華城"</span>,</span><br><span class="line">    tot: <span class="string">"38"</span>,</span><br><span class="line">    sbi: <span class="string">"17"</span>,</span><br><span class="line">    sarea: <span class="string">"新店區"</span>,</span><br><span class="line">    mday: <span class="string">"20191109131338"</span>,</span><br><span class="line">    lat: <span class="string">"24.99116"</span>,</span><br><span class="line">    lng: <span class="string">"121.53398"</span>,</span><br><span class="line">    ar: <span class="string">"新北市新店區中正路700巷3號"</span>,</span><br><span class="line">    sareaen: <span class="string">"Xindian Dist."</span>,</span><br><span class="line">    snaen: <span class="string">"Dapeng Community"</span>,</span><br><span class="line">    aren: <span class="string">"No. 3, Lane 700 Chung Cheng Road, Xindian District"</span>,</span><br><span class="line">    bemp: <span class="string">"20"</span>,</span><br><span class="line">    act: <span class="string">"1"</span></span><br><span class="line">  &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+        <h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h1><p>非同步 JavaScript 及 XML （Asynchronous JavaScript and XML，AJAX）不是一種「技術」，而是一種開發架構，主要以 JavaScript 與 XML 為主，也包括 CSS、DOM（Document Object Model）與 HTML 等，最重要的是 XMLHttpRequest 物件。使 AJAX 能達到非同步資料交換的目的。使瀏覽器不需要重新載入整個頁面就可以跟後端或伺服器取得資料。<br>Jesse Garrett 的文章中，對 AJAX 的定義如下：</p>
+<p>● 使用 XHTML 與 CSS 作為展現標準<br>● 使用 DOM 作為動態顯示與互動<br>● 使用 XML 與 XSLT 作為資料交換與運用<br>● 使用 XMLHttpRequest 作為非同步的資料回饋<br>● 使用 JavaScript 結合以上所有結果</p>
+<p>實作取得一個公車路線公開資料如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> URI =</span><br><span class="line">  <span class="string">"https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/NewTaipei?$top=600&amp;$format=JSON"</span>;</span><br><span class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"></span><br><span class="line">xhr.open(<span class="string">"GET"</span>, URI, <span class="literal">true</span>);</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.readyState === <span class="number">4</span> &amp;&amp; <span class="keyword">this</span>.status === <span class="number">200</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.responseText);</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h1 id="從伺服器取得資料"><a href="#從伺服器取得資料" class="headerlink" title="從伺服器取得資料"></a>從伺服器取得資料</h1><p>要送出要送出一個 HTTP 請求從伺服器取的資料，過去最典型的應用方式是 XMLHttpRequest（XHR)。</p>
-<h2 id="設定請求"><a href="#設定請求" class="headerlink" title="設定請求"></a>設定請求</h2><p>首先要產生一個 XMLHttpRequest() 物件實例，才能物件跨瀏覽器取得資料，。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var xhr = new  XMLHttpRequest();</span><br></pre></td></tr></table></figure>
+<h1 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h1><p>建立一個名稱為 xhr 的 XMLHttpRequest 物件，利用這個物件的方法進行資料請求。執行後在 dev tool 裡用 console.log 查詢一下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br></pre></td></tr></table></figure>
 
-<p>使用 <code>open()</code> 方法，設定請求，請求方法除了 GET 與 POST，還能使用 PUT、DELETE、HEAD、OPTIONS !
-並且預設使用了 非同步 (async) 的方式接收回應:</p>
-<p>執行 request 之後，就會出現相對的資料。<br><img src="https://i.imgur.com/0cHCAgB.png" alt></p>
-<p>readystate 代表目前狀態</p>
-<pre><code>0-你已經產生一個XMLHttpRequest，但是還沒有連結你要撈的資料
-1-用了open()，但還沒有把資料傳送過去。
-2-偵側到用了send。
-3 - (processing request)資訊處理中。
-4 - (request finished and response is ready)撈到資料，數據完全接收到了。</code></pre><p>以 xhr.open(,,true)來初始設定，需要代入 3 個參數。第一個參數是發出 request 的方式，格式有 get (讀取)、post (發送資料到伺服器)；第二個參數是要讀取的網址；第三個參數是同步與非同步</p>
-<pre><code>var xhr = new XMLHttpRequest();
-// 格式,要讀取的網址,同步與非同步
-// 格式: get(讀取), post(傳送資料到伺服器)
-xhr.open(&quot;get&quot;, &quot;這裡放網址&quot;, true);
-// 空值，單純get，沒有要傳資料，括號中用null
-xhr.send(null);</code></pre><p>如果資料傳輸完畢且成功，在 XMLHttpRequest 中的 readyState 會等於 4，responseText 則是內容。</p>
+<p><img src="https://i.imgur.com/aEKdUte.png" alt></p>
+<p>readyState 就是目前回傳狀態</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0 - (request not initialized)還沒開始</span><br><span class="line">1 - (server connection established)用了open()，但讀取中</span><br><span class="line">2 - (request received)已讀取</span><br><span class="line">3 - (processing request)資訊交換中</span><br><span class="line">4 - (request finished and response is ready)一切完成</span><br></pre></td></tr></table></figure>
 
+<p>接著用 <code>open()</code>指令來初始設定發出請求的方式，包括三個參數：<br>第一個參數是 HTTP request 的方法，GET(讀取）、POST（發送），這些方法都是大寫。第二個參數是請求頁面的 URL。第三個是同步(false)與非同步(true) 。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.open(<span class="string">"GET"</span>, URI, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+
+<p>確實發出請求，此方法可帶參數，傳送給對方的資料。或空值，沒有要傳資料</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.send(<span class="literal">null</span>); <span class="comment">//</span></span><br></pre></td></tr></table></figure>
+
+<p>利用 if 判斷式(xhr.status == 200)，來確認有沒有撈到資料，條件成立再去執行要做的行為。onload 表示當資料回傳，就會調用相應處理的函數。當中有 if 判斷。status 代表 HTTP 狀態碼，200 表示 ok，在此我們希望完成時有下一步動作，所以判斷條件爲 this.readyState === 4 &amp;&amp; this.status === 200 。接著我們使用一個變數 data，存放取得的資料，responseText 返回在發送請求後從服務器接收的文本。我們利用 JSON.parse 解析數據，使數據成為 JavaScript 對象。接著使用 console.log 把它顯示出來。展開物件來看看結果如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.readyState === <span class="number">4</span> &amp;&amp; <span class="keyword">this</span>.status === <span class="number">200</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.responseText);</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/R0waZIU.png" alt></p>
+<p>成功拿到資料後，再按需求渲染到前端畫面即可</p>
+<h2 id="Asynchronous-非同步-概念"><a href="#Asynchronous-非同步-概念" class="headerlink" title="Asynchronous(非同步)概念"></a>Asynchronous(非同步)概念</h2><p>open 裡面第三個欄位的參數為。</p>
+<p>true: 非同步,不會等資料傳回來就讓程式繼續往下跑,等到資料跑完才自動回傳。<br>false: 同步,會等資料跑完回傳回來,程式再繼續往下跑。有些伺服器的資料是很龐大的，一般來說不太可能等全部跑完再執行之後的程式碼，所以就會用非同步的概念。這種情況就需要用到onload這個事件來解決。意思就是當傳送後載入完成再去執行這個onload帶的 function。</p>
+<h1 id="HTTP-狀態碼"><a href="#HTTP-狀態碼" class="headerlink" title="HTTP 狀態碼"></a>HTTP 狀態碼</h1><p>透過 chrome 瀏覽器開發工具中的 Network 去確認，選擇 JS 後看到 Status的</p>
+<p>status = 200，資料有正確回傳，有撈到。<br>status = 404，資料讀取錯誤，沒有撈到。</p>
+<p><img src="https://i.imgur.com/mEkIInK.png" alt></p>
+<p>詳細 http 狀況碼可以參考 <a href="https://orow.github.io/2019/03/11/ajax-javascript/" target="_blank" rel="noopener">MDN</a></p>
+<h1 id="POST-Method"><a href="#POST-Method" class="headerlink" title="POST Method"></a>POST Method</h1><p>POST 相比 GET 需要在 open 之後多一個指令 setRequestHeader，告訴伺服器現在要傳送資料、並告知資料的格式。而setRequestHeader與send也會因為格式不同而要傳送不同的內容。這邊用註冊的概念來舉例，送出要註冊的帳號密碼，可以透過 xhr 中的responsText來確認是不是有相同帳號。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> account = &#123;</span><br><span class="line">  email: <span class="string">"qweasdqq@gamil.com"</span>,</span><br><span class="line">  password: <span class="string">"555"</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">"post"</span>, <span class="string">"url"</span>, <span class="literal">true</span>);</span><br><span class="line">xhr.setRequestHeader(<span class="string">"Content-type"</span>, <span class="string">"application/json"</span>);</span><br><span class="line"><span class="keyword">var</span> data = <span class="built_in">JSON</span>.stringify(account);</span><br><span class="line">xhr.send(data);</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
@@ -257,7 +251,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/02/11/2019-02-11/" target="_blank" title="AJAX (1)">http://yoursite.com/2019/02/11/2019-02-11/</a>
+          <a href="/2019/02/11/2019-02-11/" target="_blank" title="JavaScript - AJAX">http://yoursite.com/2019/02/11/2019-02-11/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -307,10 +301,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
+    <a href="/2019/06/10/2019-06-10/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          常見的陣列運用方式
+        
+      </div>
+    </a>
   
-    <a href="/2019/02/09/2019-02-10/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2019/02/09/2019-02-09/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">JavaScript 單執行緒、同步與非同步</div>
+      <div class="article-nav-title">JavaScript - Hoisting(提昇)</div>
     </a>
   
 </nav>
@@ -324,7 +327,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AJAX"><span class="nav-number">1.</span> <span class="nav-text">AJAX</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#從瀏覽器端取得-JSON-資料"><span class="nav-number">2.</span> <span class="nav-text">從瀏覽器端取得 JSON 資料</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-範例"><span class="nav-number">2.1.</span> <span class="nav-text">JSON 範例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#從伺服器取得資料"><span class="nav-number">3.</span> <span class="nav-text">從伺服器取得資料</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#設定請求"><span class="nav-number">3.1.</span> <span class="nav-text">設定請求</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AJAX"><span class="nav-number">1.</span> <span class="nav-text">AJAX</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">2.</span> <span class="nav-text">XMLHttpRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Asynchronous-非同步-概念"><span class="nav-number">2.1.</span> <span class="nav-text">Asynchronous(非同步)概念</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-狀態碼"><span class="nav-number">3.</span> <span class="nav-text">HTTP 狀態碼</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#POST-Method"><span class="nav-number">4.</span> <span class="nav-text">POST Method</span></a></li></ol>
     
     </div>
   </aside>
