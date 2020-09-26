@@ -3,23 +3,26 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>css 盒模型 | CYC&#39;S BLOG</title>
+  <title>c# - 程式結構與進入點 | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="environmentGit">
+  <meta name="keywords" content="C#">
   
   
   
   
-  <meta name="keywords" content="environment,Git">
+  <meta name="description" content="12345678910111213using System;namespace HelloWorld&amp;#123;    class Program    &amp;#123;        static void Main(string[] args)        &amp;#123;            Console.WriteLine(&quot;Hello World!&quot;);            Consol">
+<meta name="keywords" content="C#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS 盒模型">
-<meta property="og:url" content="http://yoursite.com/2019/01/28/2019-01-28/index.html">
+<meta property="og:title" content="C# - 程式結構與進入點">
+<meta property="og:url" content="http://yoursite.com/2020/09/26/2020-09-26/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
+<meta property="og:description" content="12345678910111213using System;namespace HelloWorld&amp;#123;    class Program    &amp;#123;        static void Main(string[] args)        &amp;#123;            Console.WriteLine(&quot;Hello World!&quot;);            Consol">
 <meta property="og:locale" content="en.yml">
-<meta property="og:updated_time" content="2020-09-09T03:53:12.157Z">
+<meta property="og:updated_time" content="2020-09-26T06:08:16.346Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS 盒模型">
+<meta name="twitter:title" content="C# - 程式結構與進入點">
+<meta name="twitter:description" content="12345678910111213using System;namespace HelloWorld&amp;#123;    class Program    &amp;#123;        static void Main(string[] args)        &amp;#123;            Console.WriteLine(&quot;Hello World!&quot;);            Consol">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -155,7 +158,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-2019-01-28" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-2020-09-26" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -163,7 +166,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      CSS 盒模型
+      C# - 程式結構與進入點
     </h1>
   
 
@@ -171,8 +174,8 @@
     
     <div class="article-meta">
       
-	<a href="/2019/01/28/2019-01-28/" class="article-date">
-	  <time datetime="2019-01-27T16:00:00.000Z" itemprop="datePublished">2019-01-28</time>
+	<a href="/2020/09/26/2020-09-26/" class="article-date">
+	  <time datetime="2020-09-25T16:00:00.000Z" itemprop="datePublished">2020-09-26</time>
 	</a>
 
       
@@ -188,7 +191,16 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line"></span><br><span class="line">namespace HelloWorld</span><br><span class="line">&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Program</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">void</span> Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"Hello World!"</span>);</span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>C# 程式碼大致可分 2 個區塊<br>（1) using 部分是呼叫內建的程式庫<br>(2) 主要區塊是自行編寫程式邏輯的地方</p>
+</li>
+<li><p>用大括號包起來的程式碼屬於同一個區塊，屬於上方的程式碼所有</p>
+</li>
+<li><p>上方的 HelloWorld 程式分三層<br>(1)namespace 可提供自行在內編寫程式庫<br>(2)class 負責 namespace 裡面某部分工作<br>(3)method 是class裡面負責更細部工作的，它後面跟著一個小括號，例如：<code>void Main(string[] args)</code><br>(4)static void Main(string[] args)是程式的「(entry point)」，所有 C#程式都會從這個 method 開始執行<br>(5)Console.WriteLine 是會在終端機上顯示文字的method，Console.ReadKey 會先暫停程式執行，等待使用者輸入任一字元後再繼續執行程式<br>(6)每行程式碼結尾都要加上 <code>;</code></p>
+</li>
+</ol>
 
       
     </div>
@@ -215,7 +227,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/01/28/2019-01-28/" target="_blank" title="CSS 盒模型">http://yoursite.com/2019/01/28/2019-01-28/</a>
+          <a href="/2020/09/26/2020-09-26/" target="_blank" title="C# - 程式結構與進入點">http://yoursite.com/2020/09/26/2020-09-26/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -255,7 +267,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/environment/">environment</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
 
       
 
@@ -265,19 +277,10 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2019/01/28/2019-01-26/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          CSS Flex-box
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/01/01/2019-01-01/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/06/10/2019-06-10/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">CSS 基本類型選擇器</div>
+      <div class="article-nav-title">常見的陣列運用方式</div>
     </a>
   
 </nav>
