@@ -3,26 +3,26 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>css clip-path | CYC&#39;S BLOG</title>
+  <title>c# - 變數宣告意義與型別 | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="environmentGit">
+  <meta name="keywords" content="C#">
   
   
   
   
-  <meta name="description" content="https://andyyou.github.io/2016/06/28/css-clip-path/">
-<meta name="keywords" content="environment,Git">
+  <meta name="description" content="12345678private void button1_Click(object sender, EventArgs e)       &amp;#123;           int number ;           number = 20;           double dnumber=3.141989030;           bool b = true;           Messa">
+<meta name="keywords" content="C#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS clip-path">
-<meta property="og:url" content="http://yoursite.com/2019/01/28/2019-01-27/index.html">
+<meta property="og:title" content="C# - 變數宣告意義與型別">
+<meta property="og:url" content="http://yoursite.com/2020/09/26/2020-09-26-2/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="https://andyyou.github.io/2016/06/28/css-clip-path/">
+<meta property="og:description" content="12345678private void button1_Click(object sender, EventArgs e)       &amp;#123;           int number ;           number = 20;           double dnumber=3.141989030;           bool b = true;           Messa">
 <meta property="og:locale" content="en.yml">
-<meta property="og:updated_time" content="2020-09-07T10:21:43.844Z">
+<meta property="og:updated_time" content="2020-09-28T05:35:20.186Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS clip-path">
-<meta name="twitter:description" content="https://andyyou.github.io/2016/06/28/css-clip-path/">
+<meta name="twitter:title" content="C# - 變數宣告意義與型別">
+<meta name="twitter:description" content="12345678private void button1_Click(object sender, EventArgs e)       &amp;#123;           int number ;           number = 20;           double dnumber=3.141989030;           bool b = true;           Messa">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -158,7 +158,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-2019-01-27" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-2020-09-26-2" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -166,7 +166,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      CSS clip-path
+      C# - 變數宣告意義與型別
     </h1>
   
 
@@ -174,8 +174,8 @@
     
     <div class="article-meta">
       
-	<a href="/2019/01/28/2019-01-27/" class="article-date">
-	  <time datetime="2019-01-27T16:00:00.000Z" itemprop="datePublished">2019-01-28</time>
+	<a href="/2020/09/26/2020-09-26-2/" class="article-date">
+	  <time datetime="2020-09-25T16:00:00.000Z" itemprop="datePublished">2020-09-26</time>
 	</a>
 
       
@@ -191,7 +191,36 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://andyyou.github.io/2016/06/28/css-clip-path/" target="_blank" rel="noopener">https://andyyou.github.io/2016/06/28/css-clip-path/</a></p>
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private <span class="keyword">void</span> button1_Click(object sender, EventArgs e)</span><br><span class="line">       &#123;</span><br><span class="line">           int number ;</span><br><span class="line">           number = <span class="number">20</span>;</span><br><span class="line">           double dnumber=<span class="number">3.141989030</span>;</span><br><span class="line">           bool b = <span class="literal">true</span>;</span><br><span class="line">           MessageBox.Show(<span class="string">"number = "</span>+ number);</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="變數宣告意義"><a href="#變數宣告意義" class="headerlink" title="變數宣告意義"></a>變數宣告意義</h1><ol>
+<li><p>所有變數在使用前都必須先宣告型別，目的是讓電腦先知道變數的「型別」是什麼。先告知電腦到底我們要給這個變數多少記憶體空間(從 type 判斷)以及它的名稱是甚麼</p>
+</li>
+<li><p><code>=</code>不是等於，而是「指定」特定的儲存值給變數，「指定」代表的意思其實就是把「右邊的值存入左邊的變數」裡的意思。真正的「相等」是使用「==」這個符號。</p>
+</li>
+<li><p>使用變數前，一定要先存入某個數值，否則無法編譯</p>
+</li>
+<li><p>變數的作用域（生命週期）叫 Scope，只要超出變數的 scope 就無法使用他。變數只在大括號包起來的範圍內才有效。而在大括號外面使用變數就會無法呼叫到它。</p>
+</li>
+<li><p>變數名稱是不可以重複的，不過如果你在一個變數的 scope 外宣告了一樣名稱的變數，那就不會互相影響。例如，你在 void button1_Click() 裡面宣告了 num，跟在 void button2_Click() 裡面宣告了 num，這樣就不會互相衝突。</p>
+</li>
+</ol>
+<h1 id="數值型別"><a href="#數值型別" class="headerlink" title="數值型別"></a>數值型別</h1><ol>
+<li><code>int</code> 代表「整數（integer)」，例如 10,100,-999</li>
+<li>int 只能儲存有限大小的數字，每個 int 的變數可以分配到 32 bits(4 bytes) 的記憶體空間。</li>
+<li>想要儲存小數可以使用 float 或 double</li>
+<li>C# 會預先將所有數字當成 double 來處理</li>
+</ol>
+<h1 id="bool"><a href="#bool" class="headerlink" title="bool"></a>bool</h1><ol>
+<li>bool 只能儲存「true」、「false」兩種資料，這種數值通常用來儲存判斷式的結果</li>
+</ol>
+<h1 id="string"><a href="#string" class="headerlink" title="string"></a>string</h1><ol>
+<li>常用變數型別，儲存文字類型的值。</li>
+<li>不像 int, double ,bool 等型別儲存使用的記憶體空間是固定的。string 型別若儲存的文字內容越多，佔用的空間越大。</li>
+<li>string 也可用加法連接字串或其他型別的內容，其他不是字串的值會被先轉成字串再相連</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">private <span class="keyword">void</span> button1_Click(object sender, EventArgs e)</span><br><span class="line">       &#123;</span><br><span class="line">           string str = <span class="string">"我是姍姍"</span>;</span><br><span class="line">           string str2 = <span class="string">"哈哈"</span>;</span><br><span class="line">           int number = <span class="number">54321</span>;</span><br><span class="line">           string str3 = str + str2;</span><br><span class="line">           str += str2;</span><br><span class="line">           MessageBox.Show(str3+number);</span><br><span class="line">           MessageBox.Show(str);</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -218,7 +247,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/01/28/2019-01-27/" target="_blank" title="CSS clip-path">http://yoursite.com/2019/01/28/2019-01-27/</a>
+          <a href="/2020/09/26/2020-09-26-2/" target="_blank" title="C# - 變數宣告意義與型別">http://yoursite.com/2020/09/26/2020-09-26-2/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -258,7 +287,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/environment/">environment</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
 
       
 
@@ -268,19 +297,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2019/01/28/2019-01-26/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/09/26/2020-09-26-3/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          CSS Flex-box
+          C# - 基本計算
         
       </div>
     </a>
   
   
-    <a href="/2019/01/01/2019-01-01/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/06/10/2019-06-10/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">CSS 基本類型選擇器</div>
+      <div class="article-nav-title">常見的陣列運用方式</div>
     </a>
   
 </nav>
@@ -294,7 +323,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav">None</ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#變數宣告意義"><span class="nav-number">1.</span> <span class="nav-text">變數宣告意義</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#數值型別"><span class="nav-number">2.</span> <span class="nav-text">數值型別</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bool"><span class="nav-number">3.</span> <span class="nav-text">bool</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#string"><span class="nav-number">4.</span> <span class="nav-text">string</span></a></li></ol>
     
     </div>
   </aside>

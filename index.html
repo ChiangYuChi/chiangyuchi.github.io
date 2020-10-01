@@ -214,7 +214,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-2020-09-26"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-2020-10-1"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -222,7 +222,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/09/26/2020-09-26/">C# - 程式結構與進入點</a>
+      <a class="article-title" href="/2020/10/01/2020-10-1/">C# - This</a>
     </h1>
   
 
@@ -230,7 +230,240 @@
     
     <div class="article-meta">
       
-	<a href="/2020/09/26/2020-09-26/" class="article-date">
+	<a href="/2020/10/01/2020-10-1/" class="article-date">
+	  <time datetime="2020-09-30T16:00:00.000Z" itemprop="datePublished">2020-10-01</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          
+「this」即這個物件的
+this 是一種 reference type 的變數，是一個指向自己物件的物件變數
+this 這個變數會隨物件建立的時候就宣告
+
+123456789101112131415class Student    &#123;        public int StudentID;        public string Name;        public int Grade;        public int height;        public S...
+        </p>
+        <p class="article-more-link">
+          <a href="/2020/10/01/2020-10-1/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2020-09-30-2"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/09/30/2020-09-30-2/">C# - 建構子</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/09/30/2020-09-30-2/" class="article-date">
+	  <time datetime="2020-09-29T16:00:00.000Z" itemprop="datePublished">2020-09-30</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          問題:
+
+建構物件要寫多行程式碼
+重複設定同樣的數值
+
+12345678910private void button1_Click(object sender, EventArgs e)        &#123;            Student s1 = new Student();            s1.Name = "小山";            s1.Grade = 3;            Student s2 = s1;            s2.Name =...
+        </p>
+        <p class="article-more-link">
+          <a href="/2020/09/30/2020-09-30-2/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2020-09-30"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/09/30/2020-09-30/">C# - Value 與 Reference Type</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/09/30/2020-09-30/" class="article-date">
+	  <time datetime="2020-09-29T16:00:00.000Z" itemprop="datePublished">2020-09-30</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          
+所有變數都是被存取在記憶體裡面。
+根據存取變數的方式與使用方式不同可分三種型別：
+
+
+Value Type 實質型別
+Reference Type 參考型別
+Pointer Type 指標型別
+
+Value Type 實質型別int (整數)」就是一種 Value Type。會在記憶體裡佔據一個空間，並且標記為變數名稱，並且把指定的數值存在這個空間裡面。
+123int a = 10int b = a; // a =10, b ＝10b = 30 // a=10 ,b = 30
+
+Refe...
+        </p>
+        <p class="article-more-link">
+          <a href="/2020/09/30/2020-09-30/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2020-09-27"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/09/27/2020-09-27/">C# - 物件導向基礎 Class</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/09/27/2020-09-27/" class="article-date">
+	  <time datetime="2020-09-26T16:00:00.000Z" itemprop="datePublished">2020-09-27</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          
+物件導向即透過物件互動來完成工作
+Class 分成屬性(property)與方法(method)兩部分
+class Student
+property: Student ID, Name, Grade
+Method:Say,Walk….
+
+
+Class 像一個設計圖，根據設計圖可以用此建立不同的物件
+Class 裡面的 property 跟 method 要 public 才能被外部 method 取用在建立物件
+
+1234567class Student&#123;    //prope...
+        </p>
+        <p class="article-more-link">
+          <a href="/2020/09/27/2020-09-27/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2020-09-26-1"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/09/26/2020-09-26-1/">C# - 程式結構與進入點</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/09/26/2020-09-26-1/" class="article-date">
 	  <time datetime="2020-09-25T16:00:00.000Z" itemprop="datePublished">2020-09-26</time>
 	</a>
 
@@ -248,7 +481,112 @@
 C#...
         </p>
         <p class="article-more-link">
-          <a href="/2020/09/26/2020-09-26/#more">Read More</a>
+          <a href="/2020/09/26/2020-09-26-1/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2020-09-26-3"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/09/26/2020-09-26-3/">C# - 基本計算</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/09/26/2020-09-26-3/" class="article-date">
+	  <time datetime="2020-09-25T16:00:00.000Z" itemprop="datePublished">2020-09-26</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          123456789private void button1_Click(object sender, EventArgs e)       &#123;           int number =20 ;           number +=30 ;           number = number - 1;           number--;           MessageBox.Show("number = "+ number);       &#125;
+
+
+如果你試圖...
+        </p>
+        <p class="article-more-link">
+          <a href="/2020/09/26/2020-09-26-3/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2020-09-26-2"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/09/26/2020-09-26-2/">C# - 變數宣告意義與型別</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/09/26/2020-09-26-2/" class="article-date">
+	  <time datetime="2020-09-25T16:00:00.000Z" itemprop="datePublished">2020-09-26</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          12345678private void button1_Click(object sender, EventArgs e)       &#123;           int number ;           number = 20;           double dnumber=3.141989030;           bool b = true;           MessageBox.Show("number = "+ number);       &#125;
+
+...
+        </p>
+        <p class="article-more-link">
+          <a href="/2020/09/26/2020-09-26-2/#more">Read More</a>
         </p>
       
     </div>
@@ -424,337 +762,11 @@ Javascript 執行時會經過創造執行環境的階段。JavaScript 跟其他�
 
 
   
-    <article id="post-2019-02-10"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/02/09/2019-02-10/">JavaScript - 單執行緒、同步與非同步</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/02/09/2019-02-10/" class="article-date">
-	  <time datetime="2019-02-08T16:00:00.000Z" itemprop="datePublished">2019-02-09</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          JavaScript 的執行方式是單執行緒 (single threaded) 可以理解成它一次只做一件事情。
-單執行緒單執行緒的意思是任務的執行需要排隊。瀏覽器只分配給 JavaScript 一個主執行緒(stack)，但一次只能執行一個任務，這些任務形成一個事件佇列 (Queue) 排隊等候執行，但是瀏覽器不只運作 JavaScript 這個程式而已。因為瀏覽器的內核是多線程的，它們藉由瀏覽器內核的控制保持同步，舉例來說有三個常駐線程：
-
-JavaScript 引擎
-GUI 渲染
-瀏覽...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/02/09/2019-02-10/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-02-08"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/02/08/2019-02-08/">JavaScript - Closure(閉包)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/02/08/2019-02-08/" class="article-date">
-	  <time datetime="2019-02-07T16:00:00.000Z" itemprop="datePublished">2019-02-08</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          參考來源一參考來源二參考來源三參考來源四參考來源五
-閉包是 JavaScript 最強大的特性之一。JavaScript 允許巢狀函式（nesting of functions）並給予內部函式完全訪問（full access）所有變數、與外部函式定義的函式（還有所有外部函式內的變數與函式）不過，外部函式並不能訪問內部函式的變數與函式。這保障了內部函式的變數安全。另外，由於內部函式能訪問外部函式定義的變數與函式，將存活得比外部函式還久。
-MDN
-範圍鏈複習閉包概念與範圍鏈關係密切。範圍鏈的一...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/02/08/2019-02-08/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-02-07"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/02/07/2019-02-07/">JavaScript - Recursion(遞迴)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/02/07/2019-02-07/" class="article-date">
-	  <time datetime="2019-02-06T16:00:00.000Z" itemprop="datePublished">2019-02-07</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/02/07/2019-02-07/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-02-06"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/02/06/2019-02-06/">JavaScript - LocalStorage(本機端儲存)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/02/06/2019-02-06/" class="article-date">
-	  <time datetime="2019-02-05T16:00:00.000Z" itemprop="datePublished">2019-02-06</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          LocalStorage 是一種在瀏覽器資料庫中儲存資料的方式，允許將資料儲存在瀏覽器中。有兩種型態的網頁儲存：本機端儲存 (LocalStorage)、連線期間儲存 (SessionStorage)
-cookie在 HTML5 之前，cookie 是瀏覽器儲存資訊最主要的方式，是伺服器傳送給使用者瀏覽器的一個小片段資料。常見的應用是判例如： 廣告追蹤、身份驗證、購物車，或任何其他伺服器應該記住的資訊
-但限制如下：
-
-不能儲存太多資料，有容量的限制 4kb
-每次請求網頁時都需傳送到伺服器端...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/02/06/2019-02-06/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-02-04"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/02/04/2019-02-04/">JavaScript - Event-addEventListener (事件監聽)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/02/04/2019-02-04/" class="article-date">
-	  <time datetime="2019-02-03T16:00:00.000Z" itemprop="datePublished">2019-02-04</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          事件 EventEvent 事件就是在瀏覽頁面的時候，根據使用者不同的行為，而觸發瀏覽器不同的動作。（例如使用者點擊、按下鍵盤等）
-w3school - event sample
-常見事件類型
-click 點擊事件
-mousedown 按下滑鼠
-mouseup 放開滑鼠鍵
-mouseenter 游標移入
-mouseleave 游標移出
-
-事件監聽 （addEventListener)JavaScript 是一種由「事件驅動」(Event-driven)的程式語言，在瀏覽器載入頁面的時候，要...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/02/04/2019-02-04/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-02-05"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/02/04/2019-02-05/">JavaScript - Event bubbling and capturing (事件冒泡與捕獲)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/02/04/2019-02-05/" class="article-date">
-	  <time datetime="2019-02-03T16:00:00.000Z" itemprop="datePublished">2019-02-04</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          參考來源一參考來源二
-事件機制JavaScript 是「事件驅動」的程式語言，雖然瀏覽器在載入網頁後就會讀取 JavaScript 相關程式碼，但只有等到「事件」發生 （像是使用者滑鼠點擊、按下鍵盤）才會執行相關程式。
-以網頁對話框為例：按下開啟 （觸發事件）-&gt; 彈出對話框 （執行相關事件）
-這整個對話框從觸發到開啟的過程牽涉到 DOM 的事件流程，就是「網頁元素接收事件的順序」
-事件流程 (event flow)由於 inner 也是 outer 的一部分，所以點擊 inner ...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/02/04/2019-02-05/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
 
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>

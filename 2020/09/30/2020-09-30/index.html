@@ -3,26 +3,26 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>css clip-path | CYC&#39;S BLOG</title>
+  <title>c# - value 與 reference type | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="environmentGit">
+  <meta name="keywords" content="C#">
   
   
   
   
-  <meta name="description" content="https://andyyou.github.io/2016/06/28/css-clip-path/">
-<meta name="keywords" content="environment,Git">
+  <meta name="description" content="所有變數都是被存取在記憶體裡面。 根據存取變數的方式與使用方式不同可分三種型別：   Value Type 實質型別 Reference Type 參考型別 Pointer Type 指標型別  Value Type 實質型別int (整數)」就是一種 Value Type。會在記憶體裡佔據一個空間，並且標記為變數名稱，並且把指定的數值存在這個空間裡面。 123int a = 10int b =">
+<meta name="keywords" content="C#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS clip-path">
-<meta property="og:url" content="http://yoursite.com/2019/01/28/2019-01-27/index.html">
+<meta property="og:title" content="C# - Value 與 Reference Type">
+<meta property="og:url" content="http://yoursite.com/2020/09/30/2020-09-30/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="https://andyyou.github.io/2016/06/28/css-clip-path/">
+<meta property="og:description" content="所有變數都是被存取在記憶體裡面。 根據存取變數的方式與使用方式不同可分三種型別：   Value Type 實質型別 Reference Type 參考型別 Pointer Type 指標型別  Value Type 實質型別int (整數)」就是一種 Value Type。會在記憶體裡佔據一個空間，並且標記為變數名稱，並且把指定的數值存在這個空間裡面。 123int a = 10int b =">
 <meta property="og:locale" content="en.yml">
-<meta property="og:updated_time" content="2020-09-07T10:21:43.844Z">
+<meta property="og:updated_time" content="2020-09-30T07:22:44.981Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS clip-path">
-<meta name="twitter:description" content="https://andyyou.github.io/2016/06/28/css-clip-path/">
+<meta name="twitter:title" content="C# - Value 與 Reference Type">
+<meta name="twitter:description" content="所有變數都是被存取在記憶體裡面。 根據存取變數的方式與使用方式不同可分三種型別：   Value Type 實質型別 Reference Type 參考型別 Pointer Type 指標型別  Value Type 實質型別int (整數)」就是一種 Value Type。會在記憶體裡佔據一個空間，並且標記為變數名稱，並且把指定的數值存在這個空間裡面。 123int a = 10int b =">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -158,7 +158,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-2019-01-27" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-2020-09-30" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -166,7 +166,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      CSS clip-path
+      C# - Value 與 Reference Type
     </h1>
   
 
@@ -174,8 +174,8 @@
     
     <div class="article-meta">
       
-	<a href="/2019/01/28/2019-01-27/" class="article-date">
-	  <time datetime="2019-01-27T16:00:00.000Z" itemprop="datePublished">2019-01-28</time>
+	<a href="/2020/09/30/2020-09-30/" class="article-date">
+	  <time datetime="2020-09-29T16:00:00.000Z" itemprop="datePublished">2020-09-30</time>
 	</a>
 
       
@@ -191,7 +191,28 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://andyyou.github.io/2016/06/28/css-clip-path/" target="_blank" rel="noopener">https://andyyou.github.io/2016/06/28/css-clip-path/</a></p>
+        <ol>
+<li>所有變數都是被存取在記憶體裡面。</li>
+<li>根據存取變數的方式與使用方式不同可分三種型別：</li>
+</ol>
+<ul>
+<li>Value Type 實質型別</li>
+<li>Reference Type 參考型別</li>
+<li>Pointer Type 指標型別</li>
+</ul>
+<h1 id="Value-Type-實質型別"><a href="#Value-Type-實質型別" class="headerlink" title="Value Type 實質型別"></a>Value Type 實質型別</h1><p>int (整數)」就是一種 Value Type。會在記憶體裡佔據一個空間，並且標記為變數名稱，並且把指定的數值存在這個空間裡面。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a = <span class="number">10</span></span><br><span class="line">int b = a; <span class="comment">// a =10, b ＝10</span></span><br><span class="line">b = <span class="number">30</span> <span class="comment">// a=10 ,b = 30</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Reference-Type-參考型別"><a href="#Reference-Type-參考型別" class="headerlink" title="Reference Type 參考型別"></a>Reference Type 參考型別</h1><ol>
+<li>Class 是一種 Reference Type，宣告 Reference Type 的變數時，也會在記憶體裡尋找一個空間，標記為變數名稱。</li>
+<li>物件要透過 new() 關鍵字建立，才能讓變數有所參照指向。沒有指向任何物件的變數，初始存放的是 null</li>
+<li>物件是存在稱為「堆疊(Heap)」的特殊記憶體區塊</li>
+<li>若宣告一個 Reference Type 的變數等於另一個Reference Type 的變數，會使得前一個變數參照後一個變數指向的堆疊區塊</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line">        public int StudentID;</span><br><span class="line">        public string Name;</span><br><span class="line">        public int Grade;</span><br><span class="line">        public string Say()</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"我叫"</span> + Name + <span class="string">", 我是"</span> + Grade + <span class="string">"年級的學生"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">private <span class="keyword">void</span> button1_Click(object sender, EventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            Student s1 = <span class="keyword">new</span> Student();</span><br><span class="line">            s1.Name = <span class="string">"小山"</span>;</span><br><span class="line">            s1.Grade = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">            Student s2 = s1;</span><br><span class="line">            s2.Name = <span class="string">"小羊"</span>;</span><br><span class="line">            s2.Grade = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">            Student s4 = s2;</span><br><span class="line">            s4.Name = <span class="string">"元整"</span>;</span><br><span class="line">            s4.Grade = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">            MessageBox.Show(s4.Say()); <span class="comment">//"我叫元整, 我是1年級的學生";</span></span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -218,7 +239,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/01/28/2019-01-27/" target="_blank" title="CSS clip-path">http://yoursite.com/2019/01/28/2019-01-27/</a>
+          <a href="/2020/09/30/2020-09-30/" target="_blank" title="C# - Value 與 Reference Type">http://yoursite.com/2020/09/30/2020-09-30/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -258,7 +279,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/environment/">environment</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
 
       
 
@@ -268,19 +289,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2019/01/28/2019-01-26/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/09/30/2020-09-30-2/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          CSS Flex-box
+          C# - 建構子
         
       </div>
     </a>
   
   
-    <a href="/2019/01/01/2019-01-01/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/09/27/2020-09-27/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">CSS 基本類型選擇器</div>
+      <div class="article-nav-title">C# - 物件導向基礎 Class</div>
     </a>
   
 </nav>
@@ -294,7 +315,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav">None</ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Value-Type-實質型別"><span class="nav-number">1.</span> <span class="nav-text">Value Type 實質型別</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference-Type-參考型別"><span class="nav-number">2.</span> <span class="nav-text">Reference Type 參考型別</span></a></li></ol>
     
     </div>
   </aside>
