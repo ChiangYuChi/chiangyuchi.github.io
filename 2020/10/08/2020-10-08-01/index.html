@@ -3,22 +3,26 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>tag: git | CYC&#39;S BLOG</title>
+  <title>c# - 垃圾回收 | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="C#">
   
   
   
-  <meta name="description" content="透過「學習」，才能理解無華且怪貌的石塊中，隱藏著抵抗侵蝕的結晶，而那些真正了解礦物的人，才能看透，而珍貴的結晶也只對他們顯露。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CYC&#39;S BLOG">
-<meta property="og:url" content="http://yoursite.com/tags/Git/index.html">
+  
+  <meta name="description" content="存放物件位置的變數稱為 reference， 當我們宣告物件的變數時，只是產生一個用來記住物件地址的 reference 而已Info a = new Info() 物件的實際本體位置是在電腦的記憶體中有一塊稱為 Heap 的空間。 執行 new()，電腦才會在 Heap 產生物件 當一個物件沒有任何 reference 指向(儲存物件的地址)他的時候，就會被判定為不需要的物件 C# 的程式執行">
+<meta name="keywords" content="C#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C# - 垃圾回收">
+<meta property="og:url" content="http://yoursite.com/2020/10/08/2020-10-08-01/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="透過「學習」，才能理解無華且怪貌的石塊中，隱藏著抵抗侵蝕的結晶，而那些真正了解礦物的人，才能看透，而珍貴的結晶也只對他們顯露。">
+<meta property="og:description" content="存放物件位置的變數稱為 reference， 當我們宣告物件的變數時，只是產生一個用來記住物件地址的 reference 而已Info a = new Info() 物件的實際本體位置是在電腦的記憶體中有一塊稱為 Heap 的空間。 執行 new()，電腦才會在 Heap 產生物件 當一個物件沒有任何 reference 指向(儲存物件的地址)他的時候，就會被判定為不需要的物件 C# 的程式執行">
 <meta property="og:locale" content="en.yml">
+<meta property="og:updated_time" content="2020-10-08T06:00:42.579Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CYC&#39;S BLOG">
-<meta name="twitter:description" content="透過「學習」，才能理解無華且怪貌的石塊中，隱藏著抵抗侵蝕的結晶，而那些真正了解礦物的人，才能看透，而珍貴的結晶也只對他們顯露。">
+<meta name="twitter:title" content="C# - 垃圾回收">
+<meta name="twitter:description" content="存放物件位置的變數稱為 reference， 當我們宣告物件的變數時，只是產生一個用來記住物件地址的 reference 而已Info a = new Info() 物件的實際本體位置是在電腦的記憶體中有一塊稱為 Heap 的空間。 執行 new()，電腦才會在 Heap 產生物件 當一個物件沒有任何 reference 指向(儲存物件的地址)他的時候，就會被判定為不需要的物件 C# 的程式執行">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -59,8 +63,6 @@
   
 
   
-    <link rel="stylesheet" href="/css/archive.css">
-  
   
   
     <link rel="stylesheet" href="/css/vdonate.css">
@@ -70,7 +72,7 @@
 </html>
 
 
-  <body>
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
 
 
   
@@ -93,7 +95,7 @@
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                 >
+                href="#" data-toggle="modal" data-target="#myModal" >
                   <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
               </a>
             
@@ -156,148 +158,152 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;">
-  
-  
-  
+          <section id="main" style="float:none;"><article id="post-2020-10-08-01" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
     
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <h1><a href="/archives/2019" class="archive-year">2019</a></h1>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2019/01/31/2019-01-31/" class="archive-article-date">
-	  <time datetime="2019-01-30T16:00:00.000Z" itemprop="datePublished">2019-01-31</time>
-	</a>
-
-      
+      <header class="article-header">
+        
   
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2019/01/31/2019-01-31/">Git 基礎指令 (二)</a>
+    <h1 class="thumb" class="article-title" itemprop="name">
+      C# - 垃圾回收
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+    <div class="article-meta">
       
-	<a href="/2019/01/30/2019-01-30/" class="archive-article-date">
-	  <time datetime="2019-01-29T16:00:00.000Z" itemprop="datePublished">2019-01-30</time>
+	<a href="/2020/10/08/2020-10-08-01/" class="article-date">
+	  <time datetime="2020-10-07T16:00:00.000Z" itemprop="datePublished">2020-10-08</time>
 	</a>
 
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2019/01/30/2019-01-30/">Github / Github靜態網頁 / Git 基礎指令（一）</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
       
-	<a href="/2019/01/29/2019-01-29/" class="archive-article-date">
-	  <time datetime="2019-01-28T16:00:00.000Z" itemprop="datePublished">2019-01-29</time>
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
 	</a>
 
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2019/01/29/2019-01-29/">CSS 字體單位 :/ px、em、rem 和 %</a>
-    </h1>
-  
 
-    </header>
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>存放物件位置的變數稱為 reference， 當我們宣告物件的變數時，只是產生一個用來記住物件地址的 reference 而已<br><code>Info a = new Info()</code></li>
+<li>物件的實際本體位置是在電腦的記憶體中有一塊稱為 Heap 的空間。</li>
+<li>執行 new()，電腦才會在 Heap 產生物件</li>
+<li>當一個物件沒有任何 reference 指向(儲存物件的地址)他的時候，就會被判定為不需要的物件</li>
+<li>C# 的程式執行時，背後有一個垃圾車會默默地檢查 Heap ，並刪除不需要的物件</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: '',
+  alipayImage: ''
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong></a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2020/10/08/2020-10-08-01/" target="_blank" title="C# - 垃圾回收">http://yoursite.com/2020/10/08/2020-10-08-01/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
+
+      
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/10/08/2020-10-08-02/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          C# - 封裝性
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/10/07/2020-10-07/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">C# - 陣列</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
     
+        <ol class="nav">None</ol>
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2019/01/28/2019-01-26/" class="archive-article-date">
-	  <time datetime="2019-01-27T16:00:00.000Z" itemprop="datePublished">2019-01-28</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2019/01/28/2019-01-26/">CSS Flex-box</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2019/01/28/2019-01-28/" class="archive-article-date">
-	  <time datetime="2019-01-27T16:00:00.000Z" itemprop="datePublished">2019-01-28</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2019/01/28/2019-01-28/">CSS 盒模型</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2019/01/28/2019-01-27/" class="archive-article-date">
-	  <time datetime="2019-01-27T16:00:00.000Z" itemprop="datePublished">2019-01-28</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2019/01/28/2019-01-27/">CSS clip-path</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+    </div>
+  </aside>
 
 </section>
         
@@ -389,6 +395,8 @@
 
 
 
+  <script src="/js/dialog.js"></script>
+
 
 
 
@@ -472,6 +480,8 @@
   
   <a id="rocket" href="#top" class=""></a>
   <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
   
 </body>
 </html>

@@ -214,7 +214,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-2020-10-1"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-2020-10-08-02"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -222,7 +222,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/10/01/2020-10-1/">C# - This</a>
+      <a class="article-title" href="/2020/10/08/2020-10-08-02/">C# - 封裝性</a>
     </h1>
   
 
@@ -230,7 +230,177 @@
     
     <div class="article-meta">
       
-	<a href="/2020/10/01/2020-10-1/" class="article-date">
+	<a href="/2020/10/08/2020-10-08-02/" class="article-date">
+	  <time datetime="2020-10-07T16:00:00.000Z" itemprop="datePublished">2020-10-08</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          
+public 在新增 property 與 method 的時候，代表可以隨意查看、使用及修改。類型或成員可由相同元件中的任何其他程式碼或參考它的另一個元件來存取。
+private 在 c# 裡面代表只有自己可以查看、使用及修改
+proptery 被設為 private，能在同一個 class 的大括號範圍內使用。如果有變數或方法，只想在 class 裡面使用，就用private鎖在class裡面，限定只有class使用
+
+12345class User   &#123;       p...
+        </p>
+        <p class="article-more-link">
+          <a href="/2020/10/08/2020-10-08-02/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2020-10-08-01"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/10/08/2020-10-08-01/">C# - 垃圾回收</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/10/08/2020-10-08-01/" class="article-date">
+	  <time datetime="2020-10-07T16:00:00.000Z" itemprop="datePublished">2020-10-08</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          
+存放物件位置的變數稱為 reference， 當我們宣告物件的變數時，只是產生一個用來記住物件地址的 reference 而已Info a = new Info()
+物件的實際本體位置是在電腦的記憶體中有一塊稱為 Heap 的空間。
+執行 new()，電腦才會在 Heap 產生物件
+當一個物件沒有任何 reference 指向(儲存物件的地址)他的時候，就會被判定為不需要的物件
+C# 的程式執行時，背後有一個垃圾車會默默地檢查 Heap ，並刪除不需要的物件
+
+
+        </p>
+        <p class="article-more-link">
+          <a href="/2020/10/08/2020-10-08-01/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2020-10-07"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/10/07/2020-10-07/">C# - 陣列</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/10/07/2020-10-07/" class="article-date">
+	  <time datetime="2020-10-06T16:00:00.000Z" itemprop="datePublished">2020-10-07</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          陣列可以存放類型相同的大量資料，例如 100 個整數等
+陣列宣告方法1int[] scores = new int[]&#123;92,83,100&#125;
+
+存取陣列資料要存取陣列內的資料，需要打「陣列名稱[編號]」，如果要存取陣列編號3的資料：
+1scores[3] = 100;//在編號3的位置存入100
+
+陣列編號陣列編號索引是從 0 開始算起，如果陣列長度是 40，索引是從 0~39
+陣列預設值假使指定陣列長度但還沒存放資料，陣列會先將每個位置都填上預設值。
+int 預設值 ...
+        </p>
+        <p class="article-more-link">
+          <a href="/2020/10/07/2020-10-07/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2020-10-01"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/10/01/2020-10-01/">C# - This</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/10/01/2020-10-01/" class="article-date">
 	  <time datetime="2020-09-30T16:00:00.000Z" itemprop="datePublished">2020-10-01</time>
 	</a>
 
@@ -250,62 +420,7 @@ this 這個變數會隨物件建立的時候就宣告
 123456789101112131415class Student    &#123;        public int StudentID;        public string Name;        public int Grade;        public int height;        public S...
         </p>
         <p class="article-more-link">
-          <a href="/2020/10/01/2020-10-1/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2020-09-30-2"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/09/30/2020-09-30-2/">C# - 建構子</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/09/30/2020-09-30-2/" class="article-date">
-	  <time datetime="2020-09-29T16:00:00.000Z" itemprop="datePublished">2020-09-30</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          問題:
-
-建構物件要寫多行程式碼
-重複設定同樣的數值
-
-12345678910private void button1_Click(object sender, EventArgs e)        &#123;            Student s1 = new Student();            s1.Name = "小山";            s1.Grade = 3;            Student s2 = s1;            s2.Name =...
-        </p>
-        <p class="article-more-link">
-          <a href="/2020/09/30/2020-09-30-2/#more">Read More</a>
+          <a href="/2020/10/01/2020-10-01/#more">Read More</a>
         </p>
       
     </div>
@@ -386,6 +501,61 @@ Refe...
 
 
   
+    <article id="post-2020-09-30-2"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/09/30/2020-09-30-2/">C# - 建構子</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/09/30/2020-09-30-2/" class="article-date">
+	  <time datetime="2020-09-29T16:00:00.000Z" itemprop="datePublished">2020-09-30</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          問題:
+
+建構物件要寫多行程式碼
+重複設定同樣的數值
+
+12345678910private void button1_Click(object sender, EventArgs e)        &#123;            Student s1 = new Student();            s1.Name = "小山";            s1.Grade = 3;            Student s2 = s1;            s2.Name =...
+        </p>
+        <p class="article-more-link">
+          <a href="/2020/09/30/2020-09-30-2/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2020-09-27"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -429,111 +599,6 @@ Class 裡面的 property 跟 method 要 public 才能被外部 method 取用在�
         </p>
         <p class="article-more-link">
           <a href="/2020/09/27/2020-09-27/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2020-09-26-2"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/09/26/2020-09-26-2/">C# - 變數宣告意義與型別</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/09/26/2020-09-26-2/" class="article-date">
-	  <time datetime="2020-09-25T16:00:00.000Z" itemprop="datePublished">2020-09-26</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          12345678private void button1_Click(object sender, EventArgs e)       &#123;           int number ;           number = 20;           double dnumber=3.141989030;           bool b = true;           MessageBox.Show("number = "+ number);       &#125;
-
-...
-        </p>
-        <p class="article-more-link">
-          <a href="/2020/09/26/2020-09-26-2/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2020-09-26-3"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/09/26/2020-09-26-3/">C# - 基本計算</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/09/26/2020-09-26-3/" class="article-date">
-	  <time datetime="2020-09-25T16:00:00.000Z" itemprop="datePublished">2020-09-26</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          123456789private void button1_Click(object sender, EventArgs e)       &#123;           int number =20 ;           number +=30 ;           number = number - 1;           number--;           MessageBox.Show("number = "+ number);       &#125;
-
-
-如果你試圖...
-        </p>
-        <p class="article-more-link">
-          <a href="/2020/09/26/2020-09-26-3/#more">Read More</a>
         </p>
       
     </div>
@@ -605,7 +670,7 @@ C#...
 
 
   
-    <article id="post-2019-06-10"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-2020-09-26-3"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -613,7 +678,7 @@ C#...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/06/10/2019-06-10/">常見的陣列運用方式</a>
+      <a class="article-title" href="/2020/09/26/2020-09-26-3/">C# - 基本計算</a>
     </h1>
   
 
@@ -621,8 +686,8 @@ C#...
     
     <div class="article-meta">
       
-	<a href="/2019/06/10/2019-06-10/" class="article-date">
-	  <time datetime="2019-06-09T16:00:00.000Z" itemprop="datePublished">2019-06-10</time>
+	<a href="/2020/09/26/2020-09-26-3/" class="article-date">
+	  <time datetime="2020-09-25T16:00:00.000Z" itemprop="datePublished">2020-09-26</time>
 	</a>
 
       
@@ -633,10 +698,13 @@ C#...
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          123456const people = [  &#123; name: "bob", age: 20, position: "developer", id: 1 &#125;,  &#123; name: "mary", age: 18, position: "cooker", id: 2 &#125;,  &#123; name: "jim", age: 68, position: "artist", id: 3 &#125;,  &#123; name: "tom", age: 28...
+          123456789private void button1_Click(object sender, EventArgs e)       &#123;           int number =20 ;           number +=30 ;           number = number - 1;           number--;           MessageBox.Show("number = "+ number);       &#125;
+
+
+如果你試圖...
         </p>
         <p class="article-more-link">
-          <a href="/2019/06/10/2019-06-10/#more">Read More</a>
+          <a href="/2020/09/26/2020-09-26-3/#more">Read More</a>
         </p>
       
     </div>
@@ -655,7 +723,7 @@ C#...
 
 
   
-    <article id="post-2019-02-11"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-2020-09-26-2"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -663,7 +731,7 @@ C#...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/02/11/2019-02-11/">JavaScript - AJAX</a>
+      <a class="article-title" href="/2020/09/26/2020-09-26-2/">C# - 變數宣告意義與型別</a>
     </h1>
   
 
@@ -671,8 +739,8 @@ C#...
     
     <div class="article-meta">
       
-	<a href="/2019/02/11/2019-02-11/" class="article-date">
-	  <time datetime="2019-02-10T16:00:00.000Z" itemprop="datePublished">2019-02-11</time>
+	<a href="/2020/09/26/2020-09-26-2/" class="article-date">
+	  <time datetime="2020-09-25T16:00:00.000Z" itemprop="datePublished">2020-09-26</time>
 	</a>
 
       
@@ -683,67 +751,12 @@ C#...
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          AJAX非同步 JavaScript 及 XML （Asynchronous JavaScript and XML，AJAX）不是一種「技術」，而是一種開發架構，主要以 JavaScript 與 XML 為主，也包括 CSS、DOM（Document Object Model）與 HTML 等，最重要的是 XMLHttpRequest 物件。使 AJAX 能達到非同步資料交換的目的。使瀏覽器不需要重新載入整個頁面就可以跟後端或伺服器取得資料。Jesse Garrett 的文章中，對 AJA...
+          12345678private void button1_Click(object sender, EventArgs e)       &#123;           int number ;           number = 20;           double dnumber=3.141989030;           bool b = true;           MessageBox.Show("number = "+ number);       &#125;
+
+...
         </p>
         <p class="article-more-link">
-          <a href="/2019/02/11/2019-02-11/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-02-09"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/02/09/2019-02-09/">JavaScript - Hoisting(提昇)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/02/09/2019-02-09/" class="article-date">
-	  <time datetime="2019-02-08T16:00:00.000Z" itemprop="datePublished">2019-02-09</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          重點有三：
-
-變數宣告跟函式宣告都會提升
-只有宣告會提升，賦值不會提升
-別忘了函式裡面還有傳進來的參數
-
-Javascript 執行時會經過創造執行環境的階段。JavaScript 跟其他程式語言不同，它可以在還沒宣告函式前就先呼叫並且執行。在下列的範例中，假如我們把呼叫移到程式碼最上方，函式宣告之前，會發生什麼事？JavaScript 不僅執行函式，而且沒有錯誤。Called b! 正常印出來，代表函式 b 正常執行，但是 undefined 是怎麼回事？
-123456b();conso...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/02/09/2019-02-09/#more">Read More</a>
+          <a href="/2020/09/26/2020-09-26-2/#more">Read More</a>
         </p>
       
     </div>
