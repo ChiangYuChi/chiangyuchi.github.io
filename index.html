@@ -214,61 +214,6 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-2020-10-08-02"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/10/08/2020-10-08-02/">C# - 封裝性</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/10/08/2020-10-08-02/" class="article-date">
-	  <time datetime="2020-10-07T16:00:00.000Z" itemprop="datePublished">2020-10-08</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          
-public 在新增 property 與 method 的時候，代表可以隨意查看、使用及修改。類型或成員可由相同元件中的任何其他程式碼或參考它的另一個元件來存取。
-private 在 c# 裡面代表只有自己可以查看、使用及修改
-proptery 被設為 private，能在同一個 class 的大括號範圍內使用。如果有變數或方法，只想在 class 裡面使用，就用private鎖在class裡面，限定只有class使用
-
-12345class User   &#123;       p...
-        </p>
-        <p class="article-more-link">
-          <a href="/2020/10/08/2020-10-08-02/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-2020-10-08-01"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -308,6 +253,61 @@ C# 的程式執行時，背後有一個垃圾車會默默地檢查 Heap ，並�
         </p>
         <p class="article-more-link">
           <a href="/2020/10/08/2020-10-08-01/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2020-10-08-02"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/10/08/2020-10-08-02/">C# - 封裝性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/10/08/2020-10-08-02/" class="article-date">
+	  <time datetime="2020-10-07T16:00:00.000Z" itemprop="datePublished">2020-10-08</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          
+public 在新增 property 與 method 的時候，代表可以隨意查看、使用及修改。類型或成員可由相同元件中的任何其他程式碼或參考它的另一個元件來存取。
+private 在 c# 裡面代表只有自己可以查看、使用及修改
+proptery 被設為 private，能在同一個 class 的大括號範圍內使用。如果有變數或方法，只想在 class 裡面使用，就用 private 鎖在 class 裡面，限定只有 class 使用
+
+12345class User   &#123;  ...
+        </p>
+        <p class="article-more-link">
+          <a href="/2020/10/08/2020-10-08-02/#more">Read More</a>
         </p>
       
     </div>
@@ -439,6 +439,61 @@ this 這個變數會隨物件建立的時候就宣告
 
 
   
+    <article id="post-2020-09-30-2"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/09/30/2020-09-30-2/">C# - 建構子</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/09/30/2020-09-30-2/" class="article-date">
+	  <time datetime="2020-09-29T16:00:00.000Z" itemprop="datePublished">2020-09-30</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          問題:
+
+建構物件要寫多行程式碼
+重複設定同樣的數值
+
+12345678910private void button1_Click(object sender, EventArgs e)        &#123;            Student s1 = new Student();            s1.Name = "小山";            s1.Grade = 3;            Student s2 = s1;            s2.Name =...
+        </p>
+        <p class="article-more-link">
+          <a href="/2020/09/30/2020-09-30-2/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2020-09-30"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -483,61 +538,6 @@ Refe...
         </p>
         <p class="article-more-link">
           <a href="/2020/09/30/2020-09-30/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2020-09-30-2"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/09/30/2020-09-30-2/">C# - 建構子</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/09/30/2020-09-30-2/" class="article-date">
-	  <time datetime="2020-09-29T16:00:00.000Z" itemprop="datePublished">2020-09-30</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          問題:
-
-建構物件要寫多行程式碼
-重複設定同樣的數值
-
-12345678910private void button1_Click(object sender, EventArgs e)        &#123;            Student s1 = new Student();            s1.Name = "小山";            s1.Grade = 3;            Student s2 = s1;            s2.Name =...
-        </p>
-        <p class="article-more-link">
-          <a href="/2020/09/30/2020-09-30-2/#more">Read More</a>
         </p>
       
     </div>
@@ -670,6 +670,58 @@ C#...
 
 
   
+    <article id="post-2020-09-26-2"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/09/26/2020-09-26-2/">C# - 變數宣告意義與型別</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/09/26/2020-09-26-2/" class="article-date">
+	  <time datetime="2020-09-25T16:00:00.000Z" itemprop="datePublished">2020-09-26</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          12345678private void button1_Click(object sender, EventArgs e)       &#123;           int number ;           number = 20;           double dnumber=3.141989030;           bool b = true;           MessageBox.Show("number = "+ number);       &#125;
+
+...
+        </p>
+        <p class="article-more-link">
+          <a href="/2020/09/26/2020-09-26-2/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2020-09-26-3"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -705,58 +757,6 @@ C#...
         </p>
         <p class="article-more-link">
           <a href="/2020/09/26/2020-09-26-3/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2020-09-26-2"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/09/26/2020-09-26-2/">C# - 變數宣告意義與型別</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/09/26/2020-09-26-2/" class="article-date">
-	  <time datetime="2020-09-25T16:00:00.000Z" itemprop="datePublished">2020-09-26</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          12345678private void button1_Click(object sender, EventArgs e)       &#123;           int number ;           number = 20;           double dnumber=3.141989030;           bool b = true;           MessageBox.Show("number = "+ number);       &#125;
-
-...
-        </p>
-        <p class="article-more-link">
-          <a href="/2020/09/26/2020-09-26-2/#more">Read More</a>
         </p>
       
     </div>
