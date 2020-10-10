@@ -367,61 +367,6 @@
 
 
   
-    <article id="post-2019-02-10"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/02/09/2019-02-10/">JavaScript - 單執行緒、同步與非同步</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/02/09/2019-02-10/" class="article-date">
-	  <time datetime="2019-02-08T16:00:00.000Z" itemprop="datePublished">2019-02-09</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          JavaScript 的執行方式是單執行緒 (single threaded) 可以理解成它一次只做一件事情。
-單執行緒單執行緒的意思是任務的執行需要排隊。瀏覽器只分配給 JavaScript 一個主執行緒(stack)，但一次只能執行一個任務，這些任務形成一個事件佇列 (Queue) 排隊等候執行，但是瀏覽器不只運作 JavaScript 這個程式而已。因為瀏覽器的內核是多線程的，它們藉由瀏覽器內核的控制保持同步，舉例來說有三個常駐線程：
-
-JavaScript 引擎
-GUI 渲染
-瀏覽...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/02/09/2019-02-10/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-2019-02-09"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -461,6 +406,61 @@ Javascript 執行時會經過創造執行環境的階段。JavaScript 跟其他�
         </p>
         <p class="article-more-link">
           <a href="/2019/02/09/2019-02-09/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2019-02-10"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/02/09/2019-02-10/">JavaScript - 單執行緒、同步與非同步</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/02/09/2019-02-10/" class="article-date">
+	  <time datetime="2019-02-08T16:00:00.000Z" itemprop="datePublished">2019-02-09</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          JavaScript 的執行方式是單執行緒 (single threaded) 可以理解成它一次只做一件事情。
+單執行緒單執行緒的意思是任務的執行需要排隊。瀏覽器只分配給 JavaScript 一個主執行緒(stack)，但一次只能執行一個任務，這些任務形成一個事件佇列 (Queue) 排隊等候執行，但是瀏覽器不只運作 JavaScript 這個程式而已。因為瀏覽器的內核是多線程的，它們藉由瀏覽器內核的控制保持同步，舉例來說有三個常駐線程：
+
+JavaScript 引擎
+GUI 渲染
+瀏覽...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/02/09/2019-02-10/#more">Read More</a>
         </p>
       
     </div>
@@ -637,6 +637,60 @@ cookie在 HTML5 之前，cookie 是瀏覽器儲存資訊最主要的方式，是
 
 
   
+    <article id="post-2019-02-05"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/02/04/2019-02-05/">JavaScript - Event bubbling and capturing (事件冒泡與捕獲)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/02/04/2019-02-05/" class="article-date">
+	  <time datetime="2019-02-03T16:00:00.000Z" itemprop="datePublished">2019-02-04</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          參考來源一參考來源二
+事件機制JavaScript 是「事件驅動」的程式語言，雖然瀏覽器在載入網頁後就會讀取 JavaScript 相關程式碼，但只有等到「事件」發生 （像是使用者滑鼠點擊、按下鍵盤）才會執行相關程式。
+以網頁對話框為例：按下開啟 （觸發事件）-&gt; 彈出對話框 （執行相關事件）
+這整個對話框從觸發到開啟的過程牽涉到 DOM 的事件流程，就是「網頁元素接收事件的順序」
+事件流程 (event flow)由於 inner 也是 outer 的一部分，所以點擊 inner ...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/02/04/2019-02-05/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2019-02-04"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -678,60 +732,6 @@ mouseleave 游標移出
         </p>
         <p class="article-more-link">
           <a href="/2019/02/04/2019-02-04/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-02-05"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/02/04/2019-02-05/">JavaScript - Event bubbling and capturing (事件冒泡與捕獲)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/02/04/2019-02-05/" class="article-date">
-	  <time datetime="2019-02-03T16:00:00.000Z" itemprop="datePublished">2019-02-04</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          參考來源一參考來源二
-事件機制JavaScript 是「事件驅動」的程式語言，雖然瀏覽器在載入網頁後就會讀取 JavaScript 相關程式碼，但只有等到「事件」發生 （像是使用者滑鼠點擊、按下鍵盤）才會執行相關程式。
-以網頁對話框為例：按下開啟 （觸發事件）-&gt; 彈出對話框 （執行相關事件）
-這整個對話框從觸發到開啟的過程牽涉到 DOM 的事件流程，就是「網頁元素接收事件的順序」
-事件流程 (event flow)由於 inner 也是 outer 的一部分，所以點擊 inner ...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/02/04/2019-02-05/#more">Read More</a>
         </p>
       
     </div>
