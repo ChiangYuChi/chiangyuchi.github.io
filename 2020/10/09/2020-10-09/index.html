@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>c# - 垃圾回收 | CYC&#39;S BLOG</title>
+  <title>c# - get and set 存取器 | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="C#">
@@ -11,18 +11,20 @@
   
   
   
-  <meta name="description" content="存放物件位置的變數稱為 reference， 當我們宣告物件的變數時，只是產生一個用來記住物件地址的 reference 而已Info a = new Info() 物件的實際本體位置是在電腦的記憶體中有一塊稱為 Heap 的空間。 執行 new()，電腦才會在 Heap 產生物件 當一個物件沒有任何 reference 指向(儲存物件的地址)他的時候，就會被判定為不需要的物件 C# 的程式執行">
+  <meta name="description" content="語法………  // 宣告變數(通常是 public){     get { …. } // 希望變數讀取時執行的程式碼    set { …. } // 希望數值存入時執行的程式碼} 12345678910111213141516171819202122232425262728293031323334353637383940414243class User   &amp;#123;       priva">
 <meta name="keywords" content="C#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C# - 垃圾回收">
-<meta property="og:url" content="http://yoursite.com/2020/10/08/2020-10-08-01/index.html">
+<meta property="og:title" content="C# - Get and Set 存取器">
+<meta property="og:url" content="http://yoursite.com/2020/10/09/2020-10-09/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="存放物件位置的變數稱為 reference， 當我們宣告物件的變數時，只是產生一個用來記住物件地址的 reference 而已Info a = new Info() 物件的實際本體位置是在電腦的記憶體中有一塊稱為 Heap 的空間。 執行 new()，電腦才會在 Heap 產生物件 當一個物件沒有任何 reference 指向(儲存物件的地址)他的時候，就會被判定為不需要的物件 C# 的程式執行">
+<meta property="og:description" content="語法………  // 宣告變數(通常是 public){     get { …. } // 希望變數讀取時執行的程式碼    set { …. } // 希望數值存入時執行的程式碼} 12345678910111213141516171819202122232425262728293031323334353637383940414243class User   &amp;#123;       priva">
 <meta property="og:locale" content="en.yml">
-<meta property="og:updated_time" content="2020-10-08T06:00:42.579Z">
+<meta property="og:image" content="https://i.imgur.com/RzeJFse.png">
+<meta property="og:updated_time" content="2020-10-09T08:47:39.742Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C# - 垃圾回收">
-<meta name="twitter:description" content="存放物件位置的變數稱為 reference， 當我們宣告物件的變數時，只是產生一個用來記住物件地址的 reference 而已Info a = new Info() 物件的實際本體位置是在電腦的記憶體中有一塊稱為 Heap 的空間。 執行 new()，電腦才會在 Heap 產生物件 當一個物件沒有任何 reference 指向(儲存物件的地址)他的時候，就會被判定為不需要的物件 C# 的程式執行">
+<meta name="twitter:title" content="C# - Get and Set 存取器">
+<meta name="twitter:description" content="語法………  // 宣告變數(通常是 public){     get { …. } // 希望變數讀取時執行的程式碼    set { …. } // 希望數值存入時執行的程式碼} 12345678910111213141516171819202122232425262728293031323334353637383940414243class User   &amp;#123;       priva">
+<meta name="twitter:image" content="https://i.imgur.com/RzeJFse.png">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -158,7 +160,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-2020-10-08-01" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-2020-10-09" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -166,7 +168,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      C# - 垃圾回收
+      C# - Get and Set 存取器
     </h1>
   
 
@@ -174,8 +176,8 @@
     
     <div class="article-meta">
       
-	<a href="/2020/10/08/2020-10-08-01/" class="article-date">
-	  <time datetime="2020-10-07T16:00:00.000Z" itemprop="datePublished">2020-10-08</time>
+	<a href="/2020/10/09/2020-10-09/" class="article-date">
+	  <time datetime="2020-10-08T16:00:00.000Z" itemprop="datePublished">2020-10-09</time>
 	</a>
 
       
@@ -191,14 +193,18 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li>存放物件位置的變數稱為 reference， 當我們宣告物件的變數時，只是產生一個用來記住物件地址的 reference 而已<br><code>Info a = new Info()</code></li>
-<li>物件的實際本體位置是在電腦的記憶體中有一塊稱為 Heap 的空間。</li>
-<li>執行 new()，電腦才會在 Heap 產生物件</li>
-<li>當一個物件沒有任何 reference 指向(儲存物件的地址)他的時候，就會被判定為不需要的物件</li>
-<li>C# 的程式執行時，背後有一個垃圾車會默默地檢查 Heap ，並刪除不需要的物件</li>
-</ol>
+        <h1 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h1><p>………  // 宣告變數(通常是 public)<br>{
+    get { …. } // 希望變數讀取時執行的程式碼<br>    set { …. } // 希望數值存入時執行的程式碼<br>}</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span></span><br><span class="line"><span class="class">   </span>&#123;</span><br><span class="line">       private string Username;</span><br><span class="line">       private string Password;</span><br><span class="line">     private int hp;</span><br><span class="line">       public int HP</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">get</span> &#123; <span class="keyword">return</span> hp; &#125;<span class="comment">//在讀取 HP 時會自動呼叫</span></span><br><span class="line">           <span class="keyword">set</span> &#123; <span class="keyword">if</span> (value &lt; <span class="number">0</span>) &#123;<span class="comment">//在存入數值時自動呼叫</span></span><br><span class="line">                   hp = <span class="number">0</span>;</span><br><span class="line">               &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                   hp = value;</span><br><span class="line">               &#125; &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       public <span class="keyword">void</span> hurt(int decreaseHP)</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">if</span> (hp &gt;= decreaseHP)</span><br><span class="line">           &#123;</span><br><span class="line">               hp -= decreaseHP;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">else</span></span><br><span class="line">           &#123;</span><br><span class="line">               hp = <span class="number">0</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       public int getHP()</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">return</span> hp;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       public User(string Username, string Password)</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">this</span>.Username = Username;</span><br><span class="line">           <span class="keyword">this</span>.Password = Password;</span><br><span class="line">           <span class="keyword">this</span>.hp = <span class="number">30</span>;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">private <span class="keyword">void</span> button1_Click(object sender, EventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            User user = <span class="keyword">new</span> User(<span class="string">"Tum"</span>,<span class="string">"1234"</span>);</span><br><span class="line">            MessageBox.Show(<span class="string">""</span>+user.HP);        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果只留下 get 存取器，該變數就會變成「唯讀」</p>
+<p><img src="https://i.imgur.com/RzeJFse.png" alt></p>
+<p>Get &amp; Set 存取器可以用來即時運算一些平常大家認為是變數的數值，像是 Money</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line">        </span><br><span class="line">        private int count1, count5, count10;</span><br><span class="line">        public int Money</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span> &#123; <span class="keyword">return</span> count1 + count5 * <span class="number">5</span> + count10 * <span class="number">10</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        </span><br><span class="line">        public User(string Username, string Password)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">this</span>.Username = Username;</span><br><span class="line">            <span class="keyword">this</span>.Password = Password;</span><br><span class="line">            <span class="keyword">this</span>.hp = <span class="number">30</span>;</span><br><span class="line">            <span class="keyword">this</span>.count1 = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">this</span>.count5 = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">this</span>.count10 = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">       </span><br><span class="line">        </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">private <span class="keyword">void</span> button1_Click(object sender, EventArgs e)</span><br><span class="line">      &#123;</span><br><span class="line">          User user = <span class="keyword">new</span> User(<span class="string">"Tum"</span>,<span class="string">"1234"</span>);</span><br><span class="line">      </span><br><span class="line">          MessageBox.Show(<span class="string">""</span>+user.Money);        &#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
@@ -224,7 +230,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2020/10/08/2020-10-08-01/" target="_blank" title="C# - 垃圾回收">http://yoursite.com/2020/10/08/2020-10-08-01/</a>
+          <a href="/2020/10/09/2020-10-09/" target="_blank" title="C# - Get and Set 存取器">http://yoursite.com/2020/10/09/2020-10-09/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -274,19 +280,10 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2020/10/09/2020-10-09/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          C# - Get and Set 存取器
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/10/08/2020-10-08-02/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/10/08/2020-10-08-01/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">C# - 封裝性</div>
+      <div class="article-nav-title">C# - 垃圾回收</div>
     </a>
   
 </nav>
@@ -300,7 +297,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav">None</ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#語法"><span class="nav-number">1.</span> <span class="nav-text">語法</span></a></li></ol>
     
     </div>
   </aside>
