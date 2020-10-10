@@ -20,7 +20,7 @@
 <meta property="og:description" content="public 在新增 property 與 method 的時候，代表可以隨意查看、使用及修改。類型或成員可由相同元件中的任何其他程式碼或參考它的另一個元件來存取。 private 在 c# 裡面代表只有自己可以查看、使用及修改 proptery 被設為 private，能在同一個 class 的大括號範圍內使用。如果有變數或方法，只想在 class 裡面使用，就用 private 鎖在 cla">
 <meta property="og:locale" content="en.yml">
 <meta property="og:image" content="https://i.imgur.com/5fwuDze.png">
-<meta property="og:updated_time" content="2020-10-08T09:32:08.312Z">
+<meta property="og:updated_time" content="2020-10-10T07:40:03.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C# - 封裝性">
 <meta name="twitter:description" content="public 在新增 property 與 method 的時候，代表可以隨意查看、使用及修改。類型或成員可由相同元件中的任何其他程式碼或參考它的另一個元件來存取。 private 在 c# 裡面代表只有自己可以查看、使用及修改 proptery 被設為 private，能在同一個 class 的大括號範圍內使用。如果有變數或方法，只想在 class 裡面使用，就用 private 鎖在 cla">
@@ -220,6 +220,10 @@
 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private <span class="keyword">void</span> button1_Click(object sender, EventArgs e)</span><br><span class="line">       &#123;</span><br><span class="line">           User user = <span class="keyword">new</span> User(<span class="string">"Tum"</span>,<span class="string">"1234"</span>);</span><br><span class="line">           user.hurt(<span class="number">10</span>);</span><br><span class="line">           user.hurt(<span class="number">10</span>);</span><br><span class="line">           user.hurt(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">           MessageBox.Show(<span class="string">""</span>+user.getHP());        &#125;</span><br></pre></td></tr></table></figure>
 
+<h1 id="封裝性-encapsulated"><a href="#封裝性-encapsulated" class="headerlink" title="封裝性 encapsulated"></a>封裝性 encapsulated</h1><ol>
+<li>隱藏物件內部的實作細節，不需要知道內部的運作方式。只提供介面以供使用。可以保護物件內的變數</li>
+</ol>
+<h2 id="緊密封裝-tightly-encapsulated"><a href="#緊密封裝-tightly-encapsulated" class="headerlink" title="緊密封裝 tightly encapsulated"></a>緊密封裝 tightly encapsulated</h2><p>把物件裡面所有變數設成 private，只提供 public method 供操作</p>
 
       
     </div>
@@ -296,19 +300,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2020/10/08/2020-10-08-01/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/10/09/2020-10-09/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          C# - 垃圾回收
+          C# - Get and Set 存取器
         
       </div>
     </a>
   
   
-    <a href="/2020/10/07/2020-10-07/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/10/08/2020-10-08-01/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">C# - 陣列</div>
+      <div class="article-nav-title">C# - 垃圾回收</div>
     </a>
   
 </nav>
@@ -322,7 +326,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Private-的常見用途"><span class="nav-number">1.</span> <span class="nav-text">Private 的常見用途</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Property-只想設成唯讀，就是只能看，不能夠修改"><span class="nav-number">2.</span> <span class="nav-text">Property 只想設成唯讀，就是只能看，不能夠修改</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#property-的設定上增加一些限制"><span class="nav-number">3.</span> <span class="nav-text">property 的設定上增加一些限制</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Private-的常見用途"><span class="nav-number">1.</span> <span class="nav-text">Private 的常見用途</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Property-只想設成唯讀，就是只能看，不能夠修改"><span class="nav-number">2.</span> <span class="nav-text">Property 只想設成唯讀，就是只能看，不能夠修改</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#property-的設定上增加一些限制"><span class="nav-number">3.</span> <span class="nav-text">property 的設定上增加一些限制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#封裝性-encapsulated"><span class="nav-number">4.</span> <span class="nav-text">封裝性 encapsulated</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#緊密封裝-tightly-encapsulated"><span class="nav-number">4.1.</span> <span class="nav-text">緊密封裝 tightly encapsulated</span></a></li></ol></li></ol>
     
     </div>
   </aside>
