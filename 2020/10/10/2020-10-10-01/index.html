@@ -11,18 +11,18 @@
   
   
   
-  <meta name="description" content="繼承性 (Inheritance) 要使用繼承，需要在定義 class 的時候，在 class 名稱後面加上「:]與被繼承的 class 名稱  例如要使 class A 繼承 class B 123class A&amp;lt;font color=#FF0000&amp;gt;:B&amp;lt;/font&amp;gt;&amp;#123;    ....&amp;#125;   可讓物件繼承其他物件具有的屬性與行為。 成員被繼承的類別稱">
+  <meta name="description" content="繼承性 (Inheritance) 要使用繼承，需要在定義 class 的時候，在 class 名稱後面加上「:]與被繼承的 class 名稱  例如要使 class A 繼承 class B 123class A:B&amp;#123;    ....&amp;#125;   可讓物件繼承其他物件具有的屬性與行為。 成員被繼承的類別稱為「基底類別」（Base Class)，而繼承這種成員的類別即稱為「衍生類別」">
 <meta name="keywords" content="C#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C# - 繼承性">
 <meta property="og:url" content="http://yoursite.com/2020/10/10/2020-10-10-01/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="繼承性 (Inheritance) 要使用繼承，需要在定義 class 的時候，在 class 名稱後面加上「:]與被繼承的 class 名稱  例如要使 class A 繼承 class B 123class A&amp;lt;font color=#FF0000&amp;gt;:B&amp;lt;/font&amp;gt;&amp;#123;    ....&amp;#125;   可讓物件繼承其他物件具有的屬性與行為。 成員被繼承的類別稱">
+<meta property="og:description" content="繼承性 (Inheritance) 要使用繼承，需要在定義 class 的時候，在 class 名稱後面加上「:]與被繼承的 class 名稱  例如要使 class A 繼承 class B 123class A:B&amp;#123;    ....&amp;#125;   可讓物件繼承其他物件具有的屬性與行為。 成員被繼承的類別稱為「基底類別」（Base Class)，而繼承這種成員的類別即稱為「衍生類別」">
 <meta property="og:locale" content="en.yml">
-<meta property="og:updated_time" content="2020-10-10T09:50:41.435Z">
+<meta property="og:updated_time" content="2020-10-10T09:51:50.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C# - 繼承性">
-<meta name="twitter:description" content="繼承性 (Inheritance) 要使用繼承，需要在定義 class 的時候，在 class 名稱後面加上「:]與被繼承的 class 名稱  例如要使 class A 繼承 class B 123class A&amp;lt;font color=#FF0000&amp;gt;:B&amp;lt;/font&amp;gt;&amp;#123;    ....&amp;#125;   可讓物件繼承其他物件具有的屬性與行為。 成員被繼承的類別稱">
+<meta name="twitter:description" content="繼承性 (Inheritance) 要使用繼承，需要在定義 class 的時候，在 class 名稱後面加上「:]與被繼承的 class 名稱  例如要使 class A 繼承 class B 123class A:B&amp;#123;    ....&amp;#125;   可讓物件繼承其他物件具有的屬性與行為。 成員被繼承的類別稱為「基底類別」（Base Class)，而繼承這種成員的類別即稱為「衍生類別」">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -195,7 +195,7 @@
 <li>要使用繼承，需要在定義 class 的時候，在 class 名稱後面加上「:]與被繼承的 class 名稱</li>
 </ol>
 <p>例如要使 class A 繼承 class B</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class A&lt;font color=#FF0000&gt;:B&lt;/font&gt;&#123;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">A</span>:<span class="title">B</span>&#123;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>可讓物件繼承其他物件具有的屬性與行為。 成員被繼承的類別稱為「基底類別」（Base Class)，而繼承這種成員的類別即稱為「衍生類別」(Derived Class)。 衍生類別只能有一個基底類別。透過繼承把多個 Class 重複的程式碼寫在同一個 Class 以減少「Class 之間」的重複程式碼</li>
@@ -302,10 +302,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
+    <a href="/2020/10/11/2020-10-11-01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          C# - 產生亂數
+        
+      </div>
+    </a>
   
-    <a href="/2020/10/09/2020-10-09/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2020/10/10/2020-10-10-02/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">C# - Get and Set 存取器</div>
+      <div class="article-nav-title">C# - Override 覆寫</div>
     </a>
   
 </nav>

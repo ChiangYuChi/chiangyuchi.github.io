@@ -214,6 +214,117 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-2020-10-12-01"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/10/12/2020-10-12-01/">C# - protected</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/10/12/2020-10-12-01/" class="article-date">
+	  <time datetime="2020-10-11T16:00:00.000Z" itemprop="datePublished">2020-10-12</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          
+只有該 class 的區塊才能存取 private 的資源，就算是衍生的類別也算是外部
+
+12345678910//base class class Monster    &#123;        private int hp = 100;        public int getHp()        &#123;            return hp;        &#125;    &#125;
+
+
+protected 關鍵字用來控管不想讓外部隨意使用，但又想讓繼承的 c...
+        </p>
+        <p class="article-more-link">
+          <a href="/2020/10/12/2020-10-12-01/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2020-10-11-01"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/10/11/2020-10-11-01/">C# - 產生亂數</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/10/11/2020-10-11-01/" class="article-date">
+	  <time datetime="2020-10-10T16:00:00.000Z" itemprop="datePublished">2020-10-11</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          
+產生亂數的話，可以使用 C# 內建的 Random 物件
+Random Class 的主要功能就是產生亂數，主要的 method 就是 Next( )，Next( ) 有三種版本：(1) int Next( )沒有參數的版本產生的亂數介於 0 到整數最大值之間 (0~2147483647)
+
+(2) int Next(int maxValue)參數為上限產生的亂數介於 0 到 maxValue 之間 (不含 maxValue)
+(3) int Next(int minValue, int...
+        </p>
+        <p class="article-more-link">
+          <a href="/2020/10/11/2020-10-11-01/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2020-10-10-01"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -246,13 +357,69 @@
 要使用繼承，需要在定義 class 的時候，在 class 名稱後面加上「:]與被繼承的 class 名稱
 
 例如要使 class A 繼承 class B
-123class A&lt;font color=#FF0000&gt;:B&lt;/font&gt;&#123;    ....&#125;
+123class A:B&#123;    ....&#125;
 
 
-可讓物件繼承其他物件具有的屬性與行為。 成員被繼承的類別稱為「基底類別」（Base Class)，而繼承這種成員的類別即稱為「衍生類別」(Derived...
+可讓物件繼承其他物件具有的屬性與行為。 成員被繼承的類別稱為「基底類別」（Base Class)，而繼承這種成員的類別即稱為「衍生類別」(Derived Class)。 衍生類別只能有一個基底類別。透過繼承把多個 Class 重複...
         </p>
         <p class="article-more-link">
           <a href="/2020/10/10/2020-10-10-01/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2020-10-10-02"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/10/10/2020-10-10-02/">C# - Override 覆寫</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/10/10/2020-10-10-02/" class="article-date">
+	  <time datetime="2020-10-09T16:00:00.000Z" itemprop="datePublished">2020-10-10</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          讓你改寫繼承到的行為
+
+在原本被改寫的 method 前加上 virtual
+在改寫的 methods 加上 override
+override 的 method 其名稱與參數型別都要跟被 overrid
+
+12345678910//要覆寫的基底類別class Creature    &#123;        public string name;        public virtual string attack(Creature target)        &#123;    ...
+        </p>
+        <p class="article-more-link">
+          <a href="/2020/10/10/2020-10-10-02/#more">Read More</a>
         </p>
       
     </div>
@@ -548,68 +715,6 @@ this 這個變數會隨物件建立的時候就宣告
 
 
   
-    <article id="post-2020-09-30"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/09/30/2020-09-30/">C# - Value 與 Reference Type</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/09/30/2020-09-30/" class="article-date">
-	  <time datetime="2020-09-29T16:00:00.000Z" itemprop="datePublished">2020-09-30</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          
-所有變數都是被存取在記憶體裡面。
-根據存取變數的方式與使用方式不同可分三種型別：
-
-
-Value Type 實質型別
-Reference Type 參考型別
-Pointer Type 指標型別
-
-Value Type 實質型別int (整數)」就是一種 Value Type。會在記憶體裡佔據一個空間，並且標記為變數名稱，並且把指定的數值存在這個空間裡面。
-123int a = 10int b = a; // a =10, b ＝10b = 30 // a=10 ,b = 30
-
-Refe...
-        </p>
-        <p class="article-more-link">
-          <a href="/2020/09/30/2020-09-30/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-2020-09-30-2"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -647,120 +752,6 @@ Refe...
         </p>
         <p class="article-more-link">
           <a href="/2020/09/30/2020-09-30-2/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2020-09-27"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/09/27/2020-09-27/">C# - 物件導向基礎 Class</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/09/27/2020-09-27/" class="article-date">
-	  <time datetime="2020-09-26T16:00:00.000Z" itemprop="datePublished">2020-09-27</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          
-物件導向即透過物件互動來完成工作
-Class 分成屬性(property)與方法(method)兩部分
-class Student
-property: Student ID, Name, Grade
-Method:Say,Walk….
-
-
-Class 像一個設計圖，根據設計圖可以用此建立不同的物件
-Class 裡面的 property 跟 method 要 public 才能被外部 method 取用在建立物件
-
-1234567class Student&#123;    //prope...
-        </p>
-        <p class="article-more-link">
-          <a href="/2020/09/27/2020-09-27/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2020-09-26-1"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/09/26/2020-09-26-1/">C# - 程式結構與進入點</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/09/26/2020-09-26-1/" class="article-date">
-	  <time datetime="2020-09-25T16:00:00.000Z" itemprop="datePublished">2020-09-26</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          12345678910111213using System;namespace HelloWorld&#123;    class Program    &#123;        static void Main(string[] args)        &#123;            Console.WriteLine("Hello World!");            Console.ReadKey();        &#125;    &#125;&#125;
-
-
-C#...
-        </p>
-        <p class="article-more-link">
-          <a href="/2020/09/26/2020-09-26-1/#more">Read More</a>
         </p>
       
     </div>

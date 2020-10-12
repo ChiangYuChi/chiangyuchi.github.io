@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>c# - override 覆寫 | CYC&#39;S BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="C#">
+  
+  
+  
+  
+  <meta name="description" content="讓你改寫繼承到的行為  在原本被改寫的 method 前加上 virtual 在改寫的 methods 加上 override override 的 method 其名稱與參數型別都要跟被 overrid  12345678910//要覆寫的基底類別class Creature    &amp;#123;        public string name;        public virtual s">
+<meta name="keywords" content="C#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C# - Override 覆寫">
+<meta property="og:url" content="http://yoursite.com/2020/10/10/2020-10-10-02/index.html">
+<meta property="og:site_name" content="CYC&#39;S BLOG">
+<meta property="og:description" content="讓你改寫繼承到的行為  在原本被改寫的 method 前加上 virtual 在改寫的 methods 加上 override override 的 method 其名稱與參數型別都要跟被 overrid  12345678910//要覆寫的基底類別class Creature    &amp;#123;        public string name;        public virtual s">
+<meta property="og:locale" content="en.yml">
+<meta property="og:image" content="https://i.imgur.com/ZA7BQd9.png">
+<meta property="og:image" content="https://i.imgur.com/ur8B44O.png">
+<meta property="og:updated_time" content="2020-10-12T05:38:09.910Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C# - Override 覆寫">
+<meta name="twitter:description" content="讓你改寫繼承到的行為  在原本被改寫的 method 前加上 virtual 在改寫的 methods 加上 override override 的 method 其名稱與參數型別都要跟被 overrid  12345678910//要覆寫的基底類別class Creature    &amp;#123;        public string name;        public virtual s">
+<meta name="twitter:image" content="https://i.imgur.com/ZA7BQd9.png">
+  
+    <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2020-10-10-02" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      C# - Override 覆寫
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/10/10/2020-10-10-02/" class="article-date">
+	  <time datetime="2020-10-09T16:00:00.000Z" itemprop="datePublished">2020-10-10</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>讓你改寫繼承到的行為</p>
+<ul>
+<li>在原本被改寫的 method 前加上 virtual</li>
+<li>在改寫的 methods 加上 override</li>
+<li>override 的 method 其名稱與參數型別都要跟被 overrid</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//要覆寫的基底類別</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Creature</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> name;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">string</span> <span class="title">attack</span>(<span class="params">Creature target</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">return</span> name + <span class="string">"攻擊了"</span> + target.name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>繼承基底類別原有的行為，但是使用 override 改寫內容</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Villager</span>:<span class="title">Creature</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Villager</span>(<span class="params"><span class="keyword">string</span> name</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">string</span> <span class="title">attack</span>(<span class="params">Creature target</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">return</span> name + <span class="string">"不能攻擊其他人"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>問題：<br>寫新的 method 也能做到想覆寫的新行為</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//要覆寫的基底類別</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">Creature</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> name;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">string</span> <span class="title">attack</span>(<span class="params">Creature target</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">return</span> name + <span class="string">"攻擊了"</span> + target.name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>像這樣</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Monster</span>:<span class="title">Creature</span></span><br><span class="line">   &#123;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="title">Monster</span>(<span class="params">String name</span>)</span></span><br><span class="line"><span class="function"></span>       &#123;</span><br><span class="line">           <span class="keyword">this</span>.name = name;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">string</span> <span class="title">move2</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>       &#123;</span><br><span class="line">           <span class="keyword">return</span> name + <span class="string">"橫著走"</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button1_Click</span>(<span class="params"><span class="keyword">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>       &#123;</span><br><span class="line">           Player p = <span class="keyword">new</span> Player(<span class="string">"阿勇"</span>);</span><br><span class="line">           Monster m = <span class="keyword">new</span> Monster(<span class="string">"Slim"</span>);</span><br><span class="line">           Villager v = <span class="keyword">new</span> Villager(<span class="string">"歐比屎"</span>);</span><br><span class="line">           <span class="keyword">string</span> message = m.move2();</span><br><span class="line">           MessageBox.Show(message);</span><br><span class="line"></span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<p>那為什麼需要 override? 使用 override 的好處是即使不用衍生類別呼叫新的 method 行為而用基底類別的身分呼叫新的 method 行為，也能呼叫到。</p>
+<p><strong>可以使用 Base Class 的變數存取繼承 class 的物件</strong></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button1_Click</span>(<span class="params"><span class="keyword">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>       &#123;</span><br><span class="line">           Player p = <span class="keyword">new</span> Player(<span class="string">"阿勇"</span>);</span><br><span class="line">           Monster m = <span class="keyword">new</span> Monster(<span class="string">"Slim"</span>);</span><br><span class="line">           Villager v = <span class="keyword">new</span> Villager(<span class="string">"歐比"</span>);</span><br><span class="line">           Creature c = m;</span><br><span class="line">           <span class="keyword">string</span> message = c.move();</span><br><span class="line">           MessageBox.Show(message);</span><br><span class="line"></span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<p>雖然以新寫新 method 也能做到想覆寫的新行為，但只能在原有的變數底下呼叫</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Monster m = <span class="keyword">new</span> Monster(<span class="string">"Slim"</span>);</span><br><span class="line"> <span class="keyword">string</span> message = m.move2();</span><br></pre></td></tr></table></figure>
+
+<p>沒有使用 override 就不能以 base class 的身分呼叫</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">string</span> <span class="title">move2</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>       &#123;</span><br><span class="line">           <span class="keyword">return</span> name + <span class="string">"橫著走"</span>;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/ZA7BQd9.png" alt></p>
+<h1 id="Override-amp-Method-Hiding"><a href="#Override-amp-Method-Hiding" class="headerlink" title="Override &amp; Method Hiding"></a>Override &amp; Method Hiding</h1><ol>
+<li>當繼承的類別之中有著與基底類別 (父類別) 名稱和參數相同的 method，但沒有加上 override 的字樣，就會觸發 method hiding (方法遮蔽) 的機制。</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button1_Click</span>(<span class="params"><span class="keyword">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>       &#123;</span><br><span class="line">           Fruit f = <span class="keyword">new</span> Apple();</span><br><span class="line"></span><br><span class="line">           MessageBox.Show(f.saySomething());</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Fruit</span></span><br><span class="line">   &#123;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">string</span> <span class="title">saySomething</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>       &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="string">"我是一個水果"</span>;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Apple</span>:<span class="title">Fruit</span></span><br><span class="line">   &#123;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">string</span> <span class="title">saySomething</span>(<span class="params"></span>) <span class="comment">// 沒有override 關鍵字</span></span></span><br><span class="line"><span class="function"></span>       &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="string">"我是一個ringo"</span>;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>Method hiding (方法遮蔽) 指的是繼承的類別將原本基底類別的 method 隱藏起來了，但是與 override 不同，新的 method 會與舊的 method 共存，而且都可以被呼叫得到。<br><img src="https://i.imgur.com/ur8B44O.png" alt></p>
+</li>
+<li><p>如果想要呼叫到被隱藏起來的 method，<strong>就必須要用該 method 所屬的 class 變數來呼叫</strong>。舉例說 class Orange 遮蔽了 class Fruit 裡面的 saySomething。如果想要呼叫到 class Orange 物件中繼承到原本 A 版本的 saySomething ，就要用 Fruit 型別的變數去存取 Orange 的物件</p>
+</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button1_Click</span>(<span class="params"><span class="keyword">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">        <span class="comment">//Orange o = new Orange();</span></span><br><span class="line">        Fruit o = <span class="keyword">new</span> Orange(); <span class="comment">// 用fruit 型別的變數去存取 Orange 的物件</span></span><br><span class="line">            MessageBox.Show(o.saySomething());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 衍生類別</span></span><br><span class="line"> <span class="keyword">class</span> <span class="title">Orange</span>:<span class="title">Fruit</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">string</span> <span class="title">saySomething</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"我是一個煩人柳丁"</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 基底類別</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Fruit</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">string</span> <span class="title">saySomething</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"我是一個水果"</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>加上 new 關鍵字使用方法遮蔽<br>為了防止跟 override 混淆，想要使用方法遮蔽時可以在 method 前面加上「new」來加以區分。</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Orange</span>:<span class="title">Fruit</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">string</span> <span class="title">saySomething</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"我是一個煩人柳丁"</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: '',
+  alipayImage: ''
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong></a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2020/10/10/2020-10-10-02/" target="_blank" title="C# - Override 覆寫">http://yoursite.com/2020/10/10/2020-10-10-02/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/10/10/2020-10-10-01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          C# - 繼承性
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/10/09/2020-10-09/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">C# - Get and Set 存取器</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Override-amp-Method-Hiding"><span class="nav-number">1.</span> <span class="nav-text">Override &amp; Method Hiding</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 CYC&#39;S BLOG All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            CYC&#39;S BLOG
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 CYC&#39;S BLOG All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
