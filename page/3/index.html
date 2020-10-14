@@ -214,6 +214,114 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-2019-02-10"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/02/09/2019-02-10/">JavaScript - 單執行緒、同步與非同步</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/02/09/2019-02-10/" class="article-date">
+	  <time datetime="2019-02-08T16:00:00.000Z" itemprop="datePublished">2019-02-09</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          JavaScript 的執行方式是單執行緒 (single threaded) 可以理解成它一次只做一件事情。
+單執行緒單執行緒的意思是任務的執行需要排隊。瀏覽器只分配給 JavaScript 一個主執行緒(stack)，但一次只能執行一個任務，這些任務形成一個事件佇列 (Queue) 排隊等候執行，但是瀏覽器不只運作 JavaScript 這個程式而已。因為瀏覽器的內核是多線程的，它們藉由瀏覽器內核的控制保持同步，舉例來說有三個常駐線程：
+
+JavaScript 引擎
+GUI 渲染
+瀏覽...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/02/09/2019-02-10/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2019-02-08"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/02/08/2019-02-08/">JavaScript - Closure(閉包)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/02/08/2019-02-08/" class="article-date">
+	  <time datetime="2019-02-07T16:00:00.000Z" itemprop="datePublished">2019-02-08</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          參考來源一參考來源二參考來源三參考來源四參考來源五
+閉包是 JavaScript 最強大的特性之一。JavaScript 允許巢狀函式（nesting of functions）並給予內部函式完全訪問（full access）所有變數、與外部函式定義的函式（還有所有外部函式內的變數與函式）不過，外部函式並不能訪問內部函式的變數與函式。這保障了內部函式的變數安全。另外，由於內部函式能訪問外部函式定義的變數與函式，將存活得比外部函式還久。
+MDN
+範圍鏈複習閉包概念與範圍鏈關係密切。範圍鏈的一...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/02/08/2019-02-08/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2019-02-07"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -634,107 +742,6 @@ git 初始化$ git init (自動建立一個.git 目錄...
         </p>
         <p class="article-more-link">
           <a href="/2019/01/31/2019-01-31/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-01-30"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/01/30/2019-01-30/">Github / Github靜態網頁 / Git 基礎指令（一）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/01/30/2019-01-30/" class="article-date">
-	  <time datetime="2019-01-29T16:00:00.000Z" itemprop="datePublished">2019-01-30</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          常用終端機指令123456789101112$ pwd (print working directory 印出現在所在位置)$ mkdir hello (make dir 建立目錄 hello)$ cd hello/（change dir 移動到目錄 hello）$ cd .. (回到上一層目錄)$ touch index.html (建立檔案 index.html)$ ls (列出目錄裡所有檔案)$ ls -al (列出目錄裡所有檔案的細節)$ rm index.html(徹底刪除檔案)...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/01/30/2019-01-30/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2019-01-29"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/01/29/2019-01-29/">CSS 字體單位 :/ px、em、rem 和 %</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2019/01/29/2019-01-29/" class="article-date">
-	  <time datetime="2019-01-28T16:00:00.000Z" itemprop="datePublished">2019-01-29</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          https://www.oxxostudio.tw/articles/201809/css-font-size.html
-
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/01/29/2019-01-29/#more">Read More</a>
         </p>
       
     </div>

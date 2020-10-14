@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>c# - 建構子 | CYC&#39;S BLOG</title>
+  <title>c# - abstract class &amp; abstract method | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="C#">
@@ -11,20 +11,20 @@
   
   
   
-  <meta name="description" content="問題:  建構物件要寫多行程式碼 重複設定同樣的數值  12345678910private void button1_Click(object sender, EventArgs e)        &amp;#123;            Student s1 = new Student();            s1.Name = &quot;小山&quot;;            s1.Grade = 3;">
+  <meta name="description" content="一個 method 的組成包含：  宣告 內容 (實際執行方式)  abstract methodC# 中的 method 主要分成兩個部分，宣告與內容。Abstract method 則是一種只有宣告，而沒有實作內容的一種特殊 method。  abstract method 把實作的工作轉交給繼承的類別來定義。強迫衍生類別實作某些功能  123456private void button1_C">
 <meta name="keywords" content="C#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C# - 建構子">
-<meta property="og:url" content="http://yoursite.com/2020/09/30/2020-09-30-2/index.html">
+<meta property="og:title" content="C# - Abstract Class &amp; Abstract Method">
+<meta property="og:url" content="http://yoursite.com/2020/10/14/2020-10-14/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
-<meta property="og:description" content="問題:  建構物件要寫多行程式碼 重複設定同樣的數值  12345678910private void button1_Click(object sender, EventArgs e)        &amp;#123;            Student s1 = new Student();            s1.Name = &quot;小山&quot;;            s1.Grade = 3;">
+<meta property="og:description" content="一個 method 的組成包含：  宣告 內容 (實際執行方式)  abstract methodC# 中的 method 主要分成兩個部分，宣告與內容。Abstract method 則是一種只有宣告，而沒有實作內容的一種特殊 method。  abstract method 把實作的工作轉交給繼承的類別來定義。強迫衍生類別實作某些功能  123456private void button1_C">
 <meta property="og:locale" content="en.yml">
-<meta property="og:image" content="https://i.imgur.com/Og7rrpp.png">
-<meta property="og:updated_time" content="2020-09-30T10:15:58.999Z">
+<meta property="og:image" content="https://i.imgur.com/nQksmFu.png">
+<meta property="og:updated_time" content="2020-10-14T08:36:55.940Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C# - 建構子">
-<meta name="twitter:description" content="問題:  建構物件要寫多行程式碼 重複設定同樣的數值  12345678910private void button1_Click(object sender, EventArgs e)        &amp;#123;            Student s1 = new Student();            s1.Name = &quot;小山&quot;;            s1.Grade = 3;">
-<meta name="twitter:image" content="https://i.imgur.com/Og7rrpp.png">
+<meta name="twitter:title" content="C# - Abstract Class &amp; Abstract Method">
+<meta name="twitter:description" content="一個 method 的組成包含：  宣告 內容 (實際執行方式)  abstract methodC# 中的 method 主要分成兩個部分，宣告與內容。Abstract method 則是一種只有宣告，而沒有實作內容的一種特殊 method。  abstract method 把實作的工作轉交給繼承的類別來定義。強迫衍生類別實作某些功能  123456private void button1_C">
+<meta name="twitter:image" content="https://i.imgur.com/nQksmFu.png">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -160,7 +160,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-2020-09-30-2" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-2020-10-14" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -168,7 +168,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      C# - 建構子
+      C# - Abstract Class &amp; Abstract Method
     </h1>
   
 
@@ -176,8 +176,8 @@
     
     <div class="article-meta">
       
-	<a href="/2020/09/30/2020-09-30-2/" class="article-date">
-	  <time datetime="2020-09-29T16:00:00.000Z" itemprop="datePublished">2020-09-30</time>
+	<a href="/2020/10/14/2020-10-14/" class="article-date">
+	  <time datetime="2020-10-13T16:00:00.000Z" itemprop="datePublished">2020-10-14</time>
 	</a>
 
       
@@ -193,44 +193,25 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>問題:</p>
+        <p>一個 method 的組成包含：</p>
 <ol>
-<li>建構物件要寫多行程式碼</li>
-<li>重複設定同樣的數值</li>
+<li>宣告</li>
+<li>內容 (實際執行方式)</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">private <span class="keyword">void</span> button1_Click(object sender, EventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            Student s1 = <span class="keyword">new</span> Student();</span><br><span class="line">            s1.Name = <span class="string">"小山"</span>;</span><br><span class="line">            s1.Grade = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">            Student s2 = s1;</span><br><span class="line">            s2.Name = <span class="string">"小羊"</span>;</span><br><span class="line">            s2.Grade = <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="abstract-method"><a href="#abstract-method" class="headerlink" title="abstract method"></a>abstract method</h1><p>C# 中的 method 主要分成兩個部分，宣告與內容。Abstract method 則是一種只有宣告，而沒有實作內容的一種特殊 method。</p>
+<ol>
+<li>abstract method 把實作的工作轉交給繼承的類別來定義。強迫衍生類別實作某些功能</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button1_Click</span>(<span class="params"><span class="keyword">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>       &#123;</span><br><span class="line">           Monster mon = <span class="keyword">new</span> Slim(<span class="string">""</span>);</span><br><span class="line">           MessageBox.Show(<span class="string">""</span> + mon.attack());</span><br><span class="line">         </span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="Constructor"><a href="#Constructor" class="headerlink" title="Constructor"></a>Constructor</h1><ul>
-<li>Method 的一種</li>
-<li>物件被建立的時候執行</li>
-<li>沒有 output</li>
-<li>名稱與 class 名稱相同</li>
-<li>如果知道某個屬性的初始值為多少，可寫在建構子內，讓物件預先設定好</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class">   </span>&#123;</span><br><span class="line"></span><br><span class="line">       public int Grade;</span><br><span class="line"></span><br><span class="line">       public Student()<span class="comment">//建構子</span></span><br><span class="line">       &#123;</span><br><span class="line">           Grade = <span class="number">1</span>;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>建構子可以給予 input(引數、輸入值)用來幫助設定物件</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line"></span><br><span class="line">        public int Grade;</span><br><span class="line">        public int StudentID;</span><br><span class="line">        public string Name;</span><br><span class="line">        public Student()<span class="comment">//建構子</span></span><br><span class="line">        &#123;</span><br><span class="line">            Grade = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>建構子的 input 要在建立物件時給予</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Student s1 = <span class="keyword">new</span> Student(<span class="number">10201</span>,<span class="string">"zzz"</span>);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Overloaded 多載<br>不同情況需要不同建構子。可以使用物件導向的其中一個特徵「多載」。</li>
-</ul>
-<p>可寫兩個名稱一樣的建構子，但是接受不同數量的 input</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">private <span class="keyword">void</span> button1_Click(object sender, EventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            Student s1 = <span class="keyword">new</span> Student(<span class="number">10201</span>,<span class="string">"aa"</span>);</span><br><span class="line">            Student s2 = <span class="keyword">new</span> Student(<span class="number">10202</span>, <span class="string">"bb"</span>);</span><br><span class="line">            Student s3 = <span class="keyword">new</span> Student(<span class="number">10202</span>, <span class="string">"正正"</span>,<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class">   </span>&#123;</span><br><span class="line">       public int StudentID;</span><br><span class="line">       public string Name;</span><br><span class="line">       public int Grade;</span><br><span class="line">       public Student(int studentID, string name, int grade)</span><br><span class="line">       &#123;</span><br><span class="line">           StudentID = studentID;</span><br><span class="line">           Name = name;</span><br><span class="line">           Grade = grade;</span><br><span class="line">       &#125;</span><br><span class="line">       public Student(int studentID, string name)</span><br><span class="line">       &#123;</span><br><span class="line">           StudentID = studentID;</span><br><span class="line">           Name = name;</span><br><span class="line">           Grade = <span class="number">1</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>有建構子就不能使用系統預設建構子</li>
-</ul>
-<p><img src="https://i.imgur.com/Og7rrpp.png" alt></p>
+<ol start="2">
+<li>問題：為什麼要在基底類別宣告 method 而不是直接在衍生類別撰寫方法？</li>
+</ol>
+<p>如果先在基底類別宣告方法的時候，就可以使用基底類別建立的身分呼叫方法。但是如果沒有在基底類別宣告這個方法，就不能使用此種方式。換句話說， 透過使用 abstract method，就可以讓衍生類別具有共同行為，但是實際的做法則由各個類別自訂。</p>
+<ol start="3">
+<li>abstract method 必須放在 abstract class 中，abstract class 是一種不能實體化 (不能被 new) 的 class。原因就在於 abstract method 並沒有定義內容，因此若被實體化出來，就無法執行任何動作。</li>
+</ol>
+<p><img src="https://i.imgur.com/nQksmFu.png" alt></p>
 
       
     </div>
@@ -257,7 +238,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2020/09/30/2020-09-30-2/" target="_blank" title="C# - 建構子">http://yoursite.com/2020/09/30/2020-09-30-2/</a>
+          <a href="/2020/10/14/2020-10-14/" target="_blank" title="C# - Abstract Class &amp; Abstract Method">http://yoursite.com/2020/10/14/2020-10-14/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -307,19 +288,10 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2020/09/30/2020-09-30/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          C# - Value 與 Reference Type
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/09/27/2020-09-27/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/10/13/2020-10-13/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">C# - 物件導向基礎 Class</div>
+      <div class="article-nav-title">C# - base 關鍵字</div>
     </a>
   
 </nav>
@@ -333,7 +305,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Constructor"><span class="nav-number">1.</span> <span class="nav-text">Constructor</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#abstract-method"><span class="nav-number">1.</span> <span class="nav-text">abstract method</span></a></li></ol>
     
     </div>
   </aside>
