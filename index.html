@@ -214,7 +214,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-2020-10-14"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-2020-10-30"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -222,7 +222,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/10/14/2020-10-14/">C# - Abstract Class &amp; Abstract Method</a>
+      <a class="article-title" href="/2020/10/30/2020-10-30/">C# - 多維陣列</a>
     </h1>
   
 
@@ -230,7 +230,180 @@
     
     <div class="article-meta">
       
-	<a href="/2020/10/14/2020-10-14/" class="article-date">
+	<a href="/2020/10/30/2020-10-30/" class="article-date">
+	  <time datetime="2020-10-29T16:00:00.000Z" itemprop="datePublished">2020-10-30</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          
+多維陣列中的元素需要超過一個以上的索引 (編號) 才能指出元素的位置。需要兩個索引的陣列稱為二維陣列，需要三個的稱為三維陣列，以此類推。規則陣列是指每列的陣列元素都相同。
+
+以下是一維、二維、三維陣列的宣告與建立方式，以整數陣列為例：
+
+
+12345678// 宣告並建立一個長度為 2 的一維陣列int[] A = new int[2];// 宣告並建立一個 4x4 的二維陣列int[,]B=new int[2,3];// 宣告並建立一個 2x3x4的三維陣列int[,,]C=new i...
+        </p>
+        <p class="article-more-link">
+          <a href="/2020/10/30/2020-10-30/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2020-10-14-02"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/10/14/2020-10-14-02/">C# - Constant 常數</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/10/14/2020-10-14-02/" class="article-date">
+	  <time datetime="2020-10-13T16:00:00.000Z" itemprop="datePublished">2020-10-14</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          
+常數是一種永存於程式中的定值，不會隨著程式的進行而被修改
+C# 中有兩種宣告常數的方式，分別是「const」與「readonly」，分別都是加在變數型別前面 
+「const」的常數不能同時是 static。
+
+下面的例子是以 const 設定不可修改的 PI 值
+1234class Math    &#123;        public const double PI = 3.14;    &#125;
+
+ 
+
+readonly 也可使用 static
+
+123456class Mat...
+        </p>
+        <p class="article-more-link">
+          <a href="/2020/10/14/2020-10-14-02/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2020-10-27"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/10/14/2020-10-27/">C# - switch 與 enum</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/10/14/2020-10-27/" class="article-date">
+	  <time datetime="2020-10-13T16:00:00.000Z" itemprop="datePublished">2020-10-14</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          當我們想判斷某些變數的值來決定要做甚麼事情時就常會用到 switch
+enum 則可以幫助我們定義新的型別並且賦予其有限的值 switch 跟 enum 兩者間常常會一起出現
+
+switch 可以判斷某個變數的值為何，並根據值的內容來做出對應的反應。其語法如下
+
+ 1234567891011121314151617181920212223public void Move(Direction direction)       &#123;           switch (directio...
+        </p>
+        <p class="article-more-link">
+          <a href="/2020/10/14/2020-10-27/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-2020-10-14-01"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/10/14/2020-10-14-01/">C# - Abstract Class &amp; Abstract Method</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/10/14/2020-10-14-01/" class="article-date">
 	  <time datetime="2020-10-13T16:00:00.000Z" itemprop="datePublished">2020-10-14</time>
 	</a>
 
@@ -251,10 +424,10 @@ abstract methodC# 中的 method 主要分成兩個部分，宣告與內容。Abs
 
 abstract method 把實作的工作轉交給繼承的類別來定義。強迫衍生類別實作某些功能
 
-123456private void button1_Click(object sender, EventArgs e)       &#123;  ...
+1234567891011121314151617181920212223 private void button1_Click(object sen...
         </p>
         <p class="article-more-link">
-          <a href="/2020/10/14/2020-10-14/#more">Read More</a>
+          <a href="/2020/10/14/2020-10-14-01/#more">Read More</a>
         </p>
       
     </div>
@@ -586,176 +759,6 @@ override 的 method 其名稱與參數型別都要跟被 overrid
         </p>
         <p class="article-more-link">
           <a href="/2020/10/09/2020-10-09/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2020-10-08-01"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/10/08/2020-10-08-01/">C# - 垃圾回收</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/10/08/2020-10-08-01/" class="article-date">
-	  <time datetime="2020-10-07T16:00:00.000Z" itemprop="datePublished">2020-10-08</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          
-存放物件位置的變數稱為 reference， 當我們宣告物件的變數時，只是產生一個用來記住物件地址的 reference 而已Info a = new Info()
-物件的實際本體位置是在電腦的記憶體中有一塊稱為 Heap 的空間。
-執行 new()，電腦才會在 Heap 產生物件
-當一個物件沒有任何 reference 指向(儲存物件的地址)他的時候，就會被判定為不需要的物件
-C# 的程式執行時，背後有一個垃圾車會默默地檢查 Heap ，並刪除不需要的物件
-
-
-        </p>
-        <p class="article-more-link">
-          <a href="/2020/10/08/2020-10-08-01/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2020-10-08-02"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/10/08/2020-10-08-02/">C# - 封裝性</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/10/08/2020-10-08-02/" class="article-date">
-	  <time datetime="2020-10-07T16:00:00.000Z" itemprop="datePublished">2020-10-08</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          
-public 在新增 property 與 method 的時候，代表可以隨意查看、使用及修改。類型或成員可由相同元件中的任何其他程式碼或參考它的另一個元件來存取。
-private 在 c# 裡面代表只有自己可以查看、使用及修改
-proptery 被設為 private，能在同一個 class 的大括號範圍內使用。如果有變數或方法，只想在 class 裡面使用，就用 private 鎖在 class 裡面，限定只有 class 使用
-
-12345class User   &#123;  ...
-        </p>
-        <p class="article-more-link">
-          <a href="/2020/10/08/2020-10-08-02/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2020-10-07"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/10/07/2020-10-07/">C# - 陣列</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/10/07/2020-10-07/" class="article-date">
-	  <time datetime="2020-10-06T16:00:00.000Z" itemprop="datePublished">2020-10-07</time>
-	</a>
-
-      
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          陣列可以存放類型相同的大量資料，例如 100 個整數等
-陣列宣告方法1int[] scores = new int[]&#123;92,83,100&#125;
-
-存取陣列資料要存取陣列內的資料，需要打「陣列名稱[編號]」，如果要存取陣列編號3的資料：
-1scores[3] = 100;//在編號3的位置存入100
-
-陣列編號陣列編號索引是從 0 開始算起，如果陣列長度是 40，索引是從 0~39
-陣列預設值假使指定陣列長度但還沒存放資料，陣列會先將每個位置都填上預設值。
-int 預設值 ...
-        </p>
-        <p class="article-more-link">
-          <a href="/2020/10/07/2020-10-07/#more">Read More</a>
         </p>
       
     </div>

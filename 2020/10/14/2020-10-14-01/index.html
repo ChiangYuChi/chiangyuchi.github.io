@@ -3,23 +3,28 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>css 盒模型 | CYC&#39;S BLOG</title>
+  <title>c# - abstract class &amp; abstract method | CYC&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="environmentGit">
+  <meta name="keywords" content="C#">
   
   
   
   
-  <meta name="keywords" content="environment,Git">
+  <meta name="description" content="一個 method 的組成包含：  宣告 內容 (實際執行方式)  abstract methodC# 中的 method 主要分成兩個部分，宣告與內容。Abstract method 則是一種只有宣告，而沒有實作內容的一種特殊 method。  abstract method 把實作的工作轉交給繼承的類別來定義。強迫衍生類別實作某些功能  1234567891011121314151617181">
+<meta name="keywords" content="C#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS 盒模型">
-<meta property="og:url" content="http://yoursite.com/2019/01/28/2019-01-28/index.html">
+<meta property="og:title" content="C# - Abstract Class &amp; Abstract Method">
+<meta property="og:url" content="http://yoursite.com/2020/10/14/2020-10-14-01/index.html">
 <meta property="og:site_name" content="CYC&#39;S BLOG">
+<meta property="og:description" content="一個 method 的組成包含：  宣告 內容 (實際執行方式)  abstract methodC# 中的 method 主要分成兩個部分，宣告與內容。Abstract method 則是一種只有宣告，而沒有實作內容的一種特殊 method。  abstract method 把實作的工作轉交給繼承的類別來定義。強迫衍生類別實作某些功能  1234567891011121314151617181">
 <meta property="og:locale" content="en.yml">
-<meta property="og:updated_time" content="2020-09-09T03:53:12.157Z">
+<meta property="og:image" content="https://i.imgur.com/nQksmFu.png">
+<meta property="og:updated_time" content="2020-10-27T02:59:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS 盒模型">
+<meta name="twitter:title" content="C# - Abstract Class &amp; Abstract Method">
+<meta name="twitter:description" content="一個 method 的組成包含：  宣告 內容 (實際執行方式)  abstract methodC# 中的 method 主要分成兩個部分，宣告與內容。Abstract method 則是一種只有宣告，而沒有實作內容的一種特殊 method。  abstract method 把實作的工作轉交給繼承的類別來定義。強迫衍生類別實作某些功能  1234567891011121314151617181">
+<meta name="twitter:image" content="https://i.imgur.com/nQksmFu.png">
   
     <link rel="alternate" href="/atom.xml" title="CYC&#39;S BLOG" type="application/atom+xml">
   
@@ -155,7 +160,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-2019-01-28" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-2020-10-14-01" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -163,7 +168,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      CSS 盒模型
+      C# - Abstract Class &amp; Abstract Method
     </h1>
   
 
@@ -171,8 +176,8 @@
     
     <div class="article-meta">
       
-	<a href="/2019/01/28/2019-01-28/" class="article-date">
-	  <time datetime="2019-01-27T16:00:00.000Z" itemprop="datePublished">2019-01-28</time>
+	<a href="/2020/10/14/2020-10-14-01/" class="article-date">
+	  <time datetime="2020-10-13T16:00:00.000Z" itemprop="datePublished">2020-10-14</time>
 	</a>
 
       
@@ -188,7 +193,25 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
+        <p>一個 method 的組成包含：</p>
+<ol>
+<li>宣告</li>
+<li>內容 (實際執行方式)</li>
+</ol>
+<h1 id="abstract-method"><a href="#abstract-method" class="headerlink" title="abstract method"></a>abstract method</h1><p>C# 中的 method 主要分成兩個部分，宣告與內容。Abstract method 則是一種只有宣告，而沒有實作內容的一種特殊 method。</p>
+<ol>
+<li>abstract method 把實作的工作轉交給繼承的類別來定義。強迫衍生類別實作某些功能</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button1_Click</span>(<span class="params"><span class="keyword">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            Monster mon = <span class="keyword">new</span> Slim();</span><br><span class="line">            Slime s = <span class="keyword">new</span> Slime();</span><br><span class="line">            MessageBox.Show(<span class="string">""</span> + mon.attack());</span><br><span class="line">          </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// base class</span></span><br><span class="line"> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Monster</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">string</span> <span class="title">attack</span>(<span class="params"></span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// derivated class </span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">class</span> <span class="title">Slime</span>:<span class="title">Monster</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">string</span> <span class="title">attack</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"小怪物正在攻擊"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>問題：為什麼要在基底類別宣告 method 而不是直接在衍生類別撰寫方法？</li>
+</ol>
+<p>如果先在基底類別宣告方法的時候，就可以使用基底類別建立的身分呼叫方法。但是如果沒有在基底類別宣告這個方法，就不能使用此種方式。換句話說， 透過使用 abstract method，就可以讓衍生類別具有共同行為，但是實際的做法則由各個類別自訂。這種宣告方式同時可以用基底類別的身分取得衍生類別的行為。</p>
+<ol start="3">
+<li>abstract method 必須放在 abstract class 中，abstract class 是一種不能實體化 (不能被 new) 的 class。原因就在於 abstract method 並沒有定義內容，因此若被實體化出來，就無法執行任何動作。</li>
+</ol>
+<p><img src="https://i.imgur.com/nQksmFu.png" alt></p>
 
       
     </div>
@@ -215,7 +238,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/01/28/2019-01-28/" target="_blank" title="CSS 盒模型">http://yoursite.com/2019/01/28/2019-01-28/</a>
+          <a href="/2020/10/14/2020-10-14-01/" target="_blank" title="C# - Abstract Class &amp; Abstract Method">http://yoursite.com/2020/10/14/2020-10-14-01/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -255,7 +278,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/environment/">environment</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
 
       
 
@@ -265,19 +288,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2019/01/28/2019-01-26/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/10/14/2020-10-27/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          CSS Flex-box
+          C# - switch 與 enum
         
       </div>
     </a>
   
   
-    <a href="/2019/01/01/2019-01-01/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/10/13/2020-10-13/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">CSS 基本類型選擇器</div>
+      <div class="article-nav-title">C# - base 關鍵字</div>
     </a>
   
 </nav>
@@ -291,7 +314,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav">None</ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#abstract-method"><span class="nav-number">1.</span> <span class="nav-text">abstract method</span></a></li></ol>
     
     </div>
   </aside>
